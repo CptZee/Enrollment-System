@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Enrollment System",
+    "\\Enrollment System\\API"
   ],
+  "SelectedNode": "\\Enrollment System\\Enrollment System.csproj",
   "PreviewInSolutionExplorer": false
 }

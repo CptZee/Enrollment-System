@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Enrollment_System
+namespace Enrollment_System.Menus
 {
-    public partial class Form1 : Form
+    public partial class EnrollFrm : Form
     {
-        public Form1()
+        public EnrollFrm()
         {
             InitializeComponent();
         }

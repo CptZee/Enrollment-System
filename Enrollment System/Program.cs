@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Threading;
+using Enrollment_System.Util;
 using System.Windows.Forms;
 
 namespace Enrollment_System
@@ -14,9 +13,16 @@ namespace Enrollment_System
         [STAThread]
         static void Main()
         {
+            //Run the creation of the tables.
+            Thread thread = new Thread(new ThreadStart(DatabaseHelper.createUserTable));
+            //Load the user list
+            thread = new Thread(new ThreadStart(DatabaseHelper.getUsers));
+
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Dashboard());
         }
     }
 }
