@@ -128,37 +128,7 @@ namespace Enrollment_System.Util
                 Console.WriteLine("ERROR: Unable to load user list!");
             }
         }
-
-        /**
-        * A simple code that will add a user to the database
-        * NOTE: DO NOT RUN ON THE MAIN THREAD!
-        * 
-        */
-        public static void addUser(Student user)
-        {
-            UserManager userManager = UserManager.Instance;
-            SqlConnection connection = GetConnection();
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            String query = "INSERT INTO Users * VALUES(" + user.Id + ",'" + user.FName + "','" + user.MName + "','" + user.LName + "'," +
-                user.Age + ",'" + user.Gender + "','" + user.Municipality + "','" + user.City + "','" + user.PostalCode + "','" + user.ContactNumber + "','" + 
-                user.Email + "','" + user.StudNo + "','" + user.Program + "','" + user.YearLvl + "','" + user.Semester + "'," + user.isRegular + ")";
-            try
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-
-                adapter.InsertCommand = new SqlCommand(query, connection);
-                adapter.InsertCommand.ExecuteNonQuery();
-
-                command.Dispose();
-                connection.Close();
-                userManager.addUser(user);
-                Console.WriteLine("DEBUG: User " + user.Id + " added to the database.");
-            }
-            catch (SqlException)
-            {
-                Console.WriteLine("ERROR: Unable to add user with the id " + user.Id);
-            }
-        }
     }
+
+
 }
