@@ -110,7 +110,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1009, 440);
+            this.tabControl1.Size = new System.Drawing.Size(1009, 460);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             // 
@@ -182,7 +182,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(982, 432);
+            this.tabPage1.Size = new System.Drawing.Size(982, 452);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "New Student";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -603,7 +603,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(260, 288);
+            this.label27.Location = new System.Drawing.Point(260, 294);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(221, 33);
             this.label27.TabIndex = 47;
@@ -612,7 +612,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(263, 321);
+            this.label28.Location = new System.Drawing.Point(263, 337);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(81, 13);
             this.label28.TabIndex = 48;
@@ -620,14 +620,14 @@
             // 
             // tbTelephone
             // 
-            this.tbTelephone.Location = new System.Drawing.Point(345, 318);
+            this.tbTelephone.Location = new System.Drawing.Point(345, 334);
             this.tbTelephone.Name = "tbTelephone";
             this.tbTelephone.Size = new System.Drawing.Size(105, 20);
             this.tbTelephone.TabIndex = 49;
             // 
             // tbMobile
             // 
-            this.tbMobile.Location = new System.Drawing.Point(524, 314);
+            this.tbMobile.Location = new System.Drawing.Point(524, 330);
             this.tbMobile.Name = "tbMobile";
             this.tbMobile.Size = new System.Drawing.Size(105, 20);
             this.tbMobile.TabIndex = 51;
@@ -635,7 +635,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(460, 321);
+            this.label29.Location = new System.Drawing.Point(460, 337);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(61, 13);
             this.label29.TabIndex = 50;
@@ -643,7 +643,7 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(731, 318);
+            this.tbEmail.Location = new System.Drawing.Point(731, 334);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(105, 20);
             this.tbEmail.TabIndex = 53;
@@ -651,7 +651,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(649, 321);
+            this.label30.Location = new System.Drawing.Point(649, 337);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(76, 13);
             this.label30.TabIndex = 52;
@@ -661,7 +661,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(260, 341);
+            this.label31.Location = new System.Drawing.Point(260, 357);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(429, 33);
             this.label31.TabIndex = 54;
@@ -670,7 +670,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(263, 374);
+            this.label32.Location = new System.Drawing.Point(263, 395);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(70, 13);
             this.label32.TabIndex = 55;
@@ -679,7 +679,7 @@
             // cbSchoolType
             // 
             this.cbSchoolType.FormattingEnabled = true;
-            this.cbSchoolType.Location = new System.Drawing.Point(339, 371);
+            this.cbSchoolType.Location = new System.Drawing.Point(339, 392);
             this.cbSchoolType.Name = "cbSchoolType";
             this.cbSchoolType.Size = new System.Drawing.Size(111, 21);
             this.cbSchoolType.TabIndex = 56;
@@ -687,7 +687,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(462, 374);
+            this.label33.Location = new System.Drawing.Point(462, 395);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(86, 13);
             this.label33.TabIndex = 57;
@@ -695,7 +695,7 @@
             // 
             // tbSchoolName
             // 
-            this.tbSchoolName.Location = new System.Drawing.Point(554, 371);
+            this.tbSchoolName.Location = new System.Drawing.Point(554, 392);
             this.tbSchoolName.Name = "tbSchoolName";
             this.tbSchoolName.Size = new System.Drawing.Size(146, 20);
             this.tbSchoolName.TabIndex = 58;
@@ -703,7 +703,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(704, 374);
+            this.label34.Location = new System.Drawing.Point(704, 395);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(152, 13);
             this.label34.TabIndex = 59;
@@ -711,7 +711,7 @@
             // 
             // tbSchoolProgram
             // 
-            this.tbSchoolProgram.Location = new System.Drawing.Point(856, 367);
+            this.tbSchoolProgram.Location = new System.Drawing.Point(856, 388);
             this.tbSchoolProgram.Name = "tbSchoolProgram";
             this.tbSchoolProgram.Size = new System.Drawing.Size(117, 20);
             this.tbSchoolProgram.TabIndex = 60;
@@ -727,7 +727,7 @@
             // 
             // btnProceed
             // 
-            btnProceed.Location = new System.Drawing.Point(465, 403);
+            btnProceed.Location = new System.Drawing.Point(465, 424);
             btnProceed.Name = "btnProceed";
             btnProceed.Size = new System.Drawing.Size(75, 23);
             btnProceed.TabIndex = 62;
@@ -739,7 +739,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1033, 462);
+            this.ClientSize = new System.Drawing.Size(1033, 495);
             this.Controls.Add(this.tabControl1);
             this.Name = "EnrollFrm";
             this.Text = "EnrollFrm";

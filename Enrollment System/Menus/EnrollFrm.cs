@@ -7,6 +7,7 @@ namespace Enrollment_System.Menus
 {
     public partial class EnrollFrm : Form
     {
+        private ApplicationForm application;
         public EnrollFrm()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace Enrollment_System.Menus
         private void openGuardianInfo()
         {
             this.Hide();
-            GuardianInfoFrm frm = new GuardianInfoFrm();
+            GuardianInfoFrm frm = new GuardianInfoFrm(application);
             frm.ShowDialog();
             this.Close();
         }
@@ -160,8 +161,17 @@ namespace Enrollment_System.Menus
             Contact contact = FormData.getContact(telephone, mobile, email);
             SchoolHistory schoolHistory = FormData.getSchoolHistory(type, name, program);
 
+            application = new ApplicationForm();
+            //TODO: Change so that it will produce incrimental none-duplicate IDs.
 
-
+            application.AddressID = address.Id;
+            application.StudentID = student.Id;
+            application.ContactID = contact.Id;
+            application.SchoolHistoryID = schoolHistory.Id;
+            application.Course = course;
+            application.AdmitType = admitType;
+            application.YearLevel = yearLevel;
+            application.Term = term;
 
             return false;
         }

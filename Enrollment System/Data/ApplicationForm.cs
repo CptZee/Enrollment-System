@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Enrollment_System.Data
 {
-    class Application
+    public class ApplicationForm
     {
         public int ID { get; set; }
         public int StudentID { get; set; }

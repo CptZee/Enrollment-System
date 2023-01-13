@@ -54,7 +54,7 @@
     </Compile>
     <Compile Include="Data\Address.cs" />
     <Compile Include="Data\Admin.cs" />
-    <Compile Include="Data\Application.cs" />
+    <Compile Include="Data\ApplicationForm.cs" />
     <Compile Include="Data\Contact.cs" />
     <Compile Include="Data\Courses.cs" />
     <Compile Include="Data\Guardian.cs" />
