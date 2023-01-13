@@ -28,29 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnStatus = new System.Windows.Forms.Button();
             this.btnEnroll = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Enrollment_System.Properties.Resources.ENROLLMENT;
-            this.pictureBox1.InitialImage = global::Enrollment_System.Properties.Resources.ENROLLMENT;
-            this.pictureBox1.Location = new System.Drawing.Point(25, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(556, 253);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnStatus
             // 
-            this.btnStatus.Location = new System.Drawing.Point(121, 271);
+            this.btnStatus.Location = new System.Drawing.Point(860, 226);
+            this.btnStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStatus.Name = "btnStatus";
-            this.btnStatus.Size = new System.Drawing.Size(105, 23);
+            this.btnStatus.Size = new System.Drawing.Size(316, 54);
             this.btnStatus.TabIndex = 1;
             this.btnStatus.Text = "CHECK STATUS";
             this.btnStatus.UseVisualStyleBackColor = true;
@@ -58,9 +48,10 @@
             // 
             // btnEnroll
             // 
-            this.btnEnroll.Location = new System.Drawing.Point(271, 271);
+            this.btnEnroll.Location = new System.Drawing.Point(860, 332);
+            this.btnEnroll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEnroll.Name = "btnEnroll";
-            this.btnEnroll.Size = new System.Drawing.Size(75, 23);
+            this.btnEnroll.Size = new System.Drawing.Size(316, 58);
             this.btnEnroll.TabIndex = 2;
             this.btnEnroll.Text = "ENROLL";
             this.btnEnroll.UseVisualStyleBackColor = true;
@@ -68,22 +59,36 @@
             // 
             // btnAdmin
             // 
-            this.btnAdmin.Location = new System.Drawing.Point(380, 271);
+            this.btnAdmin.Location = new System.Drawing.Point(860, 445);
+            this.btnAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.Size = new System.Drawing.Size(75, 23);
+            this.btnAdmin.Size = new System.Drawing.Size(316, 51);
             this.btnAdmin.TabIndex = 3;
             this.btnAdmin.Text = "ADMIN";
             this.btnAdmin.UseVisualStyleBackColor = true;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Enrollment_System.Properties.Resources.Student_Enrollment_System;
+            this.pictureBox1.Location = new System.Drawing.Point(-11, -2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1371, 743);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 310);
+            this.ClientSize = new System.Drawing.Size(1359, 729);
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnEnroll);
             this.Controls.Add(this.btnStatus);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Dashboard";
             this.Text = "Enrollment System";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -92,11 +97,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnStatus;
         private System.Windows.Forms.Button btnEnroll;
         private System.Windows.Forms.Button btnAdmin;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

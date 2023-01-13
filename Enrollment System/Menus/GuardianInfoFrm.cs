@@ -30,5 +30,68 @@ namespace Enrollment_System.Menus
         {
             System.Diagnostics.Process.Start("https://www.sti.edu/dataprivacy.asp");
         }
+
+        private void btnProceed_Click(object sender, EventArgs e)
+        {
+            if (verifyForm())
+            {
+                this.Hide();
+                ApplicationConfrimationFrm frm = new ApplicationConfrimationFrm();
+                frm.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private Boolean verifyForm()
+        {
+            String firstName, lastName, middileInitial, suffixName, mobile, email, occupation, relation;
+            firstName = tb_FName_Guardian.Text.ToString();
+            lastName = tb_LName_Guardian.Text.ToString();
+            middileInitial = tb_MI_Guardian.Text.ToString();
+            suffixName = tb_SName_Guardian.Text.ToString();
+            mobile = tb_MobileNumber_Guardian.Text.ToString();
+            email = tb_Email_Guardian.Text.ToString();
+            occupation = tb_Occupation_Guardian.Text.ToString();
+            relation = tb_Relation_Guardian.Text.ToString();
+
+            if (!cb_Privacy.Checked)
+            {
+                MessageBox.Show("Must accept privacy terms!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(firstName))
+            {
+                MessageBox.Show("First name is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(lastName))
+            {
+                MessageBox.Show("Last name is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(mobile))
+            {
+                MessageBox.Show("Mobile No. is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("Email Address is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (string.IsNullOrEmpty(relation))
+            {
+                MessageBox.Show("Relation is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            Guardian guardian = FormData.getGuardian(firstName, lastName, middileInitial, suffixName, mobile, email, occupation, relation);
+            application.GuardianID = guardian.Id;
+            return true;
+        }
     }
 }
