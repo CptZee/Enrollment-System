@@ -29,45 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            this.btnStatus = new System.Windows.Forms.Button();
-            this.btnEnroll = new System.Windows.Forms.Button();
-            this.btnAdmin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAdmin = new Enrollment_System.Resources.Rbutton();
+            this.btnEnroll = new Enrollment_System.Resources.Rbutton();
+            this.btnStatus = new Enrollment_System.Resources.Rbutton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnStatus
-            // 
-            this.btnStatus.Location = new System.Drawing.Point(860, 226);
-            this.btnStatus.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStatus.Name = "btnStatus";
-            this.btnStatus.Size = new System.Drawing.Size(316, 54);
-            this.btnStatus.TabIndex = 1;
-            this.btnStatus.Text = "CHECK STATUS";
-            this.btnStatus.UseVisualStyleBackColor = true;
-            this.btnStatus.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // btnEnroll
-            // 
-            this.btnEnroll.Location = new System.Drawing.Point(860, 332);
-            this.btnEnroll.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEnroll.Name = "btnEnroll";
-            this.btnEnroll.Size = new System.Drawing.Size(316, 58);
-            this.btnEnroll.TabIndex = 2;
-            this.btnEnroll.Text = "ENROLL";
-            this.btnEnroll.UseVisualStyleBackColor = true;
-            this.btnEnroll.Click += new System.EventHandler(this.btnRegister_Click);
-            // 
-            // btnAdmin
-            // 
-            this.btnAdmin.Location = new System.Drawing.Point(860, 445);
-            this.btnAdmin.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.Size = new System.Drawing.Size(316, 51);
-            this.btnAdmin.TabIndex = 3;
-            this.btnAdmin.Text = "ADMIN";
-            this.btnAdmin.UseVisualStyleBackColor = true;
-            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // pictureBox1
             // 
@@ -80,6 +47,48 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            // 
+            // btnAdmin
+            // 
+            this.btnAdmin.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdmin.ForeColor = System.Drawing.Color.White;
+            this.btnAdmin.Location = new System.Drawing.Point(860, 445);
+            this.btnAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(316, 51);
+            this.btnAdmin.TabIndex = 3;
+            this.btnAdmin.Text = "ADMIN";
+            this.btnAdmin.UseVisualStyleBackColor = false;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
+            // 
+            // btnEnroll
+            // 
+            this.btnEnroll.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnEnroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnroll.ForeColor = System.Drawing.Color.White;
+            this.btnEnroll.Location = new System.Drawing.Point(860, 332);
+            this.btnEnroll.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEnroll.Name = "btnEnroll";
+            this.btnEnroll.Size = new System.Drawing.Size(316, 58);
+            this.btnEnroll.TabIndex = 2;
+            this.btnEnroll.Text = "ENROLL";
+            this.btnEnroll.UseVisualStyleBackColor = false;
+            this.btnEnroll.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // btnStatus
+            // 
+            this.btnStatus.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatus.ForeColor = System.Drawing.Color.White;
+            this.btnStatus.Location = new System.Drawing.Point(860, 226);
+            this.btnStatus.Margin = new System.Windows.Forms.Padding(4);
+            this.btnStatus.Name = "btnStatus";
+            this.btnStatus.Size = new System.Drawing.Size(316, 54);
+            this.btnStatus.TabIndex = 1;
+            this.btnStatus.Text = "CHECK STATUS";
+            this.btnStatus.UseVisualStyleBackColor = false;
+            this.btnStatus.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // Dashboard
             // 
@@ -100,10 +109,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnStatus;
-        private System.Windows.Forms.Button btnEnroll;
-        private System.Windows.Forms.Button btnAdmin;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Resources.Rbutton btnStatus;
+        private Resources.Rbutton btnEnroll;
+        private Resources.Rbutton btnAdmin;
     }
 }
 
