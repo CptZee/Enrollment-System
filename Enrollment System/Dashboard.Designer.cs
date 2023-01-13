@@ -52,7 +52,7 @@
             // 
             this.btnAdmin.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdmin.ForeColor = System.Drawing.Color.White;
+            this.btnAdmin.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnAdmin.Location = new System.Drawing.Point(860, 445);
             this.btnAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdmin.Name = "btnAdmin";
