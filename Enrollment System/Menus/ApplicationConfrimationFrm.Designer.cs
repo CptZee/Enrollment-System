@@ -71,6 +71,8 @@
             this.lbl_SchoolType = new System.Windows.Forms.Label();
             this.btnStartOver = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -480,7 +482,7 @@
             // btnStartOver
             // 
             this.btnStartOver.Location = new System.Drawing.Point(191, 683);
-            this.btnStartOver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStartOver.Margin = new System.Windows.Forms.Padding(4);
             this.btnStartOver.Name = "btnStartOver";
             this.btnStartOver.Size = new System.Drawing.Size(100, 28);
             this.btnStartOver.TabIndex = 41;
@@ -491,7 +493,7 @@
             // btnConfirm
             // 
             this.btnConfirm.Location = new System.Drawing.Point(344, 683);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(100, 28);
             this.btnConfirm.TabIndex = 42;
@@ -499,12 +501,24 @@
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Enrollment_System.Properties.Resources.d8b44432ad1227d7950f95fe815d84ca_removebg_preview_removebg_preview;
+            this.pictureBox1.Location = new System.Drawing.Point(564, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(110, 93);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 116;
+            this.pictureBox1.TabStop = false;
+            // 
             // ApplicationConfrimationFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(687, 741);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnStartOver);
             this.Controls.Add(this.lbl_NameofSchool);
@@ -548,9 +562,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ApplicationConfrimationFrm";
             this.Text = "ApplicationConfrimationFrm";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -600,5 +615,6 @@
         private System.Windows.Forms.Label lbl_SchoolType;
         private System.Windows.Forms.Button btnStartOver;
         private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

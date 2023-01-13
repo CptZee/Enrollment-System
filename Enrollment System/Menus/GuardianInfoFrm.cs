@@ -88,9 +88,13 @@ namespace Enrollment_System.Menus
                 MessageBox.Show("Relation is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
+            GuardianManager guardianManager = GuardianManager.getInstance();
+            ApplicationFormsManager applicationManager = ApplicationFormsManager.getInstance();
             Guardian guardian = FormData.getGuardian(firstName, lastName, middileInitial, suffixName, mobile, email, occupation, relation);
+            guardian.Id = guardianManager.retrieveRecentID() + 1;
             application.GuardianID = guardian.Id;
+            guardianManager.addGuardian(guardian);
+            applicationManager.addApplicationForm(application);
             return true;
         }
 

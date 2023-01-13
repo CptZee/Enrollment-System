@@ -61,8 +61,6 @@ namespace Enrollment_System.Util
         }
 
 
-
-
         /**
          * A simple code that will create the Addresses table.
          * 
@@ -621,11 +619,231 @@ namespace Enrollment_System.Util
             }
         }
 
-       /**
-       * A simple code that will add a user to the database
-       * NOTE: DO NOT RUN ON THE MAIN THREAD!
-       * 
-       */
+        /**
+         * A group of method that manages the addition of rows or data
+         * in the database.
+         * 
+         */ 
+
+        public static void addCourse(Course course)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "INSERT INTO Courses(Id, Name) VALUES(@Id, @Name)";
+            try
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ID", course.ID);
+                    command.Parameters.AddWithValue("@Name", course.name);
+                    command.ExecuteNonQuery();
+                }
+                Console.WriteLine("ERROR: Successfully added course with the id " + course.ID);
+                connection.Close();
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to add course with the id " + course.ID);
+            }
+        }
+
+        public static void addAddress(Address address)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "INSERT INTO Adresses(Id, StreetUnitNumber, Street, SubdivisionVillageBldg, Barangay, City, Province, ZipCode) VALUES(@Id, @StreetUnitNumber, @Street, @SubdivisionVillageBldg, @Barangay, @City, @Province, @ZipCode)";
+            try
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", address.Id);
+                    command.Parameters.AddWithValue("@StreetUnitNumber", address.StreetUnitNumber);
+                    command.Parameters.AddWithValue("@Street", address.Street);
+                    command.Parameters.AddWithValue("@SubdivisionVillageBldg", address.SubdivisionVillageBldg);
+                    command.Parameters.AddWithValue("@Barangay", address.Barangay);
+                    command.Parameters.AddWithValue("@City", address.City);
+                    command.Parameters.AddWithValue("@Province", address.Province);
+                    command.Parameters.AddWithValue("@ZipCode", address.ZipCode);
+                    command.ExecuteNonQuery();
+                }
+                Console.WriteLine("ERROR: Successfully added course with the id " + address.Id);
+                connection.Close();
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to add course with the id " + address.Id);
+            }
+        }
+
+        public static void addAdmin(Admin admin)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "INSERT INTO Courses(ID, username, password) VALUES(@ID, @username, @password)";
+            try
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ID", admin.ID);
+                    command.Parameters.AddWithValue("@username", admin.username);
+                    command.Parameters.AddWithValue("@password", admin.password);
+                    command.ExecuteNonQuery();
+                }
+                Console.WriteLine("ERROR: Successfully added course with the id " + admin.ID);
+                connection.Close();
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to add course with the id " + admin.ID);
+            }
+        }
+
+        public static void addApplicationForm(ApplicationForm applicationform)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "INSERT INTO Courses(ID, StudentID, AddressID, ContactID, SchoolHistoryID, GuardianID, Course, AdmitType, YearLevel, SchoolYear, Term, SubmissionDate, Status) VALUES(@ID, @StudentID, @AddressID, @ContactID, @SchoolHistoryID, @GuardianID, @Course, @AdmitType, @YearLevel, @SchoolYear, @Term, @SubmissionDate, @Status)";
+            try
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ID", applicationform.ID);
+                    command.Parameters.AddWithValue("@StudentID", applicationform.StudentID);
+                    command.Parameters.AddWithValue("@AddressID", applicationform.AddressID);
+                    command.Parameters.AddWithValue("@ContactID", applicationform.ContactID);
+                    command.Parameters.AddWithValue("@SchoolHistoryID", applicationform.SchoolHistoryID);
+                    command.Parameters.AddWithValue("@GuardianID", applicationform.GuardianID);
+                    command.Parameters.AddWithValue("@Course", applicationform.Course);
+                    command.Parameters.AddWithValue("@AdmitType", applicationform.AdmitType);
+                    command.Parameters.AddWithValue("@YearLevel", applicationform.YearLevel);
+                    command.Parameters.AddWithValue("@SchoolYear", applicationform.SchoolYear);
+                    command.Parameters.AddWithValue("@Term", applicationform.Term);
+                    command.Parameters.AddWithValue("@SubmissionDate", applicationform.SubmissionDate);
+                    command.Parameters.AddWithValue("@Status", applicationform.Status);
+                    command.ExecuteNonQuery();
+                }
+                Console.WriteLine("ERROR: Successfully added course with the id " + applicationform.ID);
+                connection.Close();
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to add course with the id " + applicationform.ID);
+            }
+        }
+
+        public static void addContact(Contact contact)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "INSERT INTO Courses(Id, TelephoneNo, MobileNo, Email) VALUES(@Id, @TelephoneNo, @MobileNo, @Email)";
+            try
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", contact.Id);
+                    command.Parameters.AddWithValue("@TelephoneNo", contact.TelephoneNo);
+                    command.Parameters.AddWithValue("@MobileNo", contact.MobileNo);
+                    command.Parameters.AddWithValue("@Email", contact.Email);
+                    command.ExecuteNonQuery();
+                }
+                Console.WriteLine("ERROR: Successfully added course with the id " + contact.Id);
+                connection.Close();
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to add course with the id " + contact.Id);
+            }
+        }
+
+        public static void addGuardian(Guardian guardian)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "INSERT INTO Courses(Id, FirstName, LastName, MiddleInitial, SuffixName, MobileNumber, Email, Occupation, Relation) VALUES(@Id, @FirstName, @LastName, @MiddleInitial, @SuffixName, @MobileNumber, @Email, @Occupation, @Relation)";
+            try
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", guardian.Id);
+                    command.Parameters.AddWithValue("@FirstName", guardian.FirstName);
+                    command.Parameters.AddWithValue("@LastName", guardian.LastName);
+                    command.Parameters.AddWithValue("@MiddleInitial", guardian.MiddleInitial);
+                    command.Parameters.AddWithValue("@SuffixName", guardian.SuffixName);
+                    command.Parameters.AddWithValue("@MobileNumber", guardian.MobileNumber);
+                    command.Parameters.AddWithValue("@Email", guardian.Email);
+                    command.Parameters.AddWithValue("@Occupation", guardian.Occupation);
+                    command.Parameters.AddWithValue("@Relation", guardian.Relation);
+                    command.ExecuteNonQuery();
+                }
+                Console.WriteLine("ERROR: Successfully added course with the id " + guardian.Id);
+                connection.Close();
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to add course with the id " + guardian.Id);
+            }
+        }
+
+        public static void addSchoolHistory(SchoolHistory schoolhistory)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "INSERT INTO Courses(Id, Type, Name, ProgramTrackSpecialization) VALUES(@Id, @Type, @Name, @ProgramTrackSpecialization)";
+            try
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", schoolhistory.Id);
+                    command.Parameters.AddWithValue("@Type", schoolhistory.Type);
+                    command.Parameters.AddWithValue("@Name", schoolhistory.Name);
+                    command.Parameters.AddWithValue("@ProgramTrackSpecialization", schoolhistory.ProgramTrackSpecialization);
+                    command.ExecuteNonQuery();
+                }
+                Console.WriteLine("ERROR: Successfully added course with the id " + schoolhistory.Id);
+                connection.Close();
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to add course with the id " + schoolhistory.Id);
+            }
+        }
+
+
+        public static void addStudent(Student student)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "INSERT INTO Courses(Id, FirstName, MiddleName, LastName, Gender, Status, Citizenship, BirthDate) VALUES(@Id, @FirstName, @MiddleName, @LastName, @Gender, @Status, @Citizenship, @BirthDate)";
+            try
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", student.Id);
+                    command.Parameters.AddWithValue("@FirstName", student.FirstName);
+                    command.Parameters.AddWithValue("@MiddleName", student.MiddleName);
+                    command.Parameters.AddWithValue("@LastName", student.LastName);
+                    command.Parameters.AddWithValue("@Gender", student.Gender);
+                    command.Parameters.AddWithValue("@Status", student.Status);
+                    command.Parameters.AddWithValue("@Citizenship", student.Citizenship);
+                    command.Parameters.AddWithValue("@BirthDate", student.BirthDate);
+
+                    command.ExecuteNonQuery();
+                }
+                Console.WriteLine("ERROR: Successfully added course with the id " + student.Id);
+                connection.Close();
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to add course with the id " + student .Id);
+            }
+        }
+
+
+        /**
+        * A simple code that will add a user to the database
+        * NOTE: DO NOT RUN ON THE MAIN THREAD!
+        * 
+        */
         /*
         public static void addUser(Student user)
         {
