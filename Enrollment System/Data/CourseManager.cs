@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Enrollment_System.Data
 {
-    class CoursesManager
+    class CourseManager
     {
-        private CoursesManager()
+        private CourseManager()
         {
             courses = new ArrayList();
         }
-        private static CoursesManager instance = null;
+        private static CourseManager instance = null;
         public ArrayList courses { get; set; }
 
-        public static CoursesManager getInstance()
+        public static CourseManager getInstance()
         {
             if (instance == null)
-                instance = new CoursesManager();
+                instance = new CourseManager();
             return instance;
         }
 

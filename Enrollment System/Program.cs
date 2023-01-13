@@ -22,6 +22,16 @@ namespace Enrollment_System
             Thread SchoolHistoryDBThread = new Thread(new ThreadStart(DatabaseHelper.createSchoolHistoryTable));
             Thread StudentDBThread = new Thread(new ThreadStart(DatabaseHelper.createStudentsTable));
 
+
+            Thread AddressLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadAddresses));
+            Thread AdminLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadAdmins));
+            Thread ApplicationFormLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadApplicationForms));
+            Thread ContactLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadContacts));
+            Thread CoursesLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadCourses));
+            Thread GuardianLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadGuardians));
+            Thread SchoolHistoryLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadSchoolHistory));
+            Thread StudentLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadStudents));
+
             AddressDBThread.Start();
             AdminDBThread.Start();
             ApplicationFormDBThread.Start();
@@ -30,6 +40,15 @@ namespace Enrollment_System
             GuardianDBThread.Start();
             SchoolHistoryDBThread.Start();
             StudentDBThread.Start();
+
+            AddressLoadThread.Start();
+            AdminLoadThread.Start();
+            ApplicationFormLoadThread.Start();
+            ContactLoadThread.Start();
+            CoursesLoadThread.Start();
+            GuardianLoadThread.Start();
+            SchoolHistoryLoadThread.Start();
+            StudentLoadThread.Start();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
