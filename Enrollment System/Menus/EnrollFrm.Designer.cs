@@ -30,7 +30,7 @@
         {
             System.Windows.Forms.Button btnProceed;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnrollFrm));
-            System.Windows.Forms.Button button1;
+            System.Windows.Forms.Button btnExProceed;
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label64 = new System.Windows.Forms.Label();
@@ -130,10 +130,8 @@
             this.cbCourse = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label104 = new System.Windows.Forms.Label();
             this.label103 = new System.Windows.Forms.Label();
             this.label102 = new System.Windows.Forms.Label();
-            this.label101 = new System.Windows.Forms.Label();
             this.label100 = new System.Windows.Forms.Label();
             this.label99 = new System.Windows.Forms.Label();
             this.label98 = new System.Windows.Forms.Label();
@@ -189,9 +187,9 @@
             this.label66 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btn_back = new System.Windows.Forms.Button();
+            this.btn_Exback = new System.Windows.Forms.Button();
             btnProceed = new System.Windows.Forms.Button();
-            button1 = new System.Windows.Forms.Button();
+            btnExProceed = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -1250,11 +1248,9 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(button1);
-            this.tabPage2.Controls.Add(this.label104);
+            this.tabPage2.Controls.Add(btnExProceed);
             this.tabPage2.Controls.Add(this.label103);
             this.tabPage2.Controls.Add(this.label102);
-            this.tabPage2.Controls.Add(this.label101);
             this.tabPage2.Controls.Add(this.label100);
             this.tabPage2.Controls.Add(this.label99);
             this.tabPage2.Controls.Add(this.label98);
@@ -1318,18 +1314,6 @@
             this.tabPage2.Text = "Existing Student";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label104
-            // 
-            this.label104.AutoSize = true;
-            this.label104.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label104.ForeColor = System.Drawing.Color.Red;
-            this.label104.Location = new System.Drawing.Point(633, 531);
-            this.label104.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label104.Name = "label104";
-            this.label104.Size = new System.Drawing.Size(12, 13);
-            this.label104.TabIndex = 112;
-            this.label104.Text = "*";
-            // 
             // label103
             // 
             this.label103.AutoSize = true;
@@ -1353,18 +1337,6 @@
             this.label102.Size = new System.Drawing.Size(12, 13);
             this.label102.TabIndex = 110;
             this.label102.Text = "*";
-            // 
-            // label101
-            // 
-            this.label101.AutoSize = true;
-            this.label101.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label101.ForeColor = System.Drawing.Color.Red;
-            this.label101.Location = new System.Drawing.Point(638, 456);
-            this.label101.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label101.Name = "label101";
-            this.label101.Size = new System.Drawing.Size(12, 13);
-            this.label101.TabIndex = 109;
-            this.label101.Text = "*";
             // 
             // label100
             // 
@@ -1455,7 +1427,7 @@
             this.label93.AutoSize = true;
             this.label93.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label93.ForeColor = System.Drawing.Color.Red;
-            this.label93.Location = new System.Drawing.Point(313, 260);
+            this.label93.Location = new System.Drawing.Point(315, 260);
             this.label93.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label93.Name = "label93";
             this.label93.Size = new System.Drawing.Size(12, 13);
@@ -1570,7 +1542,7 @@
             // cbExPayterms
             // 
             this.cbExPayterms.FormattingEnabled = true;
-            this.cbExPayterms.Location = new System.Drawing.Point(754, 392);
+            this.cbExPayterms.Location = new System.Drawing.Point(754, 391);
             this.cbExPayterms.Name = "cbExPayterms";
             this.cbExPayterms.Size = new System.Drawing.Size(148, 21);
             this.cbExPayterms.TabIndex = 79;
@@ -1592,7 +1564,7 @@
             // 
             // tbExPrevSem
             // 
-            this.tbExPrevSem.Location = new System.Drawing.Point(540, 392);
+            this.tbExPrevSem.Location = new System.Drawing.Point(533, 391);
             this.tbExPrevSem.Name = "tbExPrevSem";
             this.tbExPrevSem.Size = new System.Drawing.Size(148, 20);
             this.tbExPrevSem.TabIndex = 76;
@@ -1648,7 +1620,7 @@
             // label84
             // 
             this.label84.AutoSize = true;
-            this.label84.Location = new System.Drawing.Point(751, 376);
+            this.label84.Location = new System.Drawing.Point(751, 374);
             this.label84.Name = "label84";
             this.label84.Size = new System.Drawing.Size(83, 13);
             this.label84.TabIndex = 69;
@@ -1890,23 +1862,23 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Existing Student";
             // 
-            // btn_back
+            // btn_Exback
             // 
-            this.btn_back.Location = new System.Drawing.Point(539, 619);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(75, 23);
-            this.btn_back.TabIndex = 113;
-            this.btn_back.Text = "Back";
-            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_Exback.Location = new System.Drawing.Point(539, 619);
+            this.btn_Exback.Name = "btn_Exback";
+            this.btn_Exback.Size = new System.Drawing.Size(75, 23);
+            this.btn_Exback.TabIndex = 113;
+            this.btn_Exback.Text = "Back";
+            this.btn_Exback.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnExProceed
             // 
-            button1.Location = new System.Drawing.Point(523, 575);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(75, 23);
-            button1.TabIndex = 114;
-            button1.Text = "Proceed";
-            button1.UseVisualStyleBackColor = true;
+            btnExProceed.Location = new System.Drawing.Point(523, 575);
+            btnExProceed.Name = "btnExProceed";
+            btnExProceed.Size = new System.Drawing.Size(75, 23);
+            btnExProceed.TabIndex = 114;
+            btnExProceed.Text = "Proceed";
+            btnExProceed.UseVisualStyleBackColor = true;
             // 
             // EnrollFrm
             // 
@@ -1914,7 +1886,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1129, 645);
-            this.Controls.Add(this.btn_back);
+            this.Controls.Add(this.btn_Exback);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EnrollFrm";
@@ -2087,14 +2059,12 @@
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.Label label89;
         private System.Windows.Forms.Label label96;
-        private System.Windows.Forms.Label label104;
         private System.Windows.Forms.Label label103;
         private System.Windows.Forms.Label label102;
-        private System.Windows.Forms.Label label101;
         private System.Windows.Forms.Label label100;
         private System.Windows.Forms.Label label99;
         private System.Windows.Forms.Label label98;
         private System.Windows.Forms.Label label97;
-        private System.Windows.Forms.Button btn_back;
+        private System.Windows.Forms.Button btn_Exback;
     }
 }
