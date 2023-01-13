@@ -176,5 +176,14 @@ namespace Enrollment_System.Menus
             return false;
         }
 
+        private void label36_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
