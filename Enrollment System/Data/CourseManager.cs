@@ -40,5 +40,15 @@ namespace Enrollment_System.Data
                 return;
             courses.RemoveAt(courses.Count - 1);
         }
+        public Course find(int Id)
+        {
+            for (int i = 0; i < courses.Count; i++)
+            {
+                Course s = (Course)courses[i];
+                if (s.ID == Id)
+                    return s;
+            }
+            return null;
+        }
     }
 }

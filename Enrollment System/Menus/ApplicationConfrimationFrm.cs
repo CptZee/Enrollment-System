@@ -32,5 +32,35 @@ namespace Enrollment_System.Menus
         {
 
         }
+
+        private void ApplicationConfrimationFrm_Load(object sender, EventArgs e)
+        {
+            StudentManager studentManager = StudentManager.getInstance();
+            AddressManager addressManager = AddressManager.getInstance();
+            ContactManager contactManager = ContactManager.getInstance();
+            SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
+
+            lbl_Course.Text = application.Course;
+            lbl_Yearlevel.Text = application.YearLevel;
+            lbl_Schoolyear.Text = application.SchoolYear;
+            lbl_Term.Text = application.Term;
+            lbl_Name.Text = studentManager.find(application.StudentID).FirstName + " " + studentManager.find(application.StudentID).MiddleName + " " 
+                + studentManager.find(application.StudentID).LastName;
+            lbl_Gender.Text = studentManager.find(application.StudentID).Gender;
+            lbl_Status.Text = studentManager.find(application.StudentID).Status;
+            lbl_Citizenship.Text = studentManager.find(application.StudentID).Citizenship;
+            lbl_Birthday.Text = studentManager.find(application.StudentID).BirthDate.ToShortDateString();
+            lbl_Birthplace.Text = studentManager.find(application.StudentID).Birthplace;
+            lbl_Religion.Text = studentManager.find(application.StudentID).Religion;
+            lbl_Address.Text = addressManager.find(application.AddressID).StreetUnitNumber + ", " + addressManager.find(application.AddressID).Street + ", " +
+                addressManager.find(application.AddressID).Barangay + ", " + addressManager.find(application.AddressID).City + ", " + addressManager.find(application.AddressID).Province +
+                addressManager.find(application.AddressID).ZipCode;
+            lbl_TelephoneNo.Text = contactManager.find(application.ContactID).TelephoneNo;
+            lbl_MobileNo.Text = contactManager.find(application.ContactID).MobileNo;
+            lbl_EmailAdd.Text = contactManager.find(application.ContactID).Email;
+            lbl_SchoolType.Text = schoolHistoryManager.find(application.SchoolHistoryID).Type;
+            lbl_NameofSchool.Text = schoolHistoryManager.find(application.SchoolHistoryID).Name;
+            lbl_ProgramTrackSpecialization.Text = schoolHistoryManager.find(application.SchoolHistoryID).ProgramTrackSpecialization;
+        }
     }
 }
