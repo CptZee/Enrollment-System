@@ -16,9 +16,6 @@ namespace Enrollment_System
             //Run the creation of the tables.
             Thread thread = new Thread(new ThreadStart(DatabaseHelper.createUserTable));
             //Load the user list
-            thread = new Thread(new ThreadStart(DatabaseHelper.getUsers));
-
-
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

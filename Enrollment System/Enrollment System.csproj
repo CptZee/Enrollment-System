@@ -46,26 +46,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Student.cs" />
-    <Compile Include="Data\User.cs" />
-    <Compile Include="Data\UserManager.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\Address.cs" />
+    <Compile Include="Data\Admin.cs" />
+    <Compile Include="Data\Application.cs" />
+    <Compile Include="Data\Contact.cs" />
+    <Compile Include="Data\Courses.cs" />
+    <Compile Include="Data\Guardian.cs" />
+    <Compile Include="Data\SchoolHistory.cs" />
+    <Compile Include="Data\Student.cs" />
+    <Compile Include="Enrollment\FormData.cs" />
     <Compile Include="Menus\AdminFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Menus\AdminFrm.Designer.cs">
       <DependentUpon>AdminFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menus\ApplicationConfrimationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\ApplicationConfrimationFrm.Designer.cs">
+      <DependentUpon>ApplicationConfrimationFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menus\EnrollFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Menus\EnrollFrm.Designer.cs">
       <DependentUpon>EnrollFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\GuardianInfoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\GuardianInfoFrm.Designer.cs">
+      <DependentUpon>GuardianInfoFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Menus\StatusFrm.cs">
       <SubType>Form</SubType>
@@ -82,8 +100,14 @@
     <EmbeddedResource Include="Menus\AdminFrm.resx">
       <DependentUpon>AdminFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menus\ApplicationConfrimationFrm.resx">
+      <DependentUpon>ApplicationConfrimationFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menus\EnrollFrm.resx">
       <DependentUpon>EnrollFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\GuardianInfoFrm.resx">
+      <DependentUpon>GuardianInfoFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\StatusFrm.resx">
       <DependentUpon>StatusFrm.cs</DependentUpon>

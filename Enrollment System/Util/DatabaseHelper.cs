@@ -4,6 +4,11 @@ using System.Data.SqlClient;
 
 namespace Enrollment_System.Util
 {
+    /**
+     * A helper class which contains all the methods regarding the datase.
+     * WARNING: MUST RUN ON CHILD THREADS
+     * 
+     */ 
     class DatabaseHelper
     {
         //Modify depending on the computer's database. WILL ONLY WORK ON AARON's PC!
@@ -21,7 +26,6 @@ namespace Enrollment_System.Util
 
         /**
          * A simple code that will create the users table.
-         * NOTE: DO NOT RUN ON THE MAIN THREAD!
          * 
          * @return if the table is created successfully.
          * 
@@ -74,66 +78,67 @@ namespace Enrollment_System.Util
          * NOTE: DO NOT RUN ON THE MAIN THREAD!
          * 
          */
+        /*
+       public static void getUsers()
+       {
+           UserManager userManager = UserManager.Instance;
+           SqlConnection connection = GetConnection();
+           String query = @"SELECT Id, FName, MName, LName, Age, Gender, Municipality, City, PostalCode, 
+                               ContactNumber, Email, StudNo, Program, YearLvl, Semester, IsRegular FROM Users";
+           try {
+               connection.Open();
+               SqlCommand command = new SqlCommand(query, connection);
+               using (SqlDataReader reader = command.ExecuteReader())
+               {
+                   while (reader.Read())
+                   {
+                       //Check if the user has a student no. which is required to become a student,
+                       //if so, it will create an instance of Student and if not, a simple User.
+                       User user;
+                       if (reader.GetValue(11) == null)
+                           user = new User();
+                       else
+                       {
+                           user = new Student
+                           {
+                               StudNo = reader.GetString(11),
+                               Program = reader.GetString(12),
+                               YearLvl = reader.GetString(13),
+                               Semester = reader.GetString(14),
+                               isRegular = reader.GetBoolean(15)
+                           };
+                       }
+                       user.Id = reader.GetInt32(0);
+                       user.FName = reader.GetString(1);
+                       user.MName = reader.GetString(2);
+                       user.LName = reader.GetString(3);
+                       user.Age = reader.GetInt32(4);
+                       user.Gender = reader.GetString(5);
+                       user.Municipality = reader.GetString(6);
+                       user.City = reader.GetString(7);
+                       user.PostalCode = reader.GetString(8);
+                       user.ContactNumber = reader.GetString(9);
+                       user.Email = reader.GetString(10);
 
-        public static void getUsers()
-        {
-            UserManager userManager = UserManager.Instance;
-            SqlConnection connection = GetConnection();
-            String query = @"SELECT Id, FName, MName, LName, Age, Gender, Municipality, City, PostalCode, 
-                                ContactNumber, Email, StudNo, Program, YearLvl, Semester, IsRegular FROM Users";
-            try {
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        //Check if the user has a student no. which is required to become a student,
-                        //if so, it will create an instance of Student and if not, a simple User.
-                        User user;
-                        if (reader.GetValue(11) == null)
-                            user = new User();
-                        else
-                        {
-                            user = new Student
-                            {
-                                StudNo = reader.GetString(11),
-                                Program = reader.GetString(12),
-                                YearLvl = reader.GetString(13),
-                                Semester = reader.GetString(14),
-                                isRegular = reader.GetBoolean(15)
-                            };
-                        }
-                        user.Id = reader.GetInt32(0);
-                        user.FName = reader.GetString(1);
-                        user.MName = reader.GetString(2);
-                        user.LName = reader.GetString(3);
-                        user.Age = reader.GetInt32(4);
-                        user.Gender = reader.GetString(5);
-                        user.Municipality = reader.GetString(6);
-                        user.City = reader.GetString(7);
-                        user.PostalCode = reader.GetString(8);
-                        user.ContactNumber = reader.GetString(9);
-                        user.Email = reader.GetString(10);
+                       userManager.addUser(user);
+                   }
+               }
 
-                        userManager.addUser(user);
-                    }
-                }
+               connection.Close();
+               Console.WriteLine("DEBUG: User list loaded.");
+           }
+           catch (SqlException)
+           {
+               Console.WriteLine("ERROR: Unable to load user list!");
+           }
+       }
 
-                connection.Close();
-                Console.WriteLine("DEBUG: User list loaded.");
-            }
-            catch (SqlException)
-            {
-                Console.WriteLine("ERROR: Unable to load user list!");
-            }
-        }
-
-        /**
-        * A simple code that will add a user to the database
-        * NOTE: DO NOT RUN ON THE MAIN THREAD!
-        * 
-        */
+       /**
+       * A simple code that will add a user to the database
+       * NOTE: DO NOT RUN ON THE MAIN THREAD!
+       * 
+       */
+        /*
         public static void addUser(Student user)
         {
             UserManager userManager = UserManager.Instance;
@@ -160,5 +165,6 @@ namespace Enrollment_System.Util
                 Console.WriteLine("ERROR: Unable to add user with the id " + user.Id);
             }
         }
+            */
     }
 }

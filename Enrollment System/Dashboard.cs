@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Enrollment_System.Menus;
 
 namespace Enrollment_System
 {
@@ -17,7 +18,10 @@ namespace Enrollment_System
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            EnrollFrm frm = new EnrollFrm();
+            frm.ShowDialog();
+            this.Close();
         }
     }
 }
