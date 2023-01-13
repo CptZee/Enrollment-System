@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminFrm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnView = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
@@ -40,7 +41,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(13, 46);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1020, 431);
             this.dataGridView1.TabIndex = 0;
@@ -48,7 +49,7 @@
             // btnView
             // 
             this.btnView.Location = new System.Drawing.Point(1057, 46);
-            this.btnView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnView.Margin = new System.Windows.Forms.Padding(4);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(100, 28);
             this.btnView.TabIndex = 1;
@@ -59,7 +60,7 @@
             // btnAccept
             // 
             this.btnAccept.Location = new System.Drawing.Point(1057, 82);
-            this.btnAccept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(100, 28);
             this.btnAccept.TabIndex = 2;
@@ -69,7 +70,7 @@
             // btnReject
             // 
             this.btnReject.Location = new System.Drawing.Point(1057, 118);
-            this.btnReject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReject.Margin = new System.Windows.Forms.Padding(4);
             this.btnReject.Name = "btnReject";
             this.btnReject.Size = new System.Drawing.Size(100, 28);
             this.btnReject.TabIndex = 3;
@@ -90,13 +91,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1187, 511);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnReject);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminFrm";
             this.Text = "AdminFrm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

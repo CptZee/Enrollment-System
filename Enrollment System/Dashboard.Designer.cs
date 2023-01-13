@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.btnStatus = new System.Windows.Forms.Button();
             this.btnEnroll = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
@@ -38,7 +39,7 @@
             // btnStatus
             // 
             this.btnStatus.Location = new System.Drawing.Point(860, 226);
-            this.btnStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStatus.Margin = new System.Windows.Forms.Padding(4);
             this.btnStatus.Name = "btnStatus";
             this.btnStatus.Size = new System.Drawing.Size(316, 54);
             this.btnStatus.TabIndex = 1;
@@ -49,7 +50,7 @@
             // btnEnroll
             // 
             this.btnEnroll.Location = new System.Drawing.Point(860, 332);
-            this.btnEnroll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEnroll.Margin = new System.Windows.Forms.Padding(4);
             this.btnEnroll.Name = "btnEnroll";
             this.btnEnroll.Size = new System.Drawing.Size(316, 58);
             this.btnEnroll.TabIndex = 2;
@@ -60,7 +61,7 @@
             // btnAdmin
             // 
             this.btnAdmin.Location = new System.Drawing.Point(860, 445);
-            this.btnAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(316, 51);
             this.btnAdmin.TabIndex = 3;
@@ -70,7 +71,8 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Enrollment_System.Properties.Resources.Student_Enrollment_System;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Enrollment_System.Properties.Resources.Untitled_design;
             this.pictureBox1.Location = new System.Drawing.Point(-11, -2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1371, 743);
@@ -88,7 +90,8 @@
             this.Controls.Add(this.btnEnroll);
             this.Controls.Add(this.btnStatus);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Dashboard";
             this.Text = "Enrollment System";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

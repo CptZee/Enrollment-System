@@ -93,5 +93,20 @@ namespace Enrollment_System.Menus
             application.GuardianID = guardian.Id;
             return true;
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
