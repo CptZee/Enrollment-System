@@ -217,6 +217,7 @@
             this.btnProceed.TabIndex = 104;
             this.btnProceed.Text = "Proceed";
             this.btnProceed.UseVisualStyleBackColor = true;
+            this.btnProceed.Click += new System.EventHandler(this.btnProceed_Click);
             // 
             // lblPrivacy
             // 

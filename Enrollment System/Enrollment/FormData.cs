@@ -43,13 +43,7 @@ namespace Enrollment_System.Enrollment
 
             return contact;
         }
-
-        /**
-         * A class that returns the Guardian of the student/applicant
-         * 
-         * WARNING: NEEDS A CHECK FOR WHETHER THE IT IS A FATHER, MOTHER, OR GUARDIAN
-         * 
-         */ 
+        
         public static Guardian getGuardian(String FirstName, String LastName, String MiddleInitial, String SuffixName, String MobileNumber, String Email, String Occupation, String Relation)
         {
             Guardian guardian = new Guardian();

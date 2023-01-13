@@ -173,7 +173,7 @@ namespace Enrollment_System.Menus
             application.YearLevel = yearLevel;
             application.Term = term;
 
-            return false;
+            return true;
         }
 
     }

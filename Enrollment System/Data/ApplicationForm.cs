@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +12,7 @@ namespace Enrollment_System.Data
         public int AddressID { get; set; }
         public int ContactID { get; set; }
         public int SchoolHistoryID { get; set; }
-        public ArrayList GuardianIDs { get; set; }
+        public int GuardianID { get; set; }
         public String Course { get; set; }
         public String AdmitType { get; set; }
         public String YearLevel { get; set; }
