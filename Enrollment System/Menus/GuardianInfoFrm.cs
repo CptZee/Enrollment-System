@@ -36,7 +36,7 @@ namespace Enrollment_System.Menus
             if (verifyForm())
             {
                 this.Hide();
-                ApplicationConfrimationFrm frm = new ApplicationConfrimationFrm();
+                ApplicationConfrimationFrm frm = new ApplicationConfrimationFrm(application);
                 frm.ShowDialog();
                 this.Close();
             }

@@ -68,6 +68,8 @@
             this.lbl_NameofSchool = new System.Windows.Forms.Label();
             this.lbl_ProgramTrackSpecialization = new System.Windows.Forms.Label();
             this.lbl_SchoolType = new System.Windows.Forms.Label();
+            this.btnStartOver = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -434,11 +436,33 @@
             this.lbl_SchoolType.TabIndex = 38;
             this.lbl_SchoolType.Text = "label40";
             // 
+            // btnStartOver
+            // 
+            this.btnStartOver.Location = new System.Drawing.Point(143, 555);
+            this.btnStartOver.Name = "btnStartOver";
+            this.btnStartOver.Size = new System.Drawing.Size(75, 23);
+            this.btnStartOver.TabIndex = 41;
+            this.btnStartOver.Text = "Start Over";
+            this.btnStartOver.UseVisualStyleBackColor = true;
+            this.btnStartOver.Click += new System.EventHandler(this.btnStartOver_Click);
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Location = new System.Drawing.Point(258, 555);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirm.TabIndex = 42;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
             // ApplicationConfrimationFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 556);
+            this.ClientSize = new System.Drawing.Size(515, 602);
+            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.btnStartOver);
             this.Controls.Add(this.lbl_NameofSchool);
             this.Controls.Add(this.lbl_ProgramTrackSpecialization);
             this.Controls.Add(this.lbl_SchoolType);
@@ -528,5 +552,7 @@
         private System.Windows.Forms.Label lbl_NameofSchool;
         private System.Windows.Forms.Label lbl_ProgramTrackSpecialization;
         private System.Windows.Forms.Label lbl_SchoolType;
+        private System.Windows.Forms.Button btnStartOver;
+        private System.Windows.Forms.Button btnConfirm;
     }
 }
