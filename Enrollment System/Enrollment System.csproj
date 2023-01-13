@@ -101,6 +101,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Rbutton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Util\DatabaseHelper.cs" />
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
