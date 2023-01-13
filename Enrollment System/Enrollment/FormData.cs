@@ -65,7 +65,7 @@ namespace Enrollment_System.Enrollment
             return schoolHistory;
         }
 
-        public static Student getStudent(String FirstName, String MiddleName, String LastName, String SuffixName, String Gender, String Status, String Citizenship, DateTime BirthDate)
+        public static Student getStudent(String FirstName, String MiddleName, String LastName, String SuffixName, String Gender, String Status, String Citizenship, DateTime BirthDate, String Birthplace, String Religion)
         {
             Student student = new Student();
             
@@ -77,6 +77,8 @@ namespace Enrollment_System.Enrollment
             student.Status = Status;
             student.Citizenship = Citizenship;
             student.BirthDate = BirthDate;
+            student.Birthplace = Birthplace;
+            student.Religion = Religion;
 
             return student;
         }
