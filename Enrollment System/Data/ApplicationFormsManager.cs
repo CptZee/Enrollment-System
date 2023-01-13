@@ -26,5 +26,20 @@ namespace Enrollment_System.Data
         {
             applicationForms.Add(application);
         }
+
+        public ApplicationForm retrieveRecent()
+        {
+            if (applicationForms.Count == 0)
+                return null;
+            return (ApplicationForm) applicationForms[applicationForms.Count - 1];
+        }
+
+        public void removeRecent()
+        {
+            if (applicationForms.Count == 0)
+                return;
+            applicationForms.RemoveAt(applicationForms.Count - 1);
+        }
     }
+}
 }

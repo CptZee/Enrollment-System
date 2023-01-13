@@ -26,5 +26,18 @@ namespace Enrollment_System.Data
         {
             courses.Add(course);
         }
+
+        public Course retrieveRecent()
+        {
+            if (courses.Count == 0)
+                return null;
+            return (Course)courses[courses.Count - 1];
+        }
+        public void removeRecent()
+        {
+            if (courses.Count == 0)
+                return;
+            courses.RemoveAt(courses.Count - 1);
+        }
     }
 }

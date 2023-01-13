@@ -26,5 +26,19 @@ namespace Enrollment_System.Data
         {
             contacts.Add(contact);
         }
+
+        public Contact retrieveRecent()
+        {
+            if (contacts.Count == 0)
+                return null;
+            return (Contact)contacts[contacts.Count - 1];
+        }
+
+        public void removeRecent()
+        {
+            if (contacts.Count == 0)
+                return;
+            contacts.RemoveAt(contacts.Count - 1);
+        }
     }
 }

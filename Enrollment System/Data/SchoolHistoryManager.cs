@@ -26,5 +26,19 @@ namespace Enrollment_System.Data
         {
             schoolHistories.Add(schoolHistoy);
         }
+
+        public SchoolHistory retrieveRecent()
+        {
+            if (schoolHistories.Count == 0)
+                return null;
+            return (SchoolHistory)schoolHistories[schoolHistories.Count - 1];
+        }
+
+        public void removeRecent()
+        {
+            if (schoolHistories.Count == 0)
+                return;
+            schoolHistories.RemoveAt(schoolHistories.Count - 1);
+        }
     }
 }

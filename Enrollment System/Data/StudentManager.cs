@@ -22,5 +22,20 @@ namespace Enrollment_System.Data
         {
             students.Add(student);
         }
+
+
+        public Student retrieveRecent()
+        {
+            if (students.Count == 0)
+                return null;
+            return (Student)students[students.Count - 1];
+        }
+
+        public void removeRecent()
+        {
+            if (students.Count == 0)
+                return;
+            students.RemoveAt(students.Count - 1);
+        }
     }
 }

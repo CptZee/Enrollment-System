@@ -26,5 +26,19 @@ namespace Enrollment_System.Data
         {
             admins.Add(admin);
         }
+
+        public Admin retrieveRecent()
+        {
+            if (admins.Count == 0)
+                return null;
+            return (Admin )admins[admins.Count - 1];
+        }
+
+        public void removeRecent()
+        {
+            if (admins.Count == 0)
+                return;
+            admins.RemoveAt(admins.Count - 1);
+        }
     }
 }

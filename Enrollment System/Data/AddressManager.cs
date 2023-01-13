@@ -26,5 +26,19 @@ namespace Enrollment_System.Data
         {
             addresses.Add(address);
         }
+
+        public Address retrieveRecent()
+        {
+            if (addresses.Count == 0)
+                return null;
+            return (Address) addresses[addresses.Count - 1];
+        }
+
+        public void removeRecent()
+        {
+            if (addresses.Count == 0)
+                return;
+            addresses.RemoveAt(addresses.Count - 1);
+        }
     }
 }
