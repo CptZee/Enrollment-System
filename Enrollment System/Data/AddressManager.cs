@@ -13,7 +13,7 @@ namespace Enrollment_System.Data
             addresses = new ArrayList();
         }
         private static AddressManager instance = null;
-        private ArrayList addresses { get; set; }
+        public ArrayList addresses { get; set; }
 
         public static AddressManager getInstance()
         {

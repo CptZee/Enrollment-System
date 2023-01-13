@@ -13,7 +13,7 @@ namespace Enrollment_System.Data
             admins = new ArrayList();
         }
         private static AdminManager instance = null;
-        private ArrayList admins { get; set; }
+        public ArrayList admins { get; set; }
 
         public static AdminManager getInstance()
         {

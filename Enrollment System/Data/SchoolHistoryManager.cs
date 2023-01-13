@@ -13,7 +13,7 @@ namespace Enrollment_System.Data
             schoolHistories = new ArrayList();
         }
         private static SchoolHistoryManager instance = null;
-        private ArrayList schoolHistories { get; set; }
+        public ArrayList schoolHistories { get; set; }
 
         public static SchoolHistoryManager getInstance()
         {

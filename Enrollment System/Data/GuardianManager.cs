@@ -13,7 +13,7 @@ namespace Enrollment_System.Data
             guardians = new ArrayList();
         }
         private static GuardianManager instance = null;
-        private ArrayList guardians { get; set; }
+        public ArrayList guardians { get; set; }
 
         public static GuardianManager getInstance()
         {

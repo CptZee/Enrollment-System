@@ -13,7 +13,7 @@ namespace Enrollment_System.Data
             applicationForms = new ArrayList();
         }
         private static ApplicationFormsManager instance = null;
-        private ArrayList applicationForms { get; set; }
+        public ArrayList applicationForms { get; set; }
 
         public static ApplicationFormsManager getInstance()
         {

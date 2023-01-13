@@ -9,7 +9,7 @@ namespace Enrollment_System.Data
             students = new ArrayList();
         }
         private static StudentManager instance = null;
-        private ArrayList students { get; set; }
+        public ArrayList students { get; set; }
 
         public static StudentManager getInstance()
         {

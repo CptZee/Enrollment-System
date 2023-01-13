@@ -196,7 +196,15 @@ namespace Enrollment_System.Menus
                 return false;
             }
 
+
+
+            StudentManager studentManager = StudentManager.getInstance();
+            AddressManager addressManager = AddressManager.getInstance();
+            ContactManager contactManager = ContactManager.getInstance();
+            SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
+
             Student student = FormData.getStudent(firstName, middleName, lastName, suffixName, gender, status, citizenship, birthdate);
+
             Address address = FormData.getAddress(streetno, street, subdivision, barangay, city, province, zipCode);
             Contact contact = FormData.getContact(telephone, mobile, email);
             SchoolHistory schoolHistory = FormData.getSchoolHistory(type, name, program);
@@ -212,6 +220,9 @@ namespace Enrollment_System.Menus
             application.AdmitType = admitType;
             application.YearLevel = yearLevel;
             application.Term = term;
+
+            
+
 
             return true;
         }

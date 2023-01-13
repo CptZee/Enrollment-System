@@ -13,7 +13,7 @@ namespace Enrollment_System.Data
             contacts = new ArrayList();
         }
         private static ContactManager instance = null;
-        private ArrayList contacts { get; set; }
+        public ArrayList contacts { get; set; }
 
         public static ContactManager getInstance()
         {

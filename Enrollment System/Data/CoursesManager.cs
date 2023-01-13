@@ -13,7 +13,7 @@ namespace Enrollment_System.Data
             courses = new ArrayList();
         }
         private static CoursesManager instance = null;
-        private ArrayList courses { get; set; }
+        public ArrayList courses { get; set; }
 
         public static CoursesManager getInstance()
         {

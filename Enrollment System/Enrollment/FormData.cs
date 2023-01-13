@@ -15,8 +15,7 @@ namespace Enrollment_System.Enrollment
         public static Address getAddress(String StreetUnitNumber, String Street, String SubdivisionVillageBldg, String Barangay, String City, String Province, String ZipCode)
         {
             Address address = new Address();
-
-            //TODO: Change so that it will produce incrimental none-duplicate IDs.
+            
             address.StreetUnitNumber = StreetUnitNumber;
             address.Street = Street;
             address.SubdivisionVillageBldg = SubdivisionVillageBldg;
@@ -31,8 +30,7 @@ namespace Enrollment_System.Enrollment
         public static Contact getContact(String TelephoneNo, String MobileNo, String Email)
         {
             Contact contact = new Contact();
-
-            //TODO: Change so that it will produce incrimental none-duplicate IDs.
+            
             contact.TelephoneNo = TelephoneNo;
             contact.MobileNo = MobileNo;
             contact.Email = Email;
@@ -43,8 +41,7 @@ namespace Enrollment_System.Enrollment
         public static Guardian getGuardian(String FirstName, String LastName, String MiddleInitial, String SuffixName, String MobileNumber, String Email, String Occupation, String Relation)
         {
             Guardian guardian = new Guardian();
-
-            //TODO: Change so that it will produce incrimental none-duplicate IDs.
+            
             guardian.FirstName = FirstName;
             guardian.LastName = LastName;
             guardian.MiddleInitial = MiddleInitial;
@@ -60,8 +57,7 @@ namespace Enrollment_System.Enrollment
         public static SchoolHistory getSchoolHistory(String Type, String Name, String ProgramTrackSpecialization)
         {
             SchoolHistory schoolHistory = new SchoolHistory();
-
-            //TODO: Change so that it will produce incrimental none-duplicate IDs.
+            
             schoolHistory.Type = Type;
             schoolHistory.Name = Name;
             schoolHistory.ProgramTrackSpecialization = ProgramTrackSpecialization;
@@ -72,8 +68,7 @@ namespace Enrollment_System.Enrollment
         public static Student getStudent(String FirstName, String MiddleName, String LastName, String SuffixName, String Gender, String Status, String Citizenship, DateTime BirthDate)
         {
             Student student = new Student();
-
-            //TODO: Change so that it will produce incrimental none-duplicate IDs.
+            
             student.FirstName = FirstName;
             student.MiddleName = MiddleName;
             student.LastName = LastName;
