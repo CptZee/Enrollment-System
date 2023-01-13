@@ -19,5 +19,6 @@ namespace Enrollment_System.Data
         public String SchoolYear { get; set; }
         public String Term { get; set; }
         public DateTime SubmissionDate { get; set; }
+        public String Status { get; set; }
     }
 }

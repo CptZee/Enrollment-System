@@ -51,7 +51,7 @@
             // 
             this.btnCheck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCheck.Location = new System.Drawing.Point(200, 202);
+            this.btnCheck.Location = new System.Drawing.Point(203, 197);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(75, 23);
             this.btnCheck.TabIndex = 1;
@@ -72,7 +72,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(107, 179);
+            this.label1.Location = new System.Drawing.Point(98, 150);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 3;
@@ -80,7 +80,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(189, 176);
+            this.textBox1.Location = new System.Drawing.Point(180, 147);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(162, 20);
             this.textBox1.TabIndex = 4;

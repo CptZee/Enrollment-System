@@ -53,13 +53,21 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\Address.cs" />
+    <Compile Include="Data\AddressManager.cs" />
     <Compile Include="Data\Admin.cs" />
+    <Compile Include="Data\AdminManager.cs" />
     <Compile Include="Data\ApplicationForm.cs" />
+    <Compile Include="Data\ApplicationFormsManager.cs" />
     <Compile Include="Data\Contact.cs" />
-    <Compile Include="Data\Courses.cs" />
+    <Compile Include="Data\ContactManager.cs" />
+    <Compile Include="Data\Course.cs" />
+    <Compile Include="Data\CoursesManager.cs" />
     <Compile Include="Data\Guardian.cs" />
+    <Compile Include="Data\GuardianManager.cs" />
     <Compile Include="Data\SchoolHistory.cs" />
+    <Compile Include="Data\SchoolHistoryManager.cs" />
     <Compile Include="Data\Student.cs" />
+    <Compile Include="Data\StudentManager.cs" />
     <Compile Include="Enrollment\FormData.cs" />
     <Compile Include="Menus\AdminFrm.cs">
       <SubType>Form</SubType>
@@ -135,7 +143,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Student Enrollment System.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ENROLLMENT.png" />
   </ItemGroup>

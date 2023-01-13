@@ -21,7 +21,7 @@ namespace Enrollment_System.Menus
 
         private void EnrollFrm_Load(object sender, EventArgs e)
         {
-
+            loadComboBoxes();
         }
 
         private void openGuardianInfo()
@@ -31,6 +31,46 @@ namespace Enrollment_System.Menus
             frm.ShowDialog();
             this.Close();
         }
+
+        private void loadComboBoxes()
+        {
+            cbGender.Items.Add("Male");
+            cbGender.Items.Add("Female");
+            cbStatus.Items.Add("Single");
+            cbStatus.Items.Add("Married");
+            cbAdmit.Items.Add("New Student");
+            cbAdmit.Items.Add("Transferee");
+            cbYearLvl.Items.Add("First Year Level");
+            cbYearLvl.Items.Add("Second Year Level");
+            cbYearLvl.Items.Add("Third Year Level");
+            cbYearLvl.Items.Add("Fourth Year Level");
+            cbYearLvl.Items.Add("Fourth Year Level");
+            cbSY.Items.Add("2022-2023");
+            cbSY.Items.Add("2023-2024");
+            cbTerm.Items.Add("");
+            cbSchoolType.Items.Add("Primary");
+            cbSchoolType.Items.Add("Elementary");
+            cbSchoolType.Items.Add("Highschool");
+            cbSchoolType.Items.Add("Junior Highschool");
+            cbSchoolType.Items.Add("Senior Highschool");
+            cbSchoolType.Items.Add("Alternative Learning System Accrediation & Equivalency");
+            cbSchoolType.Items.Add("College");
+            cbSchoolType.Items.Add("Masteral");
+            cbSchoolType.Items.Add("Doctorial");
+        }
+
+        private void cbSY_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSY.SelectedItem.ToString().Equals("2022-2023"))
+            {
+                cbTerm.Items[0] = "2nd Term";
+            }
+            if (cbSY.SelectedItem.ToString().Equals("2023-2024"))
+            {
+                cbTerm.Items[0] = "1st Term";
+            }
+        }
+
 
         //A bit messy but does the job done for now.
         private Boolean verifyForm()
@@ -156,7 +196,15 @@ namespace Enrollment_System.Menus
                 return false;
             }
 
+
+
+            StudentManager studentManager = StudentManager.getInstance();
+            AddressManager addressManager = AddressManager.getInstance();
+            ContactManager contactManager = ContactManager.getInstance();
+            SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
+
             Student student = FormData.getStudent(firstName, middleName, lastName, suffixName, gender, status, citizenship, birthdate);
+
             Address address = FormData.getAddress(streetno, street, subdivision, barangay, city, province, zipCode);
             Contact contact = FormData.getContact(telephone, mobile, email);
             SchoolHistory schoolHistory = FormData.getSchoolHistory(type, name, program);
@@ -173,35 +221,28 @@ namespace Enrollment_System.Menus
             application.YearLevel = yearLevel;
             application.Term = term;
 
+            
+
+
             return true;
         }
 
-        private void label36_Click(object sender, EventArgs e)
+        private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label43_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label44_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label47_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox11_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
+        private void tbMobile_TextChanged(object sender, EventArgs e)
         {
 
         }
