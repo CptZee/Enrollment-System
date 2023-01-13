@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.Button btnProceed;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnrollFrm));
+            System.Windows.Forms.Button button1;
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label64 = new System.Windows.Forms.Label();
@@ -129,6 +130,14 @@
             this.cbCourse = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label104 = new System.Windows.Forms.Label();
+            this.label103 = new System.Windows.Forms.Label();
+            this.label102 = new System.Windows.Forms.Label();
+            this.label101 = new System.Windows.Forms.Label();
+            this.label100 = new System.Windows.Forms.Label();
+            this.label99 = new System.Windows.Forms.Label();
+            this.label98 = new System.Windows.Forms.Label();
+            this.label97 = new System.Windows.Forms.Label();
             this.label96 = new System.Windows.Forms.Label();
             this.label95 = new System.Windows.Forms.Label();
             this.label94 = new System.Windows.Forms.Label();
@@ -180,16 +189,9 @@
             this.label66 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label97 = new System.Windows.Forms.Label();
-            this.label98 = new System.Windows.Forms.Label();
-            this.label99 = new System.Windows.Forms.Label();
-            this.label100 = new System.Windows.Forms.Label();
-            this.label101 = new System.Windows.Forms.Label();
-            this.label102 = new System.Windows.Forms.Label();
-            this.label103 = new System.Windows.Forms.Label();
-            this.label104 = new System.Windows.Forms.Label();
             this.btn_back = new System.Windows.Forms.Button();
             btnProceed = new System.Windows.Forms.Button();
+            button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -327,7 +329,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1076, 604);
+            this.tabPage1.Size = new System.Drawing.Size(1078, 604);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "New Student";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1252,6 +1254,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(button1);
             this.tabPage2.Controls.Add(this.label104);
             this.tabPage2.Controls.Add(this.label103);
             this.tabPage2.Controls.Add(this.label102);
@@ -1318,6 +1321,102 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Existing Student";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label104
+            // 
+            this.label104.AutoSize = true;
+            this.label104.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label104.ForeColor = System.Drawing.Color.Red;
+            this.label104.Location = new System.Drawing.Point(633, 531);
+            this.label104.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label104.Name = "label104";
+            this.label104.Size = new System.Drawing.Size(12, 13);
+            this.label104.TabIndex = 112;
+            this.label104.Text = "*";
+            // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.label103.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label103.ForeColor = System.Drawing.Color.Red;
+            this.label103.Location = new System.Drawing.Point(347, 531);
+            this.label103.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(12, 13);
+            this.label103.TabIndex = 111;
+            this.label103.Text = "*";
+            // 
+            // label102
+            // 
+            this.label102.AutoSize = true;
+            this.label102.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label102.ForeColor = System.Drawing.Color.Red;
+            this.label102.Location = new System.Drawing.Point(95, 531);
+            this.label102.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(12, 13);
+            this.label102.TabIndex = 110;
+            this.label102.Text = "*";
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label101.ForeColor = System.Drawing.Color.Red;
+            this.label101.Location = new System.Drawing.Point(638, 456);
+            this.label101.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(12, 13);
+            this.label101.TabIndex = 109;
+            this.label101.Text = "*";
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label100.ForeColor = System.Drawing.Color.Red;
+            this.label100.Location = new System.Drawing.Point(373, 456);
+            this.label100.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(12, 13);
+            this.label100.TabIndex = 108;
+            this.label100.Text = "*";
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label99.ForeColor = System.Drawing.Color.Red;
+            this.label99.Location = new System.Drawing.Point(147, 456);
+            this.label99.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(12, 13);
+            this.label99.TabIndex = 107;
+            this.label99.Text = "*";
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label98.ForeColor = System.Drawing.Color.Red;
+            this.label98.Location = new System.Drawing.Point(830, 376);
+            this.label98.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(12, 13);
+            this.label98.TabIndex = 106;
+            this.label98.Text = "*";
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label97.ForeColor = System.Drawing.Color.Red;
+            this.label97.Location = new System.Drawing.Point(676, 374);
+            this.label97.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(12, 13);
+            this.label97.TabIndex = 105;
+            this.label97.Text = "*";
             // 
             // label96
             // 
@@ -1795,117 +1894,30 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Existing Student";
             // 
-            // label97
-            // 
-            this.label97.AutoSize = true;
-            this.label97.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label97.ForeColor = System.Drawing.Color.Red;
-            this.label97.Location = new System.Drawing.Point(676, 374);
-            this.label97.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label97.Name = "label97";
-            this.label97.Size = new System.Drawing.Size(12, 13);
-            this.label97.TabIndex = 105;
-            this.label97.Text = "*";
-            // 
-            // label98
-            // 
-            this.label98.AutoSize = true;
-            this.label98.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label98.ForeColor = System.Drawing.Color.Red;
-            this.label98.Location = new System.Drawing.Point(830, 376);
-            this.label98.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(12, 13);
-            this.label98.TabIndex = 106;
-            this.label98.Text = "*";
-            // 
-            // label99
-            // 
-            this.label99.AutoSize = true;
-            this.label99.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label99.ForeColor = System.Drawing.Color.Red;
-            this.label99.Location = new System.Drawing.Point(147, 456);
-            this.label99.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label99.Name = "label99";
-            this.label99.Size = new System.Drawing.Size(12, 13);
-            this.label99.TabIndex = 107;
-            this.label99.Text = "*";
-            // 
-            // label100
-            // 
-            this.label100.AutoSize = true;
-            this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label100.ForeColor = System.Drawing.Color.Red;
-            this.label100.Location = new System.Drawing.Point(373, 456);
-            this.label100.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(12, 13);
-            this.label100.TabIndex = 108;
-            this.label100.Text = "*";
-            // 
-            // label101
-            // 
-            this.label101.AutoSize = true;
-            this.label101.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label101.ForeColor = System.Drawing.Color.Red;
-            this.label101.Location = new System.Drawing.Point(638, 456);
-            this.label101.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label101.Name = "label101";
-            this.label101.Size = new System.Drawing.Size(12, 13);
-            this.label101.TabIndex = 109;
-            this.label101.Text = "*";
-            // 
-            // label102
-            // 
-            this.label102.AutoSize = true;
-            this.label102.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label102.ForeColor = System.Drawing.Color.Red;
-            this.label102.Location = new System.Drawing.Point(95, 531);
-            this.label102.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label102.Name = "label102";
-            this.label102.Size = new System.Drawing.Size(12, 13);
-            this.label102.TabIndex = 110;
-            this.label102.Text = "*";
-            // 
-            // label103
-            // 
-            this.label103.AutoSize = true;
-            this.label103.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label103.ForeColor = System.Drawing.Color.Red;
-            this.label103.Location = new System.Drawing.Point(347, 531);
-            this.label103.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label103.Name = "label103";
-            this.label103.Size = new System.Drawing.Size(12, 13);
-            this.label103.TabIndex = 111;
-            this.label103.Text = "*";
-            // 
-            // label104
-            // 
-            this.label104.AutoSize = true;
-            this.label104.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label104.ForeColor = System.Drawing.Color.Red;
-            this.label104.Location = new System.Drawing.Point(633, 531);
-            this.label104.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label104.Name = "label104";
-            this.label104.Size = new System.Drawing.Size(12, 13);
-            this.label104.TabIndex = 112;
-            this.label104.Text = "*";
-            // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(528, 620);
+            this.btn_back.Location = new System.Drawing.Point(539, 619);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(75, 23);
             this.btn_back.TabIndex = 113;
             this.btn_back.Text = "Back";
             this.btn_back.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            button1.Location = new System.Drawing.Point(523, 575);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(75, 23);
+            button1.TabIndex = 114;
+            button1.Text = "Proceed";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // EnrollFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1129, 646);
+            this.ClientSize = new System.Drawing.Size(1129, 645);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
