@@ -232,5 +232,20 @@ namespace Enrollment_System.Menus
 
             return true;
         }
+
+        private void cbExPrefSched_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbExProg_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbExTerm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
