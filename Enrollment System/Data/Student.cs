@@ -13,5 +13,7 @@ namespace Enrollment_System.Data
         public String Status { get; set; }
         public String Citizenship { get; set; }
         public DateTime BirthDate { get; set; }
+        public String Birthplace { get; set; }
+        public String Religion { get; set; }
     }
 }

@@ -41,5 +41,16 @@ namespace Enrollment_System.Data
                 return;
             contacts.RemoveAt(contacts.Count - 1);
         }
+
+        public Contact find(int Id)
+        {
+            for (int i = 0; i < contacts.Count; i++)
+            {
+                Contact s = (Contact)contacts[i];
+                if (s.Id == Id)
+                    return s;
+            }
+            return null;
+        }
     }
 }

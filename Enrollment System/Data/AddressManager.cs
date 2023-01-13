@@ -41,5 +41,15 @@ namespace Enrollment_System.Data
                 return;
             addresses.RemoveAt(addresses.Count - 1);
         }
+        public Address find(int Id)
+        {
+            for (int i = 0; i < addresses.Count; i++)
+            {
+                Address s = (Address)addresses[i];
+                if (s.Id == Id)
+                    return s;
+            }
+            return null;
+        }
     }
 }

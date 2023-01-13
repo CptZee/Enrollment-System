@@ -40,5 +40,15 @@ namespace Enrollment_System.Data
                 return;
             guardians.RemoveAt(guardians.Count - 1);
         }
+        public Guardian find(int Id)
+        {
+            for (int i = 0; i < guardians.Count; i++)
+            {
+                Guardian s = (Guardian)guardians[i];
+                if (s.Id == Id)
+                    return s;
+            }
+            return null;
+        }
     }
 }
