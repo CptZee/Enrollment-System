@@ -203,7 +203,7 @@ namespace Enrollment_System.Menus
             ContactManager contactManager = ContactManager.getInstance();
             SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
 
-            Student student = FormData.getStudent(firstName, middleName, lastName, suffixName, gender, status, citizenship, birthdate);
+            Student student = FormData.getStudent(firstName, middleName, lastName, suffixName, gender, status, citizenship, birthdate, birthplace, religion);
             student.Id = studentManager.retrieveRecentID() + 1;
             Address address = FormData.getAddress(streetno, street, subdivision, barangay, city, province, zipCode);
             address.Id = addressManager.retrieveRecentID() + 1;
@@ -223,6 +223,7 @@ namespace Enrollment_System.Menus
             application.AddressID = address.Id;
             application.StudentID = student.Id;
             application.ContactID = contact.Id;
+            application.SchoolYear = schoolYear;
             application.SchoolHistoryID = schoolHistory.Id;
             application.Course = course;
             application.AdmitType = admitType;
