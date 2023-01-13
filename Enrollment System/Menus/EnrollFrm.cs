@@ -204,10 +204,18 @@ namespace Enrollment_System.Menus
             SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
 
             Student student = FormData.getStudent(firstName, middleName, lastName, suffixName, gender, status, citizenship, birthdate);
-
+            student.Id = studentManager.retrieveRecentID() + 1;
             Address address = FormData.getAddress(streetno, street, subdivision, barangay, city, province, zipCode);
+            address.Id = addressManager.retrieveRecentID() + 1;
             Contact contact = FormData.getContact(telephone, mobile, email);
+            contact.Id = contactManager.retrieveRecentID()+ 1;
             SchoolHistory schoolHistory = FormData.getSchoolHistory(type, name, program);
+            schoolHistory.Id = schoolHistoryManager.retrieveRecentID() + 1;
+
+            studentManager.addStudent(student);
+            addressManager.addAddress(address);
+            contactManager.addContact(contact);
+            schoolHistoryManager.addSchoolHistory(schoolHistory);
 
             application = new ApplicationForm();
             //TODO: Change so that it will produce incrimental none-duplicate IDs.
@@ -220,9 +228,6 @@ namespace Enrollment_System.Menus
             application.AdmitType = admitType;
             application.YearLevel = yearLevel;
             application.Term = term;
-
-            
-
 
             return true;
         }
@@ -246,5 +251,7 @@ namespace Enrollment_System.Menus
         {
 
         }
+
+
     }
 }

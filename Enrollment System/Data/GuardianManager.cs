@@ -26,5 +26,19 @@ namespace Enrollment_System.Data
         {
             guardians.Add(guardian);
         }
+        public int retrieveRecentID()
+        {
+            if (guardians.Count == 0)
+                return -1;
+            Guardian x = (Guardian)guardians[guardians.Count - 1];
+            return x.Id;
+        }
+
+        public void removeRecent()
+        {
+            if (guardians.Count == 0)
+                return;
+            guardians.RemoveAt(guardians.Count - 1);
+        }
     }
 }
