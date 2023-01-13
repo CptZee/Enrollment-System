@@ -1,6 +1,7 @@
 ﻿using System;
 using Enrollment_System.Data;
 using System.Data.SqlClient;
+using Enrollment_System.Data;
 
 namespace Enrollment_System.Util
 {
@@ -326,13 +327,13 @@ namespace Enrollment_System.Util
                     [ContactID] INT NOT NULL,
                     [SchoolHistoryID] INT NOT NULL,
                     [GuardianID] INT NOT NULL,
-                    [CourseID] NCHAR(30) NOT NULL,
+                    [Course] NCHAR(30) NOT NULL,
                     [AdmitType] NCHAR(30) NOT NULL,
                     [YearLevel] NCHAR(30) NOT NULL,
                     [SchoolYear] NCHAR(30) NOT NULL,
                     [Term] NCHAR(30) NOT NULL,
                     [SubmissionDate] DATE NOT NULL,
-                    [Status] NCHAR(30) NOT NULL
+                    [Status] NCHAR(30) NOT NULL 
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -345,66 +346,280 @@ namespace Enrollment_System.Util
             }
         }
 
-
         /**
-         * A simple code that will return the users table
-         * NOTE: DO NOT RUN ON THE MAIN THREAD!
-         * 
+         * A group of methods that will load the database into the
+         * program.
+         *  
          */
-        /*
-       public static void getUsers()
-       {
-           UserManager userManager = UserManager.Instance;
-           SqlConnection connection = GetConnection();
-           String query = @"SELECT Id, FName, MName, LName, Age, Gender, Municipality, City, PostalCode, 
-                               ContactNumber, Email, StudNo, Program, YearLvl, Semester, IsRegular FROM Users";
-           try {
-               connection.Open();
-               SqlCommand command = new SqlCommand(query, connection);
-               using (SqlDataReader reader = command.ExecuteReader())
-               {
-                   while (reader.Read())
-                   {
-                       //Check if the user has a student no. which is required to become a student,
-                       //if so, it will create an instance of Student and if not, a simple User.
-                       User user;
-                       if (reader.GetValue(11) == null)
-                           user = new User();
-                       else
-                       {
-                           user = new Student
-                           {
-                               StudNo = reader.GetString(11),
-                               Program = reader.GetString(12),
-                               YearLvl = reader.GetString(13),
-                               Semester = reader.GetString(14),
-                               isRegular = reader.GetBoolean(15)
-                           };
-                       }
-                       user.Id = reader.GetInt32(0);
-                       user.FName = reader.GetString(1);
-                       user.MName = reader.GetString(2);
-                       user.LName = reader.GetString(3);
-                       user.Age = reader.GetInt32(4);
-                       user.Gender = reader.GetString(5);
-                       user.Municipality = reader.GetString(6);
-                       user.City = reader.GetString(7);
-                       user.PostalCode = reader.GetString(8);
-                       user.ContactNumber = reader.GetString(9);
-                       user.Email = reader.GetString(10);
+        public static void loadAddresses()
+        {
+            AddressManager addressManager = AddressManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT Id, StreetUnitNumber, Street, SubdivisionVillageBldg, Barangay, City, Province, ZipCode FROM Addresses";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Address address = new Address();
 
-                       userManager.addUser(user);
-                   }
-               }
+                        address.Id = reader.GetInt32(0);
+                        address.StreetUnitNumber = reader.GetString(1);
+                        address.Street = reader.GetString(2);
+                        address.SubdivisionVillageBldg = reader.GetString(3);
+                        address.Barangay = reader.GetString(4);
+                        address.City = reader.GetString(5);
+                        address.Province = reader.GetString(6);
+                        address.ZipCode = reader.GetString(7);
 
-               connection.Close();
-               Console.WriteLine("DEBUG: User list loaded.");
-           }
-           catch (SqlException)
-           {
-               Console.WriteLine("ERROR: Unable to load user list!");
-           }
-       }
+                        addressManager.addAddress(address);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: Address list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load address list!");
+            }
+        }
+
+        public static void loadAdmins()
+        {
+            AdminManager adminManager = AdminManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT Id, Username, Password FROM Admins";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Admin admin = new Admin();
+                        admin.ID = reader.GetInt32(0);
+                        admin.username = reader.GetString(1);
+                        admin.password = reader.GetString(2);
+
+                        adminManager.addAdmin(admin);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: Admin list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load admin list!");
+            }
+        }
+
+        public static void loadContacts()
+        {
+            ContactManager contactManager = ContactManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT Id, TelephoneNo, MobileNo, Email FROM Contacts";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Contact contact = new Contact();
+
+                        contact.Id = reader.GetInt32(0);
+                        contact.TelephoneNo = reader.GetString(1);
+                        contact.MobileNo = reader.GetString(2);
+                        contact.Email = reader.GetString(3);
+
+                        contactManager.addContact(contact);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: Contact list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load contact list!");
+            }
+        }
+
+        public static void loadCourses()
+        {
+            CourseManager courseManager = CourseManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT Id, Name FROM Courses";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Course course = new Course();
+                        course.ID = reader.GetInt32(0);
+                        course.name = reader.GetString(1);
+
+                        courseManager.addCourses(course);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: Course list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load course list!");
+            }
+        }
+
+        public static void loadGuardians()
+        {
+            GuardianManager guardianManager = GuardianManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT Id, FirstName, LastName, MiddleInitial, SuffixName, MobileNumber, Email, Occupation, Relation FROM Guardians";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Guardian guardian = new Guardian();
+                        guardian.Id = reader.GetInt32(0);
+                        guardian.FirstName = reader.GetString(1);
+                        guardian.LastName = reader.GetString(2);
+                        guardian.MiddleInitial = reader.GetString(3);
+                        guardian.SuffixName = reader.GetString(4);
+                        guardian.MobileNumber = reader.GetString(5);
+                        guardian.Email = reader.GetString(6);
+                        guardian.Occupation = reader.GetString(7);
+                        guardian.Relation = reader.GetString(8);
+
+                        guardianManager.addGuardian(guardian);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: Guardian list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load guardian list!");
+            }
+        }
+
+        public static void loadSchoolHistory()
+        {
+            SchoolHistoryManager schoolHistories = SchoolHistoryManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT Id, Type, Name, ProgramTrackSpecialization FROM SchoolHistory";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        SchoolHistory schoolHistory = new SchoolHistory();
+                        schoolHistory.Id = reader.GetInt32(0);
+                        schoolHistory.Type = reader.GetString(1);
+                        schoolHistory.Name = reader.GetString(2);
+                        schoolHistory.ProgramTrackSpecialization = reader.GetString(3);
+
+                        schoolHistories.addSchoolHistory(schoolHistory);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: School History list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load school history list!");
+            }
+        }
+
+        public static void loadStudents()
+        {
+            StudentManager studentManager = StudentManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT Id, FirstName, MiddleName, LastName, SuffixName, Gender, Status, Citizenship, BirthDate  FROM Students";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Student student = new Student();
+                        student.Id = reader.GetInt32(0);
+                        student.FirstName = reader.GetString(1);
+                        student.MiddleName = reader.GetString(2);
+                        student.LastName = reader.GetString(3);
+                        student.SuffixName = reader.GetString(4);
+                        student.Gender = reader.GetString(5);
+                        student.Status = reader.GetString(6);
+                        student.Citizenship = reader.GetString(7);
+                        student.BirthDate = reader.GetDateTime(8);
+
+                        studentManager.addStudent(student);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: School History list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load school history list!");
+            }
+        }
+
+        public static void loadApplicationForms()
+        {
+            ApplicationFormsManager applicationFormsManager = ApplicationFormsManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT Id, StudentID, AddressID, ContactID, SchoolHistoryID, GuardianID, Course, AdmitType, YearLevel, SchoolYear, Term, SubmissionDate, Status FROM Applications";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ApplicationForm applicationForm = new ApplicationForm();
+                        applicationForm.ID = reader.GetInt32(0);
+                        applicationForm.StudentID = reader.GetInt32(1);
+                        applicationForm.AddressID = reader.GetInt32(2);
+                        applicationForm.ContactID = reader.GetInt32(3);
+                        applicationForm.SchoolHistoryID = reader.GetInt32(4);
+                        applicationForm.GuardianID = reader.GetInt32(5);
+                        applicationForm.Course = reader.GetString(6);
+                        applicationForm.AdmitType = reader.GetString(7);
+                        applicationForm.YearLevel = reader.GetString(8);
+                        applicationForm.SchoolYear = reader.GetString(9);
+                        applicationForm.Term = reader.GetString(10);
+                        applicationForm.SubmissionDate = reader.GetDateTime(11);
+                        applicationForm.Status = reader.GetString(12);
+
+                        applicationFormsManager.addApplicationForm(applicationForm);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: Application Form list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load application form list!");
+            }
+        }
 
        /**
        * A simple code that will add a user to the database

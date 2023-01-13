@@ -61,7 +61,7 @@
     <Compile Include="Data\Contact.cs" />
     <Compile Include="Data\ContactManager.cs" />
     <Compile Include="Data\Course.cs" />
-    <Compile Include="Data\CoursesManager.cs" />
+    <Compile Include="Data\CourseManager.cs" />
     <Compile Include="Data\Guardian.cs" />
     <Compile Include="Data\GuardianManager.cs" />
     <Compile Include="Data\SchoolHistory.cs" />
