@@ -31,6 +31,35 @@
             System.Windows.Forms.Button btnProceed;
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label35 = new System.Windows.Forms.Label();
+            this.tbSchoolProgram = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.tbSchoolName = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.cbSchoolType = new System.Windows.Forms.ComboBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.tbMobile = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.tbTelephone = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.tbZipCode = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.tbProvince = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.tbCity = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.tbBarangay = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.tbSubdivison = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.tbStreet = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.tbStreetUnit = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.tbReligion = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -66,40 +95,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.tbStreetUnit = new System.Windows.Forms.TextBox();
-            this.tbStreet = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.tbSubdivison = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.tbBarangay = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.tbCity = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.tbProvince = new System.Windows.Forms.TextBox();
-            this.tbZipCode = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.tbTelephone = new System.Windows.Forms.TextBox();
-            this.tbMobile = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.tbEmail = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.cbSchoolType = new System.Windows.Forms.ComboBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.tbSchoolName = new System.Windows.Forms.TextBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.tbSchoolProgram = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
             btnProceed = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // btnProceed
+            // 
+            btnProceed.Location = new System.Drawing.Point(465, 424);
+            btnProceed.Name = "btnProceed";
+            btnProceed.Size = new System.Drawing.Size(75, 23);
+            btnProceed.TabIndex = 62;
+            btnProceed.Text = "Proceed";
+            btnProceed.UseVisualStyleBackColor = true;
+            btnProceed.Click += new System.EventHandler(this.btnProcceed_Click);
             // 
             // tabControl1
             // 
@@ -186,6 +196,244 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "New Student";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(260, 395);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(0, 33);
+            this.label35.TabIndex = 61;
+            // 
+            // tbSchoolProgram
+            // 
+            this.tbSchoolProgram.Location = new System.Drawing.Point(856, 388);
+            this.tbSchoolProgram.Name = "tbSchoolProgram";
+            this.tbSchoolProgram.Size = new System.Drawing.Size(117, 20);
+            this.tbSchoolProgram.TabIndex = 60;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(704, 395);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(152, 13);
+            this.label34.TabIndex = 59;
+            this.label34.Text = "Program/Track/Specialization:";
+            // 
+            // tbSchoolName
+            // 
+            this.tbSchoolName.Location = new System.Drawing.Point(554, 392);
+            this.tbSchoolName.Name = "tbSchoolName";
+            this.tbSchoolName.Size = new System.Drawing.Size(146, 20);
+            this.tbSchoolName.TabIndex = 58;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(462, 395);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(86, 13);
+            this.label33.TabIndex = 57;
+            this.label33.Text = "Name of School:";
+            // 
+            // cbSchoolType
+            // 
+            this.cbSchoolType.FormattingEnabled = true;
+            this.cbSchoolType.Location = new System.Drawing.Point(339, 392);
+            this.cbSchoolType.Name = "cbSchoolType";
+            this.cbSchoolType.Size = new System.Drawing.Size(111, 21);
+            this.cbSchoolType.TabIndex = 56;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(263, 395);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(70, 13);
+            this.label32.TabIndex = 55;
+            this.label32.Text = "School Type:";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(260, 357);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(429, 33);
+            this.label31.TabIndex = 54;
+            this.label31.Text = "Current or Last School Attended";
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.Location = new System.Drawing.Point(731, 334);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(105, 20);
+            this.tbEmail.TabIndex = 53;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(649, 337);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(76, 13);
+            this.label30.TabIndex = 52;
+            this.label30.Text = "Email Address:";
+            // 
+            // tbMobile
+            // 
+            this.tbMobile.Location = new System.Drawing.Point(524, 330);
+            this.tbMobile.Name = "tbMobile";
+            this.tbMobile.Size = new System.Drawing.Size(105, 20);
+            this.tbMobile.TabIndex = 51;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(460, 337);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(61, 13);
+            this.label29.TabIndex = 50;
+            this.label29.Text = "Mobile No.:";
+            // 
+            // tbTelephone
+            // 
+            this.tbTelephone.Location = new System.Drawing.Point(345, 334);
+            this.tbTelephone.Name = "tbTelephone";
+            this.tbTelephone.Size = new System.Drawing.Size(105, 20);
+            this.tbTelephone.TabIndex = 49;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(263, 337);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(81, 13);
+            this.label28.TabIndex = 48;
+            this.label28.Text = "Telephone No.:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(260, 294);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(221, 33);
+            this.label27.TabIndex = 47;
+            this.label27.Text = "Contact Details:";
+            // 
+            // tbZipCode
+            // 
+            this.tbZipCode.Location = new System.Drawing.Point(689, 260);
+            this.tbZipCode.Name = "tbZipCode";
+            this.tbZipCode.Size = new System.Drawing.Size(100, 20);
+            this.tbZipCode.TabIndex = 46;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(631, 263);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(53, 13);
+            this.label26.TabIndex = 45;
+            this.label26.Text = "Zip Code:";
+            // 
+            // tbProvince
+            // 
+            this.tbProvince.Location = new System.Drawing.Point(509, 260);
+            this.tbProvince.Name = "tbProvince";
+            this.tbProvince.Size = new System.Drawing.Size(100, 20);
+            this.tbProvince.TabIndex = 44;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(451, 263);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(52, 13);
+            this.label25.TabIndex = 43;
+            this.label25.Text = "Province:";
+            // 
+            // tbCity
+            // 
+            this.tbCity.Location = new System.Drawing.Point(350, 260);
+            this.tbCity.Name = "tbCity";
+            this.tbCity.Size = new System.Drawing.Size(100, 20);
+            this.tbCity.TabIndex = 42;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(263, 263);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(87, 13);
+            this.label24.TabIndex = 41;
+            this.label24.Text = "City/Municipality:";
+            // 
+            // tbBarangay
+            // 
+            this.tbBarangay.Location = new System.Drawing.Point(881, 230);
+            this.tbBarangay.Name = "tbBarangay";
+            this.tbBarangay.Size = new System.Drawing.Size(92, 20);
+            this.tbBarangay.TabIndex = 40;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(824, 233);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(55, 13);
+            this.label23.TabIndex = 39;
+            this.label23.Text = "Barangay:";
+            // 
+            // tbSubdivison
+            // 
+            this.tbSubdivison.Location = new System.Drawing.Point(718, 230);
+            this.tbSubdivison.Name = "tbSubdivison";
+            this.tbSubdivison.Size = new System.Drawing.Size(100, 20);
+            this.tbSubdivison.TabIndex = 38;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(592, 233);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(129, 13);
+            this.label22.TabIndex = 37;
+            this.label22.Text = "Subdivision/Village/Bldg.:";
+            // 
+            // tbStreet
+            // 
+            this.tbStreet.Location = new System.Drawing.Point(486, 230);
+            this.tbStreet.Name = "tbStreet";
+            this.tbStreet.Size = new System.Drawing.Size(100, 20);
+            this.tbStreet.TabIndex = 36;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(451, 233);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(38, 13);
+            this.label21.TabIndex = 35;
+            this.label21.Text = "Street:";
+            // 
+            // tbStreetUnit
+            // 
+            this.tbStreetUnit.Location = new System.Drawing.Point(345, 230);
+            this.tbStreetUnit.Name = "tbStreetUnit";
+            this.tbStreetUnit.Size = new System.Drawing.Size(105, 20);
+            this.tbStreetUnit.TabIndex = 34;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(263, 233);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(76, 13);
+            this.label20.TabIndex = 33;
+            this.label20.Text = "Street#/Unit#:";
             // 
             // label19
             // 
@@ -395,6 +643,7 @@
             this.cbSY.Name = "cbSY";
             this.cbSY.Size = new System.Drawing.Size(121, 21);
             this.cbSY.TabIndex = 8;
+            this.cbSY.SelectedIndexChanged += new System.EventHandler(this.cbSY_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -472,7 +721,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(982, 432);
+            this.tabPage2.Size = new System.Drawing.Size(982, 452);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Existing Student";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -486,254 +735,6 @@
             this.label2.Size = new System.Drawing.Size(263, 37);
             this.label2.TabIndex = 0;
             this.label2.Text = "Existing Student";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(263, 233);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(76, 13);
-            this.label20.TabIndex = 33;
-            this.label20.Text = "Street#/Unit#:";
-            // 
-            // tbStreetUnit
-            // 
-            this.tbStreetUnit.Location = new System.Drawing.Point(345, 230);
-            this.tbStreetUnit.Name = "tbStreetUnit";
-            this.tbStreetUnit.Size = new System.Drawing.Size(105, 20);
-            this.tbStreetUnit.TabIndex = 34;
-            // 
-            // tbStreet
-            // 
-            this.tbStreet.Location = new System.Drawing.Point(486, 230);
-            this.tbStreet.Name = "tbStreet";
-            this.tbStreet.Size = new System.Drawing.Size(100, 20);
-            this.tbStreet.TabIndex = 36;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(451, 233);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(38, 13);
-            this.label21.TabIndex = 35;
-            this.label21.Text = "Street:";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(592, 233);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(129, 13);
-            this.label22.TabIndex = 37;
-            this.label22.Text = "Subdivision/Village/Bldg.:";
-            // 
-            // tbSubdivison
-            // 
-            this.tbSubdivison.Location = new System.Drawing.Point(718, 230);
-            this.tbSubdivison.Name = "tbSubdivison";
-            this.tbSubdivison.Size = new System.Drawing.Size(100, 20);
-            this.tbSubdivison.TabIndex = 38;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(824, 233);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(55, 13);
-            this.label23.TabIndex = 39;
-            this.label23.Text = "Barangay:";
-            // 
-            // tbBarangay
-            // 
-            this.tbBarangay.Location = new System.Drawing.Point(881, 230);
-            this.tbBarangay.Name = "tbBarangay";
-            this.tbBarangay.Size = new System.Drawing.Size(92, 20);
-            this.tbBarangay.TabIndex = 40;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(263, 263);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(87, 13);
-            this.label24.TabIndex = 41;
-            this.label24.Text = "City/Municipality:";
-            // 
-            // tbCity
-            // 
-            this.tbCity.Location = new System.Drawing.Point(350, 260);
-            this.tbCity.Name = "tbCity";
-            this.tbCity.Size = new System.Drawing.Size(100, 20);
-            this.tbCity.TabIndex = 42;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(451, 263);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(52, 13);
-            this.label25.TabIndex = 43;
-            this.label25.Text = "Province:";
-            // 
-            // tbProvince
-            // 
-            this.tbProvince.Location = new System.Drawing.Point(509, 260);
-            this.tbProvince.Name = "tbProvince";
-            this.tbProvince.Size = new System.Drawing.Size(100, 20);
-            this.tbProvince.TabIndex = 44;
-            // 
-            // tbZipCode
-            // 
-            this.tbZipCode.Location = new System.Drawing.Point(689, 260);
-            this.tbZipCode.Name = "tbZipCode";
-            this.tbZipCode.Size = new System.Drawing.Size(100, 20);
-            this.tbZipCode.TabIndex = 46;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(631, 263);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(53, 13);
-            this.label26.TabIndex = 45;
-            this.label26.Text = "Zip Code:";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(260, 294);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(221, 33);
-            this.label27.TabIndex = 47;
-            this.label27.Text = "Contact Details:";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(263, 337);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(81, 13);
-            this.label28.TabIndex = 48;
-            this.label28.Text = "Telephone No.:";
-            // 
-            // tbTelephone
-            // 
-            this.tbTelephone.Location = new System.Drawing.Point(345, 334);
-            this.tbTelephone.Name = "tbTelephone";
-            this.tbTelephone.Size = new System.Drawing.Size(105, 20);
-            this.tbTelephone.TabIndex = 49;
-            // 
-            // tbMobile
-            // 
-            this.tbMobile.Location = new System.Drawing.Point(524, 330);
-            this.tbMobile.Name = "tbMobile";
-            this.tbMobile.Size = new System.Drawing.Size(105, 20);
-            this.tbMobile.TabIndex = 51;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(460, 337);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(61, 13);
-            this.label29.TabIndex = 50;
-            this.label29.Text = "Mobile No.:";
-            // 
-            // tbEmail
-            // 
-            this.tbEmail.Location = new System.Drawing.Point(731, 334);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(105, 20);
-            this.tbEmail.TabIndex = 53;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(649, 337);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(76, 13);
-            this.label30.TabIndex = 52;
-            this.label30.Text = "Email Address:";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(260, 357);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(429, 33);
-            this.label31.TabIndex = 54;
-            this.label31.Text = "Current or Last School Attended";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(263, 395);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(70, 13);
-            this.label32.TabIndex = 55;
-            this.label32.Text = "School Type:";
-            // 
-            // cbSchoolType
-            // 
-            this.cbSchoolType.FormattingEnabled = true;
-            this.cbSchoolType.Location = new System.Drawing.Point(339, 392);
-            this.cbSchoolType.Name = "cbSchoolType";
-            this.cbSchoolType.Size = new System.Drawing.Size(111, 21);
-            this.cbSchoolType.TabIndex = 56;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(462, 395);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(86, 13);
-            this.label33.TabIndex = 57;
-            this.label33.Text = "Name of School:";
-            // 
-            // tbSchoolName
-            // 
-            this.tbSchoolName.Location = new System.Drawing.Point(554, 392);
-            this.tbSchoolName.Name = "tbSchoolName";
-            this.tbSchoolName.Size = new System.Drawing.Size(146, 20);
-            this.tbSchoolName.TabIndex = 58;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(704, 395);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(152, 13);
-            this.label34.TabIndex = 59;
-            this.label34.Text = "Program/Track/Specialization:";
-            // 
-            // tbSchoolProgram
-            // 
-            this.tbSchoolProgram.Location = new System.Drawing.Point(856, 388);
-            this.tbSchoolProgram.Name = "tbSchoolProgram";
-            this.tbSchoolProgram.Size = new System.Drawing.Size(117, 20);
-            this.tbSchoolProgram.TabIndex = 60;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(260, 395);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(0, 33);
-            this.label35.TabIndex = 61;
-            // 
-            // btnProceed
-            // 
-            btnProceed.Location = new System.Drawing.Point(465, 424);
-            btnProceed.Name = "btnProceed";
-            btnProceed.Size = new System.Drawing.Size(75, 23);
-            btnProceed.TabIndex = 62;
-            btnProceed.Text = "Proceed";
-            btnProceed.UseVisualStyleBackColor = true;
-            btnProceed.Click += new System.EventHandler(this.btnProcceed_Click);
             // 
             // EnrollFrm
             // 
