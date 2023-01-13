@@ -333,7 +333,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "New Student";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // label64
             // 
@@ -727,7 +726,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 63;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label35
             // 
@@ -820,7 +818,6 @@
             this.tbMobile.Name = "tbMobile";
             this.tbMobile.Size = new System.Drawing.Size(105, 20);
             this.tbMobile.TabIndex = 51;
-            this.tbMobile.TextChanged += new System.EventHandler(this.tbMobile_TextChanged);
             // 
             // label29
             // 
@@ -1250,7 +1247,6 @@
             this.label1.Size = new System.Drawing.Size(355, 85);
             this.label1.TabIndex = 0;
             this.label1.Text = "New Student";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tabPage2
             // 

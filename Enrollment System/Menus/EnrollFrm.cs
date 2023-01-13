@@ -232,27 +232,5 @@ namespace Enrollment_System.Menus
 
             return true;
         }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbMobile_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

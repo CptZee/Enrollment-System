@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Enrollment_System.Util;
 using Enrollment_System.Data;
 
 namespace Enrollment_System.Menus
@@ -22,6 +23,18 @@ namespace Enrollment_System.Menus
 
         private void btnStartOver_Click(object sender, EventArgs e)
         {
+            StudentManager studentManager = StudentManager.getInstance();
+            AddressManager addressManager = AddressManager.getInstance();
+            ContactManager contactManager = ContactManager.getInstance();
+            GuardianManager guardianManager = GuardianManager.getInstance();
+            SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
+
+            studentManager.removeRecent();
+            addressManager.removeRecent();
+            contactManager.removeRecent();
+            guardianManager.removeRecent();
+            schoolHistoryManager.removeRecent();
+
             this.Hide();
             EnrollFrm frm = new EnrollFrm();
             frm.ShowDialog();
@@ -30,7 +43,23 @@ namespace Enrollment_System.Menus
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            ApplicationFormsManager applicationManager = ApplicationFormsManager.getInstance();
+            StudentManager studentManager = StudentManager.getInstance();
+            AddressManager addressManager = AddressManager.getInstance();
+            ContactManager contactManager = ContactManager.getInstance();
+            GuardianManager guardianManager = GuardianManager.getInstance();
+            SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
 
+
+            application.SubmissionDate = DateTime.Today;
+            DatabaseHelper.addAddress(addressManager.find(application.AddressID));
+            DatabaseHelper.addApplicationForm(application);
+            DatabaseHelper.addContact(contactManager.find(application.ContactID));
+            DatabaseHelper.addGuardian(guardianManager.find(application.GuardianID));
+            DatabaseHelper.addSchoolHistory(schoolHistoryManager.find(application.SchoolHistoryID));
+            DatabaseHelper.addStudent(studentManager.find(application.StudentID));
+
+            applicationManager.addApplicationForm(application);
         }
 
         private void ApplicationConfrimationFrm_Load(object sender, EventArgs e)
@@ -61,6 +90,8 @@ namespace Enrollment_System.Menus
             lbl_SchoolType.Text = schoolHistoryManager.find(application.SchoolHistoryID).Type;
             lbl_NameofSchool.Text = schoolHistoryManager.find(application.SchoolHistoryID).Name;
             lbl_ProgramTrackSpecialization.Text = schoolHistoryManager.find(application.SchoolHistoryID).ProgramTrackSpecialization;
+
+
         }
     }
 }

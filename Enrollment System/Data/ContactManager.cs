@@ -35,7 +35,7 @@ namespace Enrollment_System.Data
             return x.Id;
         }
 
-        public void removeRecentID()
+        public void removeRecent()
         {
             if (contacts.Count == 0)
                 return;
