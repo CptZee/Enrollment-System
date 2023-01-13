@@ -285,7 +285,9 @@ namespace Enrollment_System.Util
                     [Gender] NCHAR(30) NOT NULL,
                     [Status] NCHAR(30) NOT NULL,
                     [Citizenship] NCHAR(30) NOT NULL,
-                    [BirthDate] DATE NOT NULL
+                    [BirthDate] DATE NOT NULL,
+                    [Birthplace] NCHAR(30) NOT NULL,
+                    [Religion] NCHAR(30)  NOT NULL
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -547,7 +549,7 @@ namespace Enrollment_System.Util
         {
             StudentManager studentManager = StudentManager.getInstance();
             SqlConnection connection = GetConnection();
-            String query = @"SELECT Id, FirstName, MiddleName, LastName, SuffixName, Gender, Status, Citizenship, BirthDate  FROM Students";
+            String query = @"SELECT Id, FirstName, MiddleName, LastName, SuffixName, Gender, Status, Citizenship, BirthDate, Birthplace, Religion  FROM Students";
             try
             {
                 connection.Open();
@@ -566,6 +568,8 @@ namespace Enrollment_System.Util
                         student.Status = reader.GetString(6);
                         student.Citizenship = reader.GetString(7);
                         student.BirthDate = reader.GetDateTime(8);
+                        student.Birthplace = reader.GetString(9);
+                        student.Religion = reader.GetString(10);
 
                         studentManager.addStudent(student);
                     }
@@ -812,7 +816,7 @@ namespace Enrollment_System.Util
         public static void addStudent(Student student)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Courses(Id, FirstName, MiddleName, LastName, Gender, Status, Citizenship, BirthDate) VALUES(@Id, @FirstName, @MiddleName, @LastName, @Gender, @Status, @Citizenship, @BirthDate)";
+            String query = "INSERT INTO Courses(Id, FirstName, MiddleName, LastName, Gender, Status, Citizenship, BirthDate, Birthplace, Religion) VALUES(@Id, @FirstName, @MiddleName, @LastName, @Gender, @Status, @Citizenship, @BirthDate, @Birthplace, @Religion)";
             try
             {
                 connection.Open();
@@ -826,6 +830,8 @@ namespace Enrollment_System.Util
                     command.Parameters.AddWithValue("@Status", student.Status);
                     command.Parameters.AddWithValue("@Citizenship", student.Citizenship);
                     command.Parameters.AddWithValue("@BirthDate", student.BirthDate);
+                    command.Parameters.AddWithValue("@Birthplace", student.Birthplace);
+                    command.Parameters.AddWithValue("@Religion", student.Religion);
 
                     command.ExecuteNonQuery();
                 }

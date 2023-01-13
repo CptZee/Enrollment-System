@@ -41,5 +41,15 @@ namespace Enrollment_System.Data
                 return;
             admins.RemoveAt(admins.Count - 1);
         }
+        public Admin find(int Id)
+        {
+            for (int i = 0; i < admins.Count; i++)
+            {
+                Admin s = (Admin)admins[i];
+                if (s.ID == Id)
+                    return s;
+            }
+            return null;
+        }
     }
 }

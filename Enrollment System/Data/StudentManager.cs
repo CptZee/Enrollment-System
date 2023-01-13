@@ -38,5 +38,16 @@ namespace Enrollment_System.Data
                 return;
             students.RemoveAt(students.Count - 1);
         }
+
+        public Student find(int Id)
+        {
+            for(int i = 0; i < students.Count; i++)
+            {
+                Student s = (Student)students[i];
+                if (s.Id == Id)
+                    return s;
+            }
+            return null;
+        }
     }
 }

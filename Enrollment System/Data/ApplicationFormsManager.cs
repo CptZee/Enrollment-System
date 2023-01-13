@@ -41,5 +41,15 @@ namespace Enrollment_System.Data
                 return;
             applicationForms.RemoveAt(applicationForms.Count - 1);
         }
+        public ApplicationForm find(int Id)
+        {
+            for (int i = 0; i < applicationForms.Count; i++)
+            {
+                ApplicationForm s = (ApplicationForm)applicationForms[i];
+                if (s.ID == Id)
+                    return s;
+            }
+            return null;
+        }
     }
 }

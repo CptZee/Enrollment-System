@@ -41,5 +41,15 @@ namespace Enrollment_System.Data
                 return;
             schoolHistories.RemoveAt(schoolHistories.Count - 1);
         }
+        public SchoolHistory find(int Id)
+        {
+            for (int i = 0; i < schoolHistories.Count; i++)
+            {
+                SchoolHistory s = (SchoolHistory)schoolHistories[i];
+                if (s.Id == Id)
+                    return s;
+            }
+            return null;
+        }
     }
 }
