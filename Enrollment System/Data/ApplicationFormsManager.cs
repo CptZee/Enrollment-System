@@ -27,11 +27,12 @@ namespace Enrollment_System.Data
             applicationForms.Add(application);
         }
 
-        public ApplicationForm retrieveRecent()
+        public int retrieveRecentID()
         {
             if (applicationForms.Count == 0)
-                return null;
-            return (ApplicationForm) applicationForms[applicationForms.Count - 1];
+                return -1;
+            ApplicationForm x = (ApplicationForm) applicationForms[applicationForms.Count - 1];
+            return x.ID;
         }
 
         public void removeRecent()

@@ -204,13 +204,13 @@ namespace Enrollment_System.Menus
             SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
 
             Student student = FormData.getStudent(firstName, middleName, lastName, suffixName, gender, status, citizenship, birthdate);
-            student.Id = studentManager.retrieveRecent().Id + 1;
+            student.Id = studentManager.retrieveRecentID() + 1;
             Address address = FormData.getAddress(streetno, street, subdivision, barangay, city, province, zipCode);
-            address.Id = addressManager.retrieveRecent().Id + 1;
+            address.Id = addressManager.retrieveRecentID() + 1;
             Contact contact = FormData.getContact(telephone, mobile, email);
-            contact.Id = contactManager.retrieveRecent().Id + 1;
+            contact.Id = contactManager.retrieveRecentID()+ 1;
             SchoolHistory schoolHistory = FormData.getSchoolHistory(type, name, program);
-            schoolHistory.Id = schoolHistoryManager.retrieveRecent().Id + 1;
+            schoolHistory.Id = schoolHistoryManager.retrieveRecentID() + 1;
 
             studentManager.addStudent(student);
             addressManager.addAddress(address);

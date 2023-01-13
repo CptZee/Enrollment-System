@@ -27,11 +27,12 @@ namespace Enrollment_System.Data
             schoolHistories.Add(schoolHistoy);
         }
 
-        public SchoolHistory retrieveRecent()
+        public int retrieveRecentID()
         {
             if (schoolHistories.Count == 0)
-                return null;
-            return (SchoolHistory)schoolHistories[schoolHistories.Count - 1];
+                return -1;
+            SchoolHistory student = (SchoolHistory) schoolHistories[schoolHistories.Count - 1];
+            return student.Id;
         }
 
         public void removeRecent()

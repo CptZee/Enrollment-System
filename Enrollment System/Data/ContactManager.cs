@@ -27,14 +27,15 @@ namespace Enrollment_System.Data
             contacts.Add(contact);
         }
 
-        public Contact retrieveRecent()
+        public int retrieveRecentID()
         {
             if (contacts.Count == 0)
-                return null;
-            return (Contact)contacts[contacts.Count - 1];
+                return -1;
+            Contact x = (Contact)contacts[contacts.Count - 1];
+            return x.Id;
         }
 
-        public void removeRecent()
+        public void removeRecentID()
         {
             if (contacts.Count == 0)
                 return;

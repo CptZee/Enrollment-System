@@ -24,11 +24,12 @@ namespace Enrollment_System.Data
         }
 
 
-        public Student retrieveRecent()
+        public int retrieveRecentID()
         {
             if (students.Count == 0)
-                return null;
-            return (Student)students[students.Count - 1];
+                return -1;
+            Student student = (Student)students[students.Count - 1];
+            return student.Id;
         }
 
         public void removeRecent()

@@ -27,11 +27,12 @@ namespace Enrollment_System.Data
             addresses.Add(address);
         }
 
-        public Address retrieveRecent()
+        public int retrieveRecentID()
         {
             if (addresses.Count == 0)
-                return null;
-            return (Address) addresses[addresses.Count - 1];
+                return -1;
+            Address x = (Address)addresses[addresses.Count - 1];
+            return x.Id;
         }
 
         public void removeRecent()
