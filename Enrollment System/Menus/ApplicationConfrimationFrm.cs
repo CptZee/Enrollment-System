@@ -16,5 +16,7 @@ namespace Enrollment_System.Menus
         {
             InitializeComponent();
         }
+
+
     }
 }
