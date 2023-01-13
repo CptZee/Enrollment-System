@@ -12,7 +12,7 @@ namespace Enrollment_System.Util
     class DatabaseHelper
     {
         //Modify depending on the computer's database. WILL ONLY WORK ON AARON's PC!
-        protected static String connectionString = @"Data Source=AARON\SQLEXPRESS;Initial Catalog=EDP;Integrated Security=True";
+        protected static String connectionString = @"Data Source=AARON\SQLEXPRESS;Integrated Security=True";
 
         /*
          * A simple method which returns the connection.
@@ -25,42 +25,28 @@ namespace Enrollment_System.Util
         }
 
         /**
-         * A simple code that will create the users table.
-         * 
-         * @return if the table is created successfully.
-         * 
-         */
-        public static void createUserTable()
+        * A simple code that will create the Courses table.
+        * 
+        * @return if the table is created successfully.
+        * 
+        */
+        public static void createCoursesTable()
         {
             SqlConnection connection = GetConnection();
             try
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT * FROM Users", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM Courses", connection);
                 command.ExecuteNonQuery();
-                Console.WriteLine("DEBUG: Table exists! Proceeding...");
+                Console.WriteLine("DEBUG: Courses Table exists! Proceeding...");
             }
-            catch(SqlException)
+            catch (SqlException)
             {
-                Console.WriteLine("DEBUG: Table doesn't exist! Creating one...");
-                String query = @"CREATE TABLE Users
+                Console.WriteLine("DEBUG: Courses Table doesn't exist! Creating one...");
+                String query = @"CREATE TABLE Courses
                 (
                     [Id] INT NOT NULL PRIMARY KEY, 
-                    [FName] NCHAR(30) NOT NULL,
-                    [MName] NCHAR(30),
-                    [LName] NCHAR(30) NOT NULL,
-                    [Age] INT NOT NULL,
-                    [Gender] NCHAR(30) NOT NULL,
-                    [Municipality] NCHAR(30) NOT NULL,
-                    [City] NCHAR(30) NOT NULL,
-                    [PostalCode] NCHAR(30) NOT NULL,
-                    [ContactNumber] NCHAR(30) NOT NULL,
-                    [Email] NCHAR(30) NOT NULL,
-                    [StudNo] NCHAR(30),
-                    [Program] NCHAR(30),
-                    [YearLvl] NCHAR(30),
-                    [Semester] NCHAR(30),
-                    [IsRegular] BIT,
+                    [Name] NCHAR(30) NOT NULL
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -72,6 +58,290 @@ namespace Enrollment_System.Util
                 connection.Close();
             }
         }
+
+        /**
+         * A simple code that will create the Addresses table.
+         * 
+         * @return if the table is created successfully.
+         * 
+         */
+        public static void createAdressesTable()
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM Addresses", connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("DEBUG: Addresses Table exists! Proceeding...");
+            }
+            catch(SqlException)
+            {
+                Console.WriteLine("DEBUG: Addresses Table doesn't exist! Creating one...");
+                String query = @"CREATE TABLE Addresses
+                (
+                    [Id] INT NOT NULL PRIMARY KEY,
+                    [StreetUnitNumber] NCHAR(30),
+                    [Street] NCHAR(30) NOT NULL,
+                    [SubdivisionVillageBldg] NCHAR(30) NOT NULL,
+                    [Barangay] NCHAR(30) NOT NULL,
+                    [City] NCHAR(30) NOT NULL,
+                    [Province] NCHAR(30) NOT NULL,
+                    [ZipCode] NCHAR(30) NOT NULL
+                )";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        /**
+         * A simple code that will create the admins table.
+         * 
+         * @return if the table is created successfully.
+         * 
+         */
+        public static void createAdminTable()
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM Admins", connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("DEBUG: Admins Table exists! Proceeding...");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("DEBUG: Admins Table doesn't exist! Creating one...");
+                String query = @"CREATE TABLE Admins
+                (
+                    [Id] INT NOT NULL PRIMARY KEY, 
+                    [Username] NCHAR(30) NOT NULL,
+                    [Password] NCHAR(30) NOT NULL
+                )";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+        /**
+        * A simple code that will create the Contacts table.
+        * 
+        * @return if the table is created successfully.
+        * 
+        */
+        public static void createContactTable()
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM Contacts", connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("DEBUG: Contacts Table exists! Proceeding...");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("DEBUG: Contacts Table doesn't exist! Creating one...");
+                String query = @"CREATE TABLE Contacts
+                (
+                    [Id] INT NOT NULL PRIMARY KEY, 
+                    [TelephoneNo] NCHAR(30) NOT NULL,
+                    [MobileNo] NCHAR(30) NOT NULL,
+                    [Email] NCHAR(30) NOT NULL
+                )";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+        /**
+        * A simple code that will create the Guardians table.
+        * 
+        * @return if the table is created successfully.
+        * 
+        */
+        public static void createGuardianTable()
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM Guardians", connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("DEBUG: Guardians Table exists! Proceeding...");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("DEBUG: Guardians Table doesn't exist! Creating one...");
+                String query = @"CREATE TABLE Guardians
+                (
+                    [Id] INT NOT NULL PRIMARY KEY, 
+                    [FirstName] NCHAR(30) NOT NULL,
+                    [LastName] NCHAR(30) NOT NULL,
+                    [MiddleInitial] NCHAR(30) NOT NULL,
+                    [SuffixName] NCHAR(30) NOT NULL,
+                    [MobileNumber] NCHAR(30) NOT NULL,
+                    [Email] NCHAR(30) NOT NULL,
+                    [Occupation] NCHAR(30) NOT NULL,
+                    [Relation] NCHAR(30) NOT NULL
+                )";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        /**
+        * A simple code that will create the School History table.
+        * 
+        * @return if the table is created successfully.
+        * 
+        */
+        public static void createSchoolHistoryTable()
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM SchoolHistory", connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("DEBUG: SchoolHistory Table exists! Proceeding...");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("DEBUG: SchoolHistory Table doesn't exist! Creating one...");
+                String query = @"CREATE TABLE SchoolHistory
+                (
+                    [Id] INT NOT NULL PRIMARY KEY, 
+                    [Type] NCHAR(30) NOT NULL,
+                    [Name] NCHAR(30) NOT NULL,
+                    [ProgramTrackSpecialization] NCHAR(30) NOT NULL
+                )";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        /**
+        * A simple code that will create the Students table.
+        * 
+        * @return if the table is created successfully.
+        * 
+        */
+        public static void createStudentsTable()
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM Students", connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("DEBUG: Students Table exists! Proceeding...");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("DEBUG: Students Table doesn't exist! Creating one...");
+                String query = @"CREATE TABLE Students
+                (
+                    [Id] INT NOT NULL PRIMARY KEY, 
+                    [FirstName] NCHAR(30) NOT NULL,
+                    [MiddleName] NCHAR(30) NOT NULL,
+                    [LastName] NCHAR(30) NOT NULL,
+                    [SuffixName] NCHAR(30) NOT NULL,
+                    [Gender] NCHAR(30) NOT NULL,
+                    [Status] NCHAR(30) NOT NULL,
+                    [Citizenship] NCHAR(30) NOT NULL,
+                    [BirthDate] DATE NOT NULL
+                )";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        /**
+         * A simple code that will create the Application Forms table.
+         * 
+         * @return if the table is created successfully.
+         * 
+         */
+        public static void createApplicationFormTable()
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM Applications", connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("DEBUG: Applications Table exists! Proceeding...");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("DEBUG: Applications Table doesn't exist! Creating one...");
+                String query = @"CREATE TABLE Applications
+                (
+                    [Id] INT NOT NULL PRIMARY KEY, 
+                    [StudentID] INT NOT NULL,
+                    [AddressID] INT NOT NULL,
+                    [ContactID] INT NOT NULL,
+                    [SchoolHistoryID] INT NOT NULL,
+                    [GuardianID] INT NOT NULL,
+                    [CourseID] NCHAR(30) NOT NULL,
+                    [AdmitType] NCHAR(30) NOT NULL,
+                    [YearLevel] NCHAR(30) NOT NULL,
+                    [SchoolYear] NCHAR(30) NOT NULL,
+                    [Term] NCHAR(30) NOT NULL,
+                    [SubmissionDate] DATE NOT NULL,
+                    [Status] NCHAR(30) NOT NULL
+                )";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
 
         /**
          * A simple code that will return the users table

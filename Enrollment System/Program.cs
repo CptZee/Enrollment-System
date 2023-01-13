@@ -13,9 +13,23 @@ namespace Enrollment_System
         [STAThread]
         static void Main()
         {
-            //Run the creation of the tables.
-            Thread thread = new Thread(new ThreadStart(DatabaseHelper.createUserTable));
-            //Load the user list
+            Thread AddressDBThread = new Thread(new ThreadStart(DatabaseHelper.createAdressesTable));
+            Thread AdminDBThread = new Thread(new ThreadStart(DatabaseHelper.createAdminTable));
+            Thread ApplicationFormDBThread = new Thread(new ThreadStart(DatabaseHelper.createApplicationFormTable));
+            Thread ContactDBThread = new Thread(new ThreadStart(DatabaseHelper.createContactTable));
+            Thread CoursesDBThread = new Thread(new ThreadStart(DatabaseHelper.createCoursesTable));
+            Thread GuardianDBThread = new Thread(new ThreadStart(DatabaseHelper.createGuardianTable));
+            Thread SchoolHistoryDBThread = new Thread(new ThreadStart(DatabaseHelper.createSchoolHistoryTable));
+            Thread StudentDBThread = new Thread(new ThreadStart(DatabaseHelper.createStudentsTable));
+
+            AddressDBThread.Start();
+            AdminDBThread.Start();
+            ApplicationFormDBThread.Start();
+            ContactDBThread.Start();
+            CoursesDBThread.Start();
+            GuardianDBThread.Start();
+            SchoolHistoryDBThread.Start();
+            StudentDBThread.Start();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
