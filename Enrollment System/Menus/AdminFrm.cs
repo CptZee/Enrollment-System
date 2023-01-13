@@ -16,5 +16,10 @@ namespace Enrollment_System.Menus
         {
             InitializeComponent();
         }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
