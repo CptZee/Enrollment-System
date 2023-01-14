@@ -57,6 +57,12 @@ namespace Enrollment_System.Data
             }
             return null;
         }
+
+        public Contact findByIndex(int index)
+        {
+            return (Contact)contacts[index];
+        }
+
         public int findIndex(Contact x)
         {
             return contacts.IndexOf(x);

@@ -53,6 +53,12 @@ namespace Enrollment_System.Data
             }
             return null;
         }
+
+        public Student findByIndex(int index)
+        {
+            return (Student)students[index];
+        }
+
         public int findIndex(Student x)
         {
             return students.IndexOf(x);

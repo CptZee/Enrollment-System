@@ -20,6 +20,14 @@ namespace Enrollment_System
 
         }
 
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminAuthFrm frm = new AdminAuthFrm();
+            frm.ShowDialog();
+            this.Close();
+        }
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
             this.Hide();

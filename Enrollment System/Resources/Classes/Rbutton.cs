@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 
-namespace Enrollment_System.Resources
+namespace Enrollment_System.Resources.Classes
 {
     public class Rbutton : Button 
     {

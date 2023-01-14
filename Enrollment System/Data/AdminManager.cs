@@ -46,6 +46,7 @@ namespace Enrollment_System.Data
                 return;
             admins.RemoveAt(admins.Count - 1);
         }
+
         public Admin find(int Id)
         {
             for (int i = 0; i < admins.Count; i++)
@@ -55,6 +56,11 @@ namespace Enrollment_System.Data
                     return s;
             }
             return null;
+        }
+
+        public Admin findByIndex(int index)
+        {
+            return (Admin) admins[index];
         }
 
         public int findIndex(Admin x)

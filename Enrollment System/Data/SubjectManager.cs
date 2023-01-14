@@ -42,6 +42,7 @@ namespace Enrollment_System.Data
                 return;
             subjects.RemoveAt(subjects.Count - 1);
         }
+
         public Subject find(int Id)
         {
             for (int i = 0; i < subjects.Count; i++)
@@ -52,6 +53,12 @@ namespace Enrollment_System.Data
             }
             return null;
         }
+
+        public Subject findByIndex(int index)
+        {
+            return (Subject)subjects[index];
+        }
+
         public int findIndex(Subject x)
         {
             return subjects.IndexOf(x);

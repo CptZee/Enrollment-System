@@ -58,6 +58,11 @@ namespace Enrollment_System.Data
             return null;
         }
 
+        public Address findByIndex(int index)
+        {
+            return (Address)addresses[index];
+        }
+
         public int findIndex(Address x)
         {
             return addresses.IndexOf(x);

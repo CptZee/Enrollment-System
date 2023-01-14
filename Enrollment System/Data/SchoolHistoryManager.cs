@@ -56,6 +56,12 @@ namespace Enrollment_System.Data
             }
             return null;
         }
+
+        public SchoolHistory findByIndex(int index)
+        {
+            return (SchoolHistory)schoolHistories[index];
+        }
+
         public int findIndex(SchoolHistory x)
         {
             return schoolHistories.IndexOf(x);

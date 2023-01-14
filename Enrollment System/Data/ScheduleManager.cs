@@ -43,6 +43,7 @@ namespace Enrollment_System.Data
                 return;
             schedules.RemoveAt(schedules.Count - 1);
         }
+
         public Schedule find(int Id)
         {
             for (int i = 0; i < schedules.Count; i++)
@@ -53,6 +54,12 @@ namespace Enrollment_System.Data
             }
             return null;
         }
+
+        public Schedule findByIndex(int index)
+        {
+            return (Schedule)schedules[index];
+        }
+
         public int findIndex(Schedule x)
         {
             return schedules.IndexOf(x);

@@ -73,6 +73,12 @@
     <Compile Include="Data\Subject.cs" />
     <Compile Include="Data\SubjectManager.cs" />
     <Compile Include="Enrollment\FormData.cs" />
+    <Compile Include="Menus\AdminAuthFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\AdminAuthFrm.Designer.cs">
+      <DependentUpon>AdminAuthFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menus\AdminFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,12 +177,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\Rbutton.cs">
+    <Compile Include="Resources\Classes\Rbutton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Resources\Classes\UglyTextBoxHint.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Util\DatabaseHelper.cs" />
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\AdminAuthFrm.resx">
+      <DependentUpon>AdminAuthFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\AdminFrm.resx">
       <DependentUpon>AdminFrm.cs</DependentUpon>
@@ -250,19 +262,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Student Enrollment System.png" />
+    <None Include="Resources\Images\Student Enrollment System.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\d8b44432ad1227d7950f95fe815d84ca-removebg-preview.png" />
+    <None Include="Resources\Images\d8b44432ad1227d7950f95fe815d84ca-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\d8b44432ad1227d7950f95fe815d84ca-removebg-preview1.png" />
+    <None Include="Resources\Images\d8b44432ad1227d7950f95fe815d84ca-removebg-preview1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\d8b44432ad1227d7950f95fe815d84ca-removebg-preview-removebg-preview.png" />
+    <None Include="Resources\Images\d8b44432ad1227d7950f95fe815d84ca-removebg-preview-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Untitled design.png" />
+    <None Include="Resources\Images\Untitled design.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

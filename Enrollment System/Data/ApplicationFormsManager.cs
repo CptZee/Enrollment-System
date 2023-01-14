@@ -56,6 +56,13 @@ namespace Enrollment_System.Data
             }
             return null;
         }
+
+        public ApplicationForm findByIndex(int index)
+        {
+            return (ApplicationForm)applicationForms[index];
+        }
+
+
         public int findIndex(ApplicationForm x)
         {
             return applicationForms.IndexOf(x);
