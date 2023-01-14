@@ -25,7 +25,7 @@ namespace Enrollment_System
 
         private static void createTables()
         {
-            Thread SubjectDBThread = new Thread(new ThreadStart(DatabaseHelper.createStudentsTable));
+            Thread SubjectDBThread = new Thread(new ThreadStart(DatabaseHelper.createSubjectsTable));
             Thread ScheduleDBThread = new Thread(new ThreadStart(DatabaseHelper.createSchedulesTable));
             Thread CoursesDBThread = new Thread(new ThreadStart(DatabaseHelper.createCoursesTable));
             Thread ApplicationFormDBThread = new Thread(new ThreadStart(DatabaseHelper.createApplicationFormTable));

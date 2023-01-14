@@ -1,6 +1,7 @@
 ﻿using System;
 using Enrollment_System.Data;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace Enrollment_System.Util
 {
@@ -444,6 +445,58 @@ namespace Enrollment_System.Util
         }
 
         /**
+         * A group of methods that will load the database and
+         * store them as DataSets
+         */
+        public static DataSet getCourses()
+        {
+
+            String select = "SELECT * FROM Courses";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(select, GetConnection());
+
+            SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+            DataSet ds = new DataSet();
+            dataAdapter.Fill(ds);
+            return ds;
+        }
+
+        public static DataSet getSubjects()
+        {
+
+            String select = "SELECT * FROM Subjects";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(select, GetConnection());
+
+            SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+            DataSet ds = new DataSet();
+            dataAdapter.Fill(ds);
+            return ds;
+        }
+
+        public static DataSet getSchedules()
+        {
+
+            String select = "SELECT * FROM Schedules";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(select, GetConnection());
+
+            SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+            DataSet ds = new DataSet();
+            dataAdapter.Fill(ds);
+            return ds;
+        }
+
+        public static DataSet getApplications()
+        {
+
+            String select = "SELECT * FROM Applications";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(select, GetConnection());
+
+            SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+            DataSet ds = new DataSet();
+            dataAdapter.Fill(ds);
+            return ds;
+        }
+
+        /**
          * A group of methods that will load the database into the
          * program.
          *  
@@ -847,7 +900,7 @@ namespace Enrollment_System.Util
                         student.Gender = reader.GetString(5).Trim();
                         student.Status = reader.GetString(6).Trim();
                         student.Citizenship = reader.GetString(7).Trim();
-                        student.BirthDate = reader.GetDateTime(8).Trim();
+                        student.BirthDate = reader.GetDateTime(8);
                         student.Birthplace = reader.GetString(9).Trim();
                         student.Religion = reader.GetString(10).Trim();
 

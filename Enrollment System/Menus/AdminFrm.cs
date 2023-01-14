@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
+using Enrollment_System.Util;
 
 namespace Enrollment_System.Menus
 {
@@ -20,6 +16,15 @@ namespace Enrollment_System.Menus
         private void AdminFrm_Load(object sender, EventArgs e)
         {
             CenterToScreen();
+            AppList.ReadOnly = true;
+            CourseList.ReadOnly = true;
+            SubjectList.ReadOnly = true;
+            ScheduleList.ReadOnly = true;
+            AppList.DataSource = DatabaseHelper.getApplications().Tables[0];
+            CourseList.DataSource = DatabaseHelper.getCourses().Tables[0];
+            SubjectList.DataSource = DatabaseHelper.getSubjects().Tables[0];
+            ScheduleList.DataSource = DatabaseHelper.getSchedules().Tables[0];
+
         }
 
         private void btnReturn_Click(object sender, EventArgs e)

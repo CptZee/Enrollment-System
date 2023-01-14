@@ -84,7 +84,6 @@
             this.Controls.Add(this.tbUsername);
             this.Name = "AdminAuthFrm";
             this.Text = "Admin Authentication";
-            this.Load += new System.EventHandler(this.AdminAuthFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

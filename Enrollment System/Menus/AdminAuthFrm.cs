@@ -27,14 +27,10 @@ namespace Enrollment_System.Menus
                     AdminFrm frm = new AdminFrm();
                     frm.ShowDialog();
                     this.Close();
+                    return;
                 }
             }
             MessageBox.Show("Invalid Username or password!", "Invalid Credential", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void AdminAuthFrm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
