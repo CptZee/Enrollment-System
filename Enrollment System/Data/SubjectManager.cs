@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 
 namespace Enrollment_System.Data
 {
@@ -57,6 +58,17 @@ namespace Enrollment_System.Data
         public Subject findByIndex(int index)
         {
             return (Subject)subjects[index];
+        }
+
+        public Subject findByName(string Name)
+        {
+            for (int i = 0; i < subjects.Count; i++)
+            {
+                Subject s = (Subject)subjects[i];
+                if (s.Name.Equals(Name))
+                    return s;
+            }
+            return null;
         }
 
         public int findIndex(Subject x)

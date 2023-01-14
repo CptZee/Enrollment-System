@@ -39,7 +39,7 @@ namespace Enrollment_System.Menus
         public void showConfirmationFrm()
         {
             this.Hide();
-            ApplicationConfrimationFrm frm = new ApplicationConfrimationFrm(application);
+            ApplicationConfrimationFrm frm = new ApplicationConfrimationFrm();
             frm.ShowDialog();
             this.Close();
         }

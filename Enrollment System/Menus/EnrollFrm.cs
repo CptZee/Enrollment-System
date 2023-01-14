@@ -67,7 +67,6 @@ namespace Enrollment_System.Menus
             cbYearLvl.Items.Add("Second Year Level");
             cbYearLvl.Items.Add("Third Year Level");
             cbYearLvl.Items.Add("Fourth Year Level");
-            cbYearLvl.Items.Add("Fourth Year Level");
             cbSY.Items.Add("2022-2023");
             cbSY.Items.Add("2023-2024");
             cbTerm.Items.Add("");

@@ -50,13 +50,13 @@
             this.btnAddSubj = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.SubjectList = new System.Windows.Forms.DataGridView();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.btnModifySched = new System.Windows.Forms.Button();
-            this.btnRemoveSched = new System.Windows.Forms.Button();
-            this.btnAddSched = new System.Windows.Forms.Button();
+            this.btnModifySchedule = new System.Windows.Forms.Button();
+            this.btnRemoveSchedule = new System.Windows.Forms.Button();
+            this.btnAddSchedule = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.ScheduleList = new System.Windows.Forms.DataGridView();
-            this.btnReturn = new System.Windows.Forms.Button();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppList)).BeginInit();
@@ -250,6 +250,7 @@
             this.btnModifySubj.TabIndex = 10;
             this.btnModifySubj.Text = "Modify";
             this.btnModifySubj.UseVisualStyleBackColor = true;
+            this.btnModifySubj.Click += new System.EventHandler(this.btnModifySubj_Click);
             // 
             // btnRemoveSubj
             // 
@@ -268,6 +269,7 @@
             this.btnAddSubj.TabIndex = 8;
             this.btnAddSubj.Text = "Add";
             this.btnAddSubj.UseVisualStyleBackColor = true;
+            this.btnAddSubj.Click += new System.EventHandler(this.btnAddSubj_Click);
             // 
             // label3
             // 
@@ -287,11 +289,21 @@
             this.SubjectList.Size = new System.Drawing.Size(744, 348);
             this.SubjectList.TabIndex = 0;
             // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(409, 432);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(75, 23);
+            this.btnReturn.TabIndex = 1;
+            this.btnReturn.Text = "Return";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.btnModifySched);
-            this.tabPage4.Controls.Add(this.btnRemoveSched);
-            this.tabPage4.Controls.Add(this.btnAddSched);
+            this.tabPage4.Controls.Add(this.btnModifySchedule);
+            this.tabPage4.Controls.Add(this.btnRemoveSchedule);
+            this.tabPage4.Controls.Add(this.btnAddSchedule);
             this.tabPage4.Controls.Add(this.label4);
             this.tabPage4.Controls.Add(this.ScheduleList);
             this.tabPage4.Location = new System.Drawing.Point(4, 4);
@@ -302,32 +314,33 @@
             this.tabPage4.Text = "Schedules";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // btnModifySched
+            // btnModifySchedule
             // 
-            this.btnModifySched.Location = new System.Drawing.Point(777, 110);
-            this.btnModifySched.Name = "btnModifySched";
-            this.btnModifySched.Size = new System.Drawing.Size(75, 23);
-            this.btnModifySched.TabIndex = 10;
-            this.btnModifySched.Text = "Modify";
-            this.btnModifySched.UseVisualStyleBackColor = true;
+            this.btnModifySchedule.Location = new System.Drawing.Point(777, 111);
+            this.btnModifySchedule.Name = "btnModifySchedule";
+            this.btnModifySchedule.Size = new System.Drawing.Size(75, 23);
+            this.btnModifySchedule.TabIndex = 15;
+            this.btnModifySchedule.Text = "Modify";
+            this.btnModifySchedule.UseVisualStyleBackColor = true;
             // 
-            // btnRemoveSched
+            // btnRemoveSchedule
             // 
-            this.btnRemoveSched.Location = new System.Drawing.Point(777, 81);
-            this.btnRemoveSched.Name = "btnRemoveSched";
-            this.btnRemoveSched.Size = new System.Drawing.Size(75, 23);
-            this.btnRemoveSched.TabIndex = 9;
-            this.btnRemoveSched.Text = "Remove";
-            this.btnRemoveSched.UseVisualStyleBackColor = true;
+            this.btnRemoveSchedule.Location = new System.Drawing.Point(777, 82);
+            this.btnRemoveSchedule.Name = "btnRemoveSchedule";
+            this.btnRemoveSchedule.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveSchedule.TabIndex = 14;
+            this.btnRemoveSchedule.Text = "Remove";
+            this.btnRemoveSchedule.UseVisualStyleBackColor = true;
             // 
-            // btnAddSched
+            // btnAddSchedule
             // 
-            this.btnAddSched.Location = new System.Drawing.Point(777, 52);
-            this.btnAddSched.Name = "btnAddSched";
-            this.btnAddSched.Size = new System.Drawing.Size(75, 23);
-            this.btnAddSched.TabIndex = 8;
-            this.btnAddSched.Text = "Add";
-            this.btnAddSched.UseVisualStyleBackColor = true;
+            this.btnAddSchedule.Location = new System.Drawing.Point(777, 53);
+            this.btnAddSchedule.Name = "btnAddSchedule";
+            this.btnAddSchedule.Size = new System.Drawing.Size(75, 23);
+            this.btnAddSchedule.TabIndex = 13;
+            this.btnAddSchedule.Text = "Add";
+            this.btnAddSchedule.UseVisualStyleBackColor = true;
+            this.btnAddSchedule.Click += new System.EventHandler(this.btnAddSchedule_Click);
             // 
             // label4
             // 
@@ -336,7 +349,7 @@
             this.label4.Location = new System.Drawing.Point(6, 2);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(149, 47);
-            this.label4.TabIndex = 3;
+            this.label4.TabIndex = 12;
             this.label4.Text = "Schedules";
             // 
             // ScheduleList
@@ -345,17 +358,7 @@
             this.ScheduleList.Location = new System.Drawing.Point(6, 52);
             this.ScheduleList.Name = "ScheduleList";
             this.ScheduleList.Size = new System.Drawing.Size(744, 348);
-            this.ScheduleList.TabIndex = 1;
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.Location = new System.Drawing.Point(409, 432);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(75, 23);
-            this.btnReturn.TabIndex = 1;
-            this.btnReturn.Text = "Return";
-            this.btnReturn.UseVisualStyleBackColor = true;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            this.ScheduleList.TabIndex = 11;
             // 
             // AdminFrm
             // 
@@ -392,12 +395,10 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView AppList;
         private System.Windows.Forms.DataGridView CourseList;
         private System.Windows.Forms.DataGridView SubjectList;
-        private System.Windows.Forms.DataGridView ScheduleList;
         private System.Windows.Forms.Button btnApproveApp;
         private System.Windows.Forms.Button btnModifyApp;
         private System.Windows.Forms.Button btnRemoveApp;
@@ -410,11 +411,13 @@
         private System.Windows.Forms.Button btnRemoveSubj;
         private System.Windows.Forms.Button btnAddSubj;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnModifySched;
-        private System.Windows.Forms.Button btnRemoveSched;
-        private System.Windows.Forms.Button btnAddSched;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button btnModifySchedule;
+        private System.Windows.Forms.Button btnRemoveSchedule;
+        private System.Windows.Forms.Button btnAddSchedule;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView ScheduleList;
     }
 }

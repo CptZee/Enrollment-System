@@ -97,6 +97,12 @@
     <Compile Include="Menus\Admin\ApplicationModify.Designer.cs">
       <DependentUpon>ApplicationModify.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menus\Admin\ApplicationRemove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\Admin\ApplicationRemove.Designer.cs">
+      <DependentUpon>ApplicationRemove.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menus\Admin\ApplicationView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,17 +121,17 @@
     <Compile Include="Menus\Admin\CourseModify.Designer.cs">
       <DependentUpon>CourseModify.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menus\Admin\CourseRemove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\Admin\CourseRemove.Designer.cs">
+      <DependentUpon>CourseRemove.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menus\Admin\ScheduleAdd.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Menus\Admin\ScheduleAdd.Designer.cs">
       <DependentUpon>ScheduleAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Menus\Admin\ScheduleModify.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menus\Admin\ScheduleModify.Designer.cs">
-      <DependentUpon>ScheduleModify.cs</DependentUpon>
     </Compile>
     <Compile Include="Menus\Admin\SubjectAdd.cs">
       <SubType>Form</SubType>
@@ -138,6 +144,12 @@
     </Compile>
     <Compile Include="Menus\Admin\SubjectModify.Designer.cs">
       <DependentUpon>SubjectModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\Admin\SubjectRemove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\Admin\SubjectRemove.Designer.cs">
+      <DependentUpon>SubjectRemove.cs</DependentUpon>
     </Compile>
     <Compile Include="Menus\ApplicationConfrimationFrm.cs">
       <SubType>Form</SubType>
@@ -156,6 +168,12 @@
     </Compile>
     <Compile Include="Menus\GuardianInfoFrm.Designer.cs">
       <DependentUpon>GuardianInfoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\ScheduleFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\ScheduleFrm.Designer.cs">
+      <DependentUpon>ScheduleFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Menus\StatusFrm.cs">
       <SubType>Form</SubType>
@@ -196,6 +214,9 @@
     <EmbeddedResource Include="Menus\Admin\ApplicationModify.resx">
       <DependentUpon>ApplicationModify.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menus\Admin\ApplicationRemove.resx">
+      <DependentUpon>ApplicationRemove.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menus\Admin\ApplicationView.resx">
       <DependentUpon>ApplicationView.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,17 +226,20 @@
     <EmbeddedResource Include="Menus\Admin\CourseModify.resx">
       <DependentUpon>CourseModify.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menus\Admin\CourseRemove.resx">
+      <DependentUpon>CourseRemove.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menus\Admin\ScheduleAdd.resx">
       <DependentUpon>ScheduleAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Menus\Admin\ScheduleModify.resx">
-      <DependentUpon>ScheduleModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\Admin\SubjectAdd.resx">
       <DependentUpon>SubjectAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\Admin\SubjectModify.resx">
       <DependentUpon>SubjectModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\Admin\SubjectRemove.resx">
+      <DependentUpon>SubjectRemove.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\ApplicationConfrimationFrm.resx">
       <DependentUpon>ApplicationConfrimationFrm.cs</DependentUpon>
@@ -225,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\GuardianInfoFrm.resx">
       <DependentUpon>GuardianInfoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\ScheduleFrm.resx">
+      <DependentUpon>ScheduleFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\StatusFrm.resx">
       <DependentUpon>StatusFrm.cs</DependentUpon>

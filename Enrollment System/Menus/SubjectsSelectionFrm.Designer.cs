@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.btnReturn = new System.Windows.Forms.Button();
             this.btnProceed = new System.Windows.Forms.Button();
             this.lvSubjects = new System.Windows.Forms.ListView();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -44,23 +44,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Please select a maximum of six (6) subjects to take";
             // 
-            // btnReturn
-            // 
-            this.btnReturn.Location = new System.Drawing.Point(102, 282);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(75, 23);
-            this.btnReturn.TabIndex = 2;
-            this.btnReturn.Text = "Return";
-            this.btnReturn.UseVisualStyleBackColor = true;
-            // 
             // btnProceed
             // 
-            this.btnProceed.Location = new System.Drawing.Point(221, 282);
+            this.btnProceed.Location = new System.Drawing.Point(101, 282);
             this.btnProceed.Name = "btnProceed";
-            this.btnProceed.Size = new System.Drawing.Size(75, 23);
+            this.btnProceed.Size = new System.Drawing.Size(121, 23);
             this.btnProceed.TabIndex = 3;
-            this.btnProceed.Text = "Proceed";
+            this.btnProceed.Text = "Select Schedule";
             this.btnProceed.UseVisualStyleBackColor = true;
+            this.btnProceed.Click += new System.EventHandler(this.btnProceed_Click);
             // 
             // lvSubjects
             // 
@@ -72,14 +64,24 @@
             this.lvSubjects.UseCompatibleStateImageBehavior = false;
             this.lvSubjects.View = System.Windows.Forms.View.List;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(228, 282);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Proceed";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // SubjectsSelectionFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(457, 315);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lvSubjects);
             this.Controls.Add(this.btnProceed);
-            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.label1);
             this.Name = "SubjectsSelectionFrm";
             this.Text = "Subjects Selection Form";
@@ -92,8 +94,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnProceed;
         private System.Windows.Forms.ListView lvSubjects;
+        private System.Windows.Forms.Button button1;
     }
 }

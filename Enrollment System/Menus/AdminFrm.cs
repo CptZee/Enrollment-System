@@ -56,5 +56,23 @@ namespace Enrollment_System.Menus
             CourseModify frm = new CourseModify();
             frm.ShowDialog();
         }
+
+        private void btnAddSubj_Click(object sender, EventArgs e)
+        {
+            SubjectAdd frm = new SubjectAdd();
+            frm.ShowDialog();
+        }
+
+        private void btnModifySubj_Click(object sender, EventArgs e)
+        {
+            SubjectModify frm = new SubjectModify();
+            frm.ShowDialog();
+        }
+
+        private void btnAddSchedule_Click(object sender, EventArgs e)
+        {
+            ScheduleAdd frm = new ScheduleAdd();
+            frm.ShowDialog();
+        }
     }
 }

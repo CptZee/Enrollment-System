@@ -77,7 +77,7 @@ namespace Enrollment_System.Util
                 String query = @"CREATE TABLE Subjects
                 (
                     [ID] INT NOT NULL IDENTITY(1,1),
-                    [Name] NCHAR(30) NOT NULL,
+                    [Name] NCHAR(255) NOT NULL,
                     [YearLevel] NCHAR(30) NOT NULL,
                     [Term] NCHAR(30) NOT NULL,
                     [Prerequisite] NCHAR(30) NOT NULL,
@@ -110,9 +110,10 @@ namespace Enrollment_System.Util
                 String query = @"CREATE TABLE Schedules
                 (
                     [ID] INT NOT NULL IDENTITY(1,1),
-                    [SubjectId] INT NOT NULL,
-                    [startTime] NCHAR(30) NOT NULL,
-                    [endTime] NCHAR(30) NOT NULL,
+                    [SubjectID] INT NOT NULL,
+                    [StartTime] NCHAR(30) NOT NULL,
+                    [EndTime] NCHAR(30) NOT NULL,
+                    [Day] NCHAR(30) NOT NULL,
                     PRIMARY KEY (ID)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -125,7 +126,6 @@ namespace Enrollment_System.Util
                 connection.Close();
             }
         }
-
 
         public static void createApplicationFormTable()
         {
@@ -217,7 +217,8 @@ namespace Enrollment_System.Util
                 (
                     [ID] INT NOT NULL IDENTITY(1,1),
                     [ApplicationID] INT NOT NULL,
-                    [ScheduleID] NCHAR(30) NOT NULL,
+                    [SubjectID] INT NOT NULL,
+                    [Schedule] NCHAR(30) NOT NULL,
                     PRIMARY KEY (ID)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -557,11 +558,11 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: Course list loaded.");
+                Console.WriteLine("DEBUG: Subject list loaded.");
             }
             catch (SqlException)
             {
-                Console.WriteLine("ERROR: Unable to load course list!");
+                Console.WriteLine("ERROR: Unable to load subject list!");
             }
         }
 
@@ -570,7 +571,7 @@ namespace Enrollment_System.Util
             ScheduleManager scheduleManager = ScheduleManager.getInstance();
             scheduleManager.clear();
             SqlConnection connection = GetConnection();
-            String query = @"SELECT ID, SubjectId, startTime, endTime FROM Schedules";
+            String query = @"SELECT ID, SubjectID, StartTime, EndTime, Day FROM Schedules";
             try
             {
                 connection.Open();
@@ -581,19 +582,20 @@ namespace Enrollment_System.Util
                     {
                         Schedule schedule = new Schedule();
                         schedule.ID = reader.GetInt32(0);
-                        schedule.SubjectId = reader.GetInt32(1);
-                        schedule.startTime = reader.GetString(2).Trim();
-                        schedule.endTime = reader.GetString(3).Trim();
+                        schedule.SubjectID = reader.GetInt32(1);
+                        schedule.StartTime = reader.GetString(2).Trim();
+                        schedule.EndTime = reader.GetString(3).Trim();
+                        schedule.Day = reader.GetString(4).Trim();
 
                         scheduleManager.add(schedule);
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: Course list loaded.");
+                Console.WriteLine("DEBUG: Schedule list loaded.");
             }
             catch (SqlException)
             {
-                Console.WriteLine("ERROR: Unable to load course list!");
+                Console.WriteLine("ERROR: Unable to load schedule list!");
             }
         }
 
@@ -955,9 +957,9 @@ namespace Enrollment_System.Util
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@Name", subject.Name);
-                command.Parameters.AddWithValue("@Name", subject.YearLevel);
-                command.Parameters.AddWithValue("@Name", subject.Term);
-                command.Parameters.AddWithValue("@Name", subject.Prerequisite);
+                command.Parameters.AddWithValue("@YearLevel", subject.YearLevel);
+                command.Parameters.AddWithValue("@Term", subject.Term);
+                command.Parameters.AddWithValue("@Prerequisite", subject.Prerequisite);
                 command.ExecuteNonQuery();
             }
             connection.Close();
@@ -966,13 +968,14 @@ namespace Enrollment_System.Util
         public static void addSchedule(Schedule schedule)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Schedules(SubjectId, startTime, endTime) VALUES(@SubjectId, @startTime, @endTime)";
+            String query = "INSERT INTO Schedules(SubjectID, StartTime, EndTime, Day) VALUES(@SubjectID, @StartTime, @EndTime, @Day)";
             connection.Open();
             using (SqlCommand command = new SqlCommand(query, connection))
             {
-                command.Parameters.AddWithValue("@SubjectId", schedule.SubjectId);
-                command.Parameters.AddWithValue("@startTime", schedule.startTime);
-                command.Parameters.AddWithValue("@endTime", schedule.endTime);
+                command.Parameters.AddWithValue("@SubjectID", schedule.SubjectID);
+                command.Parameters.AddWithValue("@StartTime", schedule.StartTime);
+                command.Parameters.AddWithValue("@EndTime", schedule.EndTime);
+                command.Parameters.AddWithValue("@Day", schedule.EndTime);
                 command.ExecuteNonQuery();
             }
             connection.Close();
@@ -1005,30 +1008,36 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
-        public static void addApplicationSubject(Subject subject)
+        public static void addApplicationSubject(ApplicationForm application)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO ApplicatioSubjects(ApplicationID, SubjectID) VALUES(@ApplicationID, @SubjectID)";
-            connection.Open();
-            using (SqlCommand command = new SqlCommand(query, connection))
+            for(int i = 0; i < application.SubjectIDs.Count; i++)
             {
-                command.Parameters.AddWithValue("@ApplicationID", subject.Name);
-                command.Parameters.AddWithValue("@SubjectID", subject.YearLevel);
-                command.ExecuteNonQuery();
+                String query = "INSERT INTO ApplicatioSubjects(ApplicationID, SubjectID) VALUES(@ApplicationID, @SubjectID)";
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ApplicationID", application.ID);
+                    command.Parameters.AddWithValue("@SubjectID", application.SubjectIDs[i]);
+                    command.ExecuteNonQuery();
+                }
             }
             connection.Close();
         }
 
-        public static void addApplicationSchedule(Schedule schedule)
+        public static void addApplicationSchedule(ApplicationForm application)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO ApplicatioSchedules(ApplicationID, ScheduleID) VALUES(@ApplicationID, @ScheduleID)";
-            connection.Open();
-            using (SqlCommand command = new SqlCommand(query, connection))
+            for (int i = 0; i < application.ScheduleIDs.Count; i++)
             {
-                command.Parameters.AddWithValue("@ApplicationID", schedule.SubjectId);
-                command.Parameters.AddWithValue("@ScheduleID", schedule.startTime);
-                command.ExecuteNonQuery();
+                String query = "INSERT INTO ApplicatioSchedules(ApplicationID, ScheduleID) VALUES(@ApplicationID, @ScheduleID)";
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ApplicationID", application.ID);
+                    command.Parameters.AddWithValue("@ScheduleID", application.ScheduleIDs[i]);
+                    command.ExecuteNonQuery();
+                }
             }
             connection.Close();
         }

@@ -4,7 +4,6 @@ namespace Enrollment_System.Data
 {
     class ScheduleManager
     {
-
         private ScheduleManager()
         {
             schedules = new ArrayList();
@@ -19,9 +18,9 @@ namespace Enrollment_System.Data
             return instance;
         }
 
-        public void add(Schedule schedule)
+        public void add(Schedule subject)
         {
-            schedules.Add(schedule);
+            schedules.Add(subject);
         }
 
         public void update(Schedule x)
@@ -58,6 +57,18 @@ namespace Enrollment_System.Data
         public Schedule findByIndex(int index)
         {
             return (Schedule)schedules[index];
+        }
+
+        public Schedule findByTime(string Time)
+        {
+            for (int i = 0; i < schedules.Count; i++)
+            {
+                Schedule s = (Schedule)schedules[i];
+                string schedule = s.StartTime + " - " + s.EndTime;
+                if (schedule.Equals(Time))
+                    return s;
+            }
+            return null;
         }
 
         public int findIndex(Schedule x)

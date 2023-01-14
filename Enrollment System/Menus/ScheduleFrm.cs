@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Enrollment_System.Data;
+
+namespace Enrollment_System.Menus
+{
+    public partial class ScheduleFrm : Form
+    {
+        private ApplicationForm application;
+        private String subject;
+        public ScheduleFrm(ApplicationForm application, String subject)
+        {
+            this.subject = subject;
+            this.application = application;
+            InitializeComponent();
+        }
+
+        private void ScheduleFrm_Load(object sender, EventArgs e)
+        {
+            SubjectManager subjectManager = SubjectManager.getInstance();
+            ScheduleManager scheduleManager = ScheduleManager.getInstance();
+
+            lblSubject.Text = subject + "'s Schedule: ";
+            Subject subj = subjectManager.findByName(subject);
+
+            for (int i = 0; i < scheduleManager.schedules.Count; i++)
+            {
+                Schedule schedule = scheduleManager.findByIndex(i);
+                if (schedule.SubjectID == subj.ID)
+                    cbSchedule.Items.Add(schedule.StartTime + " - " + schedule.EndTime + ", " + schedule.Day);
+            }
+
+            CenterToScreen();
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

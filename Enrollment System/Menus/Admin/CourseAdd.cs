@@ -26,6 +26,11 @@ namespace Enrollment_System.Menus.Admin
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(tbCourseName.Text.ToString()))
+            {
+                MessageBox.Show("Name is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             CourseManager courseManager = CourseManager.getInstance();
             Course course = new Course();
             course.name = tbCourseName.Text.ToString();

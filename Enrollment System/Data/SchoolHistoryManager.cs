@@ -62,6 +62,17 @@ namespace Enrollment_System.Data
             return (SchoolHistory)schoolHistories[index];
         }
 
+        public SchoolHistory findByName(string Name)
+        {
+            for (int i = 0; i < schoolHistories.Count; i++)
+            {
+                SchoolHistory s = (SchoolHistory)schoolHistories[i];
+                if (s.Name.Equals(Name))
+                    return s;
+            }
+            return null;
+        }
+
         public int findIndex(SchoolHistory x)
         {
             return schoolHistories.IndexOf(x);

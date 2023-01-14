@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Enrollment_System.Menus.Admin
 {
-    public partial class ScheduleModify : Form
+    public partial class CourseRemove : Form
     {
-        public ScheduleModify()
+        public CourseRemove()
         {
             InitializeComponent();
         }
 
-        private void ScheduleModify_Load(object sender, EventArgs e)
+        private void CourseRemove_Load(object sender, EventArgs e)
         {
             CenterToScreen();
         }

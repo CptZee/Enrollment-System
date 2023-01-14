@@ -63,6 +63,17 @@ namespace Enrollment_System.Data
             return (Guardian)guardians[index];
         }
 
+        public Guardian findByName(string FirstName)
+        {
+            for (int i = 0; i < guardians.Count; i++)
+            {
+                Guardian s = (Guardian)guardians[i];
+                if (s.FirstName.Equals(FirstName))
+                    return s;
+            }
+            return null;
+        }
+
         public int findIndex(Guardian x)
         {
             return guardians.IndexOf(x);

@@ -59,6 +59,17 @@ namespace Enrollment_System.Data
             return (Student)students[index];
         }
 
+        public Student findByFirstName(string FirstName)
+        {
+            for (int i = 0; i < students.Count; i++)
+            {
+                Student s = (Student)students[i];
+                if (s.FirstName.Equals(FirstName))
+                    return s;
+            }
+            return null;
+        }
+
         public int findIndex(Student x)
         {
             return students.IndexOf(x);

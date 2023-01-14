@@ -14,10 +14,10 @@ namespace Enrollment_System.Menus
 {
     public partial class ApplicationConfrimationFrm : Form
     {
-        private ApplicationForm application;
-        public ApplicationConfrimationFrm(ApplicationForm application)
+        private ApplicationFormsManager applicationManager;
+        public ApplicationConfrimationFrm()
         {
-            this.application = application;
+            applicationManager = ApplicationFormsManager.getInstance();
             InitializeComponent();
         }
 
@@ -43,14 +43,13 @@ namespace Enrollment_System.Menus
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            ApplicationFormsManager applicationManager = ApplicationFormsManager.getInstance();
             StudentManager studentManager = StudentManager.getInstance();
             AddressManager addressManager = AddressManager.getInstance();
             ContactManager contactManager = ContactManager.getInstance();
             GuardianManager guardianManager = GuardianManager.getInstance();
             SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
 
-
+            ApplicationForm application = applicationManager.getRecent();
             application.SubmissionDate = DateTime.Today;
             application.Status = "Pending";
             DatabaseHelper.addAddress(addressManager.find(application.AddressID));
@@ -59,8 +58,8 @@ namespace Enrollment_System.Menus
             DatabaseHelper.addGuardian(guardianManager.find(application.GuardianID));
             DatabaseHelper.addSchoolHistory(schoolHistoryManager.find(application.SchoolHistoryID));
             DatabaseHelper.addStudent(studentManager.find(application.StudentID));
-
-            applicationManager.add(application);
+            DatabaseHelper.addApplicationSubject(application);
+            DatabaseHelper.addApplicationSchedule(application);
 
             MessageBox.Show("Application with the ID of " + application.ID + " has been successfully submitted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -77,6 +76,7 @@ namespace Enrollment_System.Menus
             AddressManager addressManager = AddressManager.getInstance();
             ContactManager contactManager = ContactManager.getInstance();
             SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
+            ApplicationForm application = applicationManager.getRecent();
 
             lbl_Course.Text = application.Course;
             lbl_Yearlevel.Text = application.YearLevel;

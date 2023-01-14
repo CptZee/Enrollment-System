@@ -61,6 +61,17 @@ namespace Enrollment_System.Data
             return (Course)courses[index];
         }
 
+        public Course findByName(string Name)
+        {
+            for (int i = 0; i < courses.Count; i++)
+            {
+                Course s = (Course)courses[i];
+                if (s.name.Equals(Name))
+                    return s;
+            }
+            return null;
+        }
+
         public int findIndex(Course x)
         {
             return courses.IndexOf(x);

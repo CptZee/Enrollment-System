@@ -32,6 +32,13 @@ namespace Enrollment_System.Data
             applicationForms[applicationForms.IndexOf(x)] = x;
         }
 
+        public ApplicationForm getRecent()
+        {
+            if (applicationForms.Count == 0)
+                return null;
+            return (ApplicationForm) applicationForms[applicationForms.Count - 1];
+        }
+
         public int retrieveRecentID()
         {
             if (applicationForms.Count == 0)

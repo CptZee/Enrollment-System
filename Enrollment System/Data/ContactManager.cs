@@ -63,6 +63,17 @@ namespace Enrollment_System.Data
             return (Contact)contacts[index];
         }
 
+        public Contact findByEmail(string email)
+        {
+            for (int i = 0; i < contacts.Count; i++)
+            {
+                Contact s = (Contact)contacts[i];
+                if (s.Email.Equals(email))
+                    return s;
+            }
+            return null;
+        }
+
         public int findIndex(Contact x)
         {
             return contacts.IndexOf(x);

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Enrollment_System.Data;
+using Enrollment_System.Util;
 
 namespace Enrollment_System.Menus.Admin
 {
@@ -19,7 +21,68 @@ namespace Enrollment_System.Menus.Admin
 
         private void SubjectAdd_Load(object sender, EventArgs e)
         {
+            loadComboBoxes();
             CenterToScreen();
+        }
+
+        private void loadComboBoxes()
+        {
+
+            cbYearLevel.Items.Add("First Year Level");
+            cbYearLevel.Items.Add("Second Year Level");
+            cbYearLevel.Items.Add("Third Year Level");
+            cbYearLevel.Items.Add("Fourth Year Level");
+            cbTerm.Items.Add("1st Term");
+            cbTerm.Items.Add("2nd Term");
+            cbPrerequisite.Items.Add("None");
+            SubjectManager subjectManager = SubjectManager.getInstance();
+            for (int i = 0; i < subjectManager.subjects.Count; i++)
+            {
+                Subject subject = subjectManager.findByIndex(i);
+                cbPrerequisite.Items.Add(subject.Name);
+            }
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            String name, yearLevel, term, prerequisite;
+            name = tbName.Text.ToString();
+            yearLevel = cbYearLevel.Text.ToString();
+            term = cbTerm.Text.ToString();
+            prerequisite = cbPrerequisite.Text.ToString();
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("Name is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(yearLevel))
+            {
+                MessageBox.Show("Year Level is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(term))
+            {
+                MessageBox.Show("Term is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(prerequisite))
+            {
+                MessageBox.Show("Prerequisite is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            SubjectManager subjectManager = SubjectManager.getInstance();
+            Subject subject = new Subject();
+            subject.Name = name;
+            subject.YearLevel = yearLevel;
+            subject.Term = term;
+            subject.Prerequisite = prerequisite;
+
+            DatabaseHelper.addSubject(subject);
+            subjectManager.add(subject);
+            MessageBox.Show("Subject " + subject.Name + " successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
     }
 }
