@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Button btnProceed;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnrollFrm));
             System.Windows.Forms.Button btnExProceed;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnrollFrm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label64 = new System.Windows.Forms.Label();
@@ -50,14 +50,11 @@
             this.label50 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -140,10 +137,8 @@
             this.label95 = new System.Windows.Forms.Label();
             this.label94 = new System.Windows.Forms.Label();
             this.label93 = new System.Windows.Forms.Label();
-            this.label92 = new System.Windows.Forms.Label();
             this.label91 = new System.Windows.Forms.Label();
             this.label90 = new System.Windows.Forms.Label();
-            this.label89 = new System.Windows.Forms.Label();
             this.label88 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.label87 = new System.Windows.Forms.Label();
@@ -188,6 +183,7 @@
             this.label65 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Exback = new System.Windows.Forms.Button();
+            this.label40 = new System.Windows.Forms.Label();
             btnProceed = new System.Windows.Forms.Button();
             btnExProceed = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
@@ -210,6 +206,15 @@
             btnProceed.Text = "Proceed";
             btnProceed.UseVisualStyleBackColor = true;
             btnProceed.Click += new System.EventHandler(this.btnProcceed_Click);
+            // 
+            // btnExProceed
+            // 
+            btnExProceed.Location = new System.Drawing.Point(523, 575);
+            btnExProceed.Name = "btnExProceed";
+            btnExProceed.Size = new System.Drawing.Size(75, 23);
+            btnExProceed.TabIndex = 114;
+            btnExProceed.Text = "Proceed";
+            btnExProceed.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -243,8 +248,6 @@
             this.tabPage1.Controls.Add(this.label50);
             this.tabPage1.Controls.Add(this.label49);
             this.tabPage1.Controls.Add(this.label48);
-            this.tabPage1.Controls.Add(this.label47);
-            this.tabPage1.Controls.Add(this.label46);
             this.tabPage1.Controls.Add(this.label45);
             this.tabPage1.Controls.Add(this.label44);
             this.tabPage1.Controls.Add(this.label43);
@@ -480,7 +483,7 @@
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label52.ForeColor = System.Drawing.Color.Red;
-            this.label52.Location = new System.Drawing.Point(384, 418);
+            this.label52.Location = new System.Drawing.Point(0, 0);
             this.label52.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(12, 13);
@@ -534,30 +537,6 @@
             this.label48.Size = new System.Drawing.Size(12, 13);
             this.label48.TabIndex = 77;
             this.label48.Text = "*";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.ForeColor = System.Drawing.Color.Red;
-            this.label47.Location = new System.Drawing.Point(760, 292);
-            this.label47.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(12, 13);
-            this.label47.TabIndex = 76;
-            this.label47.Text = "*";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.ForeColor = System.Drawing.Color.Red;
-            this.label46.Location = new System.Drawing.Point(538, 291);
-            this.label46.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(12, 13);
-            this.label46.TabIndex = 75;
-            this.label46.Text = "*";
             // 
             // label45
             // 
@@ -619,18 +598,6 @@
             this.label41.TabIndex = 70;
             this.label41.Text = "*";
             // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.ForeColor = System.Drawing.Color.Red;
-            this.label40.Location = new System.Drawing.Point(911, 154);
-            this.label40.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(12, 13);
-            this.label40.TabIndex = 69;
-            this.label40.Text = "*";
-            // 
             // label39
             // 
             this.label39.AutoSize = true;
@@ -648,7 +615,7 @@
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.ForeColor = System.Drawing.Color.Red;
-            this.label38.Location = new System.Drawing.Point(554, 152);
+            this.label38.Location = new System.Drawing.Point(369, 212);
             this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(12, 13);
@@ -736,7 +703,7 @@
             // 
             // tbSchoolProgram
             // 
-            this.tbSchoolProgram.Location = new System.Drawing.Point(914, 531);
+            this.tbSchoolProgram.Location = new System.Drawing.Point(914, 527);
             this.tbSchoolProgram.Name = "tbSchoolProgram";
             this.tbSchoolProgram.Size = new System.Drawing.Size(117, 20);
             this.tbSchoolProgram.TabIndex = 60;
@@ -769,7 +736,7 @@
             // cbSchoolType
             // 
             this.cbSchoolType.FormattingEnabled = true;
-            this.cbSchoolType.Location = new System.Drawing.Point(391, 527);
+            this.cbSchoolType.Location = new System.Drawing.Point(396, 527);
             this.cbSchoolType.Name = "cbSchoolType";
             this.cbSchoolType.Size = new System.Drawing.Size(111, 21);
             this.cbSchoolType.TabIndex = 56;
@@ -1154,7 +1121,7 @@
             // cbTerm
             // 
             this.cbTerm.FormattingEnabled = true;
-            this.cbTerm.Location = new System.Drawing.Point(92, 412);
+            this.cbTerm.Location = new System.Drawing.Point(99, 412);
             this.cbTerm.Name = "cbTerm";
             this.cbTerm.Size = new System.Drawing.Size(152, 21);
             this.cbTerm.TabIndex = 10;
@@ -1171,7 +1138,7 @@
             // cbSY
             // 
             this.cbSY.FormattingEnabled = true;
-            this.cbSY.Location = new System.Drawing.Point(92, 353);
+            this.cbSY.Location = new System.Drawing.Point(99, 353);
             this.cbSY.Name = "cbSY";
             this.cbSY.Size = new System.Drawing.Size(152, 21);
             this.cbSY.TabIndex = 8;
@@ -1188,7 +1155,7 @@
             // cbYearLvl
             // 
             this.cbYearLvl.FormattingEnabled = true;
-            this.cbYearLvl.Location = new System.Drawing.Point(92, 298);
+            this.cbYearLvl.Location = new System.Drawing.Point(99, 298);
             this.cbYearLvl.Name = "cbYearLvl";
             this.cbYearLvl.Size = new System.Drawing.Size(152, 21);
             this.cbYearLvl.TabIndex = 6;
@@ -1205,7 +1172,7 @@
             // cbAdmit
             // 
             this.cbAdmit.FormattingEnabled = true;
-            this.cbAdmit.Location = new System.Drawing.Point(92, 245);
+            this.cbAdmit.Location = new System.Drawing.Point(99, 245);
             this.cbAdmit.Name = "cbAdmit";
             this.cbAdmit.Size = new System.Drawing.Size(152, 21);
             this.cbAdmit.TabIndex = 4;
@@ -1231,7 +1198,7 @@
             // cbCourse
             // 
             this.cbCourse.FormattingEnabled = true;
-            this.cbCourse.Location = new System.Drawing.Point(92, 192);
+            this.cbCourse.Location = new System.Drawing.Point(99, 192);
             this.cbCourse.Name = "cbCourse";
             this.cbCourse.Size = new System.Drawing.Size(152, 21);
             this.cbCourse.TabIndex = 1;
@@ -1259,10 +1226,8 @@
             this.tabPage2.Controls.Add(this.label95);
             this.tabPage2.Controls.Add(this.label94);
             this.tabPage2.Controls.Add(this.label93);
-            this.tabPage2.Controls.Add(this.label92);
             this.tabPage2.Controls.Add(this.label91);
             this.tabPage2.Controls.Add(this.label90);
-            this.tabPage2.Controls.Add(this.label89);
             this.tabPage2.Controls.Add(this.label88);
             this.tabPage2.Controls.Add(this.label86);
             this.tabPage2.Controls.Add(this.label87);
@@ -1434,18 +1399,6 @@
             this.label93.TabIndex = 101;
             this.label93.Text = "*";
             // 
-            // label92
-            // 
-            this.label92.AutoSize = true;
-            this.label92.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label92.ForeColor = System.Drawing.Color.Red;
-            this.label92.Location = new System.Drawing.Point(138, 260);
-            this.label92.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label92.Name = "label92";
-            this.label92.Size = new System.Drawing.Size(12, 13);
-            this.label92.TabIndex = 100;
-            this.label92.Text = "*";
-            // 
             // label91
             // 
             this.label91.AutoSize = true;
@@ -1469,18 +1422,6 @@
             this.label90.Size = new System.Drawing.Size(12, 13);
             this.label90.TabIndex = 98;
             this.label90.Text = "*";
-            // 
-            // label89
-            // 
-            this.label89.AutoSize = true;
-            this.label89.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label89.ForeColor = System.Drawing.Color.Red;
-            this.label89.Location = new System.Drawing.Point(611, 153);
-            this.label89.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(12, 13);
-            this.label89.TabIndex = 97;
-            this.label89.Text = "*";
             // 
             // label88
             // 
@@ -1870,15 +1811,19 @@
             this.btn_Exback.TabIndex = 113;
             this.btn_Exback.Text = "Back";
             this.btn_Exback.UseVisualStyleBackColor = true;
+            this.btn_Exback.Click += new System.EventHandler(this.btn_Exback_Click);
             // 
-            // btnExProceed
+            // label40
             // 
-            btnExProceed.Location = new System.Drawing.Point(523, 575);
-            btnExProceed.Name = "btnExProceed";
-            btnExProceed.Size = new System.Drawing.Size(75, 23);
-            btnExProceed.TabIndex = 114;
-            btnExProceed.Text = "Proceed";
-            btnExProceed.UseVisualStyleBackColor = true;
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.Red;
+            this.label40.Location = new System.Drawing.Point(724, 215);
+            this.label40.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(12, 13);
+            this.label40.TabIndex = 69;
+            this.label40.Text = "*";
             // 
             // EnrollFrm
             // 
@@ -1984,14 +1929,11 @@
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
@@ -2054,10 +1996,8 @@
         private System.Windows.Forms.Label label95;
         private System.Windows.Forms.Label label94;
         private System.Windows.Forms.Label label93;
-        private System.Windows.Forms.Label label92;
         private System.Windows.Forms.Label label91;
         private System.Windows.Forms.Label label90;
-        private System.Windows.Forms.Label label89;
         private System.Windows.Forms.Label label96;
         private System.Windows.Forms.Label label103;
         private System.Windows.Forms.Label label102;
@@ -2066,5 +2006,6 @@
         private System.Windows.Forms.Label label98;
         private System.Windows.Forms.Label label97;
         private System.Windows.Forms.Button btn_Exback;
+        private System.Windows.Forms.Label label40;
     }
 }

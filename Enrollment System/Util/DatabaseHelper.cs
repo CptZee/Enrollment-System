@@ -1,7 +1,6 @@
 ﻿using System;
 using Enrollment_System.Data;
 using System.Data.SqlClient;
-using Enrollment_System.Data;
 
 namespace Enrollment_System.Util
 {
@@ -13,7 +12,7 @@ namespace Enrollment_System.Util
     class DatabaseHelper
     {
         //Modify depending on the computer's database. WILL ONLY WORK ON AARON's PC!
-        protected static String connectionString = @"Data Source=AARON\SQLEXPRESS;Integrated Security=True";
+        protected static String connectionURL = @"Data Source=AARON\SQLEXPRESS;Integrated Security=True";
 
         /*
          * A simple method which returns the connection.
@@ -21,7 +20,7 @@ namespace Enrollment_System.Util
         **/
         public static SqlConnection GetConnection()
         {
-            SqlConnection connection = new SqlConnection(connectionString);
+            SqlConnection connection = new SqlConnection(connectionURL);
             return connection;
         }
 
@@ -84,8 +83,8 @@ namespace Enrollment_System.Util
                 (
                     [Id] INT NOT NULL PRIMARY KEY,
                     [StreetUnitNumber] NCHAR(30),
-                    [Street] NCHAR(30) NOT NULL,
-                    [SubdivisionVillageBldg] NCHAR(30) NOT NULL,
+                    [Street] NCHAR(30),
+                    [SubdivisionVillageBldg] NCHAR(30),
                     [Barangay] NCHAR(30) NOT NULL,
                     [City] NCHAR(30) NOT NULL,
                     [Province] NCHAR(30) NOT NULL,
@@ -161,7 +160,7 @@ namespace Enrollment_System.Util
                 String query = @"CREATE TABLE Contacts
                 (
                     [Id] INT NOT NULL PRIMARY KEY, 
-                    [TelephoneNo] NCHAR(30) NOT NULL,
+                    [TelephoneNo] NCHAR(30),
                     [MobileNo] NCHAR(30) NOT NULL,
                     [Email] NCHAR(30) NOT NULL
                 )";
@@ -201,8 +200,8 @@ namespace Enrollment_System.Util
                     [Id] INT NOT NULL PRIMARY KEY, 
                     [FirstName] NCHAR(30) NOT NULL,
                     [LastName] NCHAR(30) NOT NULL,
-                    [MiddleInitial] NCHAR(30) NOT NULL,
-                    [SuffixName] NCHAR(30) NOT NULL,
+                    [MiddleInitial] NCHAR(30),
+                    [SuffixName] NCHAR(30),
                     [MobileNumber] NCHAR(30) NOT NULL,
                     [Email] NCHAR(30) NOT NULL,
                     [Occupation] NCHAR(30) NOT NULL,
@@ -279,9 +278,9 @@ namespace Enrollment_System.Util
                 (
                     [Id] INT NOT NULL PRIMARY KEY, 
                     [FirstName] NCHAR(30) NOT NULL,
-                    [MiddleName] NCHAR(30) NOT NULL,
+                    [MiddleName] NCHAR(30),
                     [LastName] NCHAR(30) NOT NULL,
-                    [SuffixName] NCHAR(30) NOT NULL,
+                    [SuffixName] NCHAR(30),
                     [Gender] NCHAR(30) NOT NULL,
                     [Status] NCHAR(30) NOT NULL,
                     [Citizenship] NCHAR(30) NOT NULL,
@@ -367,9 +366,15 @@ namespace Enrollment_System.Util
                         Address address = new Address();
 
                         address.Id = reader.GetInt32(0);
-                        address.StreetUnitNumber = reader.GetString(1);
-                        address.Street = reader.GetString(2);
-                        address.SubdivisionVillageBldg = reader.GetString(3);
+
+                        if (!reader.IsDBNull(1))
+                            address.StreetUnitNumber = reader.GetString(1);
+
+                        if (!reader.IsDBNull(2))
+                            address.Street = reader.GetString(2);
+
+                        if (!reader.IsDBNull(3))
+                            address.SubdivisionVillageBldg = reader.GetString(3);
                         address.Barangay = reader.GetString(4);
                         address.City = reader.GetString(5);
                         address.Province = reader.GetString(6);
@@ -433,7 +438,8 @@ namespace Enrollment_System.Util
                         Contact contact = new Contact();
 
                         contact.Id = reader.GetInt32(0);
-                        contact.TelephoneNo = reader.GetString(1);
+                        if (!reader.IsDBNull(1))
+                            contact.TelephoneNo = reader.GetString(1);
                         contact.MobileNo = reader.GetString(2);
                         contact.Email = reader.GetString(3);
 
@@ -495,8 +501,12 @@ namespace Enrollment_System.Util
                         guardian.Id = reader.GetInt32(0);
                         guardian.FirstName = reader.GetString(1);
                         guardian.LastName = reader.GetString(2);
-                        guardian.MiddleInitial = reader.GetString(3);
-                        guardian.SuffixName = reader.GetString(4);
+
+                        if (!reader.IsDBNull(3))
+                            guardian.MiddleInitial = reader.GetString(3);
+
+                        if (!reader.IsDBNull(4))
+                            guardian.SuffixName = reader.GetString(4);
                         guardian.MobileNumber = reader.GetString(5);
                         guardian.Email = reader.GetString(6);
                         guardian.Occupation = reader.GetString(7);
@@ -561,9 +571,11 @@ namespace Enrollment_System.Util
                         Student student = new Student();
                         student.Id = reader.GetInt32(0);
                         student.FirstName = reader.GetString(1);
-                        student.MiddleName = reader.GetString(2);
+                        if (!reader.IsDBNull(1))
+                            student.MiddleName = reader.GetString(2);
                         student.LastName = reader.GetString(3);
-                        student.SuffixName = reader.GetString(4);
+                        if(!reader.IsDBNull(4))
+                            student.SuffixName = reader.GetString(4);
                         student.Gender = reader.GetString(5);
                         student.Status = reader.GetString(6);
                         student.Citizenship = reader.GetString(7);
@@ -633,8 +645,6 @@ namespace Enrollment_System.Util
         {
             SqlConnection connection = GetConnection();
             String query = "INSERT INTO Courses(Id, Name) VALUES(@Id, @Name)";
-            try
-            {
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -644,19 +654,12 @@ namespace Enrollment_System.Util
                 }
                 Console.WriteLine("ERROR: Successfully added course with the id " + course.ID);
                 connection.Close();
-            }
-            catch (SqlException)
-            {
-                Console.WriteLine("ERROR: Unable to add course with the id " + course.ID);
-            }
         }
 
         public static void addAddress(Address address)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Adresses(Id, StreetUnitNumber, Street, SubdivisionVillageBldg, Barangay, City, Province, ZipCode) VALUES(@Id, @StreetUnitNumber, @Street, @SubdivisionVillageBldg, @Barangay, @City, @Province, @ZipCode)";
-            try
-            {
+            String query = "INSERT INTO Addresses(Id, StreetUnitNumber, Street, SubdivisionVillageBldg, Barangay, City, Province, ZipCode) VALUES(@Id, @StreetUnitNumber, @Street, @SubdivisionVillageBldg, @Barangay, @City, @Province, @ZipCode)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -672,19 +675,12 @@ namespace Enrollment_System.Util
                 }
                 Console.WriteLine("ERROR: Successfully added course with the id " + address.Id);
                 connection.Close();
-            }
-            catch (SqlException)
-            {
-                Console.WriteLine("ERROR: Unable to add course with the id " + address.Id);
-            }
         }
 
         public static void addAdmin(Admin admin)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Courses(ID, username, password) VALUES(@ID, @username, @password)";
-            try
-            {
+            String query = "INSERT INTO Admins(ID, username, password) VALUES(@ID, @username, @password)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -695,23 +691,16 @@ namespace Enrollment_System.Util
                 }
                 Console.WriteLine("ERROR: Successfully added course with the id " + admin.ID);
                 connection.Close();
-            }
-            catch (SqlException)
-            {
-                Console.WriteLine("ERROR: Unable to add course with the id " + admin.ID);
-            }
         }
 
         public static void addApplicationForm(ApplicationForm applicationform)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Courses(ID, StudentID, AddressID, ContactID, SchoolHistoryID, GuardianID, Course, AdmitType, YearLevel, SchoolYear, Term, SubmissionDate, Status) VALUES(@ID, @StudentID, @AddressID, @ContactID, @SchoolHistoryID, @GuardianID, @Course, @AdmitType, @YearLevel, @SchoolYear, @Term, @SubmissionDate, @Status)";
-            try
-            {
+            String query = "INSERT INTO Applications(Id, StudentID, AddressID, ContactID, SchoolHistoryID, GuardianID, Course, AdmitType, YearLevel, SchoolYear, Term, SubmissionDate, Status) VALUES(@Id, @StudentID, @AddressID, @ContactID, @SchoolHistoryID, @GuardianID, @Course, @AdmitType, @YearLevel, @SchoolYear, @Term, @SubmissionDate, @Status)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@ID", applicationform.ID);
+                    command.Parameters.AddWithValue("@Id", applicationform.ID);
                     command.Parameters.AddWithValue("@StudentID", applicationform.StudentID);
                     command.Parameters.AddWithValue("@AddressID", applicationform.AddressID);
                     command.Parameters.AddWithValue("@ContactID", applicationform.ContactID);
@@ -728,19 +717,12 @@ namespace Enrollment_System.Util
                 }
                 Console.WriteLine("ERROR: Successfully added course with the id " + applicationform.ID);
                 connection.Close();
-            }
-            catch (SqlException)
-            {
-                Console.WriteLine("ERROR: Unable to add course with the id " + applicationform.ID);
-            }
         }
 
         public static void addContact(Contact contact)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Courses(Id, TelephoneNo, MobileNo, Email) VALUES(@Id, @TelephoneNo, @MobileNo, @Email)";
-            try
-            {
+            String query = "INSERT INTO Contacts(Id, TelephoneNo, MobileNo, Email) VALUES(@Id, @TelephoneNo, @MobileNo, @Email)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -752,19 +734,12 @@ namespace Enrollment_System.Util
                 }
                 Console.WriteLine("ERROR: Successfully added course with the id " + contact.Id);
                 connection.Close();
-            }
-            catch (SqlException)
-            {
-                Console.WriteLine("ERROR: Unable to add course with the id " + contact.Id);
-            }
         }
 
         public static void addGuardian(Guardian guardian)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Courses(Id, FirstName, LastName, MiddleInitial, SuffixName, MobileNumber, Email, Occupation, Relation) VALUES(@Id, @FirstName, @LastName, @MiddleInitial, @SuffixName, @MobileNumber, @Email, @Occupation, @Relation)";
-            try
-            {
+            String query = "INSERT INTO Guardians(Id, FirstName, LastName, MiddleInitial, SuffixName, MobileNumber, Email, Occupation, Relation) VALUES(@Id, @FirstName, @LastName, @MiddleInitial, @SuffixName, @MobileNumber, @Email, @Occupation, @Relation)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -781,19 +756,12 @@ namespace Enrollment_System.Util
                 }
                 Console.WriteLine("ERROR: Successfully added course with the id " + guardian.Id);
                 connection.Close();
-            }
-            catch (SqlException)
-            {
-                Console.WriteLine("ERROR: Unable to add course with the id " + guardian.Id);
-            }
         }
 
         public static void addSchoolHistory(SchoolHistory schoolhistory)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Courses(Id, Type, Name, ProgramTrackSpecialization) VALUES(@Id, @Type, @Name, @ProgramTrackSpecialization)";
-            try
-            {
+            String query = "INSERT INTO SchoolHistory(Id, Type, Name, ProgramTrackSpecialization) VALUES(@Id, @Type, @Name, @ProgramTrackSpecialization)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -805,20 +773,13 @@ namespace Enrollment_System.Util
                 }
                 Console.WriteLine("ERROR: Successfully added course with the id " + schoolhistory.Id);
                 connection.Close();
-            }
-            catch (SqlException)
-            {
-                Console.WriteLine("ERROR: Unable to add course with the id " + schoolhistory.Id);
-            }
         }
 
 
         public static void addStudent(Student student)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Courses(Id, FirstName, MiddleName, LastName, Gender, Status, Citizenship, BirthDate, Birthplace, Religion) VALUES(@Id, @FirstName, @MiddleName, @LastName, @Gender, @Status, @Citizenship, @BirthDate, @Birthplace, @Religion)";
-            try
-            {
+            String query = "INSERT INTO Students(Id, FirstName, MiddleName, LastName, Gender, Status, Citizenship, BirthDate, Birthplace, Religion) VALUES(@Id, @FirstName, @MiddleName, @LastName, @Gender, @Status, @Citizenship, @BirthDate, @Birthplace, @Religion)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -837,11 +798,6 @@ namespace Enrollment_System.Util
                 }
                 Console.WriteLine("ERROR: Successfully added course with the id " + student.Id);
                 connection.Close();
-            }
-            catch (SqlException)
-            {
-                Console.WriteLine("ERROR: Unable to add course with the id " + student .Id);
-            }
         }
 
 

@@ -52,6 +52,7 @@ namespace Enrollment_System.Menus
 
 
             application.SubmissionDate = DateTime.Today;
+            application.Status = "Pending";
             DatabaseHelper.addAddress(addressManager.find(application.AddressID));
             DatabaseHelper.addApplicationForm(application);
             DatabaseHelper.addContact(contactManager.find(application.ContactID));
@@ -60,6 +61,13 @@ namespace Enrollment_System.Menus
             DatabaseHelper.addStudent(studentManager.find(application.StudentID));
 
             applicationManager.addApplicationForm(application);
+
+            MessageBox.Show("Application with the ID of " + application.ID + " has been successfully submitted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.Hide();
+            Dashboard frm = new Dashboard();
+            frm.ShowDialog();
+            this.Close();
         }
 
         private void ApplicationConfrimationFrm_Load(object sender, EventArgs e)

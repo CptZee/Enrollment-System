@@ -103,26 +103,6 @@ namespace Enrollment_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pakyu {
-            get {
-                object obj = ResourceManager.GetObject("pakyu", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap png_transparent_bmw_3_series_mini_car_bmw_m3_bmw_emblem_trademark_logo {
-            get {
-                object obj = ResourceManager.GetObject("png-transparent-bmw-3-series-mini-car-bmw-m3-bmw-emblem-trademark-logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Student_Enrollment_System {
             get {
                 object obj = ResourceManager.GetObject("Student Enrollment System", resourceCulture);

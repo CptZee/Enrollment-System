@@ -13,6 +13,10 @@ namespace Enrollment_System
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            StatusFrm frm = new StatusFrm();
+            frm.ShowDialog();
+            this.Close();
 
         }
 

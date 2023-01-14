@@ -15,7 +15,7 @@ namespace Enrollment_System.Menus
 
         private void btnProcceed_Click(object sender, EventArgs e)
         {
-            if(verifyForm())
+            if (verifyForm())
                 openGuardianInfo();
         }
 
@@ -165,13 +165,7 @@ namespace Enrollment_System.Menus
                 MessageBox.Show("Religion is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
-            if (string.IsNullOrEmpty(streetno))
-            {
-                MessageBox.Show("Street/Unit No. is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (string.IsNullOrEmpty(street))
+            if (string.IsNullOrEmpty(barangay))
             {
                 MessageBox.Show("Street is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -231,6 +225,14 @@ namespace Enrollment_System.Menus
             application.Term = term;
 
             return true;
+        }
+
+        private void btn_Exback_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Dashboard frm = new Dashboard();
+            frm.ShowDialog();
+            this.Close();
         }
     }
 }

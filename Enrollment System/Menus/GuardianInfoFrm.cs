@@ -34,12 +34,14 @@ namespace Enrollment_System.Menus
         private void btnProceed_Click(object sender, EventArgs e)
         {
             if (verifyForm())
-            {
-                this.Hide();
-                ApplicationConfrimationFrm frm = new ApplicationConfrimationFrm(application);
-                frm.ShowDialog();
-                this.Close();
-            }
+                showConfirmationFrm();
+        }
+        public void showConfirmationFrm()
+        {
+            this.Hide();
+            ApplicationConfrimationFrm frm = new ApplicationConfrimationFrm(application);
+            frm.ShowDialog();
+            this.Close();
         }
 
         private Boolean verifyForm()
