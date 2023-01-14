@@ -583,6 +583,9 @@ namespace Enrollment_System.Util
             }
         }
         
+        /**
+         * WARNING: loadApplications() must be called before this!
+         */ 
         public static void loadApplicationSubjects()
         {
             ApplicationFormsManager applicationManager = ApplicationFormsManager.getInstance();
@@ -611,7 +614,10 @@ namespace Enrollment_System.Util
                 Console.WriteLine("ERROR: Unable to load course list!");
             }
         }
-
+        
+        /**
+         * WARNING: loadApplications() must be called before this!
+         */
         public static void loadApplicationSchedules()
         {
             ApplicationFormsManager applicationManager = ApplicationFormsManager.getInstance();
@@ -907,6 +913,61 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
+        public static void addApplicationForm(ApplicationForm applicationform)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "INSERT INTO Applications(StudentID, AddressID, ContactID, SchoolHistoryID, GuardianID, Course, AdmitType, YearLevel, SchoolYear," +
+                " Term, SubmissionDate, Status, IsRegular) VALUES(@StudentID, @AddressID, @ContactID, @SchoolHistoryID, @GuardianID, @Course, @AdmitType, @YearLevel, " +
+                "@SchoolYear, @Term, @SubmissionDate, @Status, @IsRegular)";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@StudentID", applicationform.StudentID);
+                command.Parameters.AddWithValue("@AddressID", applicationform.AddressID);
+                command.Parameters.AddWithValue("@ContactID", applicationform.ContactID);
+                command.Parameters.AddWithValue("@SchoolHistoryID", applicationform.SchoolHistoryID);
+                command.Parameters.AddWithValue("@GuardianID", applicationform.GuardianID);
+                command.Parameters.AddWithValue("@Course", applicationform.Course);
+                command.Parameters.AddWithValue("@AdmitType", applicationform.AdmitType);
+                command.Parameters.AddWithValue("@YearLevel", applicationform.YearLevel);
+                command.Parameters.AddWithValue("@SchoolYear", applicationform.SchoolYear);
+                command.Parameters.AddWithValue("@Term", applicationform.Term);
+                command.Parameters.AddWithValue("@SubmissionDate", applicationform.SubmissionDate);
+                command.Parameters.AddWithValue("@Status", applicationform.Status);
+                command.Parameters.AddWithValue("@IsRegular", applicationform.IsRegular);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void addApplicationSubject(Subject subject)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "INSERT INTO ApplicatioSubjects(ApplicationID, SubjectID) VALUES(@ApplicationID, @SubjectID)";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ApplicationID", subject.Name);
+                command.Parameters.AddWithValue("@SubjectID", subject.YearLevel);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void addApplicationSchedule(Schedule schedule)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "INSERT INTO ApplicatioSchedules(ApplicationID, ScheduleID) VALUES(@ApplicationID, @ScheduleID)";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ApplicationID", schedule.SubjectId);
+                command.Parameters.AddWithValue("@ScheduleID", schedule.startTime);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
         public static void addAddress(Address address)
         {
             SqlConnection connection = GetConnection();
@@ -937,33 +998,6 @@ namespace Enrollment_System.Util
                 {
                     command.Parameters.AddWithValue("@username", admin.username);
                     command.Parameters.AddWithValue("@password", admin.password);
-                    command.ExecuteNonQuery();
-                }
-                connection.Close();
-        }
-
-        public static void addApplicationForm(ApplicationForm applicationform)
-        {
-            SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Applications(StudentID, AddressID, ContactID, SchoolHistoryID, GuardianID, Course, AdmitType, YearLevel, SchoolYear," +
-                " Term, SubmissionDate, Status, IsRegular) VALUES(@StudentID, @AddressID, @ContactID, @SchoolHistoryID, @GuardianID, @Course, @AdmitType, @YearLevel, " +
-                "@SchoolYear, @Term, @SubmissionDate, @Status, @IsRegular)";
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@StudentID", applicationform.StudentID);
-                    command.Parameters.AddWithValue("@AddressID", applicationform.AddressID);
-                    command.Parameters.AddWithValue("@ContactID", applicationform.ContactID);
-                    command.Parameters.AddWithValue("@SchoolHistoryID", applicationform.SchoolHistoryID);
-                    command.Parameters.AddWithValue("@GuardianID", applicationform.GuardianID);
-                    command.Parameters.AddWithValue("@Course", applicationform.Course);
-                    command.Parameters.AddWithValue("@AdmitType", applicationform.AdmitType);
-                    command.Parameters.AddWithValue("@YearLevel", applicationform.YearLevel);
-                    command.Parameters.AddWithValue("@SchoolYear", applicationform.SchoolYear);
-                    command.Parameters.AddWithValue("@Term", applicationform.Term);
-                    command.Parameters.AddWithValue("@SubmissionDate", applicationform.SubmissionDate);
-                    command.Parameters.AddWithValue("@Status", applicationform.Status);
-                    command.Parameters.AddWithValue("@IsRegular", applicationform.IsRegular);
                     command.ExecuteNonQuery();
                 }
                 connection.Close();
