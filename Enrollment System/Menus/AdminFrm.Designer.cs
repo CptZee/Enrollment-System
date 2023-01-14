@@ -60,6 +60,7 @@
             this.btnAddApp = new System.Windows.Forms.Button();
             this.btnApproveApp = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
+            this.btnView = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -87,6 +88,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnView);
             this.tabPage1.Controls.Add(this.btnApproveApp);
             this.tabPage1.Controls.Add(this.btnRefreshApp);
             this.tabPage1.Controls.Add(this.btnModifyApp);
@@ -341,7 +343,7 @@
             // 
             // btnModifyApp
             // 
-            this.btnModifyApp.Location = new System.Drawing.Point(774, 110);
+            this.btnModifyApp.Location = new System.Drawing.Point(774, 139);
             this.btnModifyApp.Name = "btnModifyApp";
             this.btnModifyApp.Size = new System.Drawing.Size(75, 23);
             this.btnModifyApp.TabIndex = 10;
@@ -350,7 +352,7 @@
             // 
             // btnRemoveApp
             // 
-            this.btnRemoveApp.Location = new System.Drawing.Point(774, 81);
+            this.btnRemoveApp.Location = new System.Drawing.Point(774, 110);
             this.btnRemoveApp.Name = "btnRemoveApp";
             this.btnRemoveApp.Size = new System.Drawing.Size(75, 23);
             this.btnRemoveApp.TabIndex = 9;
@@ -368,7 +370,7 @@
             // 
             // btnApproveApp
             // 
-            this.btnApproveApp.Location = new System.Drawing.Point(774, 139);
+            this.btnApproveApp.Location = new System.Drawing.Point(774, 168);
             this.btnApproveApp.Name = "btnApproveApp";
             this.btnApproveApp.Size = new System.Drawing.Size(75, 23);
             this.btnApproveApp.TabIndex = 12;
@@ -384,6 +386,15 @@
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // btnView
+            // 
+            this.btnView.Location = new System.Drawing.Point(774, 81);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(75, 23);
+            this.btnView.TabIndex = 13;
+            this.btnView.Text = "View";
+            this.btnView.UseVisualStyleBackColor = true;
             // 
             // AdminFrm
             // 
@@ -447,5 +458,6 @@
         private System.Windows.Forms.Button btnAddSched;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnView;
     }
 }

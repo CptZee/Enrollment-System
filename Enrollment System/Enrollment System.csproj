@@ -79,6 +79,60 @@
     <Compile Include="Menus\AdminFrm.Designer.cs">
       <DependentUpon>AdminFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menus\Admin\ApplicationAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\Admin\ApplicationAdd.Designer.cs">
+      <DependentUpon>ApplicationAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\Admin\ApplicationModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\Admin\ApplicationModify.Designer.cs">
+      <DependentUpon>ApplicationModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\Admin\ApplicationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\Admin\ApplicationView.Designer.cs">
+      <DependentUpon>ApplicationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\Admin\CourseAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\Admin\CourseAdd.Designer.cs">
+      <DependentUpon>CourseAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\Admin\CourseModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\Admin\CourseModify.Designer.cs">
+      <DependentUpon>CourseModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\Admin\ScheduleAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\Admin\ScheduleAdd.Designer.cs">
+      <DependentUpon>ScheduleAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\Admin\ScheduleModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\Admin\ScheduleModify.Designer.cs">
+      <DependentUpon>ScheduleModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\Admin\SubjectAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\Admin\SubjectAdd.Designer.cs">
+      <DependentUpon>SubjectAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\Admin\SubjectModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\Admin\SubjectModify.Designer.cs">
+      <DependentUpon>SubjectModify.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menus\ApplicationConfrimationFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +180,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\AdminFrm.resx">
       <DependentUpon>AdminFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\Admin\ApplicationAdd.resx">
+      <DependentUpon>ApplicationAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\Admin\ApplicationModify.resx">
+      <DependentUpon>ApplicationModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\Admin\ApplicationView.resx">
+      <DependentUpon>ApplicationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\Admin\CourseAdd.resx">
+      <DependentUpon>CourseAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\Admin\CourseModify.resx">
+      <DependentUpon>CourseModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\Admin\ScheduleAdd.resx">
+      <DependentUpon>ScheduleAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\Admin\ScheduleModify.resx">
+      <DependentUpon>ScheduleModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\Admin\SubjectAdd.resx">
+      <DependentUpon>SubjectAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\Admin\SubjectModify.resx">
+      <DependentUpon>SubjectModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\ApplicationConfrimationFrm.resx">
       <DependentUpon>ApplicationConfrimationFrm.cs</DependentUpon>
