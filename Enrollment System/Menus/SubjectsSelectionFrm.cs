@@ -50,7 +50,12 @@ namespace Enrollment_System.Menus
             {
                 application.SubjectIDs.Add(lvSubjects.SelectedItems[i]);
             }
+            ApplicationFormsManager applicationFormsManager = ApplicationFormsManager.getInstance();
+
+            applicationFormsManager.add(application);
+            btnSched.Enabled = false;
             openScheduleForms();
+            btnProceed.Enabled = true;
         }
 
         private void openScheduleForms()

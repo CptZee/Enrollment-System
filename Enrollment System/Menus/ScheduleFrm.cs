@@ -14,18 +14,19 @@ namespace Enrollment_System.Menus
     public partial class ScheduleFrm : Form
     {
         private ApplicationForm application;
+        private ScheduleManager scheduleManager;
         private String subject;
         public ScheduleFrm(ApplicationForm application, String subject)
         {
             this.subject = subject;
             this.application = application;
+            scheduleManager = ScheduleManager.getInstance();
             InitializeComponent();
         }
 
         private void ScheduleFrm_Load(object sender, EventArgs e)
         {
             SubjectManager subjectManager = SubjectManager.getInstance();
-            ScheduleManager scheduleManager = ScheduleManager.getInstance();
 
             lblSubject.Text = subject + "'s Schedule: ";
             Subject subj = subjectManager.findByName(subject);
@@ -42,7 +43,14 @@ namespace Enrollment_System.Menus
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            Schedule schedule = scheduleManager.findByTime(cbSchedule.Text.ToString());
+            application.ScheduleIDs.Add(schedule.ID);
+            ApplicationFormsManager applicationFormsManager = ApplicationFormsManager.getInstance();
 
+            applicationFormsManager.update(application);
+
+            MessageBox.Show("Schedule Selected", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
     }
 }
