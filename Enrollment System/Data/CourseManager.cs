@@ -50,5 +50,9 @@ namespace Enrollment_System.Data
             }
             return null;
         }
+        public int findIndex(Course x)
+        {
+            return courses.IndexOf(x);
+        }
     }
 }

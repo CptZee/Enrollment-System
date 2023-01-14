@@ -50,5 +50,9 @@ namespace Enrollment_System.Data
             }
             return null;
         }
+        public int findIndex(Guardian x)
+        {
+            return guardians.IndexOf(x);
+        }
     }
 }

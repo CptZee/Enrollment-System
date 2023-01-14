@@ -51,5 +51,10 @@ namespace Enrollment_System.Data
             }
             return null;
         }
+
+        public int findIndex(Admin x)
+        {
+            return admins.IndexOf(x);
+        }
     }
 }

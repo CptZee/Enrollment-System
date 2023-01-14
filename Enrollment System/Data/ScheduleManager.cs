@@ -48,5 +48,9 @@ namespace Enrollment_System.Data
             }
             return null;
         }
+        public int findIndex(Schedule x)
+        {
+            return schedules.IndexOf(x);
+        }
     }
 }

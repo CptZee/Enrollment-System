@@ -51,5 +51,9 @@ namespace Enrollment_System.Data
             }
             return null;
         }
+        public int findIndex(SchoolHistory x)
+        {
+            return schoolHistories.IndexOf(x);
+        }
     }
 }

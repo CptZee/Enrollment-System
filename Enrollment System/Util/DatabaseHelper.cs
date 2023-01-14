@@ -68,7 +68,7 @@ namespace Enrollment_System.Util
                 connection.Open();
                 SqlCommand command = new SqlCommand("SELECT * FROM Subjects", connection);
                 command.ExecuteNonQuery();
-                Console.WriteLine("DEBUG: Courses Table exists! Proceeding...");
+                Console.WriteLine("DEBUG: Subjects Table exists! Proceeding...");
             }
             catch (SqlException)
             {
@@ -112,6 +112,111 @@ namespace Enrollment_System.Util
                     [SubjectId] INT NOT NULL,
                     [startTime] NCHAR(30) NOT NULL,
                     [endTime] NCHAR(30) NOT NULL,
+                    PRIMARY KEY (ID)
+                )";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+        public static void createApplicationFormTable()
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM Applications", connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("DEBUG: Applications Table exists! Proceeding...");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("DEBUG: Applications Table doesn't exist! Creating one...");
+                String query = @"CREATE TABLE Applications
+                (
+                    [Id] INT NOT NULL IDENTITY(1,1), 
+                    [StudentID] INT NOT NULL,
+                    [AddressID] INT NOT NULL,
+                    [ContactID] INT NOT NULL,
+                    [SchoolHistoryID] INT NOT NULL,
+                    [GuardianID] INT NOT NULL,
+                    [Course] NCHAR(30) NOT NULL,
+                    [AdmitType] NCHAR(30) NOT NULL,
+                    [YearLevel] NCHAR(30) NOT NULL,
+                    [SchoolYear] NCHAR(30) NOT NULL,
+                    [Term] NCHAR(30) NOT NULL,
+                    [SubmissionDate] DATE NOT NULL,
+                    [IsRegular] BIT NOT NULL,
+                    [Status] NCHAR(30) NOT NULL,
+                    PRIMARY KEY (ID)
+                )";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        
+        public static void createApplicationSubjectsTable()
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM ApplicationSubjects", connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("DEBUG: Application Subjects Table exists! Proceeding...");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("DEBUG: Application Subjects Table doesn't exist! Creating one...");
+                String query = @"CREATE TABLE ApplicationSubjects
+                (
+                    [ID] INT NOT NULL IDENTITY(1,1),
+                    [ApplicationID] INT NOT NULL,
+                    [SubjectID] NCHAR(30) NOT NULL,
+                    PRIMARY KEY (ID)
+                )";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public static void createApplicationSchedulesTable()
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM ApplicationSchedules", connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("DEBUG: Application Schedules Table exists! Proceeding...");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("DEBUG: Application Schedules Table doesn't exist! Creating one...");
+                String query = @"CREATE TABLE ApplicationSchedules
+                (
+                    [ID] INT NOT NULL IDENTITY(1,1),
+                    [ApplicationID] INT NOT NULL,
+                    [ScheduleID] NCHAR(30) NOT NULL,
                     PRIMARY KEY (ID)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -338,52 +443,206 @@ namespace Enrollment_System.Util
             }
         }
 
-        public static void createApplicationFormTable()
-        {
-            SqlConnection connection = GetConnection();
-            try
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand("SELECT * FROM Applications", connection);
-                command.ExecuteNonQuery();
-                Console.WriteLine("DEBUG: Applications Table exists! Proceeding...");
-            }
-            catch (SqlException)
-            {
-                Console.WriteLine("DEBUG: Applications Table doesn't exist! Creating one...");
-                String query = @"CREATE TABLE Applications
-                (
-                    [Id] INT NOT NULL IDENTITY(1,1), 
-                    [StudentID] INT NOT NULL,
-                    [AddressID] INT NOT NULL,
-                    [ContactID] INT NOT NULL,
-                    [SchoolHistoryID] INT NOT NULL,
-                    [GuardianID] INT NOT NULL,
-                    [Course] NCHAR(30) NOT NULL,
-                    [AdmitType] NCHAR(30) NOT NULL,
-                    [YearLevel] NCHAR(30) NOT NULL,
-                    [SchoolYear] NCHAR(30) NOT NULL,
-                    [Term] NCHAR(30) NOT NULL,
-                    [SubmissionDate] DATE NOT NULL,
-                    [Status] NCHAR(30) NOT NULL,
-                    PRIMARY KEY (ID)
-                )";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
         /**
          * A group of methods that will load the database into the
          * program.
          *  
          */
+
+        public static void loadCourses()
+        {
+            CourseManager courseManager = CourseManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT ID, Name FROM Courses";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Course course = new Course();
+                        course.ID = reader.GetInt32(0);
+                        course.name = reader.GetString(1);
+
+                        courseManager.add(course);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: Course list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load course list!");
+            }
+        }
+
+        public static void loadSubjects()
+        {
+            SubjectManager subjectManager = SubjectManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT ID, Name, YearLevel, Term, Prerequisite FROM Subjects";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Subject subject = new Subject();
+                        subject.ID = reader.GetInt32(0);
+                        subject.Name = reader.GetString(1);
+                        subject.YearLevel = reader.GetString(2);
+                        subject.Term = reader.GetString(3);
+                        subject.Prerequisite = reader.GetString(4);
+
+                        subjectManager.add(subject);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: Course list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load course list!");
+            }
+        }
+
+        public static void loadSchedules()
+        {
+            ScheduleManager scheduleManager = ScheduleManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT ID, SubjectId, startTime, endTime FROM Schedules";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Schedule schedule = new Schedule();
+                        schedule.ID = reader.GetInt32(0);
+                        schedule.SubjectId = reader.GetInt32(1);
+                        schedule.startTime = reader.GetString(2);
+                        schedule.endTime = reader.GetString(3);
+
+                        scheduleManager.add(schedule);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: Course list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load course list!");
+            }
+        }
+
+        public static void loadApplicationForms()
+        {
+            ApplicationFormsManager applicationFormsManager = ApplicationFormsManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT ID, StudentID, AddressID, ContactID, SchoolHistoryID, GuardianID, Course, AdmitType, YearLevel, 
+                SchoolYear, Term, SubmissionDate, Status, IsRegular FROM Applications";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ApplicationForm applicationForm = new ApplicationForm();
+                        applicationForm.ID = reader.GetInt32(0);
+                        applicationForm.StudentID = reader.GetInt32(1);
+                        applicationForm.AddressID = reader.GetInt32(2);
+                        applicationForm.ContactID = reader.GetInt32(3);
+                        applicationForm.SchoolHistoryID = reader.GetInt32(4);
+                        applicationForm.GuardianID = reader.GetInt32(5);
+                        applicationForm.Course = reader.GetString(6);
+                        applicationForm.AdmitType = reader.GetString(7);
+                        applicationForm.YearLevel = reader.GetString(8);
+                        applicationForm.SchoolYear = reader.GetString(9);
+                        applicationForm.Term = reader.GetString(10);
+                        applicationForm.SubmissionDate = reader.GetDateTime(11);
+                        applicationForm.Status = reader.GetString(12);
+                        applicationForm.IsRegular = reader.GetBoolean(13);
+
+                        applicationFormsManager.addApplicationForm(applicationForm);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: Application Form list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load application form list!");
+            }
+        }
+        
+        public static void loadApplicationSubjects()
+        {
+            ApplicationFormsManager applicationManager = ApplicationFormsManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT ID, ApplicationID, SubjectID FROM ApplicationSubjects";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ApplicationForm application = applicationManager.find(reader.GetInt32(1));
+                        if (application == null)
+                            return;
+                        application.SubjectIDs.Add(reader.GetInt32(2));
+                        applicationManager.applicationForms[];
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: Course list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load course list!");
+            }
+        }
+
+        public static void loadApplicationSchedules()
+        {
+            ScheduleManager scheduleManager = ScheduleManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT ID, SubjectId, startTime, endTime FROM Schedules";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Schedule schedule = new Schedule();
+                        schedule.ID = reader.GetInt32(0);
+                        schedule.SubjectId = reader.GetInt32(1);
+                        schedule.startTime = reader.GetString(2);
+                        schedule.endTime = reader.GetString(3);
+
+                        scheduleManager.add(schedule);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: Course list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load course list!");
+            }
+        }
+
         public static void loadAddresses()
         {
             AddressManager addressManager = AddressManager.getInstance();
@@ -486,98 +745,6 @@ namespace Enrollment_System.Util
             catch (SqlException)
             {
                 Console.WriteLine("ERROR: Unable to load contact list!");
-            }
-        }
-
-        public static void loadCourses()
-        {
-            CourseManager courseManager = CourseManager.getInstance();
-            SqlConnection connection = GetConnection();
-            String query = @"SELECT ID, Name FROM Courses";
-            try
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Course course = new Course();
-                        course.ID = reader.GetInt32(0);
-                        course.name = reader.GetString(1);
-
-                        courseManager.add(course);
-                    }
-                }
-                connection.Close();
-                Console.WriteLine("DEBUG: Course list loaded.");
-            }
-            catch (SqlException)
-            {
-                Console.WriteLine("ERROR: Unable to load course list!");
-            }
-        }
-
-        public static void loadSubjects()
-        {
-            SubjectManager subjectManager = SubjectManager.getInstance();
-            SqlConnection connection = GetConnection();
-            String query = @"SELECT ID, Name, YearLevel, Term, Prerequisite FROM Subjects";
-            try
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Subject subject = new Subject();
-                        subject.ID = reader.GetInt32(0);
-                        subject.Name = reader.GetString(1);
-                        subject.YearLevel = reader.GetString(2);
-                        subject.Term = reader.GetString(3);
-                        subject.Prerequisite = reader.GetString(4);
-
-                        subjectManager.add(subject);
-                    }
-                }
-                connection.Close();
-                Console.WriteLine("DEBUG: Course list loaded.");
-            }
-            catch (SqlException)
-            {
-                Console.WriteLine("ERROR: Unable to load course list!");
-            }
-        }
-
-        public static void loadSchedules()
-        {
-            ScheduleManager scheduleManager = ScheduleManager.getInstance();
-            SqlConnection connection = GetConnection();
-            String query = @"SELECT ID, SubjectId, startTime, endTime FROM Schedules";
-            try
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Schedule schedule = new Schedule();
-                        schedule.ID = reader.GetInt32(0);
-                        schedule.SubjectId = reader.GetInt32(1);
-                        schedule.startTime = reader.GetString(2);
-                        schedule.endTime = reader.GetString(3);
-
-                        scheduleManager.add(schedule);
-                    }
-                }
-                connection.Close();
-                Console.WriteLine("DEBUG: Course list loaded.");
-            }
-            catch (SqlException)
-            {
-                Console.WriteLine("ERROR: Unable to load course list!");
             }
         }
 
@@ -692,47 +859,6 @@ namespace Enrollment_System.Util
             }
         }
 
-        public static void loadApplicationForms()
-        {
-            ApplicationFormsManager applicationFormsManager = ApplicationFormsManager.getInstance();
-            SqlConnection connection = GetConnection();
-            String query = @"SELECT ID, StudentID, AddressID, ContactID, SchoolHistoryID, GuardianID, Course, AdmitType, YearLevel, 
-                SchoolYear, Term, SubmissionDate, Status FROM Applications";
-            try
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        ApplicationForm applicationForm = new ApplicationForm();
-                        applicationForm.ID = reader.GetInt32(0);
-                        applicationForm.StudentID = reader.GetInt32(1);
-                        applicationForm.AddressID = reader.GetInt32(2);
-                        applicationForm.ContactID = reader.GetInt32(3);
-                        applicationForm.SchoolHistoryID = reader.GetInt32(4);
-                        applicationForm.GuardianID = reader.GetInt32(5);
-                        applicationForm.Course = reader.GetString(6);
-                        applicationForm.AdmitType = reader.GetString(7);
-                        applicationForm.YearLevel = reader.GetString(8);
-                        applicationForm.SchoolYear = reader.GetString(9);
-                        applicationForm.Term = reader.GetString(10);
-                        applicationForm.SubmissionDate = reader.GetDateTime(11);
-                        applicationForm.Status = reader.GetString(12);
-
-                        applicationFormsManager.addApplicationForm(applicationForm);
-                    }
-                }
-                connection.Close();
-                Console.WriteLine("DEBUG: Application Form list loaded.");
-            }
-            catch (SqlException)
-            {
-                Console.WriteLine("ERROR: Unable to load application form list!");
-            }
-        }
-
         /**
          * A group of method that manages the addition of rows or data
          * in the database.
@@ -822,8 +948,8 @@ namespace Enrollment_System.Util
         {
             SqlConnection connection = GetConnection();
             String query = "INSERT INTO Applications(StudentID, AddressID, ContactID, SchoolHistoryID, GuardianID, Course, AdmitType, YearLevel, SchoolYear," +
-                " Term, SubmissionDate, Status) VALUES(@StudentID, @AddressID, @ContactID, @SchoolHistoryID, @GuardianID, @Course, @AdmitType, @YearLevel, " +
-                "@SchoolYear, @Term, @SubmissionDate, @Status)";
+                " Term, SubmissionDate, Status, IsRegular) VALUES(@StudentID, @AddressID, @ContactID, @SchoolHistoryID, @GuardianID, @Course, @AdmitType, @YearLevel, " +
+                "@SchoolYear, @Term, @SubmissionDate, @Status, @IsRegular)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -839,6 +965,7 @@ namespace Enrollment_System.Util
                     command.Parameters.AddWithValue("@Term", applicationform.Term);
                     command.Parameters.AddWithValue("@SubmissionDate", applicationform.SubmissionDate);
                     command.Parameters.AddWithValue("@Status", applicationform.Status);
+                    command.Parameters.AddWithValue("@IsRegular", applicationform.IsRegular);
                     command.ExecuteNonQuery();
                 }
                 connection.Close();
