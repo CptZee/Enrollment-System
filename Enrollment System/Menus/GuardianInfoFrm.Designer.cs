@@ -392,7 +392,7 @@
             this.Controls.Add(this.label22);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GuardianInfoFrm";
-            this.Text = "GuardianInfoFrm";
+            this.Text = "Enrollment Form";
             this.Load += new System.EventHandler(this.GuardianInfoFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

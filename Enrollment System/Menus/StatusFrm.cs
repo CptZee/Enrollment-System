@@ -24,5 +24,10 @@ namespace Enrollment_System.Menus
             ApplicationForm application = applicationFormsManager.find(Convert.ToInt32(tbAppID.Text));
             MessageBox.Show("Application is now " + application.Status, "Application Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void StatusFrm_Load(object sender, EventArgs e)
+        {
+            CenterToScreen();
+        }
     }
 }

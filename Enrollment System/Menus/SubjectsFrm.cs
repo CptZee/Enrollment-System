@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace Enrollment_System.Menus
 {
-    public partial class AdminFrm : Form
+    public partial class SubjectsFrm : Form
     {
-        public AdminFrm()
+        public SubjectsFrm()
         {
             InitializeComponent();
         }
 
-        private void btnView_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AdminFrm_Load(object sender, EventArgs e)
+        private void SubjectsFrm_Load(object sender, EventArgs e)
         {
             CenterToScreen();
         }

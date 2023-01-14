@@ -34,8 +34,6 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbAppID = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblStatus
@@ -87,23 +85,12 @@
             this.tbAppID.Size = new System.Drawing.Size(162, 20);
             this.tbAppID.TabIndex = 4;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Enrollment_System.Properties.Resources.d8b44432ad1227d7950f95fe815d84ca_removebg_preview_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(30, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(82, 76);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 115;
-            this.pictureBox1.TabStop = false;
-            // 
             // StatusFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(495, 239);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tbAppID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDescription);
@@ -111,8 +98,8 @@
             this.Controls.Add(this.lblStatus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StatusFrm";
-            this.Text = "StatusFrm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Text = "Application Status";
+            this.Load += new System.EventHandler(this.StatusFrm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,6 +112,5 @@
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbAppID;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

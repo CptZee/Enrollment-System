@@ -55,6 +55,7 @@
             this.label43 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -183,7 +184,6 @@
             this.label65 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Exback = new System.Windows.Forms.Button();
-            this.label40 = new System.Windows.Forms.Label();
             btnProceed = new System.Windows.Forms.Button();
             btnExProceed = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
@@ -597,6 +597,18 @@
             this.label41.Size = new System.Drawing.Size(12, 13);
             this.label41.TabIndex = 70;
             this.label41.Text = "*";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.Red;
+            this.label40.Location = new System.Drawing.Point(724, 215);
+            this.label40.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(12, 13);
+            this.label40.TabIndex = 69;
+            this.label40.Text = "*";
             // 
             // label39
             // 
@@ -1813,18 +1825,6 @@
             this.btn_Exback.UseVisualStyleBackColor = true;
             this.btn_Exback.Click += new System.EventHandler(this.btn_Exback_Click);
             // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.ForeColor = System.Drawing.Color.Red;
-            this.label40.Location = new System.Drawing.Point(724, 215);
-            this.label40.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(12, 13);
-            this.label40.TabIndex = 69;
-            this.label40.Text = "*";
-            // 
             // EnrollFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1835,7 +1835,7 @@
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EnrollFrm";
-            this.Text = "EnrollFrm";
+            this.Text = "Enrollment Form";
             this.Load += new System.EventHandler(this.EnrollFrm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

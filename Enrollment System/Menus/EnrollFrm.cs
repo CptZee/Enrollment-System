@@ -21,6 +21,7 @@ namespace Enrollment_System.Menus
 
         private void EnrollFrm_Load(object sender, EventArgs e)
         {
+            CenterToScreen();
             loadComboBoxes();
         }
 

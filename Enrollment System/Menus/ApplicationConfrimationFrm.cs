@@ -72,6 +72,7 @@ namespace Enrollment_System.Menus
 
         private void ApplicationConfrimationFrm_Load(object sender, EventArgs e)
         {
+            CenterToScreen();
             StudentManager studentManager = StudentManager.getInstance();
             AddressManager addressManager = AddressManager.getInstance();
             ContactManager contactManager = ContactManager.getInstance();

@@ -23,7 +23,7 @@ namespace Enrollment_System.Menus
 
         private void GuardianInfoFrm_Load(object sender, EventArgs e)
         {
-
+            CenterToScreen();
         }
 
         private void lblPrivacy_Click(object sender, EventArgs e)
