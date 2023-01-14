@@ -2,6 +2,7 @@
 using System.Threading;
 using Enrollment_System.Util;
 using System.Windows.Forms;
+using Enrollment_System.Data;
 
 namespace Enrollment_System
 {
@@ -13,6 +14,7 @@ namespace Enrollment_System
         [STAThread]
         static void Main()
         {
+            //generateDefaultAdmin(); //Debug Command! ONLY RUN IF THE ADMIN TABLE IS EMPTY!
             createTables();
             loadTables();
 
@@ -77,6 +79,20 @@ namespace Enrollment_System
             GuardianLoadThread.Start();
             SchoolHistoryLoadThread.Start();
             StudentLoadThread.Start();
+        }
+        
+        /**
+         * Generate the default admin credentials;
+         * USE FOR DEBUGGING ONLY!
+         * TODO: ADD AN ACTUAL FUNCTIONAL FORM WHERE AN ADMIN CAN CREATE ANOTHER ADMIN ACCOUNT! (PRIORITY: LOWEST)
+         */
+
+        private static void generateDefaultAdmin()
+        {
+            Admin admin = new Admin();
+            admin.username = "admin";
+            admin.password = "password";
+            DatabaseHelper.addAdmin(admin);
         }
     }
 }
