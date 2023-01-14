@@ -22,7 +22,7 @@ namespace Enrollment_System.Data
             return instance;
         }
 
-        public void addAddress(Address address)
+        public void add(Address address)
         {
             addresses.Add(address);
         }
@@ -32,7 +32,7 @@ namespace Enrollment_System.Data
             if (addresses.Count == 0)
                 return -1;
             Address x = (Address)addresses[addresses.Count - 1];
-            return x.Id;
+            return x.ID;
         }
 
         public void removeRecent()
@@ -46,7 +46,7 @@ namespace Enrollment_System.Data
             for (int i = 0; i < addresses.Count; i++)
             {
                 Address s = (Address)addresses[i];
-                if (s.Id == Id)
+                if (s.ID == Id)
                     return s;
             }
             return null;

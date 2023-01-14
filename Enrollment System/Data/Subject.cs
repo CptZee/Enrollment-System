@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Enrollment_System.Data
 {
-    class SchoolHistory
+    class Subject
     {
         public int ID { get; set; }
-        public String Type { get; set; }
         public String Name { get; set; }
-        public String ProgramTrackSpecialization { get; set; }
+        public String YearLevel { get; set; }
+        public String Term { get; set; }
+        public String Prerequisite { get; set; }
     }
 }

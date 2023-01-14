@@ -93,9 +93,9 @@ namespace Enrollment_System.Menus
             GuardianManager guardianManager = GuardianManager.getInstance();
             ApplicationFormsManager applicationManager = ApplicationFormsManager.getInstance();
             Guardian guardian = FormData.getGuardian(firstName, lastName, middileInitial, suffixName, mobile, email, occupation, relation);
-            guardian.Id = guardianManager.retrieveRecentID() + 1;
-            application.GuardianID = guardian.Id;
-            guardianManager.addGuardian(guardian);
+            guardian.ID = guardianManager.retrieveRecentID() + 1;
+            application.GuardianID = guardian.ID;
+            guardianManager.add(guardian);
             applicationManager.addApplicationForm(application);
             return true;
         }

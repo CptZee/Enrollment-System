@@ -22,7 +22,7 @@ namespace Enrollment_System.Data
             return instance;
         }
 
-        public void addGuardian(Guardian guardian)
+        public void add(Guardian guardian)
         {
             guardians.Add(guardian);
         }
@@ -31,7 +31,7 @@ namespace Enrollment_System.Data
             if (guardians.Count == 0)
                 return -1;
             Guardian x = (Guardian)guardians[guardians.Count - 1];
-            return x.Id;
+            return x.ID;
         }
 
         public void removeRecent()
@@ -45,7 +45,7 @@ namespace Enrollment_System.Data
             for (int i = 0; i < guardians.Count; i++)
             {
                 Guardian s = (Guardian)guardians[i];
-                if (s.Id == Id)
+                if (s.ID == Id)
                     return s;
             }
             return null;

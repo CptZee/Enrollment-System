@@ -4,7 +4,7 @@ namespace Enrollment_System.Data
 {
     class Student
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public String FirstName { get; set; }
         public String MiddleName { get; set; }
         public String LastName { get; set; }

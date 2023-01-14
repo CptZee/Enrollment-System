@@ -8,7 +8,7 @@ namespace Enrollment_System.Data
 {
     class Contact
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public String TelephoneNo { get; set; }
         public String MobileNo { get; set; }
         public String Email { get; set; }

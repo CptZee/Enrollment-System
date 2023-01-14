@@ -45,8 +45,74 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Courses Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Courses
                 (
-                    [Id] INT NOT NULL PRIMARY KEY, 
-                    [Name] NCHAR(30) NOT NULL
+                    [ID] INT NOT NULL AUTO_INCREMENT, 
+                    [Name] NCHAR(30) NOT NULL,
+                    PRIMARY KEY (Id)
+                )";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public static void createSubjectsTable()
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM Subjects", connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("DEBUG: Courses Table exists! Proceeding...");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("DEBUG: Subjects Table doesn't exist! Creating one...");
+                String query = @"CREATE TABLE Subjects
+                (
+                    [ID] INT NOT NULL AUTO_INCREMENT,
+                    [Name] NCHAR(30) NOT NULL,
+                    [YearLevel] NCHAR(30) NOT NULL,
+                    [Term] NCHAR(30) NOT NULL,
+                    [Prerequisite] NCHAR(30) NOT NULL,
+                    PRIMARY KEY (Id)
+                )";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public static void createSchedulesTable()
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM Schedules", connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("DEBUG: Schedules Table exists! Proceeding...");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("DEBUG: Schedules Table doesn't exist! Creating one...");
+                String query = @"CREATE TABLE Schedules
+                (
+                    [ID] INT NOT NULL AUTO_INCREMENT,
+                    [SubjectId] INT NOT NULL,
+                    [startTime] NCHAR(30) NOT NULL,
+                    [endTime] NCHAR(30) NOT NULL,
+                    PRIMARY KEY (Id)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -81,14 +147,15 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Addresses Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Addresses
                 (
-                    [Id] INT NOT NULL PRIMARY KEY,
+                    [ID] INT NOT NULL AUTO_INCREMENT,
                     [StreetUnitNumber] NCHAR(30),
                     [Street] NCHAR(30),
                     [SubdivisionVillageBldg] NCHAR(30),
                     [Barangay] NCHAR(30) NOT NULL,
                     [City] NCHAR(30) NOT NULL,
                     [Province] NCHAR(30) NOT NULL,
-                    [ZipCode] NCHAR(30) NOT NULL
+                    [ZipCode] NCHAR(30) NOT NULL,
+                    PRIMARY KEY (Id)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -122,9 +189,10 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Admins Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Admins
                 (
-                    [Id] INT NOT NULL PRIMARY KEY, 
+                    [ID] INT NOT NULL AUTO_INCREMENT, 
                     [Username] NCHAR(30) NOT NULL,
-                    [Password] NCHAR(30) NOT NULL
+                    [Password] NCHAR(30) NOT NULL,
+                    PRIMARY KEY (Id)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -159,10 +227,11 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Contacts Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Contacts
                 (
-                    [Id] INT NOT NULL PRIMARY KEY, 
+                    [ID] INT NOT NULL AUTO_INCREMENT, 
                     [TelephoneNo] NCHAR(30),
                     [MobileNo] NCHAR(30) NOT NULL,
-                    [Email] NCHAR(30) NOT NULL
+                    [Email] NCHAR(30) NOT NULL,
+                    PRIMARY KEY (Id)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -197,7 +266,7 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Guardians Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Guardians
                 (
-                    [Id] INT NOT NULL PRIMARY KEY, 
+                    [Id] INT NOT NULL AUTO_INCREMENT, 
                     [FirstName] NCHAR(30) NOT NULL,
                     [LastName] NCHAR(30) NOT NULL,
                     [MiddleInitial] NCHAR(30),
@@ -205,7 +274,8 @@ namespace Enrollment_System.Util
                     [MobileNumber] NCHAR(30) NOT NULL,
                     [Email] NCHAR(30) NOT NULL,
                     [Occupation] NCHAR(30) NOT NULL,
-                    [Relation] NCHAR(30) NOT NULL
+                    [Relation] NCHAR(30) NOT NULL,
+                    PRIMARY KEY (Id)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -239,10 +309,11 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: SchoolHistory Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE SchoolHistory
                 (
-                    [Id] INT NOT NULL PRIMARY KEY, 
+                    [Id] INT NOT NULL AUTO_INCREMENT, 
                     [Type] NCHAR(30) NOT NULL,
                     [Name] NCHAR(30) NOT NULL,
-                    [ProgramTrackSpecialization] NCHAR(30) NOT NULL
+                    [ProgramTrackSpecialization] NCHAR(30) NOT NULL,
+                    PRIMARY KEY (Id)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -276,7 +347,7 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Students Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Students
                 (
-                    [Id] INT NOT NULL PRIMARY KEY, 
+                    [Id] INT NOT NULL AUTO_INCREMENT, 
                     [FirstName] NCHAR(30) NOT NULL,
                     [MiddleName] NCHAR(30),
                     [LastName] NCHAR(30) NOT NULL,
@@ -286,7 +357,8 @@ namespace Enrollment_System.Util
                     [Citizenship] NCHAR(30) NOT NULL,
                     [BirthDate] DATE NOT NULL,
                     [Birthplace] NCHAR(30) NOT NULL,
-                    [Religion] NCHAR(30)  NOT NULL
+                    [Religion] NCHAR(30)  NOT NULL,
+                    PRIMARY KEY (Id)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -320,7 +392,7 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Applications Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Applications
                 (
-                    [Id] INT NOT NULL PRIMARY KEY, 
+                    [Id] INT NOT NULL AUTO_INCREMENT, 
                     [StudentID] INT NOT NULL,
                     [AddressID] INT NOT NULL,
                     [ContactID] INT NOT NULL,
@@ -332,7 +404,8 @@ namespace Enrollment_System.Util
                     [SchoolYear] NCHAR(30) NOT NULL,
                     [Term] NCHAR(30) NOT NULL,
                     [SubmissionDate] DATE NOT NULL,
-                    [Status] NCHAR(30) NOT NULL 
+                    [Status] NCHAR(30) NOT NULL,
+                    PRIMARY KEY (Id)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -354,7 +427,7 @@ namespace Enrollment_System.Util
         {
             AddressManager addressManager = AddressManager.getInstance();
             SqlConnection connection = GetConnection();
-            String query = @"SELECT Id, StreetUnitNumber, Street, SubdivisionVillageBldg, Barangay, City, Province, ZipCode FROM Addresses";
+            String query = @"SELECT ID, StreetUnitNumber, Street, SubdivisionVillageBldg, Barangay, City, Province, ZipCode FROM Addresses";
             try
             {
                 connection.Open();
@@ -365,7 +438,7 @@ namespace Enrollment_System.Util
                     {
                         Address address = new Address();
 
-                        address.Id = reader.GetInt32(0);
+                        address.ID = reader.GetInt32(0);
 
                         if (!reader.IsDBNull(1))
                             address.StreetUnitNumber = reader.GetString(1);
@@ -380,7 +453,7 @@ namespace Enrollment_System.Util
                         address.Province = reader.GetString(6);
                         address.ZipCode = reader.GetString(7);
 
-                        addressManager.addAddress(address);
+                        addressManager.add(address);
                     }
                 }
                 connection.Close();
@@ -396,7 +469,7 @@ namespace Enrollment_System.Util
         {
             AdminManager adminManager = AdminManager.getInstance();
             SqlConnection connection = GetConnection();
-            String query = @"SELECT Id, Username, Password FROM Admins";
+            String query = @"SELECT ID, Username, Password FROM Admins";
             try
             {
                 connection.Open();
@@ -410,7 +483,7 @@ namespace Enrollment_System.Util
                         admin.username = reader.GetString(1);
                         admin.password = reader.GetString(2);
 
-                        adminManager.addAdmin(admin);
+                        adminManager.add(admin);
                     }
                 }
                 connection.Close();
@@ -426,7 +499,7 @@ namespace Enrollment_System.Util
         {
             ContactManager contactManager = ContactManager.getInstance();
             SqlConnection connection = GetConnection();
-            String query = @"SELECT Id, TelephoneNo, MobileNo, Email FROM Contacts";
+            String query = @"SELECT ID, TelephoneNo, MobileNo, Email FROM Contacts";
             try
             {
                 connection.Open();
@@ -437,13 +510,13 @@ namespace Enrollment_System.Util
                     {
                         Contact contact = new Contact();
 
-                        contact.Id = reader.GetInt32(0);
+                        contact.ID = reader.GetInt32(0);
                         if (!reader.IsDBNull(1))
                             contact.TelephoneNo = reader.GetString(1);
                         contact.MobileNo = reader.GetString(2);
                         contact.Email = reader.GetString(3);
 
-                        contactManager.addContact(contact);
+                        contactManager.add(contact);
                     }
                 }
                 connection.Close();
@@ -459,7 +532,7 @@ namespace Enrollment_System.Util
         {
             CourseManager courseManager = CourseManager.getInstance();
             SqlConnection connection = GetConnection();
-            String query = @"SELECT Id, Name FROM Courses";
+            String query = @"SELECT ID, Name FROM Courses";
             try
             {
                 connection.Open();
@@ -472,7 +545,70 @@ namespace Enrollment_System.Util
                         course.ID = reader.GetInt32(0);
                         course.name = reader.GetString(1);
 
-                        courseManager.addCourses(course);
+                        courseManager.add(course);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: Course list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load course list!");
+            }
+        }
+
+        public static void loadSubjects()
+        {
+            SubjectManager subjectManager = SubjectManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT ID, Name, YearLevel, Term, Prerequisite FROM Subjects";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Subject subject = new Subject();
+                        subject.ID = reader.GetInt32(0);
+                        subject.Name = reader.GetString(1);
+                        subject.YearLevel = reader.GetString(2);
+                        subject.Term = reader.GetString(3);
+                        subject.Prerequisite = reader.GetString(4);
+
+                        subjectManager.add(subject);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: Course list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load course list!");
+            }
+        }
+
+        public static void loadSchedules()
+        {
+            ScheduleManager scheduleManager = ScheduleManager.getInstance();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT ID, SubjectId, startTime, endTime FROM Schedules";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Schedule schedule = new Schedule();
+                        schedule.ID = reader.GetInt32(0);
+                        schedule.SubjectId = reader.GetInt32(1);
+                        schedule.startTime = reader.GetString(2);
+                        schedule.endTime = reader.GetString(3);
+
+                        scheduleManager.add(schedule);
                     }
                 }
                 connection.Close();
@@ -488,7 +624,7 @@ namespace Enrollment_System.Util
         {
             GuardianManager guardianManager = GuardianManager.getInstance();
             SqlConnection connection = GetConnection();
-            String query = @"SELECT Id, FirstName, LastName, MiddleInitial, SuffixName, MobileNumber, Email, Occupation, Relation FROM Guardians";
+            String query = @"SELECT ID, FirstName, LastName, MiddleInitial, SuffixName, MobileNumber, Email, Occupation, Relation FROM Guardians";
             try
             {
                 connection.Open();
@@ -498,7 +634,7 @@ namespace Enrollment_System.Util
                     while (reader.Read())
                     {
                         Guardian guardian = new Guardian();
-                        guardian.Id = reader.GetInt32(0);
+                        guardian.ID = reader.GetInt32(0);
                         guardian.FirstName = reader.GetString(1);
                         guardian.LastName = reader.GetString(2);
 
@@ -512,7 +648,7 @@ namespace Enrollment_System.Util
                         guardian.Occupation = reader.GetString(7);
                         guardian.Relation = reader.GetString(8);
 
-                        guardianManager.addGuardian(guardian);
+                        guardianManager.add(guardian);
                     }
                 }
                 connection.Close();
@@ -528,7 +664,7 @@ namespace Enrollment_System.Util
         {
             SchoolHistoryManager schoolHistories = SchoolHistoryManager.getInstance();
             SqlConnection connection = GetConnection();
-            String query = @"SELECT Id, Type, Name, ProgramTrackSpecialization FROM SchoolHistory";
+            String query = @"SELECT ID, Type, Name, ProgramTrackSpecialization FROM SchoolHistory";
             try
             {
                 connection.Open();
@@ -538,12 +674,12 @@ namespace Enrollment_System.Util
                     while (reader.Read())
                     {
                         SchoolHistory schoolHistory = new SchoolHistory();
-                        schoolHistory.Id = reader.GetInt32(0);
+                        schoolHistory.ID = reader.GetInt32(0);
                         schoolHistory.Type = reader.GetString(1);
                         schoolHistory.Name = reader.GetString(2);
                         schoolHistory.ProgramTrackSpecialization = reader.GetString(3);
 
-                        schoolHistories.addSchoolHistory(schoolHistory);
+                        schoolHistories.add(schoolHistory);
                     }
                 }
                 connection.Close();
@@ -559,7 +695,7 @@ namespace Enrollment_System.Util
         {
             StudentManager studentManager = StudentManager.getInstance();
             SqlConnection connection = GetConnection();
-            String query = @"SELECT Id, FirstName, MiddleName, LastName, SuffixName, Gender, Status, Citizenship, BirthDate, Birthplace, Religion  FROM Students";
+            String query = @"SELECT ID, FirstName, MiddleName, LastName, SuffixName, Gender, Status, Citizenship, BirthDate, Birthplace, Religion  FROM Students";
             try
             {
                 connection.Open();
@@ -569,7 +705,7 @@ namespace Enrollment_System.Util
                     while (reader.Read())
                     {
                         Student student = new Student();
-                        student.Id = reader.GetInt32(0);
+                        student.ID = reader.GetInt32(0);
                         student.FirstName = reader.GetString(1);
                         if (!reader.IsDBNull(1))
                             student.MiddleName = reader.GetString(2);
@@ -583,7 +719,7 @@ namespace Enrollment_System.Util
                         student.Birthplace = reader.GetString(9);
                         student.Religion = reader.GetString(10);
 
-                        studentManager.addStudent(student);
+                        studentManager.add(student);
                     }
                 }
                 connection.Close();
@@ -599,7 +735,8 @@ namespace Enrollment_System.Util
         {
             ApplicationFormsManager applicationFormsManager = ApplicationFormsManager.getInstance();
             SqlConnection connection = GetConnection();
-            String query = @"SELECT Id, StudentID, AddressID, ContactID, SchoolHistoryID, GuardianID, Course, AdmitType, YearLevel, SchoolYear, Term, SubmissionDate, Status FROM Applications";
+            String query = @"SELECT ID, StudentID, AddressID, ContactID, SchoolHistoryID, GuardianID, Course, AdmitType, YearLevel, 
+                SchoolYear, Term, SubmissionDate, Status FROM Applications";
             try
             {
                 connection.Open();
@@ -644,26 +781,56 @@ namespace Enrollment_System.Util
         public static void addCourse(Course course)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Courses(Id, Name) VALUES(@Id, @Name)";
+            String query = "INSERT INTO Courses(Name) VALUES(@Name)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@ID", course.ID);
                     command.Parameters.AddWithValue("@Name", course.name);
                     command.ExecuteNonQuery();
                 }
-                Console.WriteLine("ERROR: Successfully added course with the id " + course.ID);
                 connection.Close();
+        }
+
+        public static void addSubject(Subject subject)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "INSERT INTO Subjects(Name, YearLevel, Term, Prerequisite) VALUES(@Name, @YearLevel, @Term, @Prerequisite)";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@Name", subject.Name);
+                command.Parameters.AddWithValue("@Name", subject.YearLevel);
+                command.Parameters.AddWithValue("@Name", subject.Term);
+                command.Parameters.AddWithValue("@Name", subject.Prerequisite);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void addSchedule(Schedule schedule)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "INSERT INTO Schedules(SubjectId, startTime, endTime) VALUES(@SubjectId, @startTime, @endTime)";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@SubjectId", schedule.SubjectId);
+                command.Parameters.AddWithValue("@startTime", schedule.startTime);
+                command.Parameters.AddWithValue("@endTime", schedule.endTime);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
         }
 
         public static void addAddress(Address address)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Addresses(Id, StreetUnitNumber, Street, SubdivisionVillageBldg, Barangay, City, Province, ZipCode) VALUES(@Id, @StreetUnitNumber, @Street, @SubdivisionVillageBldg, @Barangay, @City, @Province, @ZipCode)";
+            String query = "INSERT INTO Addresses(StreetUnitNumber, Street, SubdivisionVillageBldg, Barangay, City, Province, ZipCode) VALUES(" +
+                "@StreetUnitNumber, @Street, @SubdivisionVillageBldg, @Barangay, @City, @Province, @ZipCode)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Id", address.Id);
+                    command.Parameters.AddWithValue("@Id", address.ID);
                     command.Parameters.AddWithValue("@StreetUnitNumber", address.StreetUnitNumber);
                     command.Parameters.AddWithValue("@Street", address.Street);
                     command.Parameters.AddWithValue("@SubdivisionVillageBldg", address.SubdivisionVillageBldg);
@@ -673,34 +840,32 @@ namespace Enrollment_System.Util
                     command.Parameters.AddWithValue("@ZipCode", address.ZipCode);
                     command.ExecuteNonQuery();
                 }
-                Console.WriteLine("ERROR: Successfully added course with the id " + address.Id);
                 connection.Close();
         }
 
         public static void addAdmin(Admin admin)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Admins(ID, username, password) VALUES(@ID, @username, @password)";
+            String query = "INSERT INTO Admins(username, password) VALUES(@username, @password)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@ID", admin.ID);
                     command.Parameters.AddWithValue("@username", admin.username);
                     command.Parameters.AddWithValue("@password", admin.password);
                     command.ExecuteNonQuery();
                 }
-                Console.WriteLine("ERROR: Successfully added course with the id " + admin.ID);
                 connection.Close();
         }
 
         public static void addApplicationForm(ApplicationForm applicationform)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Applications(Id, StudentID, AddressID, ContactID, SchoolHistoryID, GuardianID, Course, AdmitType, YearLevel, SchoolYear, Term, SubmissionDate, Status) VALUES(@Id, @StudentID, @AddressID, @ContactID, @SchoolHistoryID, @GuardianID, @Course, @AdmitType, @YearLevel, @SchoolYear, @Term, @SubmissionDate, @Status)";
+            String query = "INSERT INTO Applications(StudentID, AddressID, ContactID, SchoolHistoryID, GuardianID, Course, AdmitType, YearLevel, SchoolYear," +
+                " Term, SubmissionDate, Status) VALUES(@StudentID, @AddressID, @ContactID, @SchoolHistoryID, @GuardianID, @Course, @AdmitType, @YearLevel, " +
+                "@SchoolYear, @Term, @SubmissionDate, @Status)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Id", applicationform.ID);
                     command.Parameters.AddWithValue("@StudentID", applicationform.StudentID);
                     command.Parameters.AddWithValue("@AddressID", applicationform.AddressID);
                     command.Parameters.AddWithValue("@ContactID", applicationform.ContactID);
@@ -715,35 +880,32 @@ namespace Enrollment_System.Util
                     command.Parameters.AddWithValue("@Status", applicationform.Status);
                     command.ExecuteNonQuery();
                 }
-                Console.WriteLine("ERROR: Successfully added course with the id " + applicationform.ID);
                 connection.Close();
         }
 
         public static void addContact(Contact contact)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Contacts(Id, TelephoneNo, MobileNo, Email) VALUES(@Id, @TelephoneNo, @MobileNo, @Email)";
+            String query = "INSERT INTO Contacts(TelephoneNo, MobileNo, Email) VALUES(@TelephoneNo, @MobileNo, @Email)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Id", contact.Id);
                     command.Parameters.AddWithValue("@TelephoneNo", contact.TelephoneNo);
                     command.Parameters.AddWithValue("@MobileNo", contact.MobileNo);
                     command.Parameters.AddWithValue("@Email", contact.Email);
                     command.ExecuteNonQuery();
                 }
-                Console.WriteLine("ERROR: Successfully added course with the id " + contact.Id);
                 connection.Close();
         }
 
         public static void addGuardian(Guardian guardian)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Guardians(Id, FirstName, LastName, MiddleInitial, SuffixName, MobileNumber, Email, Occupation, Relation) VALUES(@Id, @FirstName, @LastName, @MiddleInitial, @SuffixName, @MobileNumber, @Email, @Occupation, @Relation)";
+            String query = "INSERT INTO Guardians(FirstName, LastName, MiddleInitial, SuffixName, MobileNumber, Email, Occupation, Relation) " +
+                "VALUES(@FirstName, @LastName, @MiddleInitial, @SuffixName, @MobileNumber, @Email, @Occupation, @Relation)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Id", guardian.Id);
                     command.Parameters.AddWithValue("@FirstName", guardian.FirstName);
                     command.Parameters.AddWithValue("@LastName", guardian.LastName);
                     command.Parameters.AddWithValue("@MiddleInitial", guardian.MiddleInitial);
@@ -754,24 +916,21 @@ namespace Enrollment_System.Util
                     command.Parameters.AddWithValue("@Relation", guardian.Relation);
                     command.ExecuteNonQuery();
                 }
-                Console.WriteLine("ERROR: Successfully added course with the id " + guardian.Id);
                 connection.Close();
         }
 
         public static void addSchoolHistory(SchoolHistory schoolhistory)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO SchoolHistory(Id, Type, Name, ProgramTrackSpecialization) VALUES(@Id, @Type, @Name, @ProgramTrackSpecialization)";
+            String query = "INSERT INTO SchoolHistory(Type, Name, ProgramTrackSpecialization) VALUES(@Type, @Name, @ProgramTrackSpecialization)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Id", schoolhistory.Id);
                     command.Parameters.AddWithValue("@Type", schoolhistory.Type);
                     command.Parameters.AddWithValue("@Name", schoolhistory.Name);
                     command.Parameters.AddWithValue("@ProgramTrackSpecialization", schoolhistory.ProgramTrackSpecialization);
                     command.ExecuteNonQuery();
                 }
-                Console.WriteLine("ERROR: Successfully added course with the id " + schoolhistory.Id);
                 connection.Close();
         }
 
@@ -779,11 +938,11 @@ namespace Enrollment_System.Util
         public static void addStudent(Student student)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Students(Id, FirstName, MiddleName, LastName, Gender, Status, Citizenship, BirthDate, Birthplace, Religion) VALUES(@Id, @FirstName, @MiddleName, @LastName, @Gender, @Status, @Citizenship, @BirthDate, @Birthplace, @Religion)";
+            String query = "INSERT INTO Students(FirstName, MiddleName, LastName, Gender, Status, Citizenship, BirthDate, Birthplace, Religion) " +
+                "VALUES(@FirstName, @MiddleName, @LastName, @Gender, @Status, @Citizenship, @BirthDate, @Birthplace, @Religion)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Id", student.Id);
                     command.Parameters.AddWithValue("@FirstName", student.FirstName);
                     command.Parameters.AddWithValue("@MiddleName", student.MiddleName);
                     command.Parameters.AddWithValue("@LastName", student.LastName);
@@ -796,7 +955,6 @@ namespace Enrollment_System.Util
 
                     command.ExecuteNonQuery();
                 }
-                Console.WriteLine("ERROR: Successfully added course with the id " + student.Id);
                 connection.Close();
         }
 

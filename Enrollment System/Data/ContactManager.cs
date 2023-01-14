@@ -22,7 +22,7 @@ namespace Enrollment_System.Data
             return instance;
         }
 
-        public void addContact(Contact contact)
+        public void add(Contact contact)
         {
             contacts.Add(contact);
         }
@@ -32,7 +32,7 @@ namespace Enrollment_System.Data
             if (contacts.Count == 0)
                 return -1;
             Contact x = (Contact)contacts[contacts.Count - 1];
-            return x.Id;
+            return x.ID;
         }
 
         public void removeRecent()
@@ -47,7 +47,7 @@ namespace Enrollment_System.Data
             for (int i = 0; i < contacts.Count; i++)
             {
                 Contact s = (Contact)contacts[i];
-                if (s.Id == Id)
+                if (s.ID == Id)
                     return s;
             }
             return null;

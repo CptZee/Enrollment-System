@@ -18,7 +18,7 @@ namespace Enrollment_System.Data
             return instance;
         }
 
-        public void addStudent(Student student)
+        public void add(Student student)
         {
             students.Add(student);
         }
@@ -29,7 +29,7 @@ namespace Enrollment_System.Data
             if (students.Count == 0)
                 return -1;
             Student student = (Student)students[students.Count - 1];
-            return student.Id;
+            return student.ID;
         }
 
         public void removeRecent()
@@ -44,7 +44,7 @@ namespace Enrollment_System.Data
             for(int i = 0; i < students.Count; i++)
             {
                 Student s = (Student)students[i];
-                if (s.Id == Id)
+                if (s.ID == Id)
                     return s;
             }
             return null;

@@ -198,27 +198,29 @@ namespace Enrollment_System.Menus
             SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
 
             Student student = FormData.getStudent(firstName, middleName, lastName, suffixName, gender, status, citizenship, birthdate, birthplace, religion);
-            student.Id = studentManager.retrieveRecentID() + 1;
+            student.ID = studentManager.retrieveRecentID() + 1;
             Address address = FormData.getAddress(streetno, street, subdivision, barangay, city, province, zipCode);
-            address.Id = addressManager.retrieveRecentID() + 1;
+            address.ID = addressManager.retrieveRecentID() + 1;
             Contact contact = FormData.getContact(telephone, mobile, email);
-            contact.Id = contactManager.retrieveRecentID()+ 1;
+            contact.ID = contactManager.retrieveRecentID()+ 1;
             SchoolHistory schoolHistory = FormData.getSchoolHistory(type, name, program);
-            schoolHistory.Id = schoolHistoryManager.retrieveRecentID() + 1;
+            schoolHistory.ID = schoolHistoryManager.retrieveRecentID() + 1;
+            ApplicationFormsManager applicationFormsManager = ApplicationFormsManager.getInstance();
 
-            studentManager.addStudent(student);
-            addressManager.addAddress(address);
-            contactManager.addContact(contact);
-            schoolHistoryManager.addSchoolHistory(schoolHistory);
+            studentManager.add(student);
+            addressManager.add(address);
+            contactManager.add(contact);
+            schoolHistoryManager.add(schoolHistory);
 
             application = new ApplicationForm();
             //TODO: Change so that it will produce incrimental none-duplicate IDs.
 
-            application.AddressID = address.Id;
-            application.StudentID = student.Id;
-            application.ContactID = contact.Id;
+            application.ID = applicationFormsManager.retrieveRecentID() + 1;
+            application.AddressID = address.ID;
+            application.StudentID = student.ID;
+            application.ContactID = contact.ID;
             application.SchoolYear = schoolYear;
-            application.SchoolHistoryID = schoolHistory.Id;
+            application.SchoolHistoryID = schoolHistory.ID;
             application.Course = course;
             application.AdmitType = admitType;
             application.YearLevel = yearLevel;

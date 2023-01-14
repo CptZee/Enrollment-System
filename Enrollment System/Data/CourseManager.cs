@@ -22,7 +22,7 @@ namespace Enrollment_System.Data
             return instance;
         }
 
-        public void addCourses(Course course)
+        public void add(Course course)
         {
             courses.Add(course);
         }

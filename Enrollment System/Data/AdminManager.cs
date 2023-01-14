@@ -22,7 +22,7 @@ namespace Enrollment_System.Data
             return instance;
         }
 
-        public void addAdmin(Admin admin)
+        public void add(Admin admin)
         {
             admins.Add(admin);
         }

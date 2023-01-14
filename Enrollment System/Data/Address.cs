@@ -8,7 +8,7 @@ namespace Enrollment_System.Data
 {
     class Address
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public String StreetUnitNumber { get; set; }
         public String Street { get; set; }
         public String SubdivisionVillageBldg { get; set; }

@@ -22,7 +22,7 @@ namespace Enrollment_System.Data
             return instance;
         }
 
-        public void addSchoolHistory(SchoolHistory schoolHistoy)
+        public void add(SchoolHistory schoolHistoy)
         {
             schoolHistories.Add(schoolHistoy);
         }
@@ -32,7 +32,7 @@ namespace Enrollment_System.Data
             if (schoolHistories.Count == 0)
                 return -1;
             SchoolHistory student = (SchoolHistory) schoolHistories[schoolHistories.Count - 1];
-            return student.Id;
+            return student.ID;
         }
 
         public void removeRecent()
@@ -46,7 +46,7 @@ namespace Enrollment_System.Data
             for (int i = 0; i < schoolHistories.Count; i++)
             {
                 SchoolHistory s = (SchoolHistory)schoolHistories[i];
-                if (s.Id == Id)
+                if (s.ID == Id)
                     return s;
             }
             return null;

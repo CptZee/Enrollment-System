@@ -64,10 +64,14 @@
     <Compile Include="Data\CourseManager.cs" />
     <Compile Include="Data\Guardian.cs" />
     <Compile Include="Data\GuardianManager.cs" />
+    <Compile Include="Data\Schedule.cs" />
+    <Compile Include="Data\ScheduleManager.cs" />
     <Compile Include="Data\SchoolHistory.cs" />
     <Compile Include="Data\SchoolHistoryManager.cs" />
     <Compile Include="Data\Student.cs" />
     <Compile Include="Data\StudentManager.cs" />
+    <Compile Include="Data\Subject.cs" />
+    <Compile Include="Data\SubjectManager.cs" />
     <Compile Include="Enrollment\FormData.cs" />
     <Compile Include="Menus\AdminFrm.cs">
       <SubType>Form</SubType>
@@ -150,9 +154,6 @@
     <None Include="Resources\Student Enrollment System.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ENROLLMENT.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\d8b44432ad1227d7950f95fe815d84ca-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
@@ -160,9 +161,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\d8b44432ad1227d7950f95fe815d84ca-removebg-preview-removebg-preview.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pakyu.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Untitled design.png" />
