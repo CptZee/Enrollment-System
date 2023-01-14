@@ -23,6 +23,10 @@ namespace Enrollment_System.Data
             students.Add(student);
         }
 
+        public void update(Student x)
+        {
+            students[students.IndexOf(x)] = x;
+        }
 
         public int retrieveRecentID()
         {

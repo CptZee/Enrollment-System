@@ -24,6 +24,11 @@ namespace Enrollment_System.Data
             schedules.Add(schedule);
         }
 
+        public void update(Schedule x)
+        {
+            schedules[schedules.IndexOf(x)] = x;
+        }
+
         public int retrieveRecentID()
         {
             if (schedules.Count == 0)

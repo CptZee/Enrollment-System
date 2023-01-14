@@ -27,6 +27,11 @@ namespace Enrollment_System.Data
             contacts.Add(contact);
         }
 
+        public void update(Contact x)
+        {
+            contacts[contacts.IndexOf(x)] = x;
+        }
+
         public int retrieveRecentID()
         {
             if (contacts.Count == 0)

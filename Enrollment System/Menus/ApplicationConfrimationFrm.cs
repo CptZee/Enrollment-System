@@ -60,7 +60,7 @@ namespace Enrollment_System.Menus
             DatabaseHelper.addSchoolHistory(schoolHistoryManager.find(application.SchoolHistoryID));
             DatabaseHelper.addStudent(studentManager.find(application.StudentID));
 
-            applicationManager.addApplicationForm(application);
+            applicationManager.add(application);
 
             MessageBox.Show("Application with the ID of " + application.ID + " has been successfully submitted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

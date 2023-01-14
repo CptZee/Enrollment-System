@@ -27,6 +27,11 @@ namespace Enrollment_System.Data
             admins.Add(admin);
         }
 
+        public void update(Admin x)
+        {
+            admins[admins.IndexOf(x)] = x;
+        }
+
         public int retrieveRecent()
         {
             if (admins.Count == 0)

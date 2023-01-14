@@ -22,9 +22,14 @@ namespace Enrollment_System.Data
             return instance;
         }
 
-        public void addApplicationForm(ApplicationForm application)
+        public void add(ApplicationForm application)
         {
             applicationForms.Add(application);
+        }
+
+        public void update(ApplicationForm x)
+        {
+            applicationForms[applicationForms.IndexOf(x)] = x;
         }
 
         public int retrieveRecentID()

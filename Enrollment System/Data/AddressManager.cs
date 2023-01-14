@@ -27,6 +27,11 @@ namespace Enrollment_System.Data
             addresses.Add(address);
         }
 
+        public void update(Address x)
+        {
+            addresses[addresses.IndexOf(x)] = x;
+        }
+
         public int retrieveRecentID()
         {
             if (addresses.Count == 0)
@@ -41,6 +46,7 @@ namespace Enrollment_System.Data
                 return;
             addresses.RemoveAt(addresses.Count - 1);
         }
+
         public Address find(int Id)
         {
             for (int i = 0; i < addresses.Count; i++)
@@ -51,6 +57,7 @@ namespace Enrollment_System.Data
             }
             return null;
         }
+
         public int findIndex(Address x)
         {
             return addresses.IndexOf(x);

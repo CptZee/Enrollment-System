@@ -26,6 +26,12 @@ namespace Enrollment_System.Data
         {
             guardians.Add(guardian);
         }
+
+        public void update(Guardian x)
+        {
+            guardians[guardians.IndexOf(x)] = x;
+        }
+
         public int retrieveRecentID()
         {
             if (guardians.Count == 0)

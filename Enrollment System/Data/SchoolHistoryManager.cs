@@ -27,6 +27,11 @@ namespace Enrollment_System.Data
             schoolHistories.Add(schoolHistoy);
         }
 
+        public void update(SchoolHistory x)
+        {
+            schoolHistories[schoolHistories.IndexOf(x)] = x;
+        }
+
         public int retrieveRecentID()
         {
             if (schoolHistories.Count == 0)

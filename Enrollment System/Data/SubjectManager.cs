@@ -23,6 +23,11 @@ namespace Enrollment_System.Data
             subjects.Add(subject);
         }
 
+        public void update(Subject x)
+        {
+            subjects[subjects.IndexOf(x)] = x;
+        }
+
         public int retrieveRecentID()
         {
             if (subjects.Count == 0)

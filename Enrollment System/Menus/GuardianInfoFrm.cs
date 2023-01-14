@@ -96,7 +96,7 @@ namespace Enrollment_System.Menus
             guardian.ID = guardianManager.retrieveRecentID() + 1;
             application.GuardianID = guardian.ID;
             guardianManager.add(guardian);
-            applicationManager.addApplicationForm(application);
+            applicationManager.add(application);
             return true;
         }
 

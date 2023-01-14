@@ -27,6 +27,11 @@ namespace Enrollment_System.Data
             courses.Add(course);
         }
 
+        public void update(Course x)
+        {
+            courses[courses.IndexOf(x)] = x;
+        }
+
         public int retrieveRecentID()
         {
             if (courses.Count == 0)

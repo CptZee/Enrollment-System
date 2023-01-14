@@ -571,7 +571,7 @@ namespace Enrollment_System.Util
                         applicationForm.Status = reader.GetString(12);
                         applicationForm.IsRegular = reader.GetBoolean(13);
 
-                        applicationFormsManager.addApplicationForm(applicationForm);
+                        applicationFormsManager.add(applicationForm);
                     }
                 }
                 connection.Close();
@@ -600,7 +600,7 @@ namespace Enrollment_System.Util
                         if (application == null)
                             return;
                         application.SubjectIDs.Add(reader.GetInt32(2));
-                        applicationManager.applicationForms[];
+                        applicationManager.update(application);
                     }
                 }
                 connection.Close();
@@ -614,7 +614,7 @@ namespace Enrollment_System.Util
 
         public static void loadApplicationSchedules()
         {
-            ScheduleManager scheduleManager = ScheduleManager.getInstance();
+            ApplicationFormsManager applicationManager = ApplicationFormsManager.getInstance();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, SubjectId, startTime, endTime FROM Schedules";
             try
@@ -625,13 +625,11 @@ namespace Enrollment_System.Util
                 {
                     while (reader.Read())
                     {
-                        Schedule schedule = new Schedule();
-                        schedule.ID = reader.GetInt32(0);
-                        schedule.SubjectId = reader.GetInt32(1);
-                        schedule.startTime = reader.GetString(2);
-                        schedule.endTime = reader.GetString(3);
-
-                        scheduleManager.add(schedule);
+                        ApplicationForm application = applicationManager.find(reader.GetInt32(1));
+                        if (application == null)
+                            return;
+                        application.ScheduleIDs.Add(reader.GetInt32(2));
+                        applicationManager.update(application);
                     }
                 }
                 connection.Close();
