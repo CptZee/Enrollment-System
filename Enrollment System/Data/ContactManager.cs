@@ -67,5 +67,10 @@ namespace Enrollment_System.Data
         {
             return contacts.IndexOf(x);
         }
+
+        public void clear()
+        {
+            contacts.Clear();
+        }
     }
 }

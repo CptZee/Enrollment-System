@@ -33,28 +33,24 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnView = new System.Windows.Forms.Button();
             this.btnApproveApp = new System.Windows.Forms.Button();
-            this.btnRefreshApp = new System.Windows.Forms.Button();
             this.btnModifyApp = new System.Windows.Forms.Button();
             this.btnRemoveApp = new System.Windows.Forms.Button();
             this.btnAddApp = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.AppList = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnRefreshCourse = new System.Windows.Forms.Button();
             this.btnModifyCourse = new System.Windows.Forms.Button();
             this.btnRemoveCourse = new System.Windows.Forms.Button();
             this.btnAddCourse = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.CourseList = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnRefreshSubj = new System.Windows.Forms.Button();
             this.btnModifySubj = new System.Windows.Forms.Button();
             this.btnRemoveSubj = new System.Windows.Forms.Button();
             this.btnAddSubj = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.SubjectList = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.btnRefreshSched = new System.Windows.Forms.Button();
             this.btnModifySched = new System.Windows.Forms.Button();
             this.btnRemoveSched = new System.Windows.Forms.Button();
             this.btnAddSched = new System.Windows.Forms.Button();
@@ -90,7 +86,6 @@
             // 
             this.tabPage1.Controls.Add(this.btnView);
             this.tabPage1.Controls.Add(this.btnApproveApp);
-            this.tabPage1.Controls.Add(this.btnRefreshApp);
             this.tabPage1.Controls.Add(this.btnModifyApp);
             this.tabPage1.Controls.Add(this.btnRemoveApp);
             this.tabPage1.Controls.Add(this.btnAddApp);
@@ -121,15 +116,6 @@
             this.btnApproveApp.TabIndex = 12;
             this.btnApproveApp.Text = "Approve";
             this.btnApproveApp.UseVisualStyleBackColor = true;
-            // 
-            // btnRefreshApp
-            // 
-            this.btnRefreshApp.Location = new System.Drawing.Point(774, 377);
-            this.btnRefreshApp.Name = "btnRefreshApp";
-            this.btnRefreshApp.Size = new System.Drawing.Size(75, 23);
-            this.btnRefreshApp.TabIndex = 11;
-            this.btnRefreshApp.Text = "Refresh";
-            this.btnRefreshApp.UseVisualStyleBackColor = true;
             // 
             // btnModifyApp
             // 
@@ -181,7 +167,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.btnRefreshCourse);
             this.tabPage2.Controls.Add(this.btnModifyCourse);
             this.tabPage2.Controls.Add(this.btnRemoveCourse);
             this.tabPage2.Controls.Add(this.btnAddCourse);
@@ -195,15 +180,6 @@
             this.tabPage2.Text = "Courses";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnRefreshCourse
-            // 
-            this.btnRefreshCourse.Location = new System.Drawing.Point(777, 377);
-            this.btnRefreshCourse.Name = "btnRefreshCourse";
-            this.btnRefreshCourse.Size = new System.Drawing.Size(75, 23);
-            this.btnRefreshCourse.TabIndex = 7;
-            this.btnRefreshCourse.Text = "Refresh";
-            this.btnRefreshCourse.UseVisualStyleBackColor = true;
-            // 
             // btnModifyCourse
             // 
             this.btnModifyCourse.Location = new System.Drawing.Point(777, 110);
@@ -212,6 +188,7 @@
             this.btnModifyCourse.TabIndex = 6;
             this.btnModifyCourse.Text = "Modify";
             this.btnModifyCourse.UseVisualStyleBackColor = true;
+            this.btnModifyCourse.Click += new System.EventHandler(this.btnModifyCourse_Click);
             // 
             // btnRemoveCourse
             // 
@@ -230,6 +207,7 @@
             this.btnAddCourse.TabIndex = 4;
             this.btnAddCourse.Text = "Add";
             this.btnAddCourse.UseVisualStyleBackColor = true;
+            this.btnAddCourse.Click += new System.EventHandler(this.btnAddCourse_Click);
             // 
             // label2
             // 
@@ -251,7 +229,6 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.btnRefreshSubj);
             this.tabPage3.Controls.Add(this.btnModifySubj);
             this.tabPage3.Controls.Add(this.btnRemoveSubj);
             this.tabPage3.Controls.Add(this.btnAddSubj);
@@ -264,15 +241,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Subjects";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // btnRefreshSubj
-            // 
-            this.btnRefreshSubj.Location = new System.Drawing.Point(777, 377);
-            this.btnRefreshSubj.Name = "btnRefreshSubj";
-            this.btnRefreshSubj.Size = new System.Drawing.Size(75, 23);
-            this.btnRefreshSubj.TabIndex = 11;
-            this.btnRefreshSubj.Text = "Refresh";
-            this.btnRefreshSubj.UseVisualStyleBackColor = true;
             // 
             // btnModifySubj
             // 
@@ -321,7 +289,6 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.btnRefreshSched);
             this.tabPage4.Controls.Add(this.btnModifySched);
             this.tabPage4.Controls.Add(this.btnRemoveSched);
             this.tabPage4.Controls.Add(this.btnAddSched);
@@ -334,15 +301,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Schedules";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // btnRefreshSched
-            // 
-            this.btnRefreshSched.Location = new System.Drawing.Point(777, 377);
-            this.btnRefreshSched.Name = "btnRefreshSched";
-            this.btnRefreshSched.Size = new System.Drawing.Size(75, 23);
-            this.btnRefreshSched.TabIndex = 11;
-            this.btnRefreshSched.Text = "Refresh";
-            this.btnRefreshSched.UseVisualStyleBackColor = true;
             // 
             // btnModifySched
             // 
@@ -441,21 +399,17 @@
         private System.Windows.Forms.DataGridView SubjectList;
         private System.Windows.Forms.DataGridView ScheduleList;
         private System.Windows.Forms.Button btnApproveApp;
-        private System.Windows.Forms.Button btnRefreshApp;
         private System.Windows.Forms.Button btnModifyApp;
         private System.Windows.Forms.Button btnRemoveApp;
         private System.Windows.Forms.Button btnAddApp;
-        private System.Windows.Forms.Button btnRefreshCourse;
         private System.Windows.Forms.Button btnModifyCourse;
         private System.Windows.Forms.Button btnRemoveCourse;
         private System.Windows.Forms.Button btnAddCourse;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnRefreshSubj;
         private System.Windows.Forms.Button btnModifySubj;
         private System.Windows.Forms.Button btnRemoveSubj;
         private System.Windows.Forms.Button btnAddSubj;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnRefreshSched;
         private System.Windows.Forms.Button btnModifySched;
         private System.Windows.Forms.Button btnRemoveSched;
         private System.Windows.Forms.Button btnAddSched;

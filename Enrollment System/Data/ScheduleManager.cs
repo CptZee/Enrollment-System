@@ -64,5 +64,10 @@ namespace Enrollment_System.Data
         {
             return schedules.IndexOf(x);
         }
+
+        public void clear()
+        {
+            schedules.Clear();
+        }
     }
 }

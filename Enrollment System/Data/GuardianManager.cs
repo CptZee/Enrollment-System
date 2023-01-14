@@ -67,5 +67,10 @@ namespace Enrollment_System.Data
         {
             return guardians.IndexOf(x);
         }
+
+        public void clear()
+        {
+            guardians.Clear();
+        }
     }
 }

@@ -180,9 +180,6 @@
     <Compile Include="Resources\Classes\Rbutton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Resources\Classes\UglyTextBoxHint.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Util\DatabaseHelper.cs" />
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

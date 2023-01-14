@@ -16,13 +16,21 @@ namespace Enrollment_System.Menus
         private void btnProcceed_Click(object sender, EventArgs e)
         {
             if (verifyForm())
-                openGuardianInfo();
+                if (cbRegular.Equals("Regular"))
+                    openGuardianInfo();
+                else
+                    openSubjectsSelection();
         }
 
         private void EnrollFrm_Load(object sender, EventArgs e)
         {
             CenterToScreen();
+            updateDatabase(sender, e);
             loadComboBoxes();
+        }
+        private void updateDatabase(object sender, EventArgs e)
+        {
+            Program.loadTables();
         }
 
         private void openGuardianInfo()
@@ -33,8 +41,22 @@ namespace Enrollment_System.Menus
             this.Close();
         }
 
+        private void openSubjectsSelection()
+        {
+            this.Hide();
+            SubjectsSelectionFrm frm = new SubjectsSelectionFrm(application);
+            frm.ShowDialog();
+            this.Close();
+        }
+
         private void loadComboBoxes()
         {
+            CourseManager courseManager = CourseManager.getInstance();
+            for(int i = 0; i < courseManager.courses.Count; i++)
+            {
+                Course course = courseManager.findByIndex(i);
+                cbCourse.Items.Add(course.name);
+            }
             cbGender.Items.Add("Male");
             cbGender.Items.Add("Female");
             cbStatus.Items.Add("Single");
@@ -58,26 +80,15 @@ namespace Enrollment_System.Menus
             cbSchoolType.Items.Add("College");
             cbSchoolType.Items.Add("Masteral");
             cbSchoolType.Items.Add("Doctorial");
+            cbRegular.Items.Add("Regular");
+            cbRegular.Items.Add("Iregular");
         }
-
-        private void cbSY_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbSY.SelectedItem.ToString().Equals("2022-2023"))
-            {
-                cbTerm.Items[0] = "2nd Term";
-            }
-            if (cbSY.SelectedItem.ToString().Equals("2023-2024"))
-            {
-                cbTerm.Items[0] = "1st Term";
-            }
-        }
-
 
         //A bit messy but does the job done for now.
         private Boolean verifyForm()
         {
             String course, admitType, yearLevel, schoolYear, term, firstName, middleName, lastName, suffixName, gender, status, citizenship, birthplace;
-            String religion, streetno, street, subdivision, barangay, city, province, zipCode, telephone, mobile, email, type, name, program;
+            String religion, streetno, street, subdivision, barangay, city, province, zipCode, telephone, mobile, email, type, name, program, regular;
             DateTime birthdate, SubmissionDate;
 
             course = cbCourse.Text.ToString();
@@ -108,6 +119,7 @@ namespace Enrollment_System.Menus
             type = cbSchoolType.Text.ToString();
             name = tbSchoolName.Text.ToString();
             program = tbSchoolProgram.Text.ToString();
+            regular = cbRegular.Text.ToString();
             SubmissionDate = DateTime.Today;
 
             if (string.IsNullOrEmpty(course))
@@ -186,7 +198,13 @@ namespace Enrollment_System.Menus
                 MessageBox.Show("Email Address is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if(DateTime.Compare(birthdate, SubmissionDate) >= 0){
+
+            if (string.IsNullOrEmpty(regular))
+            {
+                MessageBox.Show("Student Type is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (DateTime.Compare(birthdate, SubmissionDate) >= 0){
                 MessageBox.Show("Invalid birthdate!", "Invalid Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -226,7 +244,10 @@ namespace Enrollment_System.Menus
             application.AdmitType = admitType;
             application.YearLevel = yearLevel;
             application.Term = term;
-
+            if (regular.Equals("Regular"))
+                application.IsRegular = true;
+            else
+                application.IsRegular = false;
             return true;
         }
 
@@ -237,5 +258,18 @@ namespace Enrollment_System.Menus
             frm.ShowDialog();
             this.Close();
         }
+
+        private void cbSY_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (cbSY.SelectedItem.ToString().Equals("2022-2023"))
+            {
+                cbTerm.Items[0] = "2nd Term";
+            }
+            if (cbSY.SelectedItem.ToString().Equals("2023-2024"))
+            {
+                cbTerm.Items[0] = "1st Term";
+            }
+        }
+       
     }
 }

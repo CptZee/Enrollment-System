@@ -19,8 +19,6 @@ namespace Enrollment_System.Menus
             for (int i = 0; i < adminManager.admins.Count; i++)
             {
                 Data.Admin admin = adminManager.findByIndex(i);
-                Console.WriteLine(username + ": " + password);
-                Console.WriteLine(admin.username + ": " + admin.password);
                 if (username.Equals(admin.username) && password.Equals(admin.password))
                 {
                     this.Hide();
@@ -31,6 +29,11 @@ namespace Enrollment_System.Menus
                 }
             }
             MessageBox.Show("Invalid Username or password!", "Invalid Credential", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void AdminAuthFrm_Load(object sender, EventArgs e)
+        {
+            CenterToScreen();
         }
     }
 }

@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnProceed = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lvSubjects = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // label1
@@ -44,14 +43,6 @@
             this.label1.Size = new System.Drawing.Size(432, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Please select a maximum of six (6) subjects to take";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 56);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(428, 220);
-            this.dataGridView1.TabIndex = 1;
             // 
             // btnReturn
             // 
@@ -71,19 +62,28 @@
             this.btnProceed.Text = "Proceed";
             this.btnProceed.UseVisualStyleBackColor = true;
             // 
+            // lvSubjects
+            // 
+            this.lvSubjects.HideSelection = false;
+            this.lvSubjects.Location = new System.Drawing.Point(16, 60);
+            this.lvSubjects.Name = "lvSubjects";
+            this.lvSubjects.Size = new System.Drawing.Size(428, 216);
+            this.lvSubjects.TabIndex = 4;
+            this.lvSubjects.UseCompatibleStateImageBehavior = false;
+            this.lvSubjects.View = System.Windows.Forms.View.List;
+            // 
             // SubjectsSelectionFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(457, 315);
+            this.Controls.Add(this.lvSubjects);
             this.Controls.Add(this.btnProceed);
             this.Controls.Add(this.btnReturn);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "SubjectsSelectionFrm";
             this.Text = "Subjects Selection Form";
             this.Load += new System.EventHandler(this.SubjectsSelectionFrm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,8 +92,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnProceed;
+        private System.Windows.Forms.ListView lvSubjects;
     }
 }

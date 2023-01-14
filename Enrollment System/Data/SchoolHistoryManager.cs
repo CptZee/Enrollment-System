@@ -66,5 +66,10 @@ namespace Enrollment_System.Data
         {
             return schoolHistories.IndexOf(x);
         }
+
+        public void clear()
+        {
+            schoolHistories.Clear();
+        }
     }
 }

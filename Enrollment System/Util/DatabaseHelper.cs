@@ -505,6 +505,7 @@ namespace Enrollment_System.Util
         public static void loadCourses()
         {
             CourseManager courseManager = CourseManager.getInstance();
+            courseManager.clear();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, Name FROM Courses";
             try
@@ -534,6 +535,7 @@ namespace Enrollment_System.Util
         public static void loadSubjects()
         {
             SubjectManager subjectManager = SubjectManager.getInstance();
+            subjectManager.clear();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, Name, YearLevel, Term, Prerequisite FROM Subjects";
             try
@@ -566,6 +568,7 @@ namespace Enrollment_System.Util
         public static void loadSchedules()
         {
             ScheduleManager scheduleManager = ScheduleManager.getInstance();
+            scheduleManager.clear();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, SubjectId, startTime, endTime FROM Schedules";
             try
@@ -597,6 +600,7 @@ namespace Enrollment_System.Util
         public static void loadApplicationForms()
         {
             ApplicationFormsManager applicationFormsManager = ApplicationFormsManager.getInstance();
+            applicationFormsManager.clear();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, StudentID, AddressID, ContactID, SchoolHistoryID, GuardianID, Course, AdmitType, YearLevel, 
                 SchoolYear, Term, SubmissionDate, Status, IsRegular FROM Applications";
@@ -642,6 +646,7 @@ namespace Enrollment_System.Util
         public static void loadApplicationSubjects()
         {
             ApplicationFormsManager applicationManager = ApplicationFormsManager.getInstance();
+            applicationManager.clear();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, ApplicationID, SubjectID FROM ApplicationSubjects";
             try
@@ -674,6 +679,7 @@ namespace Enrollment_System.Util
         public static void loadApplicationSchedules()
         {
             ApplicationFormsManager applicationManager = ApplicationFormsManager.getInstance();
+            applicationManager.clear();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, SubjectId, startTime, endTime FROM Schedules";
             try
@@ -703,6 +709,7 @@ namespace Enrollment_System.Util
         public static void loadAddresses()
         {
             AddressManager addressManager = AddressManager.getInstance();
+            addressManager.clear();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, StreetUnitNumber, Street, SubdivisionVillageBldg, Barangay, City, Province, ZipCode FROM Addresses";
             try
@@ -745,6 +752,7 @@ namespace Enrollment_System.Util
         public static void loadAdmins()
         {
             AdminManager adminManager = AdminManager.getInstance();
+            adminManager.clear();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, Username, Password FROM Admins";
             try
@@ -775,6 +783,7 @@ namespace Enrollment_System.Util
         public static void loadContacts()
         {
             ContactManager contactManager = ContactManager.getInstance();
+            contactManager.clear();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, TelephoneNo, MobileNo, Email FROM Contacts";
             try
@@ -808,6 +817,7 @@ namespace Enrollment_System.Util
         public static void loadGuardians()
         {
             GuardianManager guardianManager = GuardianManager.getInstance();
+            guardianManager.clear();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, FirstName, LastName, MiddleInitial, SuffixName, MobileNumber, Email, Occupation, Relation FROM Guardians";
             try
@@ -848,6 +858,7 @@ namespace Enrollment_System.Util
         public static void loadSchoolHistory()
         {
             SchoolHistoryManager schoolHistories = SchoolHistoryManager.getInstance();
+            schoolHistories.clear();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, Type, Name, ProgramTrackSpecialization FROM SchoolHistory";
             try
@@ -879,6 +890,7 @@ namespace Enrollment_System.Util
         public static void loadStudents()
         {
             StudentManager studentManager = StudentManager.getInstance();
+            studentManager.clear();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, FirstName, MiddleName, LastName, SuffixName, Gender, Status, Citizenship, BirthDate, Birthplace, Religion  FROM Students";
             try
