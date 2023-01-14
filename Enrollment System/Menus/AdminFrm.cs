@@ -17,14 +17,17 @@ namespace Enrollment_System.Menus
             InitializeComponent();
         }
 
-        private void btnView_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void AdminFrm_Load(object sender, EventArgs e)
         {
             CenterToScreen();
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Dashboard frm = new Dashboard();
+            frm.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -34,6 +34,7 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbAppID = new System.Windows.Forms.TextBox();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblStatus
@@ -52,7 +53,7 @@
             // 
             this.btnCheck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCheck.Location = new System.Drawing.Point(200, 189);
+            this.btnCheck.Location = new System.Drawing.Point(267, 184);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(75, 29);
             this.btnCheck.TabIndex = 1;
@@ -85,12 +86,25 @@
             this.tbAppID.Size = new System.Drawing.Size(162, 20);
             this.tbAppID.TabIndex = 4;
             // 
+            // btnReturn
+            // 
+            this.btnReturn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnReturn.Location = new System.Drawing.Point(180, 184);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(75, 29);
+            this.btnReturn.TabIndex = 5;
+            this.btnReturn.Text = "Return";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // StatusFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(495, 239);
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.tbAppID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDescription);
@@ -112,5 +126,6 @@
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbAppID;
+        private System.Windows.Forms.Button btnReturn;
     }
 }

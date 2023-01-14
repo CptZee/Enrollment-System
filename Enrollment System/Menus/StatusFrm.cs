@@ -29,5 +29,14 @@ namespace Enrollment_System.Menus
         {
             CenterToScreen();
         }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Dashboard frm = new Dashboard();
+            frm.ShowDialog();
+            this.Close();
+
+        }
     }
 }

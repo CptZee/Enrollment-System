@@ -45,9 +45,9 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Courses Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Courses
                 (
-                    [ID] INT NOT NULL AUTO_INCREMENT, 
+                    [ID] INT NOT NULL IDENTITY(1,1), 
                     [Name] NCHAR(30) NOT NULL,
-                    PRIMARY KEY (Id)
+                    PRIMARY KEY (ID)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -75,12 +75,12 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Subjects Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Subjects
                 (
-                    [ID] INT NOT NULL AUTO_INCREMENT,
+                    [ID] INT NOT NULL IDENTITY(1,1),
                     [Name] NCHAR(30) NOT NULL,
                     [YearLevel] NCHAR(30) NOT NULL,
                     [Term] NCHAR(30) NOT NULL,
                     [Prerequisite] NCHAR(30) NOT NULL,
-                    PRIMARY KEY (Id)
+                    PRIMARY KEY (ID)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -108,11 +108,11 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Schedules Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Schedules
                 (
-                    [ID] INT NOT NULL AUTO_INCREMENT,
+                    [ID] INT NOT NULL IDENTITY(1,1),
                     [SubjectId] INT NOT NULL,
                     [startTime] NCHAR(30) NOT NULL,
                     [endTime] NCHAR(30) NOT NULL,
-                    PRIMARY KEY (Id)
+                    PRIMARY KEY (ID)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -125,13 +125,6 @@ namespace Enrollment_System.Util
             }
         }
 
-
-        /**
-         * A simple code that will create the Addresses table.
-         * 
-         * @return if the table is created successfully.
-         * 
-         */
         public static void createAdressesTable()
         {
             SqlConnection connection = GetConnection();
@@ -147,7 +140,7 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Addresses Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Addresses
                 (
-                    [ID] INT NOT NULL AUTO_INCREMENT,
+                    [ID] INT NOT NULL IDENTITY(1,1),
                     [StreetUnitNumber] NCHAR(30),
                     [Street] NCHAR(30),
                     [SubdivisionVillageBldg] NCHAR(30),
@@ -155,7 +148,7 @@ namespace Enrollment_System.Util
                     [City] NCHAR(30) NOT NULL,
                     [Province] NCHAR(30) NOT NULL,
                     [ZipCode] NCHAR(30) NOT NULL,
-                    PRIMARY KEY (Id)
+                    PRIMARY KEY (ID)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -168,12 +161,6 @@ namespace Enrollment_System.Util
             }
         }
 
-        /**
-         * A simple code that will create the admins table.
-         * 
-         * @return if the table is created successfully.
-         * 
-         */
         public static void createAdminTable()
         {
             SqlConnection connection = GetConnection();
@@ -189,10 +176,10 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Admins Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Admins
                 (
-                    [ID] INT NOT NULL AUTO_INCREMENT, 
+                    [ID] INT NOT NULL IDENTITY(1,1), 
                     [Username] NCHAR(30) NOT NULL,
                     [Password] NCHAR(30) NOT NULL,
-                    PRIMARY KEY (Id)
+                    PRIMARY KEY (ID)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -205,13 +192,6 @@ namespace Enrollment_System.Util
             }
         }
 
-
-        /**
-        * A simple code that will create the Contacts table.
-        * 
-        * @return if the table is created successfully.
-        * 
-        */
         public static void createContactTable()
         {
             SqlConnection connection = GetConnection();
@@ -227,11 +207,11 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Contacts Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Contacts
                 (
-                    [ID] INT NOT NULL AUTO_INCREMENT, 
+                    [ID] INT NOT NULL IDENTITY(1,1), 
                     [TelephoneNo] NCHAR(30),
                     [MobileNo] NCHAR(30) NOT NULL,
                     [Email] NCHAR(30) NOT NULL,
-                    PRIMARY KEY (Id)
+                    PRIMARY KEY (ID)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -243,14 +223,7 @@ namespace Enrollment_System.Util
                 connection.Close();
             }
         }
-
-
-        /**
-        * A simple code that will create the Guardians table.
-        * 
-        * @return if the table is created successfully.
-        * 
-        */
+        
         public static void createGuardianTable()
         {
             SqlConnection connection = GetConnection();
@@ -266,7 +239,7 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Guardians Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Guardians
                 (
-                    [Id] INT NOT NULL AUTO_INCREMENT, 
+                    [Id] INT NOT NULL IDENTITY(1,1), 
                     [FirstName] NCHAR(30) NOT NULL,
                     [LastName] NCHAR(30) NOT NULL,
                     [MiddleInitial] NCHAR(30),
@@ -275,7 +248,7 @@ namespace Enrollment_System.Util
                     [Email] NCHAR(30) NOT NULL,
                     [Occupation] NCHAR(30) NOT NULL,
                     [Relation] NCHAR(30) NOT NULL,
-                    PRIMARY KEY (Id)
+                    PRIMARY KEY (ID)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -288,12 +261,6 @@ namespace Enrollment_System.Util
             }
         }
 
-        /**
-        * A simple code that will create the School History table.
-        * 
-        * @return if the table is created successfully.
-        * 
-        */
         public static void createSchoolHistoryTable()
         {
             SqlConnection connection = GetConnection();
@@ -309,11 +276,11 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: SchoolHistory Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE SchoolHistory
                 (
-                    [Id] INT NOT NULL AUTO_INCREMENT, 
+                    [Id] INT NOT NULL IDENTITY(1,1), 
                     [Type] NCHAR(30) NOT NULL,
                     [Name] NCHAR(30) NOT NULL,
                     [ProgramTrackSpecialization] NCHAR(30) NOT NULL,
-                    PRIMARY KEY (Id)
+                    PRIMARY KEY (ID)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -347,7 +314,7 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Students Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Students
                 (
-                    [Id] INT NOT NULL AUTO_INCREMENT, 
+                    [Id] INT NOT NULL IDENTITY(1,1), 
                     [FirstName] NCHAR(30) NOT NULL,
                     [MiddleName] NCHAR(30),
                     [LastName] NCHAR(30) NOT NULL,
@@ -358,7 +325,7 @@ namespace Enrollment_System.Util
                     [BirthDate] DATE NOT NULL,
                     [Birthplace] NCHAR(30) NOT NULL,
                     [Religion] NCHAR(30)  NOT NULL,
-                    PRIMARY KEY (Id)
+                    PRIMARY KEY (ID)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -371,12 +338,6 @@ namespace Enrollment_System.Util
             }
         }
 
-        /**
-         * A simple code that will create the Application Forms table.
-         * 
-         * @return if the table is created successfully.
-         * 
-         */
         public static void createApplicationFormTable()
         {
             SqlConnection connection = GetConnection();
@@ -392,7 +353,7 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Applications Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Applications
                 (
-                    [Id] INT NOT NULL AUTO_INCREMENT, 
+                    [Id] INT NOT NULL IDENTITY(1,1), 
                     [StudentID] INT NOT NULL,
                     [AddressID] INT NOT NULL,
                     [ContactID] INT NOT NULL,
@@ -405,7 +366,7 @@ namespace Enrollment_System.Util
                     [Term] NCHAR(30) NOT NULL,
                     [SubmissionDate] DATE NOT NULL,
                     [Status] NCHAR(30) NOT NULL,
-                    PRIMARY KEY (Id)
+                    PRIMARY KEY (ID)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
