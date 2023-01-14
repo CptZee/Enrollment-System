@@ -464,7 +464,7 @@ namespace Enrollment_System.Util
                     {
                         Course course = new Course();
                         course.ID = reader.GetInt32(0);
-                        course.name = reader.GetString(1);
+                        course.name = reader.GetString(1).Trim();
 
                         courseManager.add(course);
                     }
@@ -493,10 +493,10 @@ namespace Enrollment_System.Util
                     {
                         Subject subject = new Subject();
                         subject.ID = reader.GetInt32(0);
-                        subject.Name = reader.GetString(1);
-                        subject.YearLevel = reader.GetString(2);
-                        subject.Term = reader.GetString(3);
-                        subject.Prerequisite = reader.GetString(4);
+                        subject.Name = reader.GetString(1).Trim();
+                        subject.YearLevel = reader.GetString(2).Trim();
+                        subject.Term = reader.GetString(3).Trim();
+                        subject.Prerequisite = reader.GetString(4).Trim();
 
                         subjectManager.add(subject);
                     }
@@ -526,8 +526,8 @@ namespace Enrollment_System.Util
                         Schedule schedule = new Schedule();
                         schedule.ID = reader.GetInt32(0);
                         schedule.SubjectId = reader.GetInt32(1);
-                        schedule.startTime = reader.GetString(2);
-                        schedule.endTime = reader.GetString(3);
+                        schedule.startTime = reader.GetString(2).Trim();
+                        schedule.endTime = reader.GetString(3).Trim();
 
                         scheduleManager.add(schedule);
                     }
@@ -562,13 +562,13 @@ namespace Enrollment_System.Util
                         applicationForm.ContactID = reader.GetInt32(3);
                         applicationForm.SchoolHistoryID = reader.GetInt32(4);
                         applicationForm.GuardianID = reader.GetInt32(5);
-                        applicationForm.Course = reader.GetString(6);
-                        applicationForm.AdmitType = reader.GetString(7);
-                        applicationForm.YearLevel = reader.GetString(8);
-                        applicationForm.SchoolYear = reader.GetString(9);
-                        applicationForm.Term = reader.GetString(10);
+                        applicationForm.Course = reader.GetString(6).Trim();
+                        applicationForm.AdmitType = reader.GetString(7).Trim();
+                        applicationForm.YearLevel = reader.GetString(8).Trim();
+                        applicationForm.SchoolYear = reader.GetString(9).Trim();
+                        applicationForm.Term = reader.GetString(10).Trim();
                         applicationForm.SubmissionDate = reader.GetDateTime(11);
-                        applicationForm.Status = reader.GetString(12);
+                        applicationForm.Status = reader.GetString(12).Trim();
                         applicationForm.IsRegular = reader.GetBoolean(13);
 
                         applicationFormsManager.add(applicationForm);
@@ -665,17 +665,17 @@ namespace Enrollment_System.Util
                         address.ID = reader.GetInt32(0);
 
                         if (!reader.IsDBNull(1))
-                            address.StreetUnitNumber = reader.GetString(1);
+                            address.StreetUnitNumber = reader.GetString(1).Trim();
 
                         if (!reader.IsDBNull(2))
                             address.Street = reader.GetString(2);
 
                         if (!reader.IsDBNull(3))
-                            address.SubdivisionVillageBldg = reader.GetString(3);
-                        address.Barangay = reader.GetString(4);
-                        address.City = reader.GetString(5);
-                        address.Province = reader.GetString(6);
-                        address.ZipCode = reader.GetString(7);
+                            address.SubdivisionVillageBldg = reader.GetString(3).Trim();
+                        address.Barangay = reader.GetString(4).Trim();
+                        address.City = reader.GetString(5).Trim();
+                        address.Province = reader.GetString(6).Trim();
+                        address.ZipCode = reader.GetString(7).Trim();
 
                         addressManager.add(address);
                     }
@@ -704,8 +704,8 @@ namespace Enrollment_System.Util
                     {
                         Admin admin = new Admin();
                         admin.ID = reader.GetInt32(0);
-                        admin.username = reader.GetString(1);
-                        admin.password = reader.GetString(2);
+                        admin.username = reader.GetString(1).Trim();
+                        admin.password = reader.GetString(2).Trim();
 
                         adminManager.add(admin);
                     }
@@ -736,9 +736,9 @@ namespace Enrollment_System.Util
 
                         contact.ID = reader.GetInt32(0);
                         if (!reader.IsDBNull(1))
-                            contact.TelephoneNo = reader.GetString(1);
-                        contact.MobileNo = reader.GetString(2);
-                        contact.Email = reader.GetString(3);
+                            contact.TelephoneNo = reader.GetString(1).Trim();
+                        contact.MobileNo = reader.GetString(2).Trim();
+                        contact.Email = reader.GetString(3).Trim();
 
                         contactManager.add(contact);
                     }
@@ -767,18 +767,18 @@ namespace Enrollment_System.Util
                     {
                         Guardian guardian = new Guardian();
                         guardian.ID = reader.GetInt32(0);
-                        guardian.FirstName = reader.GetString(1);
-                        guardian.LastName = reader.GetString(2);
+                        guardian.FirstName = reader.GetString(1).Trim();
+                        guardian.LastName = reader.GetString(2).Trim();
 
                         if (!reader.IsDBNull(3))
-                            guardian.MiddleInitial = reader.GetString(3);
+                            guardian.MiddleInitial = reader.GetString(3).Trim();
 
                         if (!reader.IsDBNull(4))
-                            guardian.SuffixName = reader.GetString(4);
-                        guardian.MobileNumber = reader.GetString(5);
-                        guardian.Email = reader.GetString(6);
-                        guardian.Occupation = reader.GetString(7);
-                        guardian.Relation = reader.GetString(8);
+                            guardian.SuffixName = reader.GetString(4).Trim();
+                        guardian.MobileNumber = reader.GetString(5).Trim();
+                        guardian.Email = reader.GetString(6).Trim();
+                        guardian.Occupation = reader.GetString(7).Trim();
+                        guardian.Relation = reader.GetString(8).Trim();
 
                         guardianManager.add(guardian);
                     }
@@ -807,9 +807,9 @@ namespace Enrollment_System.Util
                     {
                         SchoolHistory schoolHistory = new SchoolHistory();
                         schoolHistory.ID = reader.GetInt32(0);
-                        schoolHistory.Type = reader.GetString(1);
-                        schoolHistory.Name = reader.GetString(2);
-                        schoolHistory.ProgramTrackSpecialization = reader.GetString(3);
+                        schoolHistory.Type = reader.GetString(1).Trim();
+                        schoolHistory.Name = reader.GetString(2).Trim();
+                        schoolHistory.ProgramTrackSpecialization = reader.GetString(3).Trim();
 
                         schoolHistories.add(schoolHistory);
                     }
@@ -838,18 +838,18 @@ namespace Enrollment_System.Util
                     {
                         Student student = new Student();
                         student.ID = reader.GetInt32(0);
-                        student.FirstName = reader.GetString(1);
+                        student.FirstName = reader.GetString(1).Trim();
                         if (!reader.IsDBNull(1))
-                            student.MiddleName = reader.GetString(2);
-                        student.LastName = reader.GetString(3);
+                            student.MiddleName = reader.GetString(2).Trim();
+                        student.LastName = reader.GetString(3).Trim();
                         if(!reader.IsDBNull(4))
-                            student.SuffixName = reader.GetString(4);
-                        student.Gender = reader.GetString(5);
-                        student.Status = reader.GetString(6);
-                        student.Citizenship = reader.GetString(7);
-                        student.BirthDate = reader.GetDateTime(8);
-                        student.Birthplace = reader.GetString(9);
-                        student.Religion = reader.GetString(10);
+                            student.SuffixName = reader.GetString(4).Trim();
+                        student.Gender = reader.GetString(5).Trim();
+                        student.Status = reader.GetString(6).Trim();
+                        student.Citizenship = reader.GetString(7).Trim();
+                        student.BirthDate = reader.GetDateTime(8).Trim();
+                        student.Birthplace = reader.GetString(9).Trim();
+                        student.Religion = reader.GetString(10).Trim();
 
                         studentManager.add(student);
                     }

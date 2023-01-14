@@ -14,12 +14,13 @@ namespace Enrollment_System.Menus
         private void button1_Click(object sender, EventArgs e)
         {
             AdminManager adminManager = AdminManager.getInstance();
-            //Temp fix for the weird space bugs
-            String username = tbUsername.Text.ToString() + "                         ";
-            String password = tbPassword.Text.ToString() + "                      ";
+            String username = tbUsername.Text.ToString();
+            String password = tbPassword.Text.ToString();
             for (int i = 0; i < adminManager.admins.Count; i++)
             {
                 Data.Admin admin = adminManager.findByIndex(i);
+                Console.WriteLine(username + ": " + password);
+                Console.WriteLine(admin.username + ": " + admin.password);
                 if (username.Equals(admin.username) && password.Equals(admin.password))
                 {
                     this.Hide();
