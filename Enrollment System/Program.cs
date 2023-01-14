@@ -2,7 +2,6 @@
 using System.Threading;
 using Enrollment_System.Util;
 using System.Windows.Forms;
-using Enrollment_System.Data;
 
 namespace Enrollment_System
 {
@@ -13,6 +12,16 @@ namespace Enrollment_System
         /// </summary>
         [STAThread]
         static void Main()
+        {
+            createTables();
+            loadTables();
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Dashboard());
+        }
+
+        private static void createTables()
         {
             Thread AddressDBThread = new Thread(new ThreadStart(DatabaseHelper.createAdressesTable));
             Thread AdminDBThread = new Thread(new ThreadStart(DatabaseHelper.createAdminTable));
@@ -25,7 +34,20 @@ namespace Enrollment_System
             Thread ScheduleDBThread = new Thread(new ThreadStart(DatabaseHelper.createSchedulesTable));
             Thread CoursesDBThread = new Thread(new ThreadStart(DatabaseHelper.createCoursesTable));
 
+            AddressDBThread.Start();
+            AdminDBThread.Start();
+            ApplicationFormDBThread.Start();
+            ContactDBThread.Start();
+            GuardianDBThread.Start();
+            SchoolHistoryDBThread.Start();
+            StudentDBThread.Start();
+            SubjectDBThread.Start();
+            ScheduleDBThread.Start();
+            CoursesDBThread.Start();
+        }
 
+        public static void loadTables()
+        {
             Thread AddressLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadAddresses));
             Thread AdminLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadAdmins));
             Thread ApplicationFormLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadApplicationForms));
@@ -37,17 +59,6 @@ namespace Enrollment_System
             Thread ScheduleLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadSchedules));
             Thread CoursesLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadCourses));
 
-            AddressDBThread.Start();
-            AdminDBThread.Start();
-            ApplicationFormDBThread.Start();
-            ContactDBThread.Start();
-            GuardianDBThread.Start();
-            SchoolHistoryDBThread.Start();
-            StudentDBThread.Start();
-            SubjectDBThread.Start();
-            ScheduleDBThread.Start();
-            CoursesDBThread.Start();
-
             AddressLoadThread.Start();
             AdminLoadThread.Start();
             ApplicationFormLoadThread.Start();
@@ -58,10 +69,6 @@ namespace Enrollment_System
             SubjectLoadThread.Start();
             ScheduleLoadThread.Start();
             CoursesLoadThread.Start();
-
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dashboard());
         }
     }
 }
