@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Enrollment_System.Data;
 using Enrollment_System.Util;
@@ -73,8 +66,6 @@ namespace Enrollment_System.Menus.Admin
             schoolHistoryManger.remove(application.SchoolHistoryID);
             
             applicationFormsManager.remove(ID);
-
-            
         }
     }
 }
