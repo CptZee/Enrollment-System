@@ -31,17 +31,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnPicture = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblPicture = new System.Windows.Forms.Label();
+            this.lblPSA = new System.Windows.Forms.Label();
             this.btnPSA = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btnProceed = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblGoodMoral = new System.Windows.Forms.Label();
             this.btnGoodMoral = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblRecomendation = new System.Windows.Forms.Label();
             this.btnRecommendation = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // label1
@@ -71,26 +72,27 @@
             this.btnPicture.TabIndex = 3;
             this.btnPicture.Text = "Upload";
             this.btnPicture.UseVisualStyleBackColor = true;
+            this.btnPicture.Click += new System.EventHandler(this.btnPicture_Click);
             // 
-            // label3
+            // lblPicture
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.DarkRed;
-            this.label3.Location = new System.Drawing.Point(250, 106);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "<file path>";
+            this.lblPicture.AutoSize = true;
+            this.lblPicture.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblPicture.Location = new System.Drawing.Point(250, 106);
+            this.lblPicture.Name = "lblPicture";
+            this.lblPicture.Size = new System.Drawing.Size(48, 13);
+            this.lblPicture.TabIndex = 4;
+            this.lblPicture.Text = "<Empty>";
             // 
-            // label4
+            // lblPSA
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.DarkRed;
-            this.label4.Location = new System.Drawing.Point(250, 135);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "<file path>";
+            this.lblPSA.AutoSize = true;
+            this.lblPSA.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblPSA.Location = new System.Drawing.Point(250, 135);
+            this.lblPSA.Name = "lblPSA";
+            this.lblPSA.Size = new System.Drawing.Size(48, 13);
+            this.lblPSA.TabIndex = 7;
+            this.lblPSA.Text = "<Empty>";
             // 
             // btnPSA
             // 
@@ -100,6 +102,7 @@
             this.btnPSA.TabIndex = 6;
             this.btnPSA.Text = "Upload";
             this.btnPSA.UseVisualStyleBackColor = true;
+            this.btnPSA.Click += new System.EventHandler(this.btnPSA_Click);
             // 
             // label5
             // 
@@ -120,15 +123,15 @@
             this.btnProceed.UseVisualStyleBackColor = true;
             this.btnProceed.Click += new System.EventHandler(this.btnProceed_Click);
             // 
-            // label6
+            // lblGoodMoral
             // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.DarkRed;
-            this.label6.Location = new System.Drawing.Point(250, 164);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "<file path>";
+            this.lblGoodMoral.AutoSize = true;
+            this.lblGoodMoral.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblGoodMoral.Location = new System.Drawing.Point(250, 164);
+            this.lblGoodMoral.Name = "lblGoodMoral";
+            this.lblGoodMoral.Size = new System.Drawing.Size(48, 13);
+            this.lblGoodMoral.TabIndex = 11;
+            this.lblGoodMoral.Text = "<Empty>";
             // 
             // btnGoodMoral
             // 
@@ -138,6 +141,7 @@
             this.btnGoodMoral.TabIndex = 10;
             this.btnGoodMoral.Text = "Upload";
             this.btnGoodMoral.UseVisualStyleBackColor = true;
+            this.btnGoodMoral.Click += new System.EventHandler(this.btnGoodMoral_Click);
             // 
             // label7
             // 
@@ -148,15 +152,15 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "Certificate of Good Moral:";
             // 
-            // label8
+            // lblRecomendation
             // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.DarkRed;
-            this.label8.Location = new System.Drawing.Point(250, 193);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 13);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "<file path>";
+            this.lblRecomendation.AutoSize = true;
+            this.lblRecomendation.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblRecomendation.Location = new System.Drawing.Point(250, 193);
+            this.lblRecomendation.Name = "lblRecomendation";
+            this.lblRecomendation.Size = new System.Drawing.Size(48, 13);
+            this.lblRecomendation.TabIndex = 14;
+            this.lblRecomendation.Text = "<Empty>";
             // 
             // btnRecommendation
             // 
@@ -166,6 +170,7 @@
             this.btnRecommendation.TabIndex = 13;
             this.btnRecommendation.Text = "Upload";
             this.btnRecommendation.UseVisualStyleBackColor = true;
+            this.btnRecommendation.Click += new System.EventHandler(this.btnRecommendation_Click);
             // 
             // label9
             // 
@@ -176,22 +181,26 @@
             this.label9.TabIndex = 12;
             this.label9.Text = "Letter of Recommendation:";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // RequirementsFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 270);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblRecomendation);
             this.Controls.Add(this.btnRecommendation);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblGoodMoral);
             this.Controls.Add(this.btnGoodMoral);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnProceed);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblPSA);
             this.Controls.Add(this.btnPSA);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblPicture);
             this.Controls.Add(this.btnPicture);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -207,16 +216,17 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnPicture;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblPicture;
+        private System.Windows.Forms.Label lblPSA;
         private System.Windows.Forms.Button btnPSA;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnProceed;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblGoodMoral;
         private System.Windows.Forms.Button btnGoodMoral;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblRecomendation;
         private System.Windows.Forms.Button btnRecommendation;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
