@@ -1117,7 +1117,7 @@ namespace Enrollment_System.Util
                 command.Parameters.AddWithValue("@SubjectID", schedule.SubjectID);
                 command.Parameters.AddWithValue("@StartTime", schedule.StartTime);
                 command.Parameters.AddWithValue("@EndTime", schedule.EndTime);
-                command.Parameters.AddWithValue("@Day", schedule.EndTime);
+                command.Parameters.AddWithValue("@Day", schedule.Day);
                 command.ExecuteNonQuery();
             }
             connection.Close();
@@ -1635,7 +1635,7 @@ namespace Enrollment_System.Util
                 command.Parameters.AddWithValue("@SubjectID", schedule.SubjectID);
                 command.Parameters.AddWithValue("@StartTime", schedule.StartTime);
                 command.Parameters.AddWithValue("@EndTime", schedule.EndTime);
-                command.Parameters.AddWithValue("@Day", schedule.EndTime);
+                command.Parameters.AddWithValue("@Day", schedule.Day);
                 command.ExecuteNonQuery();
             }
             connection.Close();

@@ -24,7 +24,7 @@ namespace Enrollment_System.Menus
             updateTables(sender, e);
 
             Timer timer = new Timer();
-            timer.Interval = (1 * 3000);
+            timer.Interval = (1 * 15000);
             timer.Tick += new System.EventHandler(this.updateTables);
             timer.Start();
         }
@@ -126,6 +126,26 @@ namespace Enrollment_System.Menus
         private void btnApproveApp_Click(object sender, EventArgs e)
         {
             //TODO: ADD A function that approves the application.
+        }
+
+        private void btnRefresh1_Click(object sender, EventArgs e)
+        {
+            updateTables(sender, e);
+        }
+
+        private void btnRefresh2_Click(object sender, EventArgs e)
+        {
+            updateTables(sender, e);
+        }
+
+        private void btnRefresh3_Click(object sender, EventArgs e)
+        {
+            updateTables(sender, e);
+        }
+
+        private void btnRefresh4_Click(object sender, EventArgs e)
+        {
+            updateTables(sender, e);
         }
     }
 }

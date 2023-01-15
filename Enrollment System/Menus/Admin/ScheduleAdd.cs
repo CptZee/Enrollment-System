@@ -141,7 +141,7 @@ namespace Enrollment_System.Menus.Admin
         private void loadComboBoxes()
         {
             SubjectManager subjectManager = SubjectManager.getInstance();
-            for(int i = 0; i < subjectManager.subjects.Count; i++)
+            for (int i = 0; i < subjectManager.subjects.Count; i++)
             {
                 Subject subject = subjectManager.findByIndex(i);
                 cbSubjectID.Items.Add(subject.ID);

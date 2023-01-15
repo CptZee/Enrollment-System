@@ -77,6 +77,8 @@ namespace Enrollment_System.Menus.Admin
 
         }
 
+
+        //TODO: Make it so that the lower hour of the start time will be removed
         private void cbStartTime_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbStartTime.Text.ToString().Equals("TBA"))

@@ -32,7 +32,6 @@
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnView = new System.Windows.Forms.Button();
-            this.btnApproveApp = new System.Windows.Forms.Button();
             this.btnModifyApp = new System.Windows.Forms.Button();
             this.btnRemoveApp = new System.Windows.Forms.Button();
             this.btnAddApp = new System.Windows.Forms.Button();
@@ -57,6 +56,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.ScheduleList = new System.Windows.Forms.DataGridView();
             this.btnReturn = new System.Windows.Forms.Button();
+            this.btnRefresh1 = new System.Windows.Forms.Button();
+            this.btnRefresh2 = new System.Windows.Forms.Button();
+            this.btnRefresh3 = new System.Windows.Forms.Button();
+            this.btnRefresh4 = new System.Windows.Forms.Button();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppList)).BeginInit();
@@ -84,8 +87,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnRefresh1);
             this.tabPage1.Controls.Add(this.btnView);
-            this.tabPage1.Controls.Add(this.btnApproveApp);
             this.tabPage1.Controls.Add(this.btnModifyApp);
             this.tabPage1.Controls.Add(this.btnRemoveApp);
             this.tabPage1.Controls.Add(this.btnAddApp);
@@ -108,16 +111,6 @@
             this.btnView.Text = "View";
             this.btnView.UseVisualStyleBackColor = true;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
-            // 
-            // btnApproveApp
-            // 
-            this.btnApproveApp.Location = new System.Drawing.Point(774, 168);
-            this.btnApproveApp.Name = "btnApproveApp";
-            this.btnApproveApp.Size = new System.Drawing.Size(75, 23);
-            this.btnApproveApp.TabIndex = 12;
-            this.btnApproveApp.Text = "Approve";
-            this.btnApproveApp.UseVisualStyleBackColor = true;
-            this.btnApproveApp.Click += new System.EventHandler(this.btnApproveApp_Click);
             // 
             // btnModifyApp
             // 
@@ -172,6 +165,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnRefresh2);
             this.tabPage2.Controls.Add(this.btnModifyCourse);
             this.tabPage2.Controls.Add(this.btnRemoveCourse);
             this.tabPage2.Controls.Add(this.btnAddCourse);
@@ -235,6 +229,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnRefresh3);
             this.tabPage3.Controls.Add(this.btnModifySubj);
             this.tabPage3.Controls.Add(this.btnRemoveSubj);
             this.tabPage3.Controls.Add(this.btnAddSubj);
@@ -298,6 +293,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btnRefresh4);
             this.tabPage4.Controls.Add(this.btnModifySchedule);
             this.tabPage4.Controls.Add(this.btnRemoveSchedule);
             this.tabPage4.Controls.Add(this.btnAddSchedule);
@@ -369,6 +365,46 @@
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
+            // btnRefresh1
+            // 
+            this.btnRefresh1.Location = new System.Drawing.Point(774, 377);
+            this.btnRefresh1.Name = "btnRefresh1";
+            this.btnRefresh1.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh1.TabIndex = 15;
+            this.btnRefresh1.Text = "Refresh";
+            this.btnRefresh1.UseVisualStyleBackColor = true;
+            this.btnRefresh1.Click += new System.EventHandler(this.btnRefresh1_Click);
+            // 
+            // btnRefresh2
+            // 
+            this.btnRefresh2.Location = new System.Drawing.Point(777, 377);
+            this.btnRefresh2.Name = "btnRefresh2";
+            this.btnRefresh2.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh2.TabIndex = 16;
+            this.btnRefresh2.Text = "Refresh";
+            this.btnRefresh2.UseVisualStyleBackColor = true;
+            this.btnRefresh2.Click += new System.EventHandler(this.btnRefresh2_Click);
+            // 
+            // btnRefresh3
+            // 
+            this.btnRefresh3.Location = new System.Drawing.Point(777, 377);
+            this.btnRefresh3.Name = "btnRefresh3";
+            this.btnRefresh3.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh3.TabIndex = 16;
+            this.btnRefresh3.Text = "Refresh";
+            this.btnRefresh3.UseVisualStyleBackColor = true;
+            this.btnRefresh3.Click += new System.EventHandler(this.btnRefresh3_Click);
+            // 
+            // btnRefresh4
+            // 
+            this.btnRefresh4.Location = new System.Drawing.Point(777, 377);
+            this.btnRefresh4.Name = "btnRefresh4";
+            this.btnRefresh4.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh4.TabIndex = 16;
+            this.btnRefresh4.Text = "Refresh";
+            this.btnRefresh4.UseVisualStyleBackColor = true;
+            this.btnRefresh4.Click += new System.EventHandler(this.btnRefresh4_Click);
+            // 
             // AdminFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -408,7 +444,6 @@
         private System.Windows.Forms.DataGridView AppList;
         private System.Windows.Forms.DataGridView CourseList;
         private System.Windows.Forms.DataGridView SubjectList;
-        private System.Windows.Forms.Button btnApproveApp;
         private System.Windows.Forms.Button btnModifyApp;
         private System.Windows.Forms.Button btnRemoveApp;
         private System.Windows.Forms.Button btnAddApp;
@@ -428,5 +463,9 @@
         private System.Windows.Forms.Button btnAddSchedule;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView ScheduleList;
+        private System.Windows.Forms.Button btnRefresh1;
+        private System.Windows.Forms.Button btnRefresh2;
+        private System.Windows.Forms.Button btnRefresh3;
+        private System.Windows.Forms.Button btnRefresh4;
     }
 }
