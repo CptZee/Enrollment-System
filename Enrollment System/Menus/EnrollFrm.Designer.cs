@@ -131,11 +131,13 @@
             this.cbCourse = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label89 = new System.Windows.Forms.Label();
+            this.cbExStudentRegular = new System.Windows.Forms.ComboBox();
+            this.label92 = new System.Windows.Forms.Label();
             this.label103 = new System.Windows.Forms.Label();
             this.label102 = new System.Windows.Forms.Label();
             this.label100 = new System.Windows.Forms.Label();
             this.label99 = new System.Windows.Forms.Label();
-            this.label98 = new System.Windows.Forms.Label();
             this.label97 = new System.Windows.Forms.Label();
             this.label96 = new System.Windows.Forms.Label();
             this.label95 = new System.Windows.Forms.Label();
@@ -148,19 +150,12 @@
             this.label87 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.cbExPayterms = new System.Windows.Forms.ComboBox();
-            this.cbExPrefSched = new System.Windows.Forms.ComboBox();
-            this.tbExScho = new System.Windows.Forms.TextBox();
-            this.tbExPrevSem = new System.Windows.Forms.TextBox();
             this.cbExProg = new System.Windows.Forms.ComboBox();
             this.cbExlevel = new System.Windows.Forms.ComboBox();
             this.cbExStudType = new System.Windows.Forms.ComboBox();
             this.cbExTerm = new System.Windows.Forms.ComboBox();
             this.cbExAcadlevel = new System.Windows.Forms.ComboBox();
             this.cbExSY = new System.Windows.Forms.ComboBox();
-            this.label84 = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
-            this.label82 = new System.Windows.Forms.Label();
             this.label81 = new System.Windows.Forms.Label();
             this.label80 = new System.Windows.Forms.Label();
             this.label79 = new System.Windows.Forms.Label();
@@ -187,9 +182,7 @@
             this.label65 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Exback = new System.Windows.Forms.Button();
-            this.label89 = new System.Windows.Forms.Label();
-            this.cbExStudentRegular = new System.Windows.Forms.ComboBox();
-            this.label92 = new System.Windows.Forms.Label();
+            this.cbPrevSem = new System.Windows.Forms.ComboBox();
             btnProceed = new System.Windows.Forms.Button();
             btnExProceed = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
@@ -215,7 +208,7 @@
             // 
             // btnExProceed
             // 
-            btnExProceed.Location = new System.Drawing.Point(523, 575);
+            btnExProceed.Location = new System.Drawing.Point(523, 550);
             btnExProceed.Name = "btnExProceed";
             btnExProceed.Size = new System.Drawing.Size(75, 23);
             btnExProceed.TabIndex = 114;
@@ -358,6 +351,7 @@
             // 
             // cbRegular
             // 
+            this.cbRegular.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRegular.FormattingEnabled = true;
             this.cbRegular.Location = new System.Drawing.Point(99, 461);
             this.cbRegular.Name = "cbRegular";
@@ -785,6 +779,7 @@
             // 
             // cbSchoolType
             // 
+            this.cbSchoolType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSchoolType.FormattingEnabled = true;
             this.cbSchoolType.Location = new System.Drawing.Point(396, 527);
             this.cbSchoolType.Name = "cbSchoolType";
@@ -1061,6 +1056,7 @@
             // 
             // cbStatus
             // 
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(567, 181);
             this.cbStatus.Name = "cbStatus";
@@ -1078,6 +1074,7 @@
             // 
             // cbGender
             // 
+            this.cbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGender.FormattingEnabled = true;
             this.cbGender.Location = new System.Drawing.Point(383, 181);
             this.cbGender.Name = "cbGender";
@@ -1170,6 +1167,7 @@
             // 
             // cbTerm
             // 
+            this.cbTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTerm.FormattingEnabled = true;
             this.cbTerm.Location = new System.Drawing.Point(99, 412);
             this.cbTerm.Name = "cbTerm";
@@ -1187,6 +1185,7 @@
             // 
             // cbSY
             // 
+            this.cbSY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSY.FormattingEnabled = true;
             this.cbSY.Location = new System.Drawing.Point(99, 353);
             this.cbSY.Name = "cbSY";
@@ -1205,6 +1204,7 @@
             // 
             // cbYearLvl
             // 
+            this.cbYearLvl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbYearLvl.FormattingEnabled = true;
             this.cbYearLvl.Location = new System.Drawing.Point(99, 298);
             this.cbYearLvl.Name = "cbYearLvl";
@@ -1222,6 +1222,7 @@
             // 
             // cbAdmit
             // 
+            this.cbAdmit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAdmit.FormattingEnabled = true;
             this.cbAdmit.Location = new System.Drawing.Point(99, 245);
             this.cbAdmit.Name = "cbAdmit";
@@ -1248,6 +1249,7 @@
             // 
             // cbCourse
             // 
+            this.cbCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCourse.FormattingEnabled = true;
             this.cbCourse.Location = new System.Drawing.Point(99, 192);
             this.cbCourse.Name = "cbCourse";
@@ -1266,6 +1268,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cbPrevSem);
             this.tabPage2.Controls.Add(this.label89);
             this.tabPage2.Controls.Add(this.cbExStudentRegular);
             this.tabPage2.Controls.Add(this.label92);
@@ -1274,7 +1277,6 @@
             this.tabPage2.Controls.Add(this.label102);
             this.tabPage2.Controls.Add(this.label100);
             this.tabPage2.Controls.Add(this.label99);
-            this.tabPage2.Controls.Add(this.label98);
             this.tabPage2.Controls.Add(this.label97);
             this.tabPage2.Controls.Add(this.label96);
             this.tabPage2.Controls.Add(this.label95);
@@ -1287,19 +1289,12 @@
             this.tabPage2.Controls.Add(this.label87);
             this.tabPage2.Controls.Add(this.label85);
             this.tabPage2.Controls.Add(this.pictureBox6);
-            this.tabPage2.Controls.Add(this.cbExPayterms);
-            this.tabPage2.Controls.Add(this.cbExPrefSched);
-            this.tabPage2.Controls.Add(this.tbExScho);
-            this.tabPage2.Controls.Add(this.tbExPrevSem);
             this.tabPage2.Controls.Add(this.cbExProg);
             this.tabPage2.Controls.Add(this.cbExlevel);
             this.tabPage2.Controls.Add(this.cbExStudType);
             this.tabPage2.Controls.Add(this.cbExTerm);
             this.tabPage2.Controls.Add(this.cbExAcadlevel);
             this.tabPage2.Controls.Add(this.cbExSY);
-            this.tabPage2.Controls.Add(this.label84);
-            this.tabPage2.Controls.Add(this.label83);
-            this.tabPage2.Controls.Add(this.label82);
             this.tabPage2.Controls.Add(this.label81);
             this.tabPage2.Controls.Add(this.label80);
             this.tabPage2.Controls.Add(this.label79);
@@ -1333,12 +1328,41 @@
             this.tabPage2.Text = "Existing Student";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label89.ForeColor = System.Drawing.Color.Red;
+            this.label89.Location = new System.Drawing.Point(822, 375);
+            this.label89.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(12, 13);
+            this.label89.TabIndex = 117;
+            this.label89.Text = "*";
+            // 
+            // cbExStudentRegular
+            // 
+            this.cbExStudentRegular.FormattingEnabled = true;
+            this.cbExStudentRegular.Location = new System.Drawing.Point(754, 391);
+            this.cbExStudentRegular.Name = "cbExStudentRegular";
+            this.cbExStudentRegular.Size = new System.Drawing.Size(152, 21);
+            this.cbExStudentRegular.TabIndex = 116;
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(751, 375);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(74, 13);
+            this.label92.TabIndex = 115;
+            this.label92.Text = "Student Type:";
+            // 
             // label103
             // 
             this.label103.AutoSize = true;
             this.label103.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label103.ForeColor = System.Drawing.Color.Red;
-            this.label103.Location = new System.Drawing.Point(347, 531);
+            this.label103.Location = new System.Drawing.Point(795, 456);
             this.label103.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label103.Name = "label103";
             this.label103.Size = new System.Drawing.Size(12, 13);
@@ -1350,7 +1374,7 @@
             this.label102.AutoSize = true;
             this.label102.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label102.ForeColor = System.Drawing.Color.Red;
-            this.label102.Location = new System.Drawing.Point(95, 531);
+            this.label102.Location = new System.Drawing.Point(568, 456);
             this.label102.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label102.Name = "label102";
             this.label102.Size = new System.Drawing.Size(12, 13);
@@ -1380,18 +1404,6 @@
             this.label99.Size = new System.Drawing.Size(12, 13);
             this.label99.TabIndex = 107;
             this.label99.Text = "*";
-            // 
-            // label98
-            // 
-            this.label98.AutoSize = true;
-            this.label98.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label98.ForeColor = System.Drawing.Color.Red;
-            this.label98.Location = new System.Drawing.Point(830, 376);
-            this.label98.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(12, 13);
-            this.label98.TabIndex = 106;
-            this.label98.Text = "*";
             // 
             // label97
             // 
@@ -1534,40 +1546,10 @@
             this.pictureBox6.TabIndex = 80;
             this.pictureBox6.TabStop = false;
             // 
-            // cbExPayterms
-            // 
-            this.cbExPayterms.FormattingEnabled = true;
-            this.cbExPayterms.Location = new System.Drawing.Point(754, 391);
-            this.cbExPayterms.Name = "cbExPayterms";
-            this.cbExPayterms.Size = new System.Drawing.Size(148, 21);
-            this.cbExPayterms.TabIndex = 79;
-            // 
-            // cbExPrefSched
-            // 
-            this.cbExPrefSched.FormattingEnabled = true;
-            this.cbExPrefSched.Location = new System.Drawing.Point(540, 547);
-            this.cbExPrefSched.Name = "cbExPrefSched";
-            this.cbExPrefSched.Size = new System.Drawing.Size(148, 21);
-            this.cbExPrefSched.TabIndex = 78;
-            // 
-            // tbExScho
-            // 
-            this.tbExScho.Location = new System.Drawing.Point(540, 472);
-            this.tbExScho.Name = "tbExScho";
-            this.tbExScho.Size = new System.Drawing.Size(148, 20);
-            this.tbExScho.TabIndex = 77;
-            // 
-            // tbExPrevSem
-            // 
-            this.tbExPrevSem.Location = new System.Drawing.Point(533, 391);
-            this.tbExPrevSem.Name = "tbExPrevSem";
-            this.tbExPrevSem.Size = new System.Drawing.Size(148, 20);
-            this.tbExPrevSem.TabIndex = 76;
-            // 
             // cbExProg
             // 
             this.cbExProg.FormattingEnabled = true;
-            this.cbExProg.Location = new System.Drawing.Point(306, 547);
+            this.cbExProg.Location = new System.Drawing.Point(754, 472);
             this.cbExProg.Name = "cbExProg";
             this.cbExProg.Size = new System.Drawing.Size(148, 21);
             this.cbExProg.TabIndex = 75;
@@ -1591,7 +1573,7 @@
             // cbExTerm
             // 
             this.cbExTerm.FormattingEnabled = true;
-            this.cbExTerm.Location = new System.Drawing.Point(67, 547);
+            this.cbExTerm.Location = new System.Drawing.Point(540, 472);
             this.cbExTerm.Name = "cbExTerm";
             this.cbExTerm.Size = new System.Drawing.Size(148, 21);
             this.cbExTerm.TabIndex = 72;
@@ -1612,33 +1594,6 @@
             this.cbExSY.Size = new System.Drawing.Size(148, 21);
             this.cbExSY.TabIndex = 70;
             // 
-            // label84
-            // 
-            this.label84.AutoSize = true;
-            this.label84.Location = new System.Drawing.Point(751, 374);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(83, 13);
-            this.label84.TabIndex = 69;
-            this.label84.Text = "Payment Terms:";
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Location = new System.Drawing.Point(541, 531);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(95, 13);
-            this.label83.TabIndex = 68;
-            this.label83.Text = "Preferred Scedule:";
-            // 
-            // label82
-            // 
-            this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(537, 456);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(104, 13);
-            this.label82.TabIndex = 67;
-            this.label82.Text = "Existing Scholarship:";
-            // 
             // label81
             // 
             this.label81.AutoSize = true;
@@ -1651,7 +1606,7 @@
             // label80
             // 
             this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(303, 531);
+            this.label80.Location = new System.Drawing.Point(751, 456);
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(49, 13);
             this.label80.TabIndex = 65;
@@ -1678,7 +1633,7 @@
             // label77
             // 
             this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(64, 531);
+            this.label77.Location = new System.Drawing.Point(537, 456);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(34, 13);
             this.label77.TabIndex = 62;
@@ -1867,34 +1822,13 @@
             this.btn_Exback.UseVisualStyleBackColor = true;
             this.btn_Exback.Click += new System.EventHandler(this.btn_Exback_Click);
             // 
-            // label89
+            // cbPrevSem
             // 
-            this.label89.AutoSize = true;
-            this.label89.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label89.ForeColor = System.Drawing.Color.Red;
-            this.label89.Location = new System.Drawing.Point(822, 455);
-            this.label89.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(12, 13);
-            this.label89.TabIndex = 117;
-            this.label89.Text = "*";
-            // 
-            // cbExStudentRegular
-            // 
-            this.cbExStudentRegular.FormattingEnabled = true;
-            this.cbExStudentRegular.Location = new System.Drawing.Point(754, 471);
-            this.cbExStudentRegular.Name = "cbExStudentRegular";
-            this.cbExStudentRegular.Size = new System.Drawing.Size(152, 21);
-            this.cbExStudentRegular.TabIndex = 116;
-            // 
-            // label92
-            // 
-            this.label92.AutoSize = true;
-            this.label92.Location = new System.Drawing.Point(751, 455);
-            this.label92.Name = "label92";
-            this.label92.Size = new System.Drawing.Size(74, 13);
-            this.label92.TabIndex = 115;
-            this.label92.Text = "Student Type:";
+            this.cbPrevSem.FormattingEnabled = true;
+            this.cbPrevSem.Location = new System.Drawing.Point(540, 391);
+            this.cbPrevSem.Name = "cbPrevSem";
+            this.cbPrevSem.Size = new System.Drawing.Size(148, 21);
+            this.cbPrevSem.TabIndex = 118;
             // 
             // EnrollFrm
             // 
@@ -2033,19 +1967,12 @@
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbExPayterms;
-        private System.Windows.Forms.ComboBox cbExPrefSched;
-        private System.Windows.Forms.TextBox tbExScho;
-        private System.Windows.Forms.TextBox tbExPrevSem;
         private System.Windows.Forms.ComboBox cbExProg;
         private System.Windows.Forms.ComboBox cbExlevel;
         private System.Windows.Forms.ComboBox cbExStudType;
         private System.Windows.Forms.ComboBox cbExTerm;
         private System.Windows.Forms.ComboBox cbExAcadlevel;
         private System.Windows.Forms.ComboBox cbExSY;
-        private System.Windows.Forms.Label label84;
-        private System.Windows.Forms.Label label83;
-        private System.Windows.Forms.Label label82;
         private System.Windows.Forms.Label label81;
         private System.Windows.Forms.Label label80;
         private System.Windows.Forms.Label label79;
@@ -2074,7 +2001,6 @@
         private System.Windows.Forms.Label label102;
         private System.Windows.Forms.Label label100;
         private System.Windows.Forms.Label label99;
-        private System.Windows.Forms.Label label98;
         private System.Windows.Forms.Label label97;
         private System.Windows.Forms.Button btn_Exback;
         private System.Windows.Forms.Label label40;
@@ -2084,5 +2010,6 @@
         private System.Windows.Forms.Label label89;
         private System.Windows.Forms.ComboBox cbExStudentRegular;
         private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.ComboBox cbPrevSem;
     }
 }
