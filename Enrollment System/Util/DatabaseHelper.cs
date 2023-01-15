@@ -584,7 +584,7 @@ namespace Enrollment_System.Util
                     {
                         Course course = new Course();
                         course.ID = reader.GetInt32(0);
-                        course.name = reader.GetString(1).Trim();
+                        course.Name = reader.GetString(1).Trim();
 
                         courseManager.add(course);
                     }
@@ -908,8 +908,8 @@ namespace Enrollment_System.Util
                     {
                         Admin admin = new Admin();
                         admin.ID = reader.GetInt32(0);
-                        admin.username = reader.GetString(1).Trim();
-                        admin.password = reader.GetString(2).Trim();
+                        admin.Username = reader.GetString(1).Trim();
+                        admin.Password = reader.GetString(2).Trim();
 
                         adminManager.add(admin);
                     }
@@ -1084,7 +1084,7 @@ namespace Enrollment_System.Util
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Name", course.name);
+                    command.Parameters.AddWithValue("@Name", course.Name);
                     command.ExecuteNonQuery();
                 }
                 connection.Close();
@@ -1245,8 +1245,8 @@ namespace Enrollment_System.Util
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@username", admin.username);
-                    command.Parameters.AddWithValue("@password", admin.password);
+                    command.Parameters.AddWithValue("@username", admin.Username);
+                    command.Parameters.AddWithValue("@password", admin.Password);
                     command.ExecuteNonQuery();
                 }
                 connection.Close();
@@ -1581,6 +1581,277 @@ namespace Enrollment_System.Util
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@ID", ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        /**
+         * A group of method that manages the update of rows or data
+         * in the database.
+         */
+        public static void updateCourses(Course course)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "UPDATE Students SET Name = @Name WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", course.ID);
+                command.Parameters.AddWithValue("@Name", course.Name);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void updateSubject(Subject subject)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "UPDATE Subjects SET Name = @Name, YearLevel = @YearLevel, Term = @Term, Prerequisite = Prerequisite, Units = Units WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", subject.ID);
+                command.Parameters.AddWithValue("@Name", subject.Name);
+                command.Parameters.AddWithValue("@YearLevel", subject.YearLevel);
+                command.Parameters.AddWithValue("@Term", subject.Term);
+                command.Parameters.AddWithValue("@Prerequisite", subject.Prerequisite);
+                command.Parameters.AddWithValue("@Units", subject.Units);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void updateSchedule(Schedule schedule)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "UPDATE Schedules SET SubjectID = @SubjectID, StartTime = @StartTime, EndTime = @EndTime, Day = @Day WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", schedule.ID);
+                command.Parameters.AddWithValue("@SubjectID", schedule.SubjectID);
+                command.Parameters.AddWithValue("@StartTime", schedule.StartTime);
+                command.Parameters.AddWithValue("@EndTime", schedule.EndTime);
+                command.Parameters.AddWithValue("@Day", schedule.EndTime);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void updateApplicationForm(ApplicationForm applicationform)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "UPDATE Applications SET StudentID = @StudentID, AddressID = @AddressID, ContactID = @ContactID, SchoolHistoryID = @SchoolHistoryID" +
+                ", GuardianID = @GuardianID, Course = @Course, AdmitType = @AdmitType, YearLevel = @YearLevel, SchoolYear = @SchoolYear," +
+                " Term = @Term, SubmissionDate = @SubmissionDate, Status = @Status, IsRegular = @IsRegular WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", applicationform.ID);
+                command.Parameters.AddWithValue("@StudentID", applicationform.StudentID);
+                command.Parameters.AddWithValue("@AddressID", applicationform.AddressID);
+                command.Parameters.AddWithValue("@ContactID", applicationform.ContactID);
+                command.Parameters.AddWithValue("@SchoolHistoryID", applicationform.SchoolHistoryID);
+                command.Parameters.AddWithValue("@GuardianID", applicationform.GuardianID);
+                command.Parameters.AddWithValue("@Course", applicationform.Course);
+                command.Parameters.AddWithValue("@AdmitType", applicationform.AdmitType);
+                command.Parameters.AddWithValue("@YearLevel", applicationform.YearLevel);
+                command.Parameters.AddWithValue("@SchoolYear", applicationform.SchoolYear);
+                command.Parameters.AddWithValue("@Term", applicationform.Term);
+                command.Parameters.AddWithValue("@SubmissionDate", applicationform.SubmissionDate);
+                command.Parameters.AddWithValue("@Status", applicationform.Status);
+                command.Parameters.AddWithValue("@IsRegular", applicationform.IsRegular);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void updateApplicationSubject(ApplicationForm application)
+        {
+            SqlConnection connection = GetConnection();
+            for (int i = 0; i < application.SubjectIDs.Count; i++)
+            {
+                String query = "UPDATE ApplicatioSubjects SET ApplicationID = @ApplicationID, SubjectID = @SubjectID WHERE ID = @ID";
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ID", application.ID);
+                    command.Parameters.AddWithValue("@ApplicationID", application.ID);
+                    command.Parameters.AddWithValue("@SubjectID", application.SubjectIDs[i]);
+                    command.ExecuteNonQuery();
+                }
+            }
+            connection.Close();
+        }
+
+        public static void updateApplicationSchedule(ApplicationForm application)
+        {
+            SqlConnection connection = GetConnection();
+            for (int i = 0; i < application.ScheduleIDs.Count; i++)
+            {
+                String query = "UPDATE ApplicatioSchedules SET ApplicationID = @ApplicationID, ScheduleID = @ScheduleID WHERE ID = @ID";
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ID", application.ID);
+                    command.Parameters.AddWithValue("@ApplicationID", application.ID);
+                    command.Parameters.AddWithValue("@ScheduleID", application.ScheduleIDs[i]);
+                    command.ExecuteNonQuery();
+                }
+            }
+            connection.Close();
+        }
+
+        public static void updateApplicationRequirements(ApplicationForm application)
+        {
+            SqlConnection connection = GetConnection();
+            for (int i = 0; i < application.ScheduleIDs.Count; i++)
+            {
+                String query = "UPDATE ApplicatioRequirements SET ApplicationID = @ApplicationID, RequirementID = @RequirementID WHERE ID = @ID";
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ID", application.ID);
+                    command.Parameters.AddWithValue("@ApplicationID", application.ID);
+                    command.Parameters.AddWithValue("@RequirementID", application.ScheduleIDs[i]);
+                    command.ExecuteNonQuery();
+                }
+            }
+            connection.Close();
+        }
+
+        public static void updateRequirement(Requirement requirement)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "UPDATE Requirements SET PicturePath = @PicturePath, PSAPath = @PSAPath, GoodMoralPath = @GoodMoralPath, " +
+                "RecommendationPath = @RecommendationPath WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", requirement.ID);
+                command.Parameters.AddWithValue("@PicturePath", requirement.PicturePath);
+                command.Parameters.AddWithValue("@PSAPath", requirement.PSAPath);
+                command.Parameters.AddWithValue("@GoodMoralPath", requirement.GoodMoralPath);
+                command.Parameters.AddWithValue("@RecommendationPath", requirement.RecommendationPath);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void updateAddress(Address address)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "UPDATE Addresses SET StreetUnitNumber = @StreetUnitNumber, Street = @Street, SubdivisionVillageBldg = @SubdivisionVillageBldg" +
+                ", Barangay = @Barangay, City = @City, Province = @Province, ZipCode = @ZipCode WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", address.ID);
+                command.Parameters.AddWithValue("@StreetUnitNumber", address.StreetUnitNumber);
+                command.Parameters.AddWithValue("@Street", address.Street);
+                command.Parameters.AddWithValue("@SubdivisionVillageBldg", address.SubdivisionVillageBldg);
+                command.Parameters.AddWithValue("@Barangay", address.Barangay);
+                command.Parameters.AddWithValue("@City", address.City);
+                command.Parameters.AddWithValue("@Province", address.Province);
+                command.Parameters.AddWithValue("@ZipCode", address.ZipCode);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void updateAdmin(Admin admin)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "UPDATE Admins SET username = @username, password = @password WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", admin.ID);
+                command.Parameters.AddWithValue("@username", admin.Username);
+                command.Parameters.AddWithValue("@password", admin.Password);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void updateContact(Contact contact)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "UPDATE Contacts SET TelephoneNo = @TelephoneNo, MobileNo = @MobileNo, Email = @Email WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", contact.ID);
+                command.Parameters.AddWithValue("@TelephoneNo", contact.TelephoneNo);
+                command.Parameters.AddWithValue("@MobileNo", contact.MobileNo);
+                command.Parameters.AddWithValue("@Email", contact.Email);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void updateGuardian(Guardian guardian)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "UPDATE Guardians SET FirstName = @FirstName, LastName = @LastName, MiddleInitial = @MiddleInitial, " +
+                "SuffixName = @SuffixName, MobileNumber = @MobileNumber, Email = @Email, Occupation = @Occupation, " +
+                "Relation = @Relation WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", guardian.ID);
+                command.Parameters.AddWithValue("@FirstName", guardian.FirstName);
+                command.Parameters.AddWithValue("@LastName", guardian.LastName);
+                command.Parameters.AddWithValue("@MiddleInitial", guardian.MiddleInitial);
+                command.Parameters.AddWithValue("@SuffixName", guardian.SuffixName);
+                command.Parameters.AddWithValue("@MobileNumber", guardian.MobileNumber);
+                command.Parameters.AddWithValue("@Email", guardian.Email);
+                command.Parameters.AddWithValue("@Occupation", guardian.Occupation);
+                command.Parameters.AddWithValue("@Relation", guardian.Relation);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void updateSchoolHistory(SchoolHistory schoolhistory)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "UPDATE SchoolHistory SET Type = @Type, Name = @Name, ProgramTrackSpecialization = @ProgramTrackSpecialization WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", schoolhistory.ID);
+                command.Parameters.AddWithValue("@Type", schoolhistory.Type);
+                command.Parameters.AddWithValue("@Name", schoolhistory.Name);
+                command.Parameters.AddWithValue("@ProgramTrackSpecialization", schoolhistory.ProgramTrackSpecialization);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+
+        public static void updateStudent(Student student)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "UPDATE Students SET FirstName = @FirstName, MiddleName = @MiddleName, LastName = @LastName, " +
+                "Gender = @Gender, Status = @Status, Citizenship = @Citizenship, BirthDate = @BirthDate, Birthplace = @Birthplace, " +
+                "Religion = @Religion WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", student.ID);
+                command.Parameters.AddWithValue("@FirstName", student.FirstName);
+                command.Parameters.AddWithValue("@MiddleName", student.MiddleName);
+                command.Parameters.AddWithValue("@LastName", student.LastName);
+                command.Parameters.AddWithValue("@Gender", student.Gender);
+                command.Parameters.AddWithValue("@Status", student.Status);
+                command.Parameters.AddWithValue("@Citizenship", student.Citizenship);
+                command.Parameters.AddWithValue("@BirthDate", student.BirthDate);
+                command.Parameters.AddWithValue("@Birthplace", student.Birthplace);
+                command.Parameters.AddWithValue("@Religion", student.Religion);
 
                 command.ExecuteNonQuery();
             }

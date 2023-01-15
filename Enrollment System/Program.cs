@@ -98,8 +98,8 @@ namespace Enrollment_System
         private static void generateDefaultAdmin()
         {
             Admin admin = new Admin();
-            admin.username = "admin";
-            admin.password = "password";
+            admin.Username = "admin";
+            admin.Password = "password";
             DatabaseHelper.addAdmin(admin);
         }
     }

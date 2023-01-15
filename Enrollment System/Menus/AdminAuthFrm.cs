@@ -19,7 +19,7 @@ namespace Enrollment_System.Menus
             for (int i = 0; i < adminManager.admins.Count; i++)
             {
                 Data.Admin admin = adminManager.findByIndex(i);
-                if (username.Equals(admin.username) && password.Equals(admin.password))
+                if (username.Equals(admin.Username) && password.Equals(admin.Password))
                 {
                     this.Hide();
                     AdminFrm frm = new AdminFrm();

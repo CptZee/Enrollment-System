@@ -66,7 +66,7 @@ namespace Enrollment_System.Data
             for (int i = 0; i < courses.Count; i++)
             {
                 Course s = (Course)courses[i];
-                if (s.name.Equals(Name))
+                if (s.Name.Equals(Name))
                     return s;
             }
             return null;

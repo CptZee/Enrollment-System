@@ -71,7 +71,7 @@ namespace Enrollment_System.Menus
             for(int i = 0; i < courseManager.courses.Count; i++)
             {
                 Course course = courseManager.findByIndex(i);
-                cbCourse.Items.Add(course.name);
+                cbCourse.Items.Add(course.Name);
             }
             cbGender.Items.Add("Male");
             cbGender.Items.Add("Female");

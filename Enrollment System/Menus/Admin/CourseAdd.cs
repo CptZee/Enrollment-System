@@ -33,10 +33,10 @@ namespace Enrollment_System.Menus.Admin
             }
             CourseManager courseManager = CourseManager.getInstance();
             Course course = new Course();
-            course.name = tbCourseName.Text.ToString();
+            course.Name = tbCourseName.Text.ToString();
             DatabaseHelper.addCourse(course);
             courseManager.add(course);
-            MessageBox.Show("Course " + course.name + " successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Course " + course.Name + " successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
     }

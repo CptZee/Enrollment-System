@@ -9,6 +9,6 @@ namespace Enrollment_System.Data
     class Course
     {
         public int ID { get; set; }
-        public String name { get; set; }
+        public String Name { get; set; }
     }
 }
