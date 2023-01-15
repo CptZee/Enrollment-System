@@ -64,7 +64,7 @@ namespace Enrollment_System.Menus
             MessageBox.Show("Application with the ID of " + application.ID + " has been successfully submitted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Hide();
-            Dashboard frm = new Dashboard();
+            ApplicationStatusFrm frm = new ApplicationStatusFrm(application);
             frm.ShowDialog();
             this.Close();
         }

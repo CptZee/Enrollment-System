@@ -16,8 +16,10 @@ namespace Enrollment_System.Menus
         private void btnProcceed_Click(object sender, EventArgs e)
         {
             if (verifyForm())
-                if (cbRegular.Equals("Regular"))
+                if (cbRegular.Equals("Regular")) {
+                    loadSubjects();
                     openGuardianInfo();
+                }
                 else
                     openSubjectsSelection();
         }
@@ -31,6 +33,20 @@ namespace Enrollment_System.Menus
         private void updateDatabase(object sender, EventArgs e)
         {
             Program.loadTables();
+        }
+
+        private void loadSubjects()
+        {
+            SubjectManager subjectManager = SubjectManager.getInstance();
+            for (int i = 0; i < subjectManager.subjects.Count; i++)
+            {
+                Subject subject = subjectManager.findByIndex(i);
+                if (!subject.Term.Equals(application.Term))
+                    return;
+                if (!subject.YearLevel.Equals(application.YearLevel))
+                    return;
+                application.SubjectIDs.Add(subject.ID);
+            }
         }
 
         private void openGuardianInfo()

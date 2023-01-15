@@ -157,6 +157,12 @@
     <Compile Include="Menus\ApplicationConfrimationFrm.Designer.cs">
       <DependentUpon>ApplicationConfrimationFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menus\ApplicationStatusFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\ApplicationStatusFrm.Designer.cs">
+      <DependentUpon>ApplicationStatusFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menus\EnrollFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,12 @@
     </Compile>
     <Compile Include="Menus\GuardianInfoFrm.Designer.cs">
       <DependentUpon>GuardianInfoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\RequirementsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\RequirementsFrm.Designer.cs">
+      <DependentUpon>RequirementsFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Menus\ScheduleFrm.cs">
       <SubType>Form</SubType>
@@ -244,11 +256,17 @@
     <EmbeddedResource Include="Menus\ApplicationConfrimationFrm.resx">
       <DependentUpon>ApplicationConfrimationFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menus\ApplicationStatusFrm.resx">
+      <DependentUpon>ApplicationStatusFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menus\EnrollFrm.resx">
       <DependentUpon>EnrollFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\GuardianInfoFrm.resx">
       <DependentUpon>GuardianInfoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\RequirementsFrm.resx">
+      <DependentUpon>RequirementsFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\ScheduleFrm.resx">
       <DependentUpon>ScheduleFrm.cs</DependentUpon>

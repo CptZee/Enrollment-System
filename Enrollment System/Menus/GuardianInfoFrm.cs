@@ -34,12 +34,12 @@ namespace Enrollment_System.Menus
         private void btnProceed_Click(object sender, EventArgs e)
         {
             if (verifyForm())
-                showConfirmationFrm();
+                showRequirements();
         }
-        public void showConfirmationFrm()
+        public void showRequirements()
         {
             this.Hide();
-            ApplicationConfrimationFrm frm = new ApplicationConfrimationFrm();
+            RequirementsFrm frm = new RequirementsFrm();
             frm.ShowDialog();
             this.Close();
         }
