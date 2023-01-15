@@ -51,6 +51,12 @@ namespace Enrollment_System.Menus
             frm.ShowDialog();
         }
 
+        private void btnRemoveCourse_Click(object sender, EventArgs e)
+        {
+            CourseRemove frm = new CourseRemove();
+            frm.ShowDialog();
+        }
+
         private void btnModifyCourse_Click(object sender, EventArgs e)
         {
             CourseModify frm = new CourseModify();
@@ -60,6 +66,12 @@ namespace Enrollment_System.Menus
         private void btnAddSubj_Click(object sender, EventArgs e)
         {
             SubjectAdd frm = new SubjectAdd();
+            frm.ShowDialog();
+        }
+
+        private void btnRemoveSubj_Click(object sender, EventArgs e)
+        {
+            SubjectRemove frm = new SubjectRemove();
             frm.ShowDialog();
         }
 
@@ -73,6 +85,47 @@ namespace Enrollment_System.Menus
         {
             ScheduleAdd frm = new ScheduleAdd();
             frm.ShowDialog();
+        }
+
+        private void btnRemoveSchedule_Click(object sender, EventArgs e)
+        {
+            ScheduleRemove frm = new ScheduleRemove();
+            frm.ShowDialog();
+        }
+
+        private void btnModifySchedule_Click(object sender, EventArgs e)
+        {
+            ScheduleModify frm = new ScheduleModify();
+            frm.ShowDialog();
+        }
+
+        private void btnAddApp_Click(object sender, EventArgs e)
+        {
+            ApplicationAdd frm = new ApplicationAdd();
+            frm.ShowDialog();
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            ApplicationView frm = new ApplicationView();
+            frm.ShowDialog();
+        }
+
+        private void btnRemoveApp_Click(object sender, EventArgs e)
+        {
+            ApplicationRemove frm = new ApplicationRemove();
+            frm.ShowDialog();
+        }
+
+        private void btnModifyApp_Click(object sender, EventArgs e)
+        {
+            ApplicationModify frm = new ApplicationModify();
+            frm.ShowDialog();
+        }
+
+        private void btnApproveApp_Click(object sender, EventArgs e)
+        {
+            //TODO: ADD A function that approves the application.
         }
     }
 }

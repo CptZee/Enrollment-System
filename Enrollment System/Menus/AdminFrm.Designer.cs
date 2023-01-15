@@ -50,13 +50,13 @@
             this.btnAddSubj = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.SubjectList = new System.Windows.Forms.DataGridView();
-            this.btnReturn = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.btnModifySchedule = new System.Windows.Forms.Button();
             this.btnRemoveSchedule = new System.Windows.Forms.Button();
             this.btnAddSchedule = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.ScheduleList = new System.Windows.Forms.DataGridView();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppList)).BeginInit();
@@ -107,6 +107,7 @@
             this.btnView.TabIndex = 13;
             this.btnView.Text = "View";
             this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // btnApproveApp
             // 
@@ -116,6 +117,7 @@
             this.btnApproveApp.TabIndex = 12;
             this.btnApproveApp.Text = "Approve";
             this.btnApproveApp.UseVisualStyleBackColor = true;
+            this.btnApproveApp.Click += new System.EventHandler(this.btnApproveApp_Click);
             // 
             // btnModifyApp
             // 
@@ -125,6 +127,7 @@
             this.btnModifyApp.TabIndex = 10;
             this.btnModifyApp.Text = "Modify";
             this.btnModifyApp.UseVisualStyleBackColor = true;
+            this.btnModifyApp.Click += new System.EventHandler(this.btnModifyApp_Click);
             // 
             // btnRemoveApp
             // 
@@ -134,6 +137,7 @@
             this.btnRemoveApp.TabIndex = 9;
             this.btnRemoveApp.Text = "Remove";
             this.btnRemoveApp.UseVisualStyleBackColor = true;
+            this.btnRemoveApp.Click += new System.EventHandler(this.btnRemoveApp_Click);
             // 
             // btnAddApp
             // 
@@ -143,6 +147,7 @@
             this.btnAddApp.TabIndex = 8;
             this.btnAddApp.Text = "Add";
             this.btnAddApp.UseVisualStyleBackColor = true;
+            this.btnAddApp.Click += new System.EventHandler(this.btnAddApp_Click);
             // 
             // label1
             // 
@@ -198,6 +203,7 @@
             this.btnRemoveCourse.TabIndex = 5;
             this.btnRemoveCourse.Text = "Remove";
             this.btnRemoveCourse.UseVisualStyleBackColor = true;
+            this.btnRemoveCourse.Click += new System.EventHandler(this.btnRemoveCourse_Click);
             // 
             // btnAddCourse
             // 
@@ -260,6 +266,7 @@
             this.btnRemoveSubj.TabIndex = 9;
             this.btnRemoveSubj.Text = "Remove";
             this.btnRemoveSubj.UseVisualStyleBackColor = true;
+            this.btnRemoveSubj.Click += new System.EventHandler(this.btnRemoveSubj_Click);
             // 
             // btnAddSubj
             // 
@@ -289,16 +296,6 @@
             this.SubjectList.Size = new System.Drawing.Size(744, 348);
             this.SubjectList.TabIndex = 0;
             // 
-            // btnReturn
-            // 
-            this.btnReturn.Location = new System.Drawing.Point(409, 432);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(75, 23);
-            this.btnReturn.TabIndex = 1;
-            this.btnReturn.Text = "Return";
-            this.btnReturn.UseVisualStyleBackColor = true;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.btnModifySchedule);
@@ -322,6 +319,7 @@
             this.btnModifySchedule.TabIndex = 15;
             this.btnModifySchedule.Text = "Modify";
             this.btnModifySchedule.UseVisualStyleBackColor = true;
+            this.btnModifySchedule.Click += new System.EventHandler(this.btnModifySchedule_Click);
             // 
             // btnRemoveSchedule
             // 
@@ -331,6 +329,7 @@
             this.btnRemoveSchedule.TabIndex = 14;
             this.btnRemoveSchedule.Text = "Remove";
             this.btnRemoveSchedule.UseVisualStyleBackColor = true;
+            this.btnRemoveSchedule.Click += new System.EventHandler(this.btnRemoveSchedule_Click);
             // 
             // btnAddSchedule
             // 
@@ -359,6 +358,16 @@
             this.ScheduleList.Name = "ScheduleList";
             this.ScheduleList.Size = new System.Drawing.Size(744, 348);
             this.ScheduleList.TabIndex = 11;
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(409, 432);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(75, 23);
+            this.btnReturn.TabIndex = 1;
+            this.btnReturn.Text = "Return";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // AdminFrm
             // 

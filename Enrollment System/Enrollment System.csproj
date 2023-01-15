@@ -134,6 +134,18 @@
     <Compile Include="Menus\Admin\ScheduleAdd.Designer.cs">
       <DependentUpon>ScheduleAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menus\Admin\ScheduleModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\Admin\ScheduleModify.Designer.cs">
+      <DependentUpon>ScheduleModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\Admin\ScheduleRemove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\Admin\ScheduleRemove.Designer.cs">
+      <DependentUpon>ScheduleRemove.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menus\Admin\SubjectAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +257,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\Admin\ScheduleAdd.resx">
       <DependentUpon>ScheduleAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\Admin\ScheduleModify.resx">
+      <DependentUpon>ScheduleModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\Admin\ScheduleRemove.resx">
+      <DependentUpon>ScheduleRemove.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\Admin\SubjectAdd.resx">
       <DependentUpon>SubjectAdd.cs</DependentUpon>
