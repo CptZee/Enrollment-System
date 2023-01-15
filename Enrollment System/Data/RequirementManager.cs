@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Enrollment_System.Data;
+using Enrollment_System.Util;
 
 namespace Enrollment_System.Data
 {
@@ -33,12 +30,9 @@ namespace Enrollment_System.Data
             requirements[requirements.IndexOf(x)] = x;
         }
 
-        public int retrieveRecentID()
+        public int getRecentID()
         {
-            if (requirements.Count == 0)
-                return -1;
-            Requirement x = (Requirement)requirements[requirements.Count - 1];
-            return x.ID;
+            return DatabaseHelper.getRecentRequirementID();
         }
 
         public void removeRecent()

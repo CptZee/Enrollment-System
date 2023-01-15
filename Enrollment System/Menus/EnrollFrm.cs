@@ -232,13 +232,13 @@ namespace Enrollment_System.Menus
             SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
 
             Student student = FormData.getStudent(firstName, middleName, lastName, suffixName, gender, status, citizenship, birthdate, birthplace, religion);
-            student.ID = studentManager.retrieveRecentID() + 1;
+            student.ID = studentManager.getRecentID() + 1;
             Address address = FormData.getAddress(streetno, street, subdivision, barangay, city, province, zipCode);
-            address.ID = addressManager.retrieveRecentID() + 1;
+            address.ID = addressManager.getRecentID() + 1;
             Contact contact = FormData.getContact(telephone, mobile, email);
-            contact.ID = contactManager.retrieveRecentID()+ 1;
+            contact.ID = contactManager.getRecentID()+ 1;
             SchoolHistory schoolHistory = FormData.getSchoolHistory(type, name, program);
-            schoolHistory.ID = schoolHistoryManager.retrieveRecentID() + 1;
+            schoolHistory.ID = schoolHistoryManager.getRecentID() + 1;
             ApplicationFormsManager applicationFormsManager = ApplicationFormsManager.getInstance();
 
             studentManager.add(student);
@@ -249,7 +249,7 @@ namespace Enrollment_System.Menus
             application = new ApplicationForm();
             //TODO: Change so that it will produce incrimental none-duplicate IDs.
 
-            application.ID = applicationFormsManager.retrieveRecentID() + 1;
+            application.ID = applicationFormsManager.getRecentID() + 1;
             application.AddressID = address.ID;
             application.StudentID = student.ID;
             application.ContactID = contact.ID;

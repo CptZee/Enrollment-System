@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Enrollment_System.Util;
 
 namespace Enrollment_System.Data
 {
@@ -32,12 +30,9 @@ namespace Enrollment_System.Data
             admins[admins.IndexOf(x)] = x;
         }
 
-        public int retrieveRecent()
+        public int getRecentID()
         {
-            if (admins.Count == 0)
-                return -1;
-            Admin x = (Admin)admins[admins.Count - 1];
-            return x.ID;
+            return DatabaseHelper.getRecentAdminID();
         }
 
         public void removeRecent()

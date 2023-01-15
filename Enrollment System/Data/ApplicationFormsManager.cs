@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Enrollment_System.Util;
 
 namespace Enrollment_System.Data
 {
@@ -39,12 +37,9 @@ namespace Enrollment_System.Data
             return (ApplicationForm) applicationForms[applicationForms.Count - 1];
         }
 
-        public int retrieveRecentID()
+        public int getRecentID()
         {
-            if (applicationForms.Count == 0)
-                return -1;
-            ApplicationForm x = (ApplicationForm) applicationForms[applicationForms.Count - 1];
-            return x.ID;
+            return DatabaseHelper.getRecentApplicationID();
         }
 
         public void removeRecent()

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System;
+using Enrollment_System.Util;
 
 namespace Enrollment_System.Data
 {
@@ -29,12 +30,9 @@ namespace Enrollment_System.Data
             subjects[subjects.IndexOf(x)] = x;
         }
 
-        public int retrieveRecentID()
+        public int getRecentID()
         {
-            if (subjects.Count == 0)
-                return -1;
-            Subject x = (Subject)subjects[subjects.Count - 1];
-            return x.ID;
+            return DatabaseHelper.getRecentSubjectID();
         }
 
         public void removeRecent()
@@ -80,7 +78,7 @@ namespace Enrollment_System.Data
         {
             for (int i = 0; i < subjects.Count; i++)
             {
-                Address s = (Address)subjects[i];
+                Subject s = (Subject)subjects[i];
                 if (s.ID == ID)
                     subjects.Remove(s);
             }

@@ -33,6 +33,7 @@ namespace Enrollment_System.Menus.Admin
             }
             CourseManager courseManager = CourseManager.getInstance();
             Course course = new Course();
+            course.ID = courseManager.getRecentID() + 1;
             course.Name = tbCourseName.Text.ToString();
             DatabaseHelper.addCourse(course);
             courseManager.add(course);

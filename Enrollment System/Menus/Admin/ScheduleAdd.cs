@@ -50,6 +50,7 @@ namespace Enrollment_System.Menus.Admin
 
             ScheduleManager scheduleManager = ScheduleManager.getInstance();
             Schedule schedule = new Schedule();
+            schedule.ID = scheduleManager.getRecentID() + 1;
             schedule.SubjectID = subjectID;
             schedule.StartTime = startTime;
             schedule.EndTime = endTime;

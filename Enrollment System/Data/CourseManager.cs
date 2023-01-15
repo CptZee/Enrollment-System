@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Enrollment_System.Util;
 
 namespace Enrollment_System.Data
 {
@@ -32,12 +30,9 @@ namespace Enrollment_System.Data
             courses[courses.IndexOf(x)] = x;
         }
 
-        public int retrieveRecentID()
+        public int getRecentID()
         {
-            if (courses.Count == 0)
-                return -1;
-            Course x = (Course)courses[courses.Count - 1];
-            return x.ID;
+            return DatabaseHelper.getRecentCourseID();
         }
         public void removeRecent()
         {

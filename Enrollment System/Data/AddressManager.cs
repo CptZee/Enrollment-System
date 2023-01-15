@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Enrollment_System.Util;
 
 namespace Enrollment_System.Data
 {
@@ -32,12 +33,9 @@ namespace Enrollment_System.Data
             addresses[addresses.IndexOf(x)] = x;
         }
 
-        public int retrieveRecentID()
+        public int getRecentID()
         {
-            if (addresses.Count == 0)
-                return -1;
-            Address x = (Address)addresses[addresses.Count - 1];
-            return x.ID;
+            return DatabaseHelper.getRecentAddressID();
         }
 
         public void removeRecent()

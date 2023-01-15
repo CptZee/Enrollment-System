@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Enrollment_System.Util;
 
 namespace Enrollment_System.Data
 {
@@ -32,12 +30,9 @@ namespace Enrollment_System.Data
             guardians[guardians.IndexOf(x)] = x;
         }
 
-        public int retrieveRecentID()
+        public int getRecentID()
         {
-            if (guardians.Count == 0)
-                return -1;
-            Guardian x = (Guardian)guardians[guardians.Count - 1];
-            return x.ID;
+            return DatabaseHelper.getRecentGuardianID();
         }
 
         public void removeRecent()

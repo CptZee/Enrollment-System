@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Enrollment_System.Util;
 
 namespace Enrollment_System.Data
 {
@@ -28,12 +29,9 @@ namespace Enrollment_System.Data
             students[students.IndexOf(x)] = x;
         }
 
-        public int retrieveRecentID()
+        public int getRecentID()
         {
-            if (students.Count == 0)
-                return -1;
-            Student student = (Student)students[students.Count - 1];
-            return student.ID;
+            return DatabaseHelper.getRecentStudentID();
         }
 
         public void removeRecent()

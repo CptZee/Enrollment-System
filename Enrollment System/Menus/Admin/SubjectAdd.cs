@@ -91,6 +91,7 @@ namespace Enrollment_System.Menus.Admin
 
             SubjectManager subjectManager = SubjectManager.getInstance();
             Subject subject = new Subject();
+            subject.ID = subjectManager.getRecentID() + 1;
             subject.Name = name;
             subject.YearLevel = yearLevel;
             subject.Term = term;
