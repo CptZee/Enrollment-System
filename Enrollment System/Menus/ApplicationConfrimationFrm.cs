@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Enrollment_System.Util;
 using Enrollment_System.Data;
@@ -51,7 +44,7 @@ namespace Enrollment_System.Menus
 
             ApplicationForm application = applicationManager.getRecent();
             application.SubmissionDate = DateTime.Today;
-            application.Status = "Pending";
+            application.Status = "Unpaid";
             DatabaseHelper.addAddress(addressManager.find(application.AddressID));
             DatabaseHelper.addApplicationForm(application);
             DatabaseHelper.addContact(contactManager.find(application.ContactID));

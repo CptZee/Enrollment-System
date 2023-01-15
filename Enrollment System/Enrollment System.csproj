@@ -64,6 +64,7 @@
     <Compile Include="Data\CourseManager.cs" />
     <Compile Include="Data\Guardian.cs" />
     <Compile Include="Data\GuardianManager.cs" />
+    <Compile Include="Data\Requirement.cs" />
     <Compile Include="Data\Schedule.cs" />
     <Compile Include="Data\ScheduleManager.cs" />
     <Compile Include="Data\SchoolHistory.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="Menus\GuardianInfoFrm.Designer.cs">
       <DependentUpon>GuardianInfoFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\RequirementManager.cs" />
     <Compile Include="Menus\RequirementsFrm.cs">
       <SubType>Form</SubType>
     </Compile>

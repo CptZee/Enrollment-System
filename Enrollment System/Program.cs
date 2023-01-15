@@ -29,8 +29,10 @@ namespace Enrollment_System
             Thread ScheduleDBThread = new Thread(new ThreadStart(DatabaseHelper.createSchedulesTable));
             Thread CoursesDBThread = new Thread(new ThreadStart(DatabaseHelper.createCoursesTable));
             Thread ApplicationFormDBThread = new Thread(new ThreadStart(DatabaseHelper.createApplicationFormTable));
-            Thread ApplicationSubjectFormDBThread = new Thread(new ThreadStart(DatabaseHelper.createApplicationSubjectsTable));
-            Thread ApplicationScheduleFormDBThread = new Thread(new ThreadStart(DatabaseHelper.createApplicationSchedulesTable));
+            Thread ApplicationSubjectDBThread = new Thread(new ThreadStart(DatabaseHelper.createApplicationSubjectsTable));
+            Thread ApplicationScheduleDBThread = new Thread(new ThreadStart(DatabaseHelper.createApplicationSchedulesTable));
+            Thread ApplicationRequirementDBThread = new Thread(new ThreadStart(DatabaseHelper.createApplicationRequirementsTable));
+            Thread RequirementDBThread = new Thread(new ThreadStart(DatabaseHelper.createRequirementsTable));
             Thread AddressDBThread = new Thread(new ThreadStart(DatabaseHelper.createAdressesTable));
             Thread AdminDBThread = new Thread(new ThreadStart(DatabaseHelper.createAdminTable));
             Thread ContactDBThread = new Thread(new ThreadStart(DatabaseHelper.createContactTable));
@@ -42,8 +44,10 @@ namespace Enrollment_System
             ScheduleDBThread.Start();
             CoursesDBThread.Start();
             ApplicationFormDBThread.Start();
-            ApplicationSubjectFormDBThread.Start();
-            ApplicationScheduleFormDBThread.Start();
+            ApplicationSubjectDBThread.Start();
+            ApplicationScheduleDBThread.Start();
+            ApplicationRequirementDBThread.Start();
+            RequirementDBThread.Start();
             AddressDBThread.Start();
             AdminDBThread.Start();
             ContactDBThread.Start();
@@ -60,6 +64,8 @@ namespace Enrollment_System
             Thread ApplicationFormLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadApplicationForms));
             Thread ApplicationSubjectFormLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadApplicationSubjects));
             Thread ApplicationScheduleFormLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadApplicationSchedules));
+            Thread ApplicationRequirementFormLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadApplicationRequirements));
+            Thread RequirementLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadRequirements));
             Thread AddressLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadAddresses));
             Thread AdminLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadAdmins));
             Thread ContactLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadContacts));
@@ -73,6 +79,8 @@ namespace Enrollment_System
             ApplicationFormLoadThread.Start();
             ApplicationSubjectFormLoadThread.Start();
             ApplicationScheduleFormLoadThread.Start();
+            ApplicationRequirementFormLoadThread.Start();
+            RequirementLoadThread.Start();
             AddressLoadThread.Start();
             AdminLoadThread.Start();
             ContactLoadThread.Start();

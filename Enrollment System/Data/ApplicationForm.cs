@@ -9,6 +9,7 @@ namespace Enrollment_System.Data
         {
             SubjectIDs = new ArrayList();
             ScheduleIDs = new ArrayList();
+            RequirementIDs = new ArrayList();
         }
         public int ID { get; set; }
         public int StudentID { get; set; }
@@ -17,7 +18,8 @@ namespace Enrollment_System.Data
         public int SchoolHistoryID { get; set; }
         public int GuardianID { get; set; }
         public ArrayList SubjectIDs { get; set; }
-        public ArrayList ScheduleIDs { get; set; } 
+        public ArrayList ScheduleIDs { get; set; }
+        public ArrayList RequirementIDs { get; set; }
         public String Course { get; set; }
         public String AdmitType { get; set; }
         public String YearLevel { get; set; }

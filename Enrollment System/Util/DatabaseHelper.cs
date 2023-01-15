@@ -232,6 +232,70 @@ namespace Enrollment_System.Util
             }
         }
 
+        public static void createApplicationRequirementsTable()
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM ApplicationRequirements", connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("DEBUG: Application Requirements Table exists! Proceeding...");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("DEBUG: Application Requirements Table doesn't exist! Creating one...");
+                String query = @"CREATE TABLE ApplicationRequirements
+                (
+                    [ID] INT NOT NULL IDENTITY(1,1),
+                    [ApplicationID] INT NOT NULL,
+                    [RequirementID] INT NOT NULL,
+                    PRIMARY KEY (ID)
+                )";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public static void createRequirementsTable()
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM Requirements", connection);
+                command.ExecuteNonQuery();
+                Console.WriteLine("DEBUG: Requirements Table exists! Proceeding...");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("DEBUG: Requirements Table doesn't exist! Creating one...");
+                String query = @"CREATE TABLE Requirements
+                (
+                    [ID] INT NOT NULL IDENTITY(1,1),
+                    [PicturePath] NCHAR(255) NOT NULL,
+                    [PSAPath] NCHAR(255) NOT NULL,
+                    [GoodMoralPath] NCHAR(255) NOT NULL,
+                    [RecommendationPath] NCHAR(255) NOT NULL,
+                    PRIMARY KEY (ID)
+                )";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         public static void createAdressesTable()
         {
             SqlConnection connection = GetConnection();
@@ -683,7 +747,7 @@ namespace Enrollment_System.Util
             ApplicationFormsManager applicationManager = ApplicationFormsManager.getInstance();
             applicationManager.clear();
             SqlConnection connection = GetConnection();
-            String query = @"SELECT ID, SubjectId, startTime, endTime FROM Schedules";
+            String query = @"SELECT ID, ApplicationID, SubjectID FROM ApplicationSchedules";
             try
             {
                 connection.Open();
@@ -700,11 +764,86 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
+                Console.WriteLine("DEBUG: Application Schedule list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load application schedule list!");
+            }
+        }
+
+        /**
+         * WARNING: loadApplications() must be called before this!
+         */
+        public static void loadApplicationRequirements()
+        {
+            ApplicationFormsManager applicationManager = ApplicationFormsManager.getInstance();
+            applicationManager.clear();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT ID, ApplicationID, RequirementID FROM ApplicationRequirements";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ApplicationForm application = applicationManager.find(reader.GetInt32(1));
+                        if (application == null)
+                            return;
+                        application.RequirementIDs.Add(reader.GetInt32(2));
+                        applicationManager.update(application);
+                    }
+                }
+                connection.Close();
                 Console.WriteLine("DEBUG: Course list loaded.");
             }
             catch (SqlException)
             {
                 Console.WriteLine("ERROR: Unable to load course list!");
+            }
+        }
+
+        public static void loadRequirements()
+        {
+            RequirementManager requirementManager = RequirementManager.getInstance();
+            requirementManager.clear();
+            SqlConnection connection = GetConnection();
+            String query = @"SELECT ID, PicturePath, PSAPath, GoodMoralPath, RecommendationPath FROM Requirements";
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Requirement requirement = new Requirement();
+
+                        requirement.ID = reader.GetInt32(0);
+
+                        if (!reader.IsDBNull(1))
+                            requirement.PicturePath = reader.GetString(1).Trim();
+
+                        if (!reader.IsDBNull(2))
+                            requirement.PSAPath = reader.GetString(2);
+
+                        if (!reader.IsDBNull(3))
+                            requirement.GoodMoralPath = reader.GetString(3).Trim();
+
+                        if (!reader.IsDBNull(4))
+                            requirement.RecommendationPath = reader.GetString(3).Trim();
+
+                        requirementManager.add(requirement);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine("DEBUG: Requirement list loaded.");
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("ERROR: Unable to load requirement list!");
             }
         }
 
@@ -1042,6 +1181,40 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
+        public static void addApplicationRequirements(ApplicationForm application)
+        {
+            SqlConnection connection = GetConnection();
+            for (int i = 0; i < application.ScheduleIDs.Count; i++)
+            {
+                String query = "INSERT INTO ApplicatioRequirements(ApplicationID, RequirementID) VALUES(@ApplicationID, @RequirementID)";
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ApplicationID", application.ID);
+                    command.Parameters.AddWithValue("@RequirementID", application.ScheduleIDs[i]);
+                    command.ExecuteNonQuery();
+                }
+            }
+            connection.Close();
+        }
+
+        public static void addRequirement(Requirement requirement)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "INSERT INTO Requirements(PicturePath, PSAPath, GoodMoralPath, RecommendationPath) VALUES(@PicturePath, " +
+                "@PSAPath, @GoodMoralPath, @RecommendationPath)";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@PicturePath", requirement.PicturePath);
+                command.Parameters.AddWithValue("@PSAPath", requirement.PSAPath);
+                command.Parameters.AddWithValue("@GoodMoralPath", requirement.GoodMoralPath);
+                command.Parameters.AddWithValue("@RecommendationPath", requirement.RecommendationPath);
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
         public static void addAddress(Address address)
         {
             SqlConnection connection = GetConnection();
@@ -1050,7 +1223,6 @@ namespace Enrollment_System.Util
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Id", address.ID);
                     command.Parameters.AddWithValue("@StreetUnitNumber", address.StreetUnitNumber);
                     command.Parameters.AddWithValue("@Street", address.Street);
                     command.Parameters.AddWithValue("@SubdivisionVillageBldg", address.SubdivisionVillageBldg);
