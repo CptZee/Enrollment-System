@@ -1865,12 +1865,12 @@ namespace Enrollment_System.Util
         public static int getRecentCourseID()
         {
             SqlConnection connection = GetConnection();
-            String query = @"SELECT IDENT_CURRENT (Courses)";
+            String query = @"SELECT IDENT_CURRENT ('Courses')";
             int ID = 0;
             connection.Open();
             SqlCommand command = new SqlCommand(query, connection);
 
-            ID = (int)command.ExecuteScalar();
+            ID = Convert.ToInt32(command.ExecuteScalar());
             connection.Close();
             return ID;
         }
@@ -1878,12 +1878,12 @@ namespace Enrollment_System.Util
         public static int getRecentSubjectID()
         {
             SqlConnection connection = GetConnection();
-            String query = @"SELECT IDENT_CURRENT (Subjects)";
+            String query = @"SELECT IDENT_CURRENT ('Subjects')";
             int ID = 0;
             connection.Open();
             SqlCommand command = new SqlCommand(query, connection);
 
-            ID = (int)command.ExecuteScalar();
+            ID = Convert.ToInt32(command.ExecuteScalar());
             connection.Close();
             return ID;
         }
@@ -1891,12 +1891,12 @@ namespace Enrollment_System.Util
         public static int getRecentScheduleID()
         {
             SqlConnection connection = GetConnection();
-            String query = @"SELECT IDENT_CURRENT (Schedules)";
+            String query = @"SELECT IDENT_CURRENT ('Schedules')";
             int ID = 0;
             connection.Open();
             SqlCommand command = new SqlCommand(query, connection);
 
-            ID = (int)command.ExecuteScalar();
+            ID = Convert.ToInt32(command.ExecuteScalar());
             connection.Close();
             return ID;
         }
@@ -1904,12 +1904,12 @@ namespace Enrollment_System.Util
         public static int getRecentApplicationID()
         {
             SqlConnection connection = GetConnection();
-            String query = @"SELECT IDENT_CURRENT (Applications)";
+            String query = @"SELECT IDENT_CURRENT ('Applications')";
             int ID = 0;
             connection.Open();
             SqlCommand command = new SqlCommand(query, connection);
 
-            ID = (int)command.ExecuteScalar();
+            ID = Convert.ToInt32(command.ExecuteScalar());
             connection.Close();
             return ID;
         }
@@ -1917,12 +1917,12 @@ namespace Enrollment_System.Util
         public static int getRecentAdminID()
         {
             SqlConnection connection = GetConnection();
-            String query = @"SELECT IDENT_CURRENT (Admins)";
+            String query = @"SELECT IDENT_CURRENT ('Admins')";
             int ID = 0;
             connection.Open();
             SqlCommand command = new SqlCommand(query, connection);
 
-            ID = (int)command.ExecuteScalar();
+            ID = Convert.ToInt32(command.ExecuteScalar());
             connection.Close();
             return ID;
         }
@@ -1930,12 +1930,12 @@ namespace Enrollment_System.Util
         public static int getRecentAddressID()
         {
             SqlConnection connection = GetConnection();
-            String query = @"SELECT IDENT_CURRENT (Addresses)";
+            String query = @"SELECT IDENT_CURRENT ('Addresses')";
             int ID = 0;
             connection.Open();
             SqlCommand command = new SqlCommand(query, connection);
 
-            ID = (int)command.ExecuteScalar();
+            ID = Convert.ToInt32(command.ExecuteScalar());
             connection.Close();
             return ID;
         }
@@ -1943,12 +1943,12 @@ namespace Enrollment_System.Util
         public static int getRecentContactID()
         {
             SqlConnection connection = GetConnection();
-            String query = @"SELECT IDENT_CURRENT (Contacts)";
+            String query = @"SELECT IDENT_CURRENT ('Contacts')";
             int ID = 0;
             connection.Open();
             SqlCommand command = new SqlCommand(query, connection);
 
-            ID = (int)command.ExecuteScalar();
+            ID = Convert.ToInt32(command.ExecuteScalar());
             connection.Close();
             return ID;
         }
@@ -1956,12 +1956,12 @@ namespace Enrollment_System.Util
         public static int getRecentGuardianID()
         {
             SqlConnection connection = GetConnection();
-            String query = @"SELECT IDENT_CURRENT (Guardians)";
+            String query = @"SELECT IDENT_CURRENT ('Guardians')";
             int ID = 0;
             connection.Open();
             SqlCommand command = new SqlCommand(query, connection);
 
-            ID = (int)command.ExecuteScalar();
+            ID = Convert.ToInt32(command.ExecuteScalar());
             connection.Close();
             return ID;
         }
@@ -1969,12 +1969,12 @@ namespace Enrollment_System.Util
         public static int getRecentRequirementID()
         {
             SqlConnection connection = GetConnection();
-            String query = @"SELECT IDENT_CURRENT (Requirements)";
+            String query = @"SELECT IDENT_CURRENT ('Requirements')";
             int ID = 0;
             connection.Open();
             SqlCommand command = new SqlCommand(query, connection);
 
-            ID = (int)command.ExecuteScalar();
+            ID = Convert.ToInt32(command.ExecuteScalar());
             connection.Close();
             return ID;
         }
@@ -1982,12 +1982,12 @@ namespace Enrollment_System.Util
         public static int getRecentSchedulesID()
         {
             SqlConnection connection = GetConnection();
-            String query = @"SELECT IDENT_CURRENT (Schedules)";
+            String query = @"SELECT IDENT_CURRENT ('Schedules')";
             int ID = 0;
             connection.Open();
             SqlCommand command = new SqlCommand(query, connection);
 
-            ID = (int)command.ExecuteScalar();
+            ID = Convert.ToInt32(command.ExecuteScalar());
             connection.Close();
             return ID;
         }
@@ -1995,12 +1995,12 @@ namespace Enrollment_System.Util
         public static int getRecentSchoolHistoryID()
         {
             SqlConnection connection = GetConnection();
-            String query = @"SELECT IDENT_CURRENT (SchoolHistory)";
+            String query = @"SELECT IDENT_CURRENT ('SchoolHistory')";
             int ID = 0;
             connection.Open();
             SqlCommand command = new SqlCommand(query, connection);
 
-            ID = (int)command.ExecuteScalar();
+            ID = Convert.ToInt32(command.ExecuteScalar());
             connection.Close();
             return ID;
         }
@@ -2008,12 +2008,12 @@ namespace Enrollment_System.Util
         public static int getRecentStudentID()
         {
             SqlConnection connection = GetConnection();
-            String query = @"SELECT IDENT_CURRENT (Students)";
+            String query = @"SELECT IDENT_CURRENT ('Students')";
             int ID = 0;
             connection.Open();
             SqlCommand command = new SqlCommand(query, connection);
 
-            ID = (int)command.ExecuteScalar();
+            ID = Convert.ToInt32(command.ExecuteScalar());
             connection.Close();
             return ID;
         }
