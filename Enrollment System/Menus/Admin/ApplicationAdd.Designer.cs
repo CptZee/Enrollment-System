@@ -94,7 +94,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbExAcadlevel = new System.Windows.Forms.ComboBox();
             this.label76 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
             this.tb_Relation_Guardian = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.tb_Occupation_Guardian = new System.Windows.Forms.TextBox();
@@ -694,15 +693,6 @@
             this.label76.TabIndex = 160;
             this.label76.Text = "Academic Level:";
             // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(497, 236);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(34, 13);
-            this.label77.TabIndex = 161;
-            this.label77.Text = "Term:";
-            // 
             // tb_Relation_Guardian
             // 
             this.tb_Relation_Guardian.Location = new System.Drawing.Point(955, 465);
@@ -1000,7 +990,6 @@
             this.Controls.Add(this.tb_FName_Guardian);
             this.Controls.Add(this.label42);
             this.Controls.Add(this.cbExAcadlevel);
-            this.Controls.Add(this.label77);
             this.Controls.Add(this.label76);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbSchoolProgram);
@@ -1142,7 +1131,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbExAcadlevel;
         private System.Windows.Forms.Label label76;
-        private System.Windows.Forms.Label label77;
         private System.Windows.Forms.TextBox tb_Relation_Guardian;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox tb_Occupation_Guardian;
