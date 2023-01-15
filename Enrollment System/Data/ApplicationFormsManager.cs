@@ -75,6 +75,16 @@ namespace Enrollment_System.Data
             return applicationForms.IndexOf(x);
         }
 
+        public void remove(int ID)
+        {
+            for (int i = 0; i < applicationForms.Count; i++)
+            {
+                ApplicationForm s = (ApplicationForm)applicationForms[i];
+                if (s.ID == ID)
+                    applicationForms.Remove(s);
+            }
+        }
+
         public void clear()
         {
             applicationForms.Clear();

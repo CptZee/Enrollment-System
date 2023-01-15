@@ -1326,5 +1326,265 @@ namespace Enrollment_System.Util
                 }
                 connection.Close();
         }
+
+        /**
+         * A group of method that manages the addition of rows or data
+         * in the database.
+         * 
+         */
+        public static void removeCourse(Course course)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Courses WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", course.ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+        
+        public static void removeSubject(Subject subject)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Subjects WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", subject.ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void removeSchedule(Schedule schedule)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Schedules WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", schedule.ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void removeApplication(ApplicationForm applicationForm)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Applications WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", applicationForm.ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        //TODO: Add a function to remove subjects, schedules, and requirements from the application.
+
+        public static void removeRequirement(Requirement requirement)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Requirement WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", requirement.ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void removeAddress(Address address)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Addresses WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", address.ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void removeAdmin(Admin admin)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Admins WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", admin.ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void removeContact(Contact contact)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Contacts WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", contact.ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void removeGuardian(Guardian guardian)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Guardians WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", guardian.ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void removeSchoolHistory(SchoolHistory schoolHistory)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM SchoolHitory WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", schoolHistory.ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void removeStudent(Student student)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Students WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", student.ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        //Same stuff but with IDs
+        public static void removeRequirement(int ID)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Requirement WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void removeAddress(int ID)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Addresses WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void removeAdmin(int ID)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Admins WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void removeContact(int ID)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Contacts WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void removeGuardian(int ID)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Guardians WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void removeSchoolHistory(int ID)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM SchoolHitory WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public static void removeStudent(int ID)
+        {
+            SqlConnection connection = GetConnection();
+            String query = "DELETE FROM Students WHERE ID = @ID";
+            connection.Open();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@ID", ID);
+
+                command.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
     }
 }

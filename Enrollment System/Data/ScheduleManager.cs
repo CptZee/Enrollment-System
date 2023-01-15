@@ -76,6 +76,16 @@ namespace Enrollment_System.Data
             return schedules.IndexOf(x);
         }
 
+        public void remove(int ID)
+        {
+            for (int i = 0; i < schedules.Count; i++)
+            {
+                Schedule s = (Schedule)schedules[i];
+                if (s.ID == ID)
+                    schedules.Remove(s);
+            }
+        }
+
         public void clear()
         {
             schedules.Clear();

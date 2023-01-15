@@ -79,6 +79,16 @@ namespace Enrollment_System.Data
             return contacts.IndexOf(x);
         }
 
+        public void remove(int ID)
+        {
+            for (int i = 0; i < contacts.Count; i++)
+            {
+                Contact s = (Contact)contacts[i];
+                if (s.ID == ID)
+                    contacts.Remove(s);
+            }
+        }
+
         public void clear()
         {
             contacts.Clear();

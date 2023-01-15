@@ -77,6 +77,16 @@ namespace Enrollment_System.Data
             return courses.IndexOf(x);
         }
 
+        public void remove(int ID)
+        {
+            for (int i = 0; i < courses.Count; i++)
+            {
+                Course s = (Course)courses[i];
+                if (s.ID == ID)
+                    courses.Remove(s);
+            }
+        }
+
         public void clear()
         {
             courses.Clear();

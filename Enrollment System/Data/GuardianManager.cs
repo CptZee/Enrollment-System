@@ -79,6 +79,16 @@ namespace Enrollment_System.Data
             return guardians.IndexOf(x);
         }
 
+
+        public void remove(int ID)
+        {
+            for (int i = 0; i < guardians.Count; i++)
+            {
+                Guardian s = (Guardian)guardians[i];
+                if (s.ID == ID)
+                    guardians.Remove(s);
+            }
+        }
         public void clear()
         {
             guardians.Clear();

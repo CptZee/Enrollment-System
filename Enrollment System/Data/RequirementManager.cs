@@ -69,6 +69,16 @@ namespace Enrollment_System.Data
             return requirements.IndexOf(x);
         }
 
+        public void remove(int ID)
+        {
+            for (int i = 0; i < requirements.Count; i++)
+            {
+                Requirement s = (Requirement)requirements[i];
+                if (s.ID == ID)
+                    requirements.Remove(s);
+            }
+        }
+
         public void clear()
         {
             requirements.Clear();

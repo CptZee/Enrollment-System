@@ -78,6 +78,16 @@ namespace Enrollment_System.Data
             return schoolHistories.IndexOf(x);
         }
 
+        public void remove(int ID)
+        {
+            for (int i = 0; i < schoolHistories.Count; i++)
+            {
+                SchoolHistory s = (SchoolHistory)schoolHistories[i];
+                if (s.ID == ID)
+                    schoolHistories.Remove(s);
+            }
+        }
+
         public void clear()
         {
             schoolHistories.Clear();

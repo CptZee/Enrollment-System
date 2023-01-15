@@ -68,6 +68,16 @@ namespace Enrollment_System.Data
             return addresses.IndexOf(x);
         }
 
+        public void remove(int ID)
+        {
+            for (int i = 0; i < addresses.Count; i++)
+            {
+                Address s = (Address)addresses[i];
+                if (s.ID == ID)
+                    addresses.Remove(s);
+            }
+        }
+
         public void clear()
         {
             addresses.Clear();
