@@ -1594,7 +1594,7 @@ namespace Enrollment_System.Util
         public static void updateCourses(Course course)
         {
             SqlConnection connection = GetConnection();
-            String query = "UPDATE Students SET Name = @Name WHERE ID = @ID";
+            String query = "UPDATE Courses SET Name = @Name WHERE ID = @ID";
             connection.Open();
             using (SqlCommand command = new SqlCommand(query, connection))
             {

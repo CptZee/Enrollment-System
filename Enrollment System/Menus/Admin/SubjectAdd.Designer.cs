@@ -96,6 +96,7 @@
             // 
             // cbYearLevel
             // 
+            this.cbYearLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbYearLevel.FormattingEnabled = true;
             this.cbYearLevel.Location = new System.Drawing.Point(19, 86);
             this.cbYearLevel.Name = "cbYearLevel";
@@ -104,6 +105,7 @@
             // 
             // cbTerm
             // 
+            this.cbTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTerm.FormattingEnabled = true;
             this.cbTerm.Location = new System.Drawing.Point(245, 38);
             this.cbTerm.Name = "cbTerm";
@@ -112,6 +114,7 @@
             // 
             // cbPrerequisite
             // 
+            this.cbPrerequisite.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPrerequisite.FormattingEnabled = true;
             this.cbPrerequisite.Location = new System.Drawing.Point(245, 85);
             this.cbPrerequisite.Name = "cbPrerequisite";
@@ -151,7 +154,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "SubjectAdd";
-            this.Text = "Add Subject";
+            this.Text = "Subject Addition";
             this.Load += new System.EventHandler(this.SubjectAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

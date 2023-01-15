@@ -7,19 +7,32 @@ namespace Enrollment_System.Menus.Admin
 {
     public partial class ApplicationRemove : Form
     {
+        private ApplicationFormsManager applicationFormsManager;
         public ApplicationRemove()
         {
+            applicationFormsManager = ApplicationFormsManager.getInstance();
             InitializeComponent();
         }
 
         private void ApplicationRemove_Load(object sender, EventArgs e)
         {
+            updateList();
             CenterToScreen();
+        }
+
+        private void updateList()
+        {
+            cbID.Items.Clear();
+            for (int i = 0; i < applicationFormsManager.applicationForms.Count; i++)
+            {
+                ApplicationForm subject = applicationFormsManager.findByIndex(i);
+                cbID.Items.Add(subject.ID);
+            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tbID.Text.ToString()))
+            if (string.IsNullOrEmpty(cbID.Text.ToString()))
             {
                 MessageBox.Show("ID is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -27,7 +40,7 @@ namespace Enrollment_System.Menus.Admin
             int ID = 0;
             try
             {
-                ID = Convert.ToInt32(tbID.Text);
+                ID = Convert.ToInt32(cbID.Text);
             }
             catch (FormatException)
             {
@@ -35,7 +48,6 @@ namespace Enrollment_System.Menus.Admin
                 return;
             }
 
-            ApplicationFormsManager applicationFormsManager = ApplicationFormsManager.getInstance();
             ApplicationForm application = applicationFormsManager.find(ID);
             if(application == null)
             {
@@ -66,6 +78,7 @@ namespace Enrollment_System.Menus.Admin
             schoolHistoryManger.remove(application.SchoolHistoryID);
             
             applicationFormsManager.remove(ID);
+            updateList();
         }
     }
 }

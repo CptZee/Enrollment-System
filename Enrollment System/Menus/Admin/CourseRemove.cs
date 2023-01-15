@@ -14,19 +14,32 @@ namespace Enrollment_System.Menus.Admin
 {
     public partial class CourseRemove : Form
     {
+        private CourseManager manager;
         public CourseRemove()
         {
+            manager = CourseManager.getInstance();
             InitializeComponent();
         }
 
         private void CourseRemove_Load(object sender, EventArgs e)
         {
+            updateList();
             CenterToScreen();
+        }
+
+        private void updateList()
+        {
+            cbID.Items.Clear();
+            for (int i = 0; i < manager.courses.Count; i++)
+            {
+                Course course = manager.findByIndex(i);
+                cbID.Items.Add(course.ID);
+            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tbID.Text.ToString()))
+            if (string.IsNullOrEmpty(cbID.Text.ToString()))
             {
                 MessageBox.Show("ID is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -34,15 +47,13 @@ namespace Enrollment_System.Menus.Admin
             int ID = 0;
             try
             {
-                ID = Convert.ToInt32(tbID.Text);
+                ID = Convert.ToInt32(cbID.Text);
             }
             catch (FormatException)
             {
                 MessageBox.Show("ID must be in whole numbers form!", "Invalid Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            CourseManager manager = CourseManager.getInstance();
             Course course = manager.find(ID);
             if (course == null)
             {
@@ -52,6 +63,7 @@ namespace Enrollment_System.Menus.Admin
             DatabaseHelper.removeCourse(course);
 
             manager.remove(ID);
+            MessageBox.Show("Course " + course.ID + " successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

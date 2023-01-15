@@ -92,7 +92,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CourseModify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CourseModify";
+            this.Text = "Course Modification";
             this.Load += new System.EventHandler(this.CourseModify_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

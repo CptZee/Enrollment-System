@@ -133,7 +133,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Name = "ScheduleAdd";
-            this.Text = "Add Schedule";
+            this.Text = "Schedule Addition";
             this.Load += new System.EventHandler(this.ScheduleAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

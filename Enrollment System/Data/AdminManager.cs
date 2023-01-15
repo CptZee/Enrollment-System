@@ -70,7 +70,7 @@ namespace Enrollment_System.Data
 
         public void remove(int ID)
         {
-            for (int i = 0; i < addresses.Count; i++)
+            for (int i = 0; i < admins.Count; i++)
             {
                 Admin s = (Admin)admins[i];
                 if (s.ID == ID)

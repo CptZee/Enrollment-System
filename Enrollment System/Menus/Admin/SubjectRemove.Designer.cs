@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.btnRemove = new System.Windows.Forms.Button();
-            this.tbID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbID = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnRemove
@@ -43,13 +43,6 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // tbID
-            // 
-            this.tbID.Location = new System.Drawing.Point(94, 12);
-            this.tbID.Name = "tbID";
-            this.tbID.Size = new System.Drawing.Size(180, 20);
-            this.tbID.TabIndex = 7;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -59,13 +52,22 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Subject ID:";
             // 
+            // cbID
+            // 
+            this.cbID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbID.FormattingEnabled = true;
+            this.cbID.Location = new System.Drawing.Point(89, 11);
+            this.cbID.Name = "cbID";
+            this.cbID.Size = new System.Drawing.Size(187, 21);
+            this.cbID.TabIndex = 11;
+            // 
             // SubjectRemove
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(288, 72);
+            this.Controls.Add(this.cbID);
             this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.tbID);
             this.Controls.Add(this.label1);
             this.Name = "SubjectRemove";
             this.Text = "Subject Removal";
@@ -78,7 +80,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbID;
     }
 }

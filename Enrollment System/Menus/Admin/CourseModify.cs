@@ -23,12 +23,18 @@ namespace Enrollment_System.Menus.Admin
 
         private void CourseModify_Load(object sender, EventArgs e)
         {
+            updateList();
+            CenterToScreen();
+        }
+
+        private void updateList()
+        {
+            cbID.Items.Clear();
             for (int i = 0; i < manager.courses.Count; i++)
             {
                 Course course = manager.findByIndex(i);
                 cbID.Items.Add(course.ID);
             }
-            CenterToScreen();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,9 +46,12 @@ namespace Enrollment_System.Menus.Admin
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Course course = manager.find(Convert.ToInt32(cbID.Text.ToString()));
+            course.Name = tbName.Text.ToString();
             manager.update(course);
+            DatabaseHelper.updateCourses(course);
             
-            this.Close();
+            MessageBox.Show("Course " + course.ID + " successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            updateList();
         }
     }
 }
