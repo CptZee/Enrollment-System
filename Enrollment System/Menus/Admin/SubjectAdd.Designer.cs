@@ -37,6 +37,8 @@
             this.cbYearLevel = new System.Windows.Forms.ComboBox();
             this.cbTerm = new System.Windows.Forms.ComboBox();
             this.cbPrerequisite = new System.Windows.Forms.ComboBox();
+            this.tbUnits = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -84,7 +86,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(192, 113);
+            this.btnAdd.Location = new System.Drawing.Point(190, 160);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 8;
@@ -116,11 +118,29 @@
             this.cbPrerequisite.Size = new System.Drawing.Size(202, 21);
             this.cbPrerequisite.TabIndex = 11;
             // 
+            // tbUnits
+            // 
+            this.tbUnits.Location = new System.Drawing.Point(131, 134);
+            this.tbUnits.Name = "tbUnits";
+            this.tbUnits.Size = new System.Drawing.Size(205, 20);
+            this.tbUnits.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(128, 118);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Units:";
+            // 
             // SubjectAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(463, 143);
+            this.ClientSize = new System.Drawing.Size(464, 194);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tbUnits);
             this.Controls.Add(this.cbPrerequisite);
             this.Controls.Add(this.cbTerm);
             this.Controls.Add(this.cbYearLevel);
@@ -149,5 +169,7 @@
         private System.Windows.Forms.ComboBox cbYearLevel;
         private System.Windows.Forms.ComboBox cbTerm;
         private System.Windows.Forms.ComboBox cbPrerequisite;
+        private System.Windows.Forms.TextBox tbUnits;
+        private System.Windows.Forms.Label label5;
     }
 }

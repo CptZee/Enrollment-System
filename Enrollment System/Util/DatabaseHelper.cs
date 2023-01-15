@@ -81,6 +81,7 @@ namespace Enrollment_System.Util
                     [YearLevel] NCHAR(30) NOT NULL,
                     [Term] NCHAR(30) NOT NULL,
                     [Prerequisite] NCHAR(30) NOT NULL,
+                    [Units] INT NOT NULL,
                     PRIMARY KEY (ID)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -602,7 +603,7 @@ namespace Enrollment_System.Util
             SubjectManager subjectManager = SubjectManager.getInstance();
             subjectManager.clear();
             SqlConnection connection = GetConnection();
-            String query = @"SELECT ID, Name, YearLevel, Term, Prerequisite FROM Subjects";
+            String query = @"SELECT ID, Name, YearLevel, Term, Prerequisite, Units FROM Subjects";
             try
             {
                 connection.Open();
@@ -617,6 +618,7 @@ namespace Enrollment_System.Util
                         subject.YearLevel = reader.GetString(2).Trim();
                         subject.Term = reader.GetString(3).Trim();
                         subject.Prerequisite = reader.GetString(4).Trim();
+                        subject.Units = reader.GetInt32(5);
 
                         subjectManager.add(subject);
                     }
@@ -1091,7 +1093,7 @@ namespace Enrollment_System.Util
         public static void addSubject(Subject subject)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Subjects(Name, YearLevel, Term, Prerequisite) VALUES(@Name, @YearLevel, @Term, @Prerequisite)";
+            String query = "INSERT INTO Subjects(Name, YearLevel, Term, Prerequisite, Units) VALUES(@Name, @YearLevel, @Term, @Prerequisite, @Units)";
             connection.Open();
             using (SqlCommand command = new SqlCommand(query, connection))
             {
@@ -1099,6 +1101,7 @@ namespace Enrollment_System.Util
                 command.Parameters.AddWithValue("@YearLevel", subject.YearLevel);
                 command.Parameters.AddWithValue("@Term", subject.Term);
                 command.Parameters.AddWithValue("@Prerequisite", subject.Prerequisite);
+                command.Parameters.AddWithValue("@Units", subject.Units);
                 command.ExecuteNonQuery();
             }
             connection.Close();

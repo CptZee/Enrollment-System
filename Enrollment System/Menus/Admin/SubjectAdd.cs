@@ -46,11 +46,28 @@ namespace Enrollment_System.Menus.Admin
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(tbUnits.Text.ToString()))
+            {
+                MessageBox.Show("Units is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            int units = 0;
+            try
+            {
+                units = Convert.ToInt32(tbUnits.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Units must be in whole numbers form!", "Invalid Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             String name, yearLevel, term, prerequisite;
             name = tbName.Text.ToString();
             yearLevel = cbYearLevel.Text.ToString();
             term = cbTerm.Text.ToString();
             prerequisite = cbPrerequisite.Text.ToString();
+            
             if (string.IsNullOrEmpty(name))
             {
                 MessageBox.Show("Name is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -78,6 +95,7 @@ namespace Enrollment_System.Menus.Admin
             subject.YearLevel = yearLevel;
             subject.Term = term;
             subject.Prerequisite = prerequisite;
+            subject.Units = units;
 
             DatabaseHelper.addSubject(subject);
             subjectManager.add(subject);

@@ -13,8 +13,6 @@ namespace Enrollment_System.Data
         public String YearLevel { get; set; }
         public String Term { get; set; }
         public String Prerequisite { get; set; }
-        public String StartTime { get; set; }
-        public String EndTime { get; set; }
-        public String Day { get; set; }
+        public int Units { get; set; }
     }
 }
