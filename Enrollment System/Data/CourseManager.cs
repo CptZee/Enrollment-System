@@ -27,11 +27,14 @@ namespace Enrollment_System.Data
 
         public void update(Course x)
         {
-            courses[courses.IndexOf(x)] = x;
+            if (courses.IndexOf(x) >= 0)
+                courses[courses.IndexOf(x)] = x;
         }
 
         public int getRecentID()
         {
+            if (DatabaseHelper.getRecentCourseID() == 1)
+                return 0;
             return DatabaseHelper.getRecentCourseID();
         }
         public void removeRecent()

@@ -27,12 +27,15 @@ namespace Enrollment_System.Data
 
         public void update(SchoolHistory x)
         {
-            schoolHistories[schoolHistories.IndexOf(x)] = x;
+            if (schoolHistories.IndexOf(x) >= 0)
+                schoolHistories[schoolHistories.IndexOf(x)] = x;
         }
 
         public int getRecentID()
         {
-            return DatabaseHelper.getRecentScheduleID();
+            if (DatabaseHelper.getRecentSchoolHistoryID() == 1)
+                return 0;
+            return DatabaseHelper.getRecentSchoolHistoryID();
         }
 
         public void removeRecent()

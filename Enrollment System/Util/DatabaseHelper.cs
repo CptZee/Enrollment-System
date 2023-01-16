@@ -191,7 +191,7 @@ namespace Enrollment_System.Util
                 (
                     [ID] INT NOT NULL IDENTITY(1,1),
                     [ApplicationID] INT NOT NULL,
-                    [SubjectID] NCHAR(30) NOT NULL,
+                    [SubjectID] INT NOT NULL,
                     PRIMARY KEY (ID)
                 )";
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -490,7 +490,7 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Students Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Students
                 (
-                    [ID] INT NOT NULL IDENTITY(1000,1), 
+                    [ID] INT NOT NULL IDENTITY(1,1), 
                     [ApplicationID] INT NOT NULL, 
                     [FirstName] NCHAR(30) NOT NULL,
                     [MiddleName] NCHAR(30),
@@ -595,7 +595,6 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: Course list loaded.");
             }
             catch (SqlException)
             {
@@ -629,7 +628,6 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: Subject list loaded.");
             }
             catch (SqlException)
             {
@@ -662,7 +660,6 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: Schedule list loaded.");
             }
             catch (SqlException)
             {
@@ -705,7 +702,6 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: Application Form list loaded.");
             }
             catch (SqlException)
             {
@@ -719,7 +715,6 @@ namespace Enrollment_System.Util
         public static void loadApplicationSubjects()
         {
             ApplicationFormsManager applicationManager = ApplicationFormsManager.getInstance();
-            applicationManager.clear();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, ApplicationID, SubjectID FROM ApplicationSubjects";
             try
@@ -738,7 +733,6 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: Course list loaded.");
             }
             catch (SqlException)
             {
@@ -752,7 +746,6 @@ namespace Enrollment_System.Util
         public static void loadApplicationSchedules()
         {
             ApplicationFormsManager applicationManager = ApplicationFormsManager.getInstance();
-            applicationManager.clear();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, ApplicationID, SubjectID FROM ApplicationSchedules";
             try
@@ -771,7 +764,6 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: Application Schedule list loaded.");
             }
             catch (SqlException)
             {
@@ -785,7 +777,6 @@ namespace Enrollment_System.Util
         public static void loadApplicationRequirements()
         {
             ApplicationFormsManager applicationManager = ApplicationFormsManager.getInstance();
-            applicationManager.clear();
             SqlConnection connection = GetConnection();
             String query = @"SELECT ID, ApplicationID, RequirementID FROM ApplicationRequirements";
             try
@@ -804,7 +795,6 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: Course list loaded.");
             }
             catch (SqlException)
             {
@@ -846,7 +836,6 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: Requirement list loaded.");
             }
             catch (SqlException)
             {
@@ -889,7 +878,6 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: Address list loaded.");
             }
             catch (SqlException)
             {
@@ -920,7 +908,6 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: Admin list loaded.");
             }
             catch (SqlException)
             {
@@ -954,7 +941,6 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: Contact list loaded.");
             }
             catch (SqlException)
             {
@@ -995,7 +981,6 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: Guardian list loaded.");
             }
             catch (SqlException)
             {
@@ -1027,7 +1012,6 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: School History list loaded.");
             }
             catch (SqlException)
             {
@@ -1069,7 +1053,6 @@ namespace Enrollment_System.Util
                     }
                 }
                 connection.Close();
-                Console.WriteLine("DEBUG: School History list loaded.");
             }
             catch (SqlException)
             {
@@ -1314,7 +1297,7 @@ namespace Enrollment_System.Util
         {
             SqlConnection connection = GetConnection();
             String query = "INSERT INTO Students(ApplicationID, FirstName, MiddleName, LastName, Gender, Status, Citizenship, BirthDate, Birthplace, Religion) " +
-                "VALUES(@FirstName, @MiddleName, @LastName, @Gender, @Status, @Citizenship, @BirthDate, @Birthplace, @Religion)";
+                "VALUES(@ApplicationID, @FirstName, @MiddleName, @LastName, @Gender, @Status, @Citizenship, @BirthDate, @Birthplace, @Religion)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

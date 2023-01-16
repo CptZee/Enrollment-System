@@ -30,11 +30,14 @@ namespace Enrollment_System.Data
 
         public void update(Address x)
         {
-            addresses[addresses.IndexOf(x)] = x;
+            if (addresses.IndexOf(x) >= 0)
+                addresses[addresses.IndexOf(x)] = x;
         }
 
         public int getRecentID()
         {
+            if (DatabaseHelper.getRecentAddressID() == 1)
+                return 0;
             return DatabaseHelper.getRecentAddressID();
         }
 

@@ -27,11 +27,14 @@ namespace Enrollment_System.Data
 
         public void update(Guardian x)
         {
-            guardians[guardians.IndexOf(x)] = x;
+            if (guardians.IndexOf(x) >= 0)
+                guardians[guardians.IndexOf(x)] = x;
         }
 
         public int getRecentID()
         {
+            if (DatabaseHelper.getRecentGuardianID() == 1)
+                return 0;
             return DatabaseHelper.getRecentGuardianID();
         }
 

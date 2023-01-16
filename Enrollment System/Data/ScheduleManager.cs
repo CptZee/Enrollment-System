@@ -26,11 +26,14 @@ namespace Enrollment_System.Data
 
         public void update(Schedule x)
         {
-            schedules[schedules.IndexOf(x)] = x;
+            if (schedules.IndexOf(x) >= 0)
+                schedules[schedules.IndexOf(x)] = x;
         }
 
         public int getRecentID()
         {
+            if (DatabaseHelper.getRecentScheduleID() == 1)
+                return 0;
             return DatabaseHelper.getRecentScheduleID();
         }
 

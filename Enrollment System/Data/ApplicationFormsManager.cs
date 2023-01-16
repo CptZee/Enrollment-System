@@ -22,12 +22,14 @@ namespace Enrollment_System.Data
 
         public void add(ApplicationForm application)
         {
+            Console.WriteLine("Application " + application.ID + " added!");
             applicationForms.Add(application);
         }
 
         public void update(ApplicationForm x)
         {
-            applicationForms[applicationForms.IndexOf(x)] = x;
+            if(applicationForms.IndexOf(x) >= 0)
+                applicationForms[applicationForms.IndexOf(x)] = x;
         }
 
         public ApplicationForm getRecent()
@@ -39,6 +41,8 @@ namespace Enrollment_System.Data
 
         public int getRecentID()
         {
+            if (DatabaseHelper.getRecentApplicationID() == 1)
+                return 0;
             return DatabaseHelper.getRecentApplicationID();
         }
 

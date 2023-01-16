@@ -26,11 +26,14 @@ namespace Enrollment_System.Data
 
         public void update(Student x)
         {
-            students[students.IndexOf(x)] = x;
+            if (students.IndexOf(x) >= 0)
+                students[students.IndexOf(x)] = x;
         }
 
         public int getRecentID()
         {
+            if (DatabaseHelper.getRecentStudentID() == 1)
+                return 0;
             return DatabaseHelper.getRecentStudentID();
         }
 

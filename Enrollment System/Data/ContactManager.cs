@@ -27,11 +27,14 @@ namespace Enrollment_System.Data
 
         public void update(Contact x)
         {
-            contacts[contacts.IndexOf(x)] = x;
+            if (contacts.IndexOf(x) >= 0)
+                contacts[contacts.IndexOf(x)] = x;
         }
 
         public int getRecentID()
         {
+            if (DatabaseHelper.getRecentContactID() == 1)
+                return 0;
             return DatabaseHelper.getRecentContactID();
         }
 

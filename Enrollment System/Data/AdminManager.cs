@@ -27,11 +27,14 @@ namespace Enrollment_System.Data
 
         public void update(Admin x)
         {
-            admins[admins.IndexOf(x)] = x;
+            if (admins.IndexOf(x) >= 0)
+                admins[admins.IndexOf(x)] = x;
         }
 
         public int getRecentID()
         {
+            if (DatabaseHelper.getRecentAdminID() == 1)
+                return 0;
             return DatabaseHelper.getRecentAdminID();
         }
 

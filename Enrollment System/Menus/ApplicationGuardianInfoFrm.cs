@@ -23,7 +23,24 @@ namespace Enrollment_System.Menus
 
         private void GuardianInfoFrm_Load(object sender, EventArgs e)
         {
+            loadValues();
             CenterToScreen();
+        }
+
+        private void loadValues()
+        {
+            GuardianManager manager = GuardianManager.getInstance();
+            Guardian guardian = manager.find(application.GuardianID);
+            if (guardian == null)
+                return;
+            tb_FName_Guardian.Text = guardian.FirstName;
+            tb_LName_Guardian.Text = guardian.LastName;
+            tb_MI_Guardian.Text = guardian.MiddleInitial;
+            tb_SName_Guardian.Text = guardian.SuffixName;
+            tb_MobileNumber_Guardian.Text = guardian.MobileNumber;
+            tb_Email_Guardian.Text = guardian.Email;
+            tb_Occupation_Guardian.Text = guardian.Occupation;
+            tb_Relation_Guardian.Text = guardian.Relation;
         }
 
         private void lblPrivacy_Click(object sender, EventArgs e)

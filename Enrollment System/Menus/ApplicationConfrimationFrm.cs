@@ -83,7 +83,7 @@ namespace Enrollment_System.Menus
             
             if (application.IsRegular)
                 insertSubjects(application);
-
+            applicationManager.add(application);
             DatabaseHelper.addAddress(addressManager.find(application.AddressID));
             DatabaseHelper.addApplicationForm(application);
             DatabaseHelper.addContact(contactManager.find(application.ContactID));
@@ -92,6 +92,7 @@ namespace Enrollment_System.Menus
             DatabaseHelper.addStudent(studentManager.find(application.StudentID));
             DatabaseHelper.addApplicationSubject(application);
             DatabaseHelper.addApplicationSchedule(application);
+            
 
             MessageBox.Show("Application with the ID of " + application.ID + " has been successfully submitted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

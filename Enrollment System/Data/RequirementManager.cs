@@ -27,11 +27,14 @@ namespace Enrollment_System.Data
 
         public void update(Requirement x)
         {
-            requirements[requirements.IndexOf(x)] = x;
+            if (requirements.IndexOf(x) >= 0)
+                requirements[requirements.IndexOf(x)] = x;
         }
 
         public int getRecentID()
         {
+            if (DatabaseHelper.getRecentRequirementID() == 1)
+                return 0;
             return DatabaseHelper.getRecentRequirementID();
         }
 
