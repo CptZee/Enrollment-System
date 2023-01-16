@@ -14,53 +14,6 @@ namespace Enrollment_System.Menus
             InitializeComponent();
         }
 
-        private void btnStartOver_Click(object sender, EventArgs e)
-        {
-            StudentManager studentManager = StudentManager.getInstance();
-            AddressManager addressManager = AddressManager.getInstance();
-            ContactManager contactManager = ContactManager.getInstance();
-            GuardianManager guardianManager = GuardianManager.getInstance();
-            SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
-
-            studentManager.removeRecent();
-            addressManager.removeRecent();
-            contactManager.removeRecent();
-            guardianManager.removeRecent();
-            schoolHistoryManager.removeRecent();
-
-            this.Hide();
-            EnrollFrm frm = new EnrollFrm();
-            frm.ShowDialog();
-            this.Close();
-        }
-
-        private void btnConfirm_Click(object sender, EventArgs e)
-        {
-            StudentManager studentManager = StudentManager.getInstance();
-            AddressManager addressManager = AddressManager.getInstance();
-            ContactManager contactManager = ContactManager.getInstance();
-            GuardianManager guardianManager = GuardianManager.getInstance();
-            SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
-
-            ApplicationForm application = applicationManager.getRecent();
-            application.SubmissionDate = DateTime.Today;
-            application.Status = "Unpaid";
-            DatabaseHelper.addAddress(addressManager.find(application.AddressID));
-            DatabaseHelper.addApplicationForm(application);
-            DatabaseHelper.addContact(contactManager.find(application.ContactID));
-            DatabaseHelper.addGuardian(guardianManager.find(application.GuardianID));
-            DatabaseHelper.addSchoolHistory(schoolHistoryManager.find(application.SchoolHistoryID));
-            DatabaseHelper.addStudent(studentManager.find(application.StudentID));
-            DatabaseHelper.addApplicationSubject(application);
-            DatabaseHelper.addApplicationSchedule(application);
-
-            MessageBox.Show("Application with the ID of " + application.ID + " has been successfully submitted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            this.Hide();
-            ApplicationStatusFrm frm = new ApplicationStatusFrm(application);
-            frm.ShowDialog();
-            this.Close();
-        }
 
         private void ApplicationConfrimationFrm_Load(object sender, EventArgs e)
         {
@@ -75,7 +28,7 @@ namespace Enrollment_System.Menus
             lbl_Yearlevel.Text = application.YearLevel;
             lbl_Schoolyear.Text = application.SchoolYear;
             lbl_Term.Text = application.Term;
-            lbl_Name.Text = studentManager.find(application.StudentID).FirstName + " " + studentManager.find(application.StudentID).MiddleName + " " 
+            lbl_Name.Text = studentManager.find(application.StudentID).FirstName + " " + studentManager.find(application.StudentID).MiddleName + " "
                 + studentManager.find(application.StudentID).LastName;
             lbl_Gender.Text = studentManager.find(application.StudentID).Gender;
             lbl_Status.Text = studentManager.find(application.StudentID).Status;
@@ -94,6 +47,73 @@ namespace Enrollment_System.Menus
             lbl_ProgramTrackSpecialization.Text = schoolHistoryManager.find(application.SchoolHistoryID).ProgramTrackSpecialization;
 
 
+        }
+
+        private void btnStartOver_Click(object sender, EventArgs e)
+        {
+            StudentManager studentManager = StudentManager.getInstance();
+            AddressManager addressManager = AddressManager.getInstance();
+            ContactManager contactManager = ContactManager.getInstance();
+            GuardianManager guardianManager = GuardianManager.getInstance();
+            SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
+
+            studentManager.removeRecent();
+            addressManager.removeRecent();
+            contactManager.removeRecent();
+            guardianManager.removeRecent();
+            schoolHistoryManager.removeRecent();
+
+            this.Hide();
+            ApplicationFrm frm = new ApplicationFrm();
+            frm.ShowDialog();
+            this.Close();
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            StudentManager studentManager = StudentManager.getInstance();
+            AddressManager addressManager = AddressManager.getInstance();
+            ContactManager contactManager = ContactManager.getInstance();
+            GuardianManager guardianManager = GuardianManager.getInstance();
+            SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
+
+            ApplicationForm application = applicationManager.getRecent();
+            application.SubmissionDate = DateTime.Today;
+            application.Status = "Unpaid";
+            
+            if (application.IsRegular)
+                insertSubjects(application);
+
+            DatabaseHelper.addAddress(addressManager.find(application.AddressID));
+            DatabaseHelper.addApplicationForm(application);
+            DatabaseHelper.addContact(contactManager.find(application.ContactID));
+            DatabaseHelper.addGuardian(guardianManager.find(application.GuardianID));
+            DatabaseHelper.addSchoolHistory(schoolHistoryManager.find(application.SchoolHistoryID));
+            DatabaseHelper.addStudent(studentManager.find(application.StudentID));
+            DatabaseHelper.addApplicationSubject(application);
+            DatabaseHelper.addApplicationSchedule(application);
+
+            MessageBox.Show("Application with the ID of " + application.ID + " has been successfully submitted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.Hide();
+            StatusFrm frm = new StatusFrm(application);
+            frm.ShowDialog();
+            this.Close();
+        }
+
+        private void insertSubjects(ApplicationForm application)
+        {
+            SubjectManager manager = SubjectManager.getInstance();
+            for(int i = 0; i < manager.subjects.Count; i++)
+            {
+                Subject subject = manager.findByIndex(i);
+                if (!subject.YearLevel.Equals(application.YearLevel))
+                    return;
+
+                if (!subject.Term.Equals(application.Term))
+                    return;
+                application.SubjectIDs.Add(subject.ID);
+            }
         }
     }
 }

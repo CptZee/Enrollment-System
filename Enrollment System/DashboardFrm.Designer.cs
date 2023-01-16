@@ -1,6 +1,6 @@
 ﻿namespace Enrollment_System
 {
-    partial class Dashboard
+    partial class DashboardFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardFrm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnAdmin = new Enrollment_System.Resources.Classes.Rbutton();
-            this.btnEnroll = new Enrollment_System.Resources.Classes.Rbutton();
-            this.btnStatus = new Enrollment_System.Resources.Classes.Rbutton();
+            this.btnAdmin = new global::Enrollment_System.Resources.Classes.Rbutton();
+            this.btnEnroll = new global::Enrollment_System.Resources.Classes.Rbutton();
+            this.btnStatus = new global::Enrollment_System.Resources.Classes.Rbutton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 

@@ -40,7 +40,7 @@ namespace Enrollment_System.Menus
         private void btnReturn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Dashboard frm = new Dashboard();
+            DashboardFrm frm = new DashboardFrm();
             frm.ShowDialog();
             this.Close();
         }

@@ -4,9 +4,9 @@ using Enrollment_System.Menus;
 
 namespace Enrollment_System
 {
-    public partial class Dashboard : Form
+    public partial class DashboardFrm : Form
     {
-        public Dashboard()
+        public DashboardFrm()
         {
             InitializeComponent();
         }
@@ -14,7 +14,7 @@ namespace Enrollment_System
         private void btnLogin_Click(object sender, EventArgs e)
         {
             this.Hide();
-            StatusFrm frm = new StatusFrm();
+            StatusCheckerFrm frm = new StatusCheckerFrm();
             frm.ShowDialog();
             this.Close();
 
@@ -31,7 +31,7 @@ namespace Enrollment_System
         private void btnRegister_Click(object sender, EventArgs e)
         {
             this.Hide();
-            EnrollFrm frm = new EnrollFrm();
+            ApplicationFrm frm = new ApplicationFrm();
             frm.ShowDialog();
             this.Close();
         }

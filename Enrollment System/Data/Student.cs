@@ -5,6 +5,7 @@ namespace Enrollment_System.Data
     class Student
     {
         public int ID { get; set; }
+        public int ApplicationID { get; set; } //TODO: Add to the database!!!!
         public String FirstName { get; set; }
         public String MiddleName { get; set; }
         public String LastName { get; set; }

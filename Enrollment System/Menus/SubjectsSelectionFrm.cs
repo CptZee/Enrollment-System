@@ -62,7 +62,7 @@ namespace Enrollment_System.Menus
         {
             for (int i = 0; i < lvSubjects.SelectedItems.Count; i++)
             {
-                ScheduleFrm frm = new ScheduleFrm(application, lvSubjects.SelectedItems[i].Text);
+                SubjectScheduleFrm frm = new SubjectScheduleFrm(application, lvSubjects.SelectedItems[i].Text);
                 frm.ShowDialog();
             }
         }

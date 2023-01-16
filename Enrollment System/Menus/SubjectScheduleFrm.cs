@@ -11,12 +11,12 @@ using Enrollment_System.Data;
 
 namespace Enrollment_System.Menus
 {
-    public partial class ScheduleFrm : Form
+    public partial class SubjectScheduleFrm : Form
     {
         private ApplicationForm application;
         private ScheduleManager scheduleManager;
         private String subject;
-        public ScheduleFrm(ApplicationForm application, String subject)
+        public SubjectScheduleFrm(ApplicationForm application, String subject)
         {
             this.subject = subject;
             this.application = application;

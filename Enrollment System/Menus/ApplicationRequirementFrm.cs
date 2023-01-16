@@ -12,10 +12,10 @@ using Enrollment_System.Data;
 
 namespace Enrollment_System.Menus
 {
-    public partial class RequirementsFrm : Form
+    public partial class ApplicationRequirementFrm : Form
     {
         private Requirement requirement;
-        public RequirementsFrm()
+        public ApplicationRequirementFrm()
         {
             requirement = new Requirement();
             InitializeComponent();
@@ -55,6 +55,11 @@ namespace Enrollment_System.Menus
         private void btnRecommendation_Click(object sender, EventArgs e)
         {
             lblRecomendation.Text = Path.GetFullPath(openFileDialog1.FileName);
+        }
+
+        private void ApplicationRequirementFrm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

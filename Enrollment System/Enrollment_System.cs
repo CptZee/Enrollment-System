@@ -6,7 +6,7 @@ using Enrollment_System.Data;
 
 namespace Enrollment_System
 {
-    static class Program
+    static class Enrollment_System
     {
         /// <summary>
         /// The main entry point for the application.
@@ -20,7 +20,7 @@ namespace Enrollment_System
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dashboard());
+            Application.Run(new DashboardFrm());
         }
 
         private static void createTables()

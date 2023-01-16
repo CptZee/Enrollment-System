@@ -22,6 +22,10 @@ namespace Enrollment_System.Util
         public static SqlConnection GetConnection()
         {
             SqlConnection connection = new SqlConnection(connectionURL);
+            if((connection != null) && (connection.State == ConnectionState.Open))
+            {
+                connection.Close();
+            }
             return connection;
         }
 
@@ -486,7 +490,8 @@ namespace Enrollment_System.Util
                 Console.WriteLine("DEBUG: Students Table doesn't exist! Creating one...");
                 String query = @"CREATE TABLE Students
                 (
-                    [Id] INT NOT NULL IDENTITY(1,1), 
+                    [ID] INT NOT NULL IDENTITY(1000,1), 
+                    [ApplicationID] INT NOT NULL, 
                     [FirstName] NCHAR(30) NOT NULL,
                     [MiddleName] NCHAR(30),
                     [LastName] NCHAR(30) NOT NULL,
@@ -1035,7 +1040,7 @@ namespace Enrollment_System.Util
             StudentManager studentManager = StudentManager.getInstance();
             studentManager.clear();
             SqlConnection connection = GetConnection();
-            String query = @"SELECT ID, FirstName, MiddleName, LastName, SuffixName, Gender, Status, Citizenship, BirthDate, Birthplace, Religion  FROM Students";
+            String query = @"SELECT ID, ApplicationID, FirstName, MiddleName, LastName, SuffixName, Gender, Status, Citizenship, BirthDate, Birthplace, Religion  FROM Students";
             try
             {
                 connection.Open();
@@ -1046,18 +1051,19 @@ namespace Enrollment_System.Util
                     {
                         Student student = new Student();
                         student.ID = reader.GetInt32(0);
-                        student.FirstName = reader.GetString(1).Trim();
+                        student.ApplicationID = reader.GetInt32(1);
+                        student.FirstName = reader.GetString(2).Trim();
                         if (!reader.IsDBNull(1))
-                            student.MiddleName = reader.GetString(2).Trim();
-                        student.LastName = reader.GetString(3).Trim();
-                        if(!reader.IsDBNull(4))
-                            student.SuffixName = reader.GetString(4).Trim();
-                        student.Gender = reader.GetString(5).Trim();
-                        student.Status = reader.GetString(6).Trim();
-                        student.Citizenship = reader.GetString(7).Trim();
-                        student.BirthDate = reader.GetDateTime(8);
-                        student.Birthplace = reader.GetString(9).Trim();
-                        student.Religion = reader.GetString(10).Trim();
+                            student.MiddleName = reader.GetString(3).Trim();
+                        student.LastName = reader.GetString(4).Trim();
+                        if(!reader.IsDBNull(5))
+                            student.SuffixName = reader.GetString(5).Trim();
+                        student.Gender = reader.GetString(6).Trim();
+                        student.Status = reader.GetString(7).Trim();
+                        student.Citizenship = reader.GetString(8).Trim();
+                        student.BirthDate = reader.GetDateTime(9);
+                        student.Birthplace = reader.GetString(10).Trim();
+                        student.Religion = reader.GetString(11).Trim();
 
                         studentManager.add(student);
                     }
@@ -1153,10 +1159,10 @@ namespace Enrollment_System.Util
         public static void addApplicationSubject(ApplicationForm application)
         {
             SqlConnection connection = GetConnection();
-            for(int i = 0; i < application.SubjectIDs.Count; i++)
+            connection.Open();
+            for (int i = 0; i < application.SubjectIDs.Count; i++)
             {
-                String query = "INSERT INTO ApplicatioSubjects(ApplicationID, SubjectID) VALUES(@ApplicationID, @SubjectID)";
-                connection.Open();
+                String query = "INSERT INTO ApplicationSubjects(ApplicationID, SubjectID) VALUES(@ApplicationID, @SubjectID)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@ApplicationID", application.ID);
@@ -1170,10 +1176,10 @@ namespace Enrollment_System.Util
         public static void addApplicationSchedule(ApplicationForm application)
         {
             SqlConnection connection = GetConnection();
+            String query = "INSERT INTO ApplicationSchedules(ApplicationID, ScheduleID) VALUES(@ApplicationID, @ScheduleID)";
+            connection.Open();
             for (int i = 0; i < application.ScheduleIDs.Count; i++)
             {
-                String query = "INSERT INTO ApplicatioSchedules(ApplicationID, ScheduleID) VALUES(@ApplicationID, @ScheduleID)";
-                connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@ApplicationID", application.ID);
@@ -1187,10 +1193,10 @@ namespace Enrollment_System.Util
         public static void addApplicationRequirements(ApplicationForm application)
         {
             SqlConnection connection = GetConnection();
+            String query = "INSERT INTO ApplicationRequirements(ApplicationID, RequirementID) VALUES(@ApplicationID, @RequirementID)";
+            connection.Open();
             for (int i = 0; i < application.ScheduleIDs.Count; i++)
             {
-                String query = "INSERT INTO ApplicatioRequirements(ApplicationID, RequirementID) VALUES(@ApplicationID, @RequirementID)";
-                connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@ApplicationID", application.ID);
@@ -1307,11 +1313,12 @@ namespace Enrollment_System.Util
         public static void addStudent(Student student)
         {
             SqlConnection connection = GetConnection();
-            String query = "INSERT INTO Students(FirstName, MiddleName, LastName, Gender, Status, Citizenship, BirthDate, Birthplace, Religion) " +
+            String query = "INSERT INTO Students(ApplicationID, FirstName, MiddleName, LastName, Gender, Status, Citizenship, BirthDate, Birthplace, Religion) " +
                 "VALUES(@FirstName, @MiddleName, @LastName, @Gender, @Status, @Citizenship, @BirthDate, @Birthplace, @Religion)";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@ApplicationID", student.ApplicationID);
                     command.Parameters.AddWithValue("@FirstName", student.FirstName);
                     command.Parameters.AddWithValue("@MiddleName", student.MiddleName);
                     command.Parameters.AddWithValue("@LastName", student.LastName);
@@ -1463,7 +1470,7 @@ namespace Enrollment_System.Util
         public static void removeSchoolHistory(SchoolHistory schoolHistory)
         {
             SqlConnection connection = GetConnection();
-            String query = "DELETE FROM SchoolHitory WHERE ID = @ID";
+            String query = "DELETE FROM SchoolHistory WHERE ID = @ID";
             connection.Open();
             using (SqlCommand command = new SqlCommand(query, connection))
             {
@@ -1562,7 +1569,7 @@ namespace Enrollment_System.Util
         public static void removeSchoolHistory(int ID)
         {
             SqlConnection connection = GetConnection();
-            String query = "DELETE FROM SchoolHitory WHERE ID = @ID";
+            String query = "DELETE FROM SchoolHistory WHERE ID = @ID";
             connection.Open();
             using (SqlCommand command = new SqlCommand(query, connection))
             {
@@ -1674,7 +1681,7 @@ namespace Enrollment_System.Util
             SqlConnection connection = GetConnection();
             for (int i = 0; i < application.SubjectIDs.Count; i++)
             {
-                String query = "UPDATE ApplicatioSubjects SET ApplicationID = @ApplicationID, SubjectID = @SubjectID WHERE ID = @ID";
+                String query = "UPDATE ApplicationSubjects SET ApplicationID = @ApplicationID, SubjectID = @SubjectID WHERE ID = @ID";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -1692,7 +1699,7 @@ namespace Enrollment_System.Util
             SqlConnection connection = GetConnection();
             for (int i = 0; i < application.ScheduleIDs.Count; i++)
             {
-                String query = "UPDATE ApplicatioSchedules SET ApplicationID = @ApplicationID, ScheduleID = @ScheduleID WHERE ID = @ID";
+                String query = "UPDATE ApplicationSchedules SET ApplicationID = @ApplicationID, ScheduleID = @ScheduleID WHERE ID = @ID";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -1710,7 +1717,7 @@ namespace Enrollment_System.Util
             SqlConnection connection = GetConnection();
             for (int i = 0; i < application.ScheduleIDs.Count; i++)
             {
-                String query = "UPDATE ApplicatioRequirements SET ApplicationID = @ApplicationID, RequirementID = @RequirementID WHERE ID = @ID";
+                String query = "UPDATE ApplicationRequirements SET ApplicationID = @ApplicationID, RequirementID = @RequirementID WHERE ID = @ID";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -1836,7 +1843,7 @@ namespace Enrollment_System.Util
         public static void updateStudent(Student student)
         {
             SqlConnection connection = GetConnection();
-            String query = "UPDATE Students SET FirstName = @FirstName, MiddleName = @MiddleName, LastName = @LastName, " +
+            String query = "UPDATE Students SET ApplicationID = @ApplicationID, FirstName = @FirstName, MiddleName = @MiddleName, LastName = @LastName, " +
                 "Gender = @Gender, Status = @Status, Citizenship = @Citizenship, BirthDate = @BirthDate, Birthplace = @Birthplace, " +
                 "Religion = @Religion WHERE ID = @ID";
             connection.Open();

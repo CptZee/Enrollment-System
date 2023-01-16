@@ -7,33 +7,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using Enrollment_System.Data;
+
 namespace Enrollment_System.Menus
 {
     public partial class StatusFrm : Form
     {
-        public StatusFrm()
+        private ApplicationForm application;
+        public StatusFrm(ApplicationForm application)
         {
+            this.application = application;
             InitializeComponent();
         }
 
-        private void btnConfirm_Click(object sender, EventArgs e)
+        private void ApplicationStatus_Load(object sender, EventArgs e)
         {
-            ApplicationFormsManager applicationFormsManager = ApplicationFormsManager.getInstance();
-            ApplicationForm application = applicationFormsManager.find(Convert.ToInt32(tbAppID.Text));
-            MessageBox.Show("Application is now " + application.Status, "Application Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void StatusFrm_Load(object sender, EventArgs e)
-        {
+            updateStatus();
             CenterToScreen();
         }
 
-        private void btnReturn_Click(object sender, EventArgs e)
+        private void updateStatus()
+        {
+            String status = application.Status;
+            switch (status)
+            {
+                case "Pending":
+                    lblStatus.ForeColor = Color.Red;
+                    break;
+                case "Paid":
+                    lblStatus.ForeColor = Color.Yellow;
+                    break;
+                case "Approved":
+                    lblStatus.ForeColor = Color.Green;
+                    break;
+            }
+            lblStatus.Text = status;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Dashboard frm = new Dashboard();
+            DashboardFrm frm = new DashboardFrm();
+            frm.ShowDialog();
+            this.Close();
+        }
+
+        private void btnPayment_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            PaymentFrm frm = new PaymentFrm(application);
             frm.ShowDialog();
             this.Close();
 

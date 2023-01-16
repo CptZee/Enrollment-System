@@ -5,10 +5,10 @@ using Enrollment_System.Enrollment;
 
 namespace Enrollment_System.Menus
 {
-    public partial class EnrollFrm : Form
+    public partial class ApplicationFrm : Form
     {
         private ApplicationForm application;
-        public EnrollFrm()
+        public ApplicationFrm()
         {
             InitializeComponent();
         }
@@ -16,7 +16,7 @@ namespace Enrollment_System.Menus
         private void btnProcceed_Click(object sender, EventArgs e)
         {
             if (verifyForm())
-                if (cbRegular.Equals("Regular")) {
+                if (cbRegular.Text.ToString().Equals("Regular")) {
                     loadSubjects();
                     openGuardianInfo();
                 }
@@ -32,7 +32,7 @@ namespace Enrollment_System.Menus
         }
         private void updateDatabase(object sender, EventArgs e)
         {
-            Program.loadTables();
+            Enrollment_System.loadTables();
         }
 
         private void loadSubjects()
@@ -52,7 +52,7 @@ namespace Enrollment_System.Menus
         private void openGuardianInfo()
         {
             this.Hide();
-            GuardianInfoFrm frm = new GuardianInfoFrm(application);
+            ApplicationGuardianInfoFrm frm = new ApplicationGuardianInfoFrm(application);
             frm.ShowDialog();
             this.Close();
         }
@@ -139,7 +139,7 @@ namespace Enrollment_System.Menus
 
             if (string.IsNullOrEmpty(course))
             {
-                MessageBox.Show("Course is a required field!", "Missing Field",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Course is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (string.IsNullOrEmpty(admitType))
@@ -219,12 +219,11 @@ namespace Enrollment_System.Menus
                 MessageBox.Show("Student Type is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (DateTime.Compare(birthdate, SubmissionDate) >= 0){
+            if (DateTime.Compare(birthdate, SubmissionDate) >= 0)
+            {
                 MessageBox.Show("Invalid birthdate!", "Invalid Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
-
 
             StudentManager studentManager = StudentManager.getInstance();
             AddressManager addressManager = AddressManager.getInstance();
@@ -269,7 +268,7 @@ namespace Enrollment_System.Menus
         private void btn_Exback_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Dashboard frm = new Dashboard();
+            DashboardFrm frm = new DashboardFrm();
             frm.ShowDialog();
             this.Close();
         }
@@ -285,6 +284,5 @@ namespace Enrollment_System.Menus
                 cbTerm.Items[0] = "1st Term";
             }
         }
-       
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Enrollment_System.Menus
 {
-    partial class GuardianInfoFrm
+    partial class ApplicationGuardianInfoFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GuardianInfoFrm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicationGuardianInfoFrm));
             this.tb_Occupation_Guardian = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tb_Email_Guardian = new System.Windows.Forms.TextBox();

@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace Enrollment_System.Menus
 {
-    public partial class GuardianInfoFrm : Form
+    public partial class ApplicationGuardianInfoFrm : Form
     {
         private ApplicationForm application;
-        public GuardianInfoFrm(ApplicationForm application)
+        public ApplicationGuardianInfoFrm(ApplicationForm application)
         {
             this.application = application;
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace Enrollment_System.Menus
         public void showRequirements()
         {
             this.Hide();
-            RequirementsFrm frm = new RequirementsFrm();
+            ApplicationRequirementFrm frm = new ApplicationRequirementFrm();
             frm.ShowDialog();
             this.Close();
         }

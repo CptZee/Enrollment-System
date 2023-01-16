@@ -1,6 +1,6 @@
 ﻿namespace Enrollment_System.Menus
 {
-    partial class RequirementsFrm
+    partial class ApplicationRequirementFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -185,7 +185,7 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // RequirementsFrm
+            // ApplicationRequirementFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -204,8 +204,9 @@
             this.Controls.Add(this.btnPicture);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "RequirementsFrm";
+            this.Name = "ApplicationRequirementFrm";
             this.Text = "Requirements";
+            this.Load += new System.EventHandler(this.ApplicationRequirementFrm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

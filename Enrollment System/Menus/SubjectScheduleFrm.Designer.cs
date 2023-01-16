@@ -1,6 +1,6 @@
 ﻿namespace Enrollment_System.Menus
 {
-    partial class ScheduleFrm
+    partial class SubjectScheduleFrm
     {
         /// <summary>
         /// Required designer variable.
