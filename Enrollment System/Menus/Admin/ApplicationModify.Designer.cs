@@ -106,7 +106,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tbMName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.tbFName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -123,7 +122,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cbCourse = new System.Windows.Forms.ComboBox();
             this.label49 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbID = new System.Windows.Forms.ComboBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.tbFName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnUpdate
@@ -134,6 +135,7 @@
             this.btnUpdate.TabIndex = 290;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // lblRecomendation
             // 
@@ -154,6 +156,7 @@
             this.btnRecommendation.TabIndex = 288;
             this.btnRecommendation.Text = "Upload";
             this.btnRecommendation.UseVisualStyleBackColor = true;
+            this.btnRecommendation.Click += new System.EventHandler(this.btnRecommendation_Click);
             // 
             // label44
             // 
@@ -183,6 +186,7 @@
             this.btnGoodMoral.TabIndex = 285;
             this.btnGoodMoral.Text = "Upload";
             this.btnGoodMoral.UseVisualStyleBackColor = true;
+            this.btnGoodMoral.Click += new System.EventHandler(this.btnGoodMoral_Click);
             // 
             // label45
             // 
@@ -212,6 +216,7 @@
             this.btnPSA.TabIndex = 282;
             this.btnPSA.Text = "Upload";
             this.btnPSA.UseVisualStyleBackColor = true;
+            this.btnPSA.Click += new System.EventHandler(this.btnPSA_Click);
             // 
             // label47
             // 
@@ -241,6 +246,7 @@
             this.btnPicture.TabIndex = 279;
             this.btnPicture.Text = "Upload";
             this.btnPicture.UseVisualStyleBackColor = true;
+            this.btnPicture.Click += new System.EventHandler(this.btnPicture_Click);
             // 
             // label48
             // 
@@ -739,6 +745,7 @@
             // cbStatus
             // 
             this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStatus.Enabled = false;
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(627, 83);
             this.cbStatus.Name = "cbStatus";
@@ -824,14 +831,6 @@
             this.label10.TabIndex = 210;
             this.label10.Text = "Middle Name:";
             // 
-            // tbFName
-            // 
-            this.tbFName.Enabled = false;
-            this.tbFName.Location = new System.Drawing.Point(443, 53);
-            this.tbFName.Name = "tbFName";
-            this.tbFName.Size = new System.Drawing.Size(100, 20);
-            this.tbFName.TabIndex = 209;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -910,6 +909,7 @@
             this.cbSY.Name = "cbSY";
             this.cbSY.Size = new System.Drawing.Size(152, 21);
             this.cbSY.TabIndex = 201;
+            this.cbSY.SelectedIndexChanged += new System.EventHandler(this.cbSY_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -986,22 +986,35 @@
             this.label49.TabIndex = 292;
             this.label49.Text = "Application ID:";
             // 
-            // comboBox1
+            // cbID
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(115, 49);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(152, 21);
-            this.comboBox1.TabIndex = 291;
+            this.cbID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbID.FormattingEnabled = true;
+            this.cbID.Location = new System.Drawing.Point(115, 49);
+            this.cbID.Name = "cbID";
+            this.cbID.Size = new System.Drawing.Size(152, 21);
+            this.cbID.TabIndex = 291;
+            this.cbID.SelectedIndexChanged += new System.EventHandler(this.cbID_SelectedIndexChanged);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // tbFName
+            // 
+            this.tbFName.Location = new System.Drawing.Point(442, 52);
+            this.tbFName.Name = "tbFName";
+            this.tbFName.Size = new System.Drawing.Size(101, 20);
+            this.tbFName.TabIndex = 293;
             // 
             // ApplicationModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1117, 525);
+            this.Controls.Add(this.tbFName);
             this.Controls.Add(this.label49);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbID);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.lblRecomendation);
             this.Controls.Add(this.btnRecommendation);
@@ -1080,7 +1093,6 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tbMName);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.tbFName);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label8);
@@ -1184,7 +1196,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbMName;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tbFName;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
@@ -1201,6 +1212,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbCourse;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbID;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TextBox tbFName;
     }
 }
