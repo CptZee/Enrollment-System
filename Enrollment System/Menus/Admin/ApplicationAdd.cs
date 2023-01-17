@@ -21,5 +21,10 @@ namespace Enrollment_System.Menus.Admin
         {
             CenterToScreen();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
