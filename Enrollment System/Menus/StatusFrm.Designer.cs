@@ -38,10 +38,10 @@
             this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Font = new System.Drawing.Font("Yu Gothic UI", 36F, System.Drawing.FontStyle.Bold);
             this.lblStatus.Location = new System.Drawing.Point(111, 26);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(166, 55);
+            this.lblStatus.Size = new System.Drawing.Size(162, 65);
             this.lblStatus.TabIndex = 1;
             this.lblStatus.Text = "Status";
             // 
@@ -65,7 +65,7 @@
             this.btnPayment.UseVisualStyleBackColor = true;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
-            // ApplicationStatusFrm
+            // StatusFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -73,7 +73,7 @@
             this.Controls.Add(this.btnPayment);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.lblStatus);
-            this.Name = "ApplicationStatusFrm";
+            this.Name = "StatusFrm";
             this.Text = "Application Status";
             this.Load += new System.EventHandler(this.ApplicationStatus_Load);
             this.ResumeLayout(false);

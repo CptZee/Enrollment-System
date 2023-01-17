@@ -43,7 +43,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(162, 50);
+            this.lblStatus.Location = new System.Drawing.Point(160, 36);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(166, 55);
             this.lblStatus.TabIndex = 0;
@@ -64,16 +64,17 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(59, 105);
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Location = new System.Drawing.Point(39, 104);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(351, 13);
+            this.lblDescription.Size = new System.Drawing.Size(425, 13);
             this.lblDescription.TabIndex = 2;
             this.lblDescription.Text = "Check the status of the application by providing the application ID below.";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(98, 150);
+            this.label1.Location = new System.Drawing.Point(98, 140);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 3;
@@ -81,7 +82,7 @@
             // 
             // tbAppID
             // 
-            this.tbAppID.Location = new System.Drawing.Point(180, 147);
+            this.tbAppID.Location = new System.Drawing.Point(180, 138);
             this.tbAppID.Name = "tbAppID";
             this.tbAppID.Size = new System.Drawing.Size(162, 20);
             this.tbAppID.TabIndex = 4;
@@ -90,7 +91,7 @@
             // 
             this.btnReturn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnReturn.Location = new System.Drawing.Point(180, 184);
+            this.btnReturn.Location = new System.Drawing.Point(170, 184);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(75, 29);
             this.btnReturn.TabIndex = 5;
@@ -98,11 +99,11 @@
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // StatusFrm
+            // StatusCheckerFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(495, 239);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.tbAppID);
@@ -111,7 +112,7 @@
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.lblStatus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "StatusFrm";
+            this.Name = "StatusCheckerFrm";
             this.Text = "Application Status";
             this.Load += new System.EventHandler(this.StatusFrm_Load);
             this.ResumeLayout(false);

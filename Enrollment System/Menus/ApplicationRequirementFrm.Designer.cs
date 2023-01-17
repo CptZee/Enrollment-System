@@ -48,10 +48,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1, 0);
+            this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 36F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(33, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(363, 85);
+            this.label1.Size = new System.Drawing.Size(333, 65);
             this.label1.TabIndex = 1;
             this.label1.Text = "Requirements";
             // 
@@ -60,13 +60,13 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(31, 106);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "2x2 Picture:";
+            this.label2.Text = "2 x 2 Picture :";
             // 
             // btnPicture
             // 
-            this.btnPicture.Location = new System.Drawing.Point(169, 101);
+            this.btnPicture.Location = new System.Drawing.Point(185, 101);
             this.btnPicture.Name = "btnPicture";
             this.btnPicture.Size = new System.Drawing.Size(75, 23);
             this.btnPicture.TabIndex = 3;
@@ -78,7 +78,7 @@
             // 
             this.lblPicture.AutoSize = true;
             this.lblPicture.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblPicture.Location = new System.Drawing.Point(250, 106);
+            this.lblPicture.Location = new System.Drawing.Point(266, 106);
             this.lblPicture.Name = "lblPicture";
             this.lblPicture.Size = new System.Drawing.Size(48, 13);
             this.lblPicture.TabIndex = 4;
@@ -88,7 +88,7 @@
             // 
             this.lblPSA.AutoSize = true;
             this.lblPSA.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblPSA.Location = new System.Drawing.Point(250, 135);
+            this.lblPSA.Location = new System.Drawing.Point(266, 135);
             this.lblPSA.Name = "lblPSA";
             this.lblPSA.Size = new System.Drawing.Size(48, 13);
             this.lblPSA.TabIndex = 7;
@@ -96,7 +96,7 @@
             // 
             // btnPSA
             // 
-            this.btnPSA.Location = new System.Drawing.Point(169, 130);
+            this.btnPSA.Location = new System.Drawing.Point(185, 130);
             this.btnPSA.Name = "btnPSA";
             this.btnPSA.Size = new System.Drawing.Size(75, 23);
             this.btnPSA.TabIndex = 6;
@@ -109,13 +109,13 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(31, 135);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 5;
-            this.label5.Text = "PSA:";
+            this.label5.Text = "PSA :";
             // 
             // btnProceed
             // 
-            this.btnProceed.Location = new System.Drawing.Point(162, 235);
+            this.btnProceed.Location = new System.Drawing.Point(161, 235);
             this.btnProceed.Name = "btnProceed";
             this.btnProceed.Size = new System.Drawing.Size(75, 23);
             this.btnProceed.TabIndex = 8;
@@ -127,7 +127,7 @@
             // 
             this.lblGoodMoral.AutoSize = true;
             this.lblGoodMoral.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblGoodMoral.Location = new System.Drawing.Point(250, 164);
+            this.lblGoodMoral.Location = new System.Drawing.Point(266, 164);
             this.lblGoodMoral.Name = "lblGoodMoral";
             this.lblGoodMoral.Size = new System.Drawing.Size(48, 13);
             this.lblGoodMoral.TabIndex = 11;
@@ -135,7 +135,7 @@
             // 
             // btnGoodMoral
             // 
-            this.btnGoodMoral.Location = new System.Drawing.Point(169, 159);
+            this.btnGoodMoral.Location = new System.Drawing.Point(185, 159);
             this.btnGoodMoral.Name = "btnGoodMoral";
             this.btnGoodMoral.Size = new System.Drawing.Size(75, 23);
             this.btnGoodMoral.TabIndex = 10;
@@ -148,15 +148,15 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(31, 164);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(127, 13);
+            this.label7.Size = new System.Drawing.Size(130, 13);
             this.label7.TabIndex = 9;
-            this.label7.Text = "Certificate of Good Moral:";
+            this.label7.Text = "Certificate of Good Moral :";
             // 
             // lblRecomendation
             // 
             this.lblRecomendation.AutoSize = true;
             this.lblRecomendation.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblRecomendation.Location = new System.Drawing.Point(250, 193);
+            this.lblRecomendation.Location = new System.Drawing.Point(266, 193);
             this.lblRecomendation.Name = "lblRecomendation";
             this.lblRecomendation.Size = new System.Drawing.Size(48, 13);
             this.lblRecomendation.TabIndex = 14;
@@ -164,7 +164,7 @@
             // 
             // btnRecommendation
             // 
-            this.btnRecommendation.Location = new System.Drawing.Point(169, 188);
+            this.btnRecommendation.Location = new System.Drawing.Point(185, 188);
             this.btnRecommendation.Name = "btnRecommendation";
             this.btnRecommendation.Size = new System.Drawing.Size(75, 23);
             this.btnRecommendation.TabIndex = 13;
@@ -177,9 +177,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(31, 193);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(135, 13);
+            this.label9.Size = new System.Drawing.Size(138, 13);
             this.label9.TabIndex = 12;
-            this.label9.Text = "Letter of Recommendation:";
+            this.label9.Text = "Letter of Recommendation :";
             // 
             // openFileDialog1
             // 
