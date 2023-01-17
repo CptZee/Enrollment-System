@@ -649,7 +649,7 @@ namespace Enrollment_System.Util
                 {
                     while (reader.Read())
                     {
-                        ScheduleHelper schedule = new ScheduleHelper();
+                        Schedule schedule = new Schedule();
                         schedule.ID = reader.GetInt32(0);
                         schedule.SubjectID = reader.GetInt32(1);
                         schedule.StartTime = reader.GetString(2).Trim();
@@ -857,7 +857,7 @@ namespace Enrollment_System.Util
                 {
                     while (reader.Read())
                     {
-                        AddressHelper address = new AddressHelper();
+                        Address address = new Address();
 
                         address.ID = reader.GetInt32(0);
 
@@ -899,7 +899,7 @@ namespace Enrollment_System.Util
                 {
                     while (reader.Read())
                     {
-                        AdminHelper admin = new AdminHelper();
+                        Admin admin = new Admin();
                         admin.ID = reader.GetInt32(0);
                         admin.Username = reader.GetString(1).Trim();
                         admin.Password = reader.GetString(2).Trim();
@@ -929,7 +929,7 @@ namespace Enrollment_System.Util
                 {
                     while (reader.Read())
                     {
-                        ContactHelper contact = new ContactHelper();
+                        Contact contact = new Contact();
 
                         contact.ID = reader.GetInt32(0);
                         if (!reader.IsDBNull(1))
@@ -962,7 +962,7 @@ namespace Enrollment_System.Util
                 {
                     while (reader.Read())
                     {
-                        GuardianHelper guardian = new GuardianHelper();
+                        Guardian guardian = new Guardian();
                         guardian.ID = reader.GetInt32(0);
                         guardian.FirstName = reader.GetString(1).Trim();
                         guardian.LastName = reader.GetString(2).Trim();
@@ -1002,7 +1002,7 @@ namespace Enrollment_System.Util
                 {
                     while (reader.Read())
                     {
-                        SchoolHistoryHelper schoolHistory = new SchoolHistoryHelper();
+                        SchoolHistory schoolHistory = new SchoolHistory();
                         schoolHistory.ID = reader.GetInt32(0);
                         schoolHistory.Type = reader.GetString(1).Trim();
                         schoolHistory.Name = reader.GetString(2).Trim();
@@ -1096,7 +1096,7 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
-        public static void addSchedule(ScheduleHelper schedule)
+        public static void addSchedule(Schedule schedule)
         {
             SqlConnection connection = GetConnection();
             String query = "INSERT INTO Schedules(SubjectID, StartTime, EndTime, Day) VALUES(@SubjectID, @StartTime, @EndTime, @Day)";
@@ -1207,7 +1207,7 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
-        public static void addAddress(AddressHelper address)
+        public static void addAddress(Address address)
         {
             SqlConnection connection = GetConnection();
             String query = "INSERT INTO Addresses(StreetUnitNumber, Street, SubdivisionVillageBldg, Barangay, City, Province, ZipCode) VALUES(" +
@@ -1227,7 +1227,7 @@ namespace Enrollment_System.Util
                 connection.Close();
         }
 
-        public static void addAdmin(AdminHelper admin)
+        public static void addAdmin(Admin admin)
         {
             SqlConnection connection = GetConnection();
             String query = "INSERT INTO Admins(username, password) VALUES(@username, @password)";
@@ -1241,7 +1241,7 @@ namespace Enrollment_System.Util
                 connection.Close();
         }
 
-        public static void addContact(ContactHelper contact)
+        public static void addContact(Contact contact)
         {
             SqlConnection connection = GetConnection();
             String query = "INSERT INTO Contacts(TelephoneNo, MobileNo, Email) VALUES(@TelephoneNo, @MobileNo, @Email)";
@@ -1256,7 +1256,7 @@ namespace Enrollment_System.Util
                 connection.Close();
         }
 
-        public static void addGuardian(GuardianHelper guardian)
+        public static void addGuardian(Guardian guardian)
         {
             SqlConnection connection = GetConnection();
             String query = "INSERT INTO Guardians(FirstName, LastName, MiddleInitial, SuffixName, MobileNumber, Email, Occupation, Relation) " +
@@ -1277,7 +1277,7 @@ namespace Enrollment_System.Util
                 connection.Close();
         }
 
-        public static void addSchoolHistory(SchoolHistoryHelper schoolhistory)
+        public static void addSchoolHistory(SchoolHistory schoolhistory)
         {
             SqlConnection connection = GetConnection();
             String query = "INSERT INTO SchoolHistory(Type, Name, ProgramTrackSpecialization) VALUES(@Type, @Name, @ProgramTrackSpecialization)";
@@ -1350,7 +1350,7 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
-        public static void removeSchedule(ScheduleHelper schedule)
+        public static void removeSchedule(Schedule schedule)
         {
             SqlConnection connection = GetConnection();
             String query = "DELETE FROM Schedules WHERE ID = @ID";
@@ -1394,7 +1394,7 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
-        public static void removeAddress(AddressHelper address)
+        public static void removeAddress(Address address)
         {
             SqlConnection connection = GetConnection();
             String query = "DELETE FROM Addresses WHERE ID = @ID";
@@ -1408,7 +1408,7 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
-        public static void removeAdmin(AdminHelper admin)
+        public static void removeAdmin(Admin admin)
         {
             SqlConnection connection = GetConnection();
             String query = "DELETE FROM Admins WHERE ID = @ID";
@@ -1422,7 +1422,7 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
-        public static void removeContact(ContactHelper contact)
+        public static void removeContact(Contact contact)
         {
             SqlConnection connection = GetConnection();
             String query = "DELETE FROM Contacts WHERE ID = @ID";
@@ -1436,7 +1436,7 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
-        public static void removeGuardian(GuardianHelper guardian)
+        public static void removeGuardian(Guardian guardian)
         {
             SqlConnection connection = GetConnection();
             String query = "DELETE FROM Guardians WHERE ID = @ID";
@@ -1450,7 +1450,7 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
-        public static void removeSchoolHistory(SchoolHistoryHelper schoolHistory)
+        public static void removeSchoolHistory(SchoolHistory schoolHistory)
         {
             SqlConnection connection = GetConnection();
             String query = "DELETE FROM SchoolHistory WHERE ID = @ID";
@@ -1614,7 +1614,7 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
-        public static void updateSchedule(ScheduleHelper schedule)
+        public static void updateSchedule(Schedule schedule)
         {
             SqlConnection connection = GetConnection();
             String query = "UPDATE Schedules SET SubjectID = @SubjectID, StartTime = @StartTime, EndTime = @EndTime, Day = @Day WHERE ID = @ID";
@@ -1731,7 +1731,7 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
-        public static void updateAddress(AddressHelper address)
+        public static void updateAddress(Address address)
         {
             SqlConnection connection = GetConnection();
             String query = "UPDATE Addresses SET StreetUnitNumber = @StreetUnitNumber, Street = @Street, SubdivisionVillageBldg = @SubdivisionVillageBldg" +
@@ -1752,7 +1752,7 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
-        public static void updateAdmin(AdminHelper admin)
+        public static void updateAdmin(Admin admin)
         {
             SqlConnection connection = GetConnection();
             String query = "UPDATE Admins SET username = @username, password = @password WHERE ID = @ID";
@@ -1767,7 +1767,7 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
-        public static void updateContact(ContactHelper contact)
+        public static void updateContact(Contact contact)
         {
             SqlConnection connection = GetConnection();
             String query = "UPDATE Contacts SET TelephoneNo = @TelephoneNo, MobileNo = @MobileNo, Email = @Email WHERE ID = @ID";
@@ -1783,7 +1783,7 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
-        public static void updateGuardian(GuardianHelper guardian)
+        public static void updateGuardian(Guardian guardian)
         {
             SqlConnection connection = GetConnection();
             String query = "UPDATE Guardians SET FirstName = @FirstName, LastName = @LastName, MiddleInitial = @MiddleInitial, " +
@@ -1806,7 +1806,7 @@ namespace Enrollment_System.Util
             connection.Close();
         }
 
-        public static void updateSchoolHistory(SchoolHistoryHelper schoolhistory)
+        public static void updateSchoolHistory(SchoolHistory schoolhistory)
         {
             SqlConnection connection = GetConnection();
             String query = "UPDATE SchoolHistory SET Type = @Type, Name = @Name, ProgramTrackSpecialization = @ProgramTrackSpecialization WHERE ID = @ID";
