@@ -58,6 +58,9 @@
             this.label41 = new System.Windows.Forms.Label();
             this.tb_FName_Guardian = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
+            this.cbExAcadlevel = new System.Windows.Forms.ComboBox();
+            this.label77 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbSchoolProgram = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
@@ -128,7 +131,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(555, 490);
+            this.btnUpdate.Location = new System.Drawing.Point(527, 488);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 290;
@@ -147,7 +150,6 @@
             // 
             // btnRecommendation
             // 
-            this.btnRecommendation.Enabled = false;
             this.btnRecommendation.Location = new System.Drawing.Point(160, 408);
             this.btnRecommendation.Name = "btnRecommendation";
             this.btnRecommendation.Size = new System.Drawing.Size(75, 23);
@@ -176,7 +178,6 @@
             // 
             // btnGoodMoral
             // 
-            this.btnGoodMoral.Enabled = false;
             this.btnGoodMoral.Location = new System.Drawing.Point(160, 379);
             this.btnGoodMoral.Name = "btnGoodMoral";
             this.btnGoodMoral.Size = new System.Drawing.Size(75, 23);
@@ -205,7 +206,6 @@
             // 
             // btnPSA
             // 
-            this.btnPSA.Enabled = false;
             this.btnPSA.Location = new System.Drawing.Point(160, 350);
             this.btnPSA.Name = "btnPSA";
             this.btnPSA.Size = new System.Drawing.Size(75, 23);
@@ -234,7 +234,6 @@
             // 
             // btnPicture
             // 
-            this.btnPicture.Enabled = false;
             this.btnPicture.Location = new System.Drawing.Point(160, 321);
             this.btnPicture.Name = "btnPicture";
             this.btnPicture.Size = new System.Drawing.Size(75, 23);
@@ -264,7 +263,6 @@
             // 
             // tb_Relation_Guardian
             // 
-            this.tb_Relation_Guardian.Enabled = false;
             this.tb_Relation_Guardian.Location = new System.Drawing.Point(955, 462);
             this.tb_Relation_Guardian.Name = "tb_Relation_Guardian";
             this.tb_Relation_Guardian.Size = new System.Drawing.Size(74, 20);
@@ -281,7 +279,6 @@
             // 
             // tb_Occupation_Guardian
             // 
-            this.tb_Occupation_Guardian.Enabled = false;
             this.tb_Occupation_Guardian.Location = new System.Drawing.Point(803, 462);
             this.tb_Occupation_Guardian.Name = "tb_Occupation_Guardian";
             this.tb_Occupation_Guardian.Size = new System.Drawing.Size(100, 20);
@@ -298,7 +295,6 @@
             // 
             // tb_Email_Guardian
             // 
-            this.tb_Email_Guardian.Enabled = false;
             this.tb_Email_Guardian.Location = new System.Drawing.Point(626, 462);
             this.tb_Email_Guardian.Name = "tb_Email_Guardian";
             this.tb_Email_Guardian.Size = new System.Drawing.Size(100, 20);
@@ -315,7 +311,6 @@
             // 
             // tb_MobileNumber_Guardian
             // 
-            this.tb_MobileNumber_Guardian.Enabled = false;
             this.tb_MobileNumber_Guardian.Location = new System.Drawing.Point(442, 462);
             this.tb_MobileNumber_Guardian.Name = "tb_MobileNumber_Guardian";
             this.tb_MobileNumber_Guardian.Size = new System.Drawing.Size(100, 20);
@@ -332,7 +327,6 @@
             // 
             // tb_SName_Guardian
             // 
-            this.tb_SName_Guardian.Enabled = false;
             this.tb_SName_Guardian.Location = new System.Drawing.Point(910, 434);
             this.tb_SName_Guardian.Name = "tb_SName_Guardian";
             this.tb_SName_Guardian.Size = new System.Drawing.Size(120, 20);
@@ -349,7 +343,6 @@
             // 
             // tb_MI_Guardian
             // 
-            this.tb_MI_Guardian.Enabled = false;
             this.tb_MI_Guardian.Location = new System.Drawing.Point(804, 434);
             this.tb_MI_Guardian.Name = "tb_MI_Guardian";
             this.tb_MI_Guardian.Size = new System.Drawing.Size(27, 20);
@@ -366,7 +359,6 @@
             // 
             // tb_LName_Guardian
             // 
-            this.tb_LName_Guardian.Enabled = false;
             this.tb_LName_Guardian.Location = new System.Drawing.Point(627, 434);
             this.tb_LName_Guardian.Name = "tb_LName_Guardian";
             this.tb_LName_Guardian.Size = new System.Drawing.Size(100, 20);
@@ -384,7 +376,6 @@
             // tb_FName_Guardian
             // 
             this.tb_FName_Guardian.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_FName_Guardian.Enabled = false;
             this.tb_FName_Guardian.Location = new System.Drawing.Point(443, 434);
             this.tb_FName_Guardian.Name = "tb_FName_Guardian";
             this.tb_FName_Guardian.Size = new System.Drawing.Size(100, 20);
@@ -399,6 +390,32 @@
             this.label42.TabIndex = 261;
             this.label42.Text = "First Name:";
             // 
+            // cbExAcadlevel
+            // 
+            this.cbExAcadlevel.FormattingEnabled = true;
+            this.cbExAcadlevel.Location = new System.Drawing.Point(115, 238);
+            this.cbExAcadlevel.Name = "cbExAcadlevel";
+            this.cbExAcadlevel.Size = new System.Drawing.Size(152, 21);
+            this.cbExAcadlevel.TabIndex = 260;
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(497, 233);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(34, 13);
+            this.label77.TabIndex = 259;
+            this.label77.Text = "Term:";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(25, 241);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(86, 13);
+            this.label76.TabIndex = 258;
+            this.label76.Text = "Academic Level:";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -412,7 +429,6 @@
             // 
             // tbSchoolProgram
             // 
-            this.tbSchoolProgram.Enabled = false;
             this.tbSchoolProgram.Location = new System.Drawing.Point(977, 367);
             this.tbSchoolProgram.Name = "tbSchoolProgram";
             this.tbSchoolProgram.Size = new System.Drawing.Size(117, 20);
@@ -429,7 +445,6 @@
             // 
             // tbSchoolName
             // 
-            this.tbSchoolName.Enabled = false;
             this.tbSchoolName.Location = new System.Drawing.Point(669, 367);
             this.tbSchoolName.Name = "tbSchoolName";
             this.tbSchoolName.Size = new System.Drawing.Size(146, 20);
@@ -447,7 +462,6 @@
             // cbSchoolType
             // 
             this.cbSchoolType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSchoolType.Enabled = false;
             this.cbSchoolType.FormattingEnabled = true;
             this.cbSchoolType.Location = new System.Drawing.Point(459, 367);
             this.cbSchoolType.Name = "cbSchoolType";
@@ -476,7 +490,6 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Enabled = false;
             this.tbEmail.Location = new System.Drawing.Point(848, 293);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(105, 20);
@@ -493,7 +506,6 @@
             // 
             // tbMobile
             // 
-            this.tbMobile.Enabled = false;
             this.tbMobile.Location = new System.Drawing.Point(634, 291);
             this.tbMobile.Name = "tbMobile";
             this.tbMobile.Size = new System.Drawing.Size(105, 20);
@@ -510,7 +522,6 @@
             // 
             // tbTelephone
             // 
-            this.tbTelephone.Enabled = false;
             this.tbTelephone.Location = new System.Drawing.Point(458, 289);
             this.tbTelephone.Name = "tbTelephone";
             this.tbTelephone.Size = new System.Drawing.Size(105, 20);
@@ -538,7 +549,6 @@
             // 
             // tbZipCode
             // 
-            this.tbZipCode.Enabled = false;
             this.tbZipCode.Location = new System.Drawing.Point(803, 210);
             this.tbZipCode.Name = "tbZipCode";
             this.tbZipCode.Size = new System.Drawing.Size(109, 20);
@@ -555,7 +565,6 @@
             // 
             // tbProvince
             // 
-            this.tbProvince.Enabled = false;
             this.tbProvince.Location = new System.Drawing.Point(623, 210);
             this.tbProvince.Name = "tbProvince";
             this.tbProvince.Size = new System.Drawing.Size(100, 20);
@@ -572,7 +581,6 @@
             // 
             // tbCity
             // 
-            this.tbCity.Enabled = false;
             this.tbCity.Location = new System.Drawing.Point(464, 210);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(100, 20);
@@ -589,7 +597,6 @@
             // 
             // tbBarangay
             // 
-            this.tbBarangay.Enabled = false;
             this.tbBarangay.Location = new System.Drawing.Point(999, 180);
             this.tbBarangay.Name = "tbBarangay";
             this.tbBarangay.Size = new System.Drawing.Size(92, 20);
@@ -606,7 +613,6 @@
             // 
             // tbSubdivison
             // 
-            this.tbSubdivison.Enabled = false;
             this.tbSubdivison.Location = new System.Drawing.Point(832, 180);
             this.tbSubdivison.Name = "tbSubdivison";
             this.tbSubdivison.Size = new System.Drawing.Size(100, 20);
@@ -623,7 +629,6 @@
             // 
             // tbStreet
             // 
-            this.tbStreet.Enabled = false;
             this.tbStreet.Location = new System.Drawing.Point(610, 180);
             this.tbStreet.Name = "tbStreet";
             this.tbStreet.Size = new System.Drawing.Size(86, 20);
@@ -640,7 +645,6 @@
             // 
             // tbStreetUnit
             // 
-            this.tbStreetUnit.Enabled = false;
             this.tbStreetUnit.Location = new System.Drawing.Point(459, 180);
             this.tbStreetUnit.Name = "tbStreetUnit";
             this.tbStreetUnit.Size = new System.Drawing.Size(105, 20);
@@ -668,7 +672,6 @@
             // 
             // tbReligion
             // 
-            this.tbReligion.Enabled = false;
             this.tbReligion.Location = new System.Drawing.Point(803, 114);
             this.tbReligion.Name = "tbReligion";
             this.tbReligion.Size = new System.Drawing.Size(279, 20);
@@ -685,7 +688,6 @@
             // 
             // tbBirthplace
             // 
-            this.tbBirthplace.Enabled = false;
             this.tbBirthplace.Location = new System.Drawing.Point(443, 114);
             this.tbBirthplace.Name = "tbBirthplace";
             this.tbBirthplace.Size = new System.Drawing.Size(284, 20);
@@ -702,7 +704,6 @@
             // 
             // tbBirthdate
             // 
-            this.tbBirthdate.Enabled = false;
             this.tbBirthdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.tbBirthdate.Location = new System.Drawing.Point(982, 83);
             this.tbBirthdate.Name = "tbBirthdate";
@@ -721,7 +722,6 @@
             // 
             // tbCitizenship
             // 
-            this.tbCitizenship.Enabled = false;
             this.tbCitizenship.Location = new System.Drawing.Point(803, 83);
             this.tbCitizenship.Name = "tbCitizenship";
             this.tbCitizenship.Size = new System.Drawing.Size(100, 20);
@@ -757,7 +757,6 @@
             // cbGender
             // 
             this.cbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGender.Enabled = false;
             this.cbGender.FormattingEnabled = true;
             this.cbGender.Location = new System.Drawing.Point(443, 83);
             this.cbGender.Name = "cbGender";
@@ -775,7 +774,6 @@
             // 
             // tbSName
             // 
-            this.tbSName.Enabled = false;
             this.tbSName.Location = new System.Drawing.Point(982, 54);
             this.tbSName.Name = "tbSName";
             this.tbSName.Size = new System.Drawing.Size(100, 20);
@@ -792,7 +790,6 @@
             // 
             // tbLName
             // 
-            this.tbLName.Enabled = false;
             this.tbLName.Location = new System.Drawing.Point(804, 53);
             this.tbLName.Name = "tbLName";
             this.tbLName.Size = new System.Drawing.Size(100, 20);
@@ -809,7 +806,6 @@
             // 
             // tbMName
             // 
-            this.tbMName.Enabled = false;
             this.tbMName.Location = new System.Drawing.Point(627, 53);
             this.tbMName.Name = "tbMName";
             this.tbMName.Size = new System.Drawing.Size(100, 20);
@@ -826,7 +822,6 @@
             // 
             // tbFName
             // 
-            this.tbFName.Enabled = false;
             this.tbFName.Location = new System.Drawing.Point(443, 53);
             this.tbFName.Name = "tbFName";
             this.tbFName.Size = new System.Drawing.Size(100, 20);
@@ -866,7 +861,6 @@
             // cbRegular
             // 
             this.cbRegular.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRegular.Enabled = false;
             this.cbRegular.FormattingEnabled = true;
             this.cbRegular.Location = new System.Drawing.Point(115, 211);
             this.cbRegular.Name = "cbRegular";
@@ -885,7 +879,6 @@
             // cbTerm
             // 
             this.cbTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTerm.Enabled = false;
             this.cbTerm.FormattingEnabled = true;
             this.cbTerm.Location = new System.Drawing.Point(115, 184);
             this.cbTerm.Name = "cbTerm";
@@ -904,7 +897,6 @@
             // cbSY
             // 
             this.cbSY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSY.Enabled = false;
             this.cbSY.FormattingEnabled = true;
             this.cbSY.Location = new System.Drawing.Point(115, 157);
             this.cbSY.Name = "cbSY";
@@ -923,7 +915,6 @@
             // cbYearLvl
             // 
             this.cbYearLvl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbYearLvl.Enabled = false;
             this.cbYearLvl.FormattingEnabled = true;
             this.cbYearLvl.Location = new System.Drawing.Point(115, 130);
             this.cbYearLvl.Name = "cbYearLvl";
@@ -942,7 +933,6 @@
             // cbAdmit
             // 
             this.cbAdmit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbAdmit.Enabled = false;
             this.cbAdmit.FormattingEnabled = true;
             this.cbAdmit.Location = new System.Drawing.Point(115, 103);
             this.cbAdmit.Name = "cbAdmit";
@@ -970,7 +960,6 @@
             // cbCourse
             // 
             this.cbCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCourse.Enabled = false;
             this.cbCourse.FormattingEnabled = true;
             this.cbCourse.Location = new System.Drawing.Point(115, 76);
             this.cbCourse.Name = "cbCourse";
@@ -1032,6 +1021,9 @@
             this.Controls.Add(this.label41);
             this.Controls.Add(this.tb_FName_Guardian);
             this.Controls.Add(this.label42);
+            this.Controls.Add(this.cbExAcadlevel);
+            this.Controls.Add(this.label77);
+            this.Controls.Add(this.label76);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbSchoolProgram);
             this.Controls.Add(this.label34);
@@ -1136,6 +1128,9 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.TextBox tb_FName_Guardian;
         private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.ComboBox cbExAcadlevel;
+        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.Label label76;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbSchoolProgram;
         private System.Windows.Forms.Label label34;
