@@ -37,10 +37,10 @@ namespace Enrollment_System.Menus
         private void EnrollFrm_Load(object sender, EventArgs e)
         {
             CenterToScreen();
-            updateDatabase();
+            updateDatabase(sender, e);
             loadComboBoxes();
         }
-        private void updateDatabase()
+        private void updateDatabase(object sender, EventArgs e)
         {
             Enrollment_System.loadTables();
         }
@@ -89,10 +89,10 @@ namespace Enrollment_System.Menus
             cbStatus.Items.Add("Married");
             cbAdmit.Items.Add("New Student");
             cbAdmit.Items.Add("Transferee");
-            cbYearLvl.Items.Add("Fourth Year Level");
-            cbYearLvl.Items.Add("Third Year Level");
-            cbYearLvl.Items.Add("Second Year Level");
             cbYearLvl.Items.Add("First Year Level");
+            cbYearLvl.Items.Add("Second Year Level");
+            cbYearLvl.Items.Add("Third Year Level");
+            cbYearLvl.Items.Add("Fourth Year Level");
             cbSY.Items.Add("2022-2023");
             cbSY.Items.Add("2023-2024");
             cbTerm.Items.Add("");
@@ -205,7 +205,7 @@ namespace Enrollment_System.Menus
             }
             if (string.IsNullOrEmpty(barangay))
             {
-                MessageBox.Show("Barangay is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Street is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (string.IsNullOrEmpty(city))
@@ -436,16 +436,16 @@ namespace Enrollment_System.Menus
             cbExRegular.Items.Add("Regular");
             cbExRegular.Items.Add("Iregular");
 
-            if (application.Course.Equals(cbExCourse.Text.ToString()) && application.SchoolYear.Equals("Fourth Year Level"))
+            if (application.Course.Equals(cbExCourse) && application.SchoolYear.Equals("Fourth Year Level"))
                 return;
             cbExYearLevel.Items.Add("Fourth Year Level");
-            if (application.Course.Equals(cbExCourse.Text.ToString()) && application.SchoolYear.Equals("Third Year Level"))
+            if (application.Course.Equals(cbExCourse) && application.SchoolYear.Equals("Third Year Level"))
                 return;
             cbExYearLevel.Items.Add("Third Year Level");
-            if (application.Course.Equals(cbExCourse.Text.ToString()) && application.SchoolYear.Equals("Second Year Level"))
+            if (application.Course.Equals(cbExCourse) && application.SchoolYear.Equals("Second Year Level"))
                 return;
             cbExYearLevel.Items.Add("Second Year Level");
-            if (application.Course.Equals(cbExCourse.Text.ToString()) && application.SchoolYear.Equals("First Year Level"))
+            if (application.Course.Equals(cbExCourse) && application.SchoolYear.Equals("First Year Level"))
                 return;
             cbExYearLevel.Items.Add("First Year Level");
 
@@ -534,7 +534,7 @@ namespace Enrollment_System.Menus
             }
             if (string.IsNullOrEmpty(barangay))
             {
-                MessageBox.Show("Barangay is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Street is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (string.IsNullOrEmpty(city))
@@ -588,6 +588,5 @@ namespace Enrollment_System.Menus
             contactManager.add(contact);
             return true;
         }
-       
     }
 }

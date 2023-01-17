@@ -176,11 +176,11 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Font = new System.Drawing.Font("Yu Gothic UI", 13.8F);
             this.label22.ForeColor = System.Drawing.Color.Blue;
             this.label22.Location = new System.Drawing.Point(16, 114);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(197, 24);
+            this.label22.Size = new System.Drawing.Size(206, 25);
             this.label22.TabIndex = 86;
             this.label22.Text = "Guardian\'s Information";
             this.label22.Click += new System.EventHandler(this.label22_Click);
@@ -308,10 +308,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe Print", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Yu Gothic UI", 22.2F, System.Drawing.FontStyle.Bold);
             this.label8.Location = new System.Drawing.Point(8, 30);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(510, 54);
+            this.label8.Size = new System.Drawing.Size(451, 41);
             this.label8.TabIndex = 115;
             this.label8.Text = "Parents/Guardian\'s Information";
             this.label8.Click += new System.EventHandler(this.label8_Click);
@@ -332,7 +332,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(692, 302);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.pictureBox1);
