@@ -496,6 +496,158 @@ namespace Enrollment_System.Menus.Admin
             }
         }
 
+        private void tbTelephone_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbTelephone.Text, "[^0-9]"))
+            {
+                tbTelephone.Text = tbTelephone.Text.Remove(tbTelephone.Text.Length - 1);
+            }
+        }
+
+        private void tbMobile_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbMobile.Text, "[^0-9]"))
+            {
+                tbMobile.Text = tbMobile.Text.Remove(tbMobile.Text.Length - 1);
+            }
+        }
+
+        private void tbZipCode_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbZipCode.Text, "[^0-9]"))
+            {
+                tbZipCode.Text = tbZipCode.Text.Remove(tbZipCode.Text.Length - 1);
+            }
+        }
+
+        private void tbFName_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbFName.Text, "[^A-Za-z ]"))
+            {
+                tbFName.Text = tbFName.Text.Remove(tbFName.Text.Length - 1);
+            }
+        }
+
+        private void tbMName_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbMName.Text, "[^A-Za-z ]"))
+            {
+                tbMName.Text = tbMName.Text.Remove(tbMName.Text.Length - 1);
+            }
+        }
+
+        private void tbLName_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbLName.Text, "[^A-Za-z ]"))
+            {
+                tbLName.Text = tbLName.Text.Remove(tbLName.Text.Length - 1);
+            }
+        }
+
+        private void tbSName_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbSName.Text, "[^A-Za-z ]"))
+            {
+                tbSName.Text = tbSName.Text.Remove(tbSName.Text.Length - 1);
+            }
+        }
+
+        private void tbCitizenship_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbCitizenship.Text, "[^A-Za-z ]"))
+            {
+                tbCitizenship.Text = tbCitizenship.Text.Remove(tbCitizenship.Text.Length - 1);
+            }
+        }
+
+        private void tbBirthplace_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbBirthplace.Text, "[^A-Za-z ]"))
+            {
+                tbBirthplace.Text = tbBirthplace.Text.Remove(tbBirthplace.Text.Length - 1);
+            }
+        }
+
+        private void tbReligion_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbReligion.Text, "[^A-Za-z ]"))
+            {
+                tbReligion.Text = tbReligion.Text.Remove(tbReligion.Text.Length - 1);
+            }
+        }
+
+        private void tbCity_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbCity.Text, "[^A-Za-z ]"))
+            {
+                tbCity.Text = tbCity.Text.Remove(tbCity.Text.Length - 1);
+            }
+        }
+
+        private void tbProvince_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbProvince.Text, "[^A-Za-z ]"))
+            {
+                tbProvince.Text = tbProvince.Text.Remove(tbProvince.Text.Length - 1);
+            }
+        }
+
+        private void tb_FName_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_FName_Guardian.Text, "[^A-Za-z ]"))
+            {
+                tb_FName_Guardian.Text = tb_FName_Guardian.Text.Remove(tb_FName_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_LName_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_LName_Guardian.Text, "[^A-Za-z ]"))
+            {
+                tb_LName_Guardian.Text = tb_LName_Guardian.Text.Remove(tb_LName_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_MI_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_MI_Guardian.Text, "[^A-Za-z ]"))
+            {
+                tb_MI_Guardian.Text = tb_MI_Guardian.Text.Remove(tb_MI_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_SName_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_MI_Guardian.Text, "[^A-Za-z ]"))
+            {
+                tb_MI_Guardian.Text = tb_MI_Guardian.Text.Remove(tb_MI_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_Occupation_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_Occupation_Guardian.Text, "[^A-Za-z ]"))
+            {
+                tb_Occupation_Guardian.Text = tb_Occupation_Guardian.Text.Remove(tb_Occupation_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_MobileNumber_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_MobileNumber_Guardian.Text, "[^0-9]"))
+            {
+                tb_MobileNumber_Guardian.Text = tb_MobileNumber_Guardian.Text.Remove(tb_MobileNumber_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_Relation_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_Relation_Guardian.Text, "[^A-Za-z ]"))
+            {
+                tb_Relation_Guardian.Text = tb_Relation_Guardian.Text.Remove(tb_MobileNumber_Guardian.Text.Length - 1);
+            }
+        }
+
         private void btnRecommendation_Click(object sender, EventArgs e)
         {
             openFileDialog1.InitialDirectory = "C://Desktop";

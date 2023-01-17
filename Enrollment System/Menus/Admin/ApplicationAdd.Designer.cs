@@ -264,6 +264,7 @@
             this.tbReligion.Name = "tbReligion";
             this.tbReligion.Size = new System.Drawing.Size(279, 20);
             this.tbReligion.TabIndex = 129;
+            this.tbReligion.TextChanged += new System.EventHandler(this.tbReligion_TextChanged);
             // 
             // label18
             // 
@@ -280,6 +281,7 @@
             this.tbBirthplace.Name = "tbBirthplace";
             this.tbBirthplace.Size = new System.Drawing.Size(284, 20);
             this.tbBirthplace.TabIndex = 127;
+            this.tbBirthplace.TextChanged += new System.EventHandler(this.tbBirthplace_TextChanged);
             // 
             // label17
             // 
@@ -305,6 +307,7 @@
             this.tbCitizenship.Name = "tbCitizenship";
             this.tbCitizenship.Size = new System.Drawing.Size(100, 20);
             this.tbCitizenship.TabIndex = 123;
+            this.tbCitizenship.TextChanged += new System.EventHandler(this.tbCitizenship_TextChanged);
             // 
             // label15
             // 
@@ -357,6 +360,7 @@
             this.tbSName.Name = "tbSName";
             this.tbSName.Size = new System.Drawing.Size(100, 20);
             this.tbSName.TabIndex = 117;
+            this.tbSName.TextChanged += new System.EventHandler(this.tbSName_TextChanged);
             // 
             // label12
             // 
@@ -373,6 +377,7 @@
             this.tbLName.Name = "tbLName";
             this.tbLName.Size = new System.Drawing.Size(100, 20);
             this.tbLName.TabIndex = 115;
+            this.tbLName.TextChanged += new System.EventHandler(this.tbLName_TextChanged);
             // 
             // label11
             // 
@@ -389,6 +394,7 @@
             this.tbMName.Name = "tbMName";
             this.tbMName.Size = new System.Drawing.Size(100, 20);
             this.tbMName.TabIndex = 113;
+            this.tbMName.TextChanged += new System.EventHandler(this.tbMName_TextChanged);
             // 
             // label10
             // 
@@ -405,6 +411,7 @@
             this.tbFName.Name = "tbFName";
             this.tbFName.Size = new System.Drawing.Size(100, 20);
             this.tbFName.TabIndex = 111;
+            this.tbFName.TextChanged += new System.EventHandler(this.tbFName_TextChanged);
             // 
             // label9
             // 
@@ -498,6 +505,7 @@
             this.tbMobile.Name = "tbMobile";
             this.tbMobile.Size = new System.Drawing.Size(105, 20);
             this.tbMobile.TabIndex = 149;
+            this.tbMobile.TextChanged += new System.EventHandler(this.tbMobile_TextChanged);
             // 
             // label29
             // 
@@ -514,6 +522,7 @@
             this.tbTelephone.Name = "tbTelephone";
             this.tbTelephone.Size = new System.Drawing.Size(105, 20);
             this.tbTelephone.TabIndex = 147;
+            this.tbTelephone.TextChanged += new System.EventHandler(this.tbTelephone_TextChanged);
             // 
             // label28
             // 
@@ -541,6 +550,7 @@
             this.tbZipCode.Name = "tbZipCode";
             this.tbZipCode.Size = new System.Drawing.Size(109, 20);
             this.tbZipCode.TabIndex = 144;
+            this.tbZipCode.TextChanged += new System.EventHandler(this.tbZipCode_TextChanged);
             // 
             // label26
             // 
@@ -557,6 +567,7 @@
             this.tbProvince.Name = "tbProvince";
             this.tbProvince.Size = new System.Drawing.Size(100, 20);
             this.tbProvince.TabIndex = 142;
+            this.tbProvince.TextChanged += new System.EventHandler(this.tbProvince_TextChanged);
             // 
             // label25
             // 
@@ -573,6 +584,7 @@
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(100, 20);
             this.tbCity.TabIndex = 140;
+            this.tbCity.TextChanged += new System.EventHandler(this.tbCity_TextChanged);
             // 
             // label24
             // 
@@ -675,6 +687,7 @@
             this.tb_Relation_Guardian.Name = "tb_Relation_Guardian";
             this.tb_Relation_Guardian.Size = new System.Drawing.Size(74, 20);
             this.tb_Relation_Guardian.TabIndex = 179;
+            this.tb_Relation_Guardian.TextChanged += new System.EventHandler(this.tb_Relation_Guardian_TextChanged);
             // 
             // label35
             // 
@@ -691,6 +704,7 @@
             this.tb_Occupation_Guardian.Name = "tb_Occupation_Guardian";
             this.tb_Occupation_Guardian.Size = new System.Drawing.Size(100, 20);
             this.tb_Occupation_Guardian.TabIndex = 177;
+            this.tb_Occupation_Guardian.TextChanged += new System.EventHandler(this.tb_Occupation_Guardian_TextChanged);
             // 
             // label36
             // 
@@ -723,6 +737,7 @@
             this.tb_MobileNumber_Guardian.Name = "tb_MobileNumber_Guardian";
             this.tb_MobileNumber_Guardian.Size = new System.Drawing.Size(100, 20);
             this.tb_MobileNumber_Guardian.TabIndex = 173;
+            this.tb_MobileNumber_Guardian.TextChanged += new System.EventHandler(this.tb_MobileNumber_Guardian_TextChanged);
             // 
             // label38
             // 
@@ -739,6 +754,7 @@
             this.tb_SName_Guardian.Name = "tb_SName_Guardian";
             this.tb_SName_Guardian.Size = new System.Drawing.Size(120, 20);
             this.tb_SName_Guardian.TabIndex = 171;
+            this.tb_SName_Guardian.TextChanged += new System.EventHandler(this.tb_SName_Guardian_TextChanged);
             // 
             // label39
             // 
@@ -755,6 +771,7 @@
             this.tb_MI_Guardian.Name = "tb_MI_Guardian";
             this.tb_MI_Guardian.Size = new System.Drawing.Size(27, 20);
             this.tb_MI_Guardian.TabIndex = 169;
+            this.tb_MI_Guardian.TextChanged += new System.EventHandler(this.tb_MI_Guardian_TextChanged);
             // 
             // label40
             // 
@@ -771,6 +788,7 @@
             this.tb_LName_Guardian.Name = "tb_LName_Guardian";
             this.tb_LName_Guardian.Size = new System.Drawing.Size(100, 20);
             this.tb_LName_Guardian.TabIndex = 167;
+            this.tb_LName_Guardian.TextChanged += new System.EventHandler(this.tb_LName_Guardian_TextChanged);
             // 
             // label41
             // 
@@ -788,6 +806,7 @@
             this.tb_FName_Guardian.Name = "tb_FName_Guardian";
             this.tb_FName_Guardian.Size = new System.Drawing.Size(100, 20);
             this.tb_FName_Guardian.TabIndex = 165;
+            this.tb_FName_Guardian.TextChanged += new System.EventHandler(this.tb_FName_Guardian_TextChanged);
             // 
             // label42
             // 
