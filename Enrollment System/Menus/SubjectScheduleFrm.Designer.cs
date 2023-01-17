@@ -36,23 +36,24 @@
             // lblSubject
             // 
             this.lblSubject.AutoSize = true;
+            this.lblSubject.Font = new System.Drawing.Font("Yu Gothic UI", 9F);
             this.lblSubject.Location = new System.Drawing.Point(12, 9);
             this.lblSubject.Name = "lblSubject";
-            this.lblSubject.Size = new System.Drawing.Size(94, 13);
+            this.lblSubject.Size = new System.Drawing.Size(100, 15);
             this.lblSubject.TabIndex = 0;
             this.lblSubject.Text = "Subject Schedule:";
             // 
             // cbSchedule
             // 
             this.cbSchedule.FormattingEnabled = true;
-            this.cbSchedule.Location = new System.Drawing.Point(12, 25);
+            this.cbSchedule.Location = new System.Drawing.Point(12, 29);
             this.cbSchedule.Name = "cbSchedule";
-            this.cbSchedule.Size = new System.Drawing.Size(327, 21);
+            this.cbSchedule.Size = new System.Drawing.Size(335, 21);
             this.cbSchedule.TabIndex = 1;
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(132, 52);
+            this.btnConfirm.Location = new System.Drawing.Point(157, 56);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.TabIndex = 2;
@@ -60,15 +61,15 @@
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // ScheduleFrm
+            // SubjectScheduleFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 80);
+            this.ClientSize = new System.Drawing.Size(359, 87);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.cbSchedule);
             this.Controls.Add(this.lblSubject);
-            this.Name = "ScheduleFrm";
+            this.Name = "SubjectScheduleFrm";
             this.Text = "Schedule Selector";
             this.Load += new System.EventHandler(this.ScheduleFrm_Load);
             this.ResumeLayout(false);

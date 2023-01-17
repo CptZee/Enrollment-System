@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminFrm));
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnRefresh1 = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
             this.btnModifyApp = new System.Windows.Forms.Button();
             this.btnRemoveApp = new System.Windows.Forms.Button();
@@ -38,28 +39,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.AppList = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnRefresh2 = new System.Windows.Forms.Button();
             this.btnModifyCourse = new System.Windows.Forms.Button();
             this.btnRemoveCourse = new System.Windows.Forms.Button();
             this.btnAddCourse = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.CourseList = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnRefresh3 = new System.Windows.Forms.Button();
             this.btnModifySubj = new System.Windows.Forms.Button();
             this.btnRemoveSubj = new System.Windows.Forms.Button();
             this.btnAddSubj = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.SubjectList = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnRefresh4 = new System.Windows.Forms.Button();
             this.btnModifySchedule = new System.Windows.Forms.Button();
             this.btnRemoveSchedule = new System.Windows.Forms.Button();
             this.btnAddSchedule = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.ScheduleList = new System.Windows.Forms.DataGridView();
             this.btnReturn = new System.Windows.Forms.Button();
-            this.btnRefresh1 = new System.Windows.Forms.Button();
-            this.btnRefresh2 = new System.Windows.Forms.Button();
-            this.btnRefresh3 = new System.Windows.Forms.Button();
-            this.btnRefresh4 = new System.Windows.Forms.Button();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppList)).BeginInit();
@@ -101,6 +101,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Applications";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnRefresh1
+            // 
+            this.btnRefresh1.Location = new System.Drawing.Point(774, 377);
+            this.btnRefresh1.Name = "btnRefresh1";
+            this.btnRefresh1.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh1.TabIndex = 15;
+            this.btnRefresh1.Text = "Refresh";
+            this.btnRefresh1.UseVisualStyleBackColor = true;
+            this.btnRefresh1.Click += new System.EventHandler(this.btnRefresh1_Click);
             // 
             // btnView
             // 
@@ -145,10 +155,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe Print", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 2);
+            this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(6, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 47);
+            this.label1.Size = new System.Drawing.Size(169, 37);
             this.label1.TabIndex = 2;
             this.label1.Text = "Applications";
             // 
@@ -178,6 +188,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Courses";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnRefresh2
+            // 
+            this.btnRefresh2.Location = new System.Drawing.Point(777, 377);
+            this.btnRefresh2.Name = "btnRefresh2";
+            this.btnRefresh2.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh2.TabIndex = 16;
+            this.btnRefresh2.Text = "Refresh";
+            this.btnRefresh2.UseVisualStyleBackColor = true;
+            this.btnRefresh2.Click += new System.EventHandler(this.btnRefresh2_Click);
             // 
             // btnModifyCourse
             // 
@@ -243,6 +263,16 @@
             this.tabPage3.Text = "Subjects";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btnRefresh3
+            // 
+            this.btnRefresh3.Location = new System.Drawing.Point(777, 377);
+            this.btnRefresh3.Name = "btnRefresh3";
+            this.btnRefresh3.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh3.TabIndex = 16;
+            this.btnRefresh3.Text = "Refresh";
+            this.btnRefresh3.UseVisualStyleBackColor = true;
+            this.btnRefresh3.Click += new System.EventHandler(this.btnRefresh3_Click);
+            // 
             // btnModifySubj
             // 
             this.btnModifySubj.Location = new System.Drawing.Point(777, 110);
@@ -307,6 +337,16 @@
             this.tabPage4.Text = "Schedules";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // btnRefresh4
+            // 
+            this.btnRefresh4.Location = new System.Drawing.Point(777, 377);
+            this.btnRefresh4.Name = "btnRefresh4";
+            this.btnRefresh4.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh4.TabIndex = 16;
+            this.btnRefresh4.Text = "Refresh";
+            this.btnRefresh4.UseVisualStyleBackColor = true;
+            this.btnRefresh4.Click += new System.EventHandler(this.btnRefresh4_Click);
+            // 
             // btnModifySchedule
             // 
             this.btnModifySchedule.Location = new System.Drawing.Point(777, 111);
@@ -364,46 +404,6 @@
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // btnRefresh1
-            // 
-            this.btnRefresh1.Location = new System.Drawing.Point(774, 377);
-            this.btnRefresh1.Name = "btnRefresh1";
-            this.btnRefresh1.Size = new System.Drawing.Size(75, 23);
-            this.btnRefresh1.TabIndex = 15;
-            this.btnRefresh1.Text = "Refresh";
-            this.btnRefresh1.UseVisualStyleBackColor = true;
-            this.btnRefresh1.Click += new System.EventHandler(this.btnRefresh1_Click);
-            // 
-            // btnRefresh2
-            // 
-            this.btnRefresh2.Location = new System.Drawing.Point(777, 377);
-            this.btnRefresh2.Name = "btnRefresh2";
-            this.btnRefresh2.Size = new System.Drawing.Size(75, 23);
-            this.btnRefresh2.TabIndex = 16;
-            this.btnRefresh2.Text = "Refresh";
-            this.btnRefresh2.UseVisualStyleBackColor = true;
-            this.btnRefresh2.Click += new System.EventHandler(this.btnRefresh2_Click);
-            // 
-            // btnRefresh3
-            // 
-            this.btnRefresh3.Location = new System.Drawing.Point(777, 377);
-            this.btnRefresh3.Name = "btnRefresh3";
-            this.btnRefresh3.Size = new System.Drawing.Size(75, 23);
-            this.btnRefresh3.TabIndex = 16;
-            this.btnRefresh3.Text = "Refresh";
-            this.btnRefresh3.UseVisualStyleBackColor = true;
-            this.btnRefresh3.Click += new System.EventHandler(this.btnRefresh3_Click);
-            // 
-            // btnRefresh4
-            // 
-            this.btnRefresh4.Location = new System.Drawing.Point(777, 377);
-            this.btnRefresh4.Name = "btnRefresh4";
-            this.btnRefresh4.Size = new System.Drawing.Size(75, 23);
-            this.btnRefresh4.TabIndex = 16;
-            this.btnRefresh4.Text = "Refresh";
-            this.btnRefresh4.UseVisualStyleBackColor = true;
-            this.btnRefresh4.Click += new System.EventHandler(this.btnRefresh4_Click);
             // 
             // AdminFrm
             // 
