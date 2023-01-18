@@ -498,6 +498,7 @@
             this.tbMobile.Name = "tbMobile";
             this.tbMobile.Size = new System.Drawing.Size(105, 20);
             this.tbMobile.TabIndex = 149;
+            this.tbMobile.TextChanged += new System.EventHandler(this.tbMobile_TextChanged);
             // 
             // label29
             // 
@@ -514,6 +515,7 @@
             this.tbTelephone.Name = "tbTelephone";
             this.tbTelephone.Size = new System.Drawing.Size(105, 20);
             this.tbTelephone.TabIndex = 147;
+            this.tbTelephone.TextChanged += new System.EventHandler(this.tbTelephone_TextChanged);
             // 
             // label28
             // 
@@ -541,6 +543,7 @@
             this.tbZipCode.Name = "tbZipCode";
             this.tbZipCode.Size = new System.Drawing.Size(109, 20);
             this.tbZipCode.TabIndex = 144;
+            this.tbZipCode.TextChanged += new System.EventHandler(this.tbZipCode_TextChanged);
             // 
             // label26
             // 
@@ -723,6 +726,7 @@
             this.tb_MobileNumber_Guardian.Name = "tb_MobileNumber_Guardian";
             this.tb_MobileNumber_Guardian.Size = new System.Drawing.Size(100, 20);
             this.tb_MobileNumber_Guardian.TabIndex = 173;
+            this.tb_MobileNumber_Guardian.TextChanged += new System.EventHandler(this.tb_MobileNumber_Guardian_TextChanged);
             // 
             // label38
             // 

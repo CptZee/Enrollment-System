@@ -70,7 +70,7 @@ namespace Enrollment_System.Menus
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ApplicationConfrimationFrm frm = new ApplicationConfrimationFrm();
+            ApplicationGuardianInfoFrm frm = new ApplicationGuardianInfoFrm(application);
             frm.ShowDialog();
             this.Close();
         }

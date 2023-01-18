@@ -877,6 +877,7 @@
             this.tbMobile.Name = "tbMobile";
             this.tbMobile.Size = new System.Drawing.Size(105, 20);
             this.tbMobile.TabIndex = 51;
+            this.tbMobile.TextChanged += new System.EventHandler(this.tbMobile_TextChanged);
             // 
             // label29
             // 
@@ -893,6 +894,7 @@
             this.tbTelephone.Name = "tbTelephone";
             this.tbTelephone.Size = new System.Drawing.Size(105, 20);
             this.tbTelephone.TabIndex = 49;
+            this.tbTelephone.TextChanged += new System.EventHandler(this.tbTelephone_TextChanged);
             // 
             // label28
             // 
@@ -920,6 +922,7 @@
             this.tbZipCode.Name = "tbZipCode";
             this.tbZipCode.Size = new System.Drawing.Size(109, 20);
             this.tbZipCode.TabIndex = 46;
+            this.tbZipCode.TextChanged += new System.EventHandler(this.tbZipCode_TextChanged);
             // 
             // label26
             // 
@@ -1633,6 +1636,7 @@
             this.tbExMobile.Name = "tbExMobile";
             this.tbExMobile.Size = new System.Drawing.Size(105, 20);
             this.tbExMobile.TabIndex = 164;
+            this.tbExMobile.TextChanged += new System.EventHandler(this.tbExMobile_TextChanged);
             // 
             // label104
             // 
@@ -1650,6 +1654,7 @@
             this.tbExTelephone.Name = "tbExTelephone";
             this.tbExTelephone.Size = new System.Drawing.Size(105, 20);
             this.tbExTelephone.TabIndex = 162;
+            this.tbExTelephone.TextChanged += new System.EventHandler(this.tbExTelephone_TextChanged);
             // 
             // label105
             // 
@@ -1678,6 +1683,7 @@
             this.tbExZipCode.Name = "tbExZipCode";
             this.tbExZipCode.Size = new System.Drawing.Size(109, 20);
             this.tbExZipCode.TabIndex = 159;
+            this.tbExZipCode.TextChanged += new System.EventHandler(this.tbExZipCode_TextChanged);
             // 
             // label107
             // 
@@ -1695,6 +1701,7 @@
             this.tbExProvince.Name = "tbExProvince";
             this.tbExProvince.Size = new System.Drawing.Size(100, 20);
             this.tbExProvince.TabIndex = 157;
+            this.tbExProvince.TextChanged += new System.EventHandler(this.tbExProvince_TextChanged);
             // 
             // label108
             // 
@@ -1712,6 +1719,7 @@
             this.tbExCity.Name = "tbExCity";
             this.tbExCity.Size = new System.Drawing.Size(100, 20);
             this.tbExCity.TabIndex = 155;
+            this.tbExCity.TextChanged += new System.EventHandler(this.tbExCity_TextChanged);
             // 
             // label109
             // 
@@ -1808,6 +1816,7 @@
             this.tbExReligion.Name = "tbExReligion";
             this.tbExReligion.Size = new System.Drawing.Size(279, 20);
             this.tbExReligion.TabIndex = 144;
+            this.tbExReligion.TextChanged += new System.EventHandler(this.tbExReligion_TextChanged);
             // 
             // label115
             // 
@@ -1825,6 +1834,7 @@
             this.tbExBirthplace.Name = "tbExBirthplace";
             this.tbExBirthplace.Size = new System.Drawing.Size(284, 20);
             this.tbExBirthplace.TabIndex = 142;
+            this.tbExBirthplace.TextChanged += new System.EventHandler(this.tbExBirthplace_TextChanged);
             // 
             // label116
             // 
@@ -1861,6 +1871,7 @@
             this.tbExCitizenship.Name = "tbExCitizenship";
             this.tbExCitizenship.Size = new System.Drawing.Size(100, 20);
             this.tbExCitizenship.TabIndex = 138;
+            this.tbExCitizenship.TextChanged += new System.EventHandler(this.tbExCitizenship_TextChanged);
             // 
             // label118
             // 
@@ -1916,6 +1927,7 @@
             this.tbExSuffixName.Name = "tbExSuffixName";
             this.tbExSuffixName.Size = new System.Drawing.Size(100, 20);
             this.tbExSuffixName.TabIndex = 132;
+            this.tbExSuffixName.TextChanged += new System.EventHandler(this.tbExSuffixName_TextChanged);
             // 
             // label121
             // 
@@ -1933,6 +1945,7 @@
             this.tbExLastName.Name = "tbExLastName";
             this.tbExLastName.Size = new System.Drawing.Size(100, 20);
             this.tbExLastName.TabIndex = 130;
+            this.tbExLastName.TextChanged += new System.EventHandler(this.tbExLastName_TextChanged);
             // 
             // label122
             // 
@@ -1950,6 +1963,7 @@
             this.tbExMiddleName.Name = "tbExMiddleName";
             this.tbExMiddleName.Size = new System.Drawing.Size(100, 20);
             this.tbExMiddleName.TabIndex = 128;
+            this.tbExMiddleName.TextChanged += new System.EventHandler(this.tbExMiddleName_TextChanged);
             // 
             // label123
             // 
@@ -1967,6 +1981,7 @@
             this.tbExFirstName.Name = "tbExFirstName";
             this.tbExFirstName.Size = new System.Drawing.Size(100, 20);
             this.tbExFirstName.TabIndex = 126;
+            this.tbExFirstName.TextChanged += new System.EventHandler(this.tbExFirstName_TextChanged);
             // 
             // label124
             // 
@@ -2205,6 +2220,7 @@
             this.tbExID.Name = "tbExID";
             this.tbExID.Size = new System.Drawing.Size(152, 20);
             this.tbExID.TabIndex = 45;
+            this.tbExID.TextChanged += new System.EventHandler(this.tbExID_TextChanged);
             // 
             // label69
             // 

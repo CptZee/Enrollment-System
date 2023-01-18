@@ -587,6 +587,44 @@ namespace Enrollment_System.Menus.Admin
             enableFields();
         }
 
+        private void tbTelephone_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbTelephone.Text, "[^0-9]"))
+            {
+
+                tbTelephone.Text = tbTelephone.Text.Remove(tbTelephone.Text.Length - 1);
+            }
+        }
+
+        private void tbMobile_TextChanged(object sender, EventArgs e)
+        {
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbMobile.Text, "[^0-9]"))
+            {
+
+                tbMobile.Text = tbMobile.Text.Remove(tbMobile.Text.Length - 1);
+            }
+        }
+
+        private void tbZipCode_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbZipCode.Text, "[^0-9]"))
+            {
+
+                tbZipCode.Text = tbZipCode.Text.Remove(tbZipCode.Text.Length - 1);
+            }
+
+        }
+
+        private void tb_MobileNumber_Guardian_TextChanged(object sender, EventArgs e)
+        {
+             if (System.Text.RegularExpressions.Regex.IsMatch(tb_MobileNumber_Guardian.Text, "[^0-9]"))
+            {
+
+                tb_MobileNumber_Guardian.Text = tb_MobileNumber_Guardian.Text.Remove(tb_MobileNumber_Guardian.Text.Length - 1);
+            }
+        }
+
         private void btnRecommendation_Click(object sender, EventArgs e)
         {
             openFileDialog1.InitialDirectory = "C://Desktop";

@@ -22,7 +22,6 @@ namespace Enrollment_System.Data
 
         public void add(ApplicationForm application)
         {
-            Console.WriteLine("Application " + application.ID + " added!");
             applicationForms.Add(application);
         }
 
@@ -54,6 +53,7 @@ namespace Enrollment_System.Data
         }
         public ApplicationForm find(int Id)
         {
+            Console.WriteLine("Applications " + applicationForms.Count);
             for (int i = 0; i < applicationForms.Count; i++)
             {
                 ApplicationForm s = (ApplicationForm)applicationForms[i];

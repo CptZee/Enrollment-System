@@ -352,6 +352,12 @@ namespace Enrollment_System.Menus
         {
             enableFields();
             ApplicationForm application = applicationFormsManager.find(student.ApplicationID);
+
+            if (application == null)
+            {
+                MessageBox.Show("Student ID not found! Please check your student ID!", "Student ID not found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             loadExistingStudentComboBoxes(application);
 
             cbExCourse.SelectedIndex = cbExCourse.FindStringExact(application.Course);
@@ -588,6 +594,149 @@ namespace Enrollment_System.Menus
             contactManager.add(contact);
             return true;
         }
-       
+
+        private void tbZipCode_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbZipCode.Text, "[^0-9]"))
+            {
+
+                tbZipCode.Text = tbZipCode.Text.Remove(tbZipCode.Text.Length - 1);
+            }
+        }
+
+        private void tbTelephone_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbTelephone.Text, "[^0-9]"))
+            {
+
+                tbTelephone.Text = tbTelephone.Text.Remove(tbTelephone.Text.Length - 1);
+            }
+        }
+
+        private void tbMobile_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbMobile.Text, "[^0-9]"))
+            {
+
+                tbMobile.Text = tbMobile.Text.Remove(tbMobile.Text.Length - 1);
+            }
+        }
+
+        private void tbExZipCode_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbExZipCode.Text, "[^0-9]"))
+            {
+
+                tbExZipCode.Text = tbExZipCode.Text.Remove(tbExZipCode.Text.Length - 1);
+            }
+        }
+
+        private void tbExTelephone_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbExTelephone.Text, "[^0-9]"))
+            {
+
+                tbExTelephone.Text = tbExTelephone.Text.Remove(tbExTelephone.Text.Length - 1);
+            }
+        }
+
+        private void tbExMobile_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbExMobile.Text, "[^0-9]"))
+            {
+
+                tbExMobile.Text = tbExMobile.Text.Remove(tbExMobile.Text.Length - 1);
+            }
+        }
+
+        private void tbExFirstName_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbExFirstName.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbExFirstName.Text = tbExFirstName.Text.Remove(tbExFirstName.Text.Length - 1);
+            }
+        }
+
+        private void tbExMiddleName_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbExMiddleName.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbExMiddleName.Text = tbExMiddleName.Text.Remove(tbExMiddleName.Text.Length - 1);
+            }
+        }
+
+        private void tbExLastName_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbExLastName.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbExLastName.Text = tbExLastName.Text.Remove(tbExLastName.Text.Length - 1);
+            }
+        }
+
+        private void tbExSuffixName_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbExSuffixName.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbExSuffixName.Text = tbExSuffixName.Text.Remove(tbExSuffixName.Text.Length - 1);
+            }
+        }
+
+        private void tbExCitizenship_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbExCitizenship.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbExCitizenship.Text = tbExCitizenship.Text.Remove(tbExCitizenship.Text.Length - 1);
+            }
+        }
+
+        private void tbExBirthplace_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbExBirthplace.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbExBirthplace.Text = tbExBirthplace.Text.Remove(tbExBirthplace.Text.Length - 1);
+            }
+        }
+
+        private void tbExReligion_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbExReligion.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbExReligion.Text = tbExReligion.Text.Remove(tbExReligion.Text.Length - 1);
+            }
+        }
+
+        private void tbExCity_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbExCity.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbExCity.Text = tbExCity.Text.Remove(tbExCity.Text.Length - 1);
+            }
+        }
+
+        private void tbExProvince_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbExProvince.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbExProvince.Text = tbExProvince.Text.Remove(tbExProvince.Text.Length - 1);
+            }
+        }
+
+        private void tbExID_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbExID.Text, "[^0-9]"))
+            {
+
+                tbExID.Text = tbExID.Text.Remove(tbExID.Text.Length - 1);
+            }
+        }
     }
 }

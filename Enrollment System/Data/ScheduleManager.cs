@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Enrollment_System.Util;
+using System;
 
 namespace Enrollment_System.Data
 {
@@ -65,7 +66,7 @@ namespace Enrollment_System.Data
             for (int i = 0; i < schedules.Count; i++)
             {
                 Schedule s = (Schedule)schedules[i];
-                string schedule = s.StartTime + " - " + s.EndTime;
+                string schedule = s.StartTime + " - " + s.EndTime + ", " + s.Day;
                 if (schedule.Equals(Time))
                     return s;
             }

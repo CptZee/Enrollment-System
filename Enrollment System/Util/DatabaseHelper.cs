@@ -13,19 +13,21 @@ namespace Enrollment_System.Util
     class DatabaseHelper
     {
         //Modify depending on the computer's database. WILL ONLY WORK ON AARON's PC!
-        protected static String connectionURL = @"Data Source=AARON\SQLEXPRESS;Integrated Security=True";
+        protected static String applicationsURL = @"Data Source=AARON\SQLEXPRESS;Initial Catalog=Applications;Integrated Security=True";
+        protected static String systemURL = @"Data Source=AARON\SQLEXPRESS;Initial Catalog=System;Integrated Security=True";
 
         /*
          * A simple method which returns the connection.
          * 
         **/
-        public static SqlConnection GetConnection()
+        protected static SqlConnection getApplicationConnection()
         {
-            SqlConnection connection = new SqlConnection(connectionURL);
-            if((connection != null) && (connection.State == ConnectionState.Open))
-            {
-                connection.Close();
-            }
+            SqlConnection connection = new SqlConnection(applicationsURL);
+            return connection;
+        }
+        protected static SqlConnection getSystemConnection()
+        {
+            SqlConnection connection = new SqlConnection(systemURL);
             return connection;
         }
 
@@ -790,7 +792,7 @@ namespace Enrollment_System.Util
                         ApplicationForm application = applicationManager.find(reader.GetInt32(1));
                         if (application == null)
                             return;
-                        application.RequirementIDs.Add(reader.GetInt32(2));
+                        application.RequirementID = reader.GetInt32(2);
                         applicationManager.update(application);
                     }
                 }

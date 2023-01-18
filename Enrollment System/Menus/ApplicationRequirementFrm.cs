@@ -15,12 +15,16 @@ namespace Enrollment_System.Menus
     public partial class ApplicationRequirementFrm : Form
     {
         private Requirement requirement;
-        public ApplicationRequirementFrm()
+        private ApplicationForm application;
+        public ApplicationRequirementFrm(ApplicationForm application)
         {
+            this.application = application;
             requirement = new Requirement();
             InitializeComponent();
         }
 
+
+        //TODO: Add a function that inserts the requirement into the application
         private void btnProceed_Click(object sender, EventArgs e)
         {
             RequirementManager requirementManager = RequirementManager.getInstance();
@@ -28,9 +32,10 @@ namespace Enrollment_System.Menus
             requirement.GoodMoralPath = lblGoodMoral.Text.ToString();
             requirement.PSAPath = lblPSA.Text.ToString();
             requirement.RecommendationPath = lblRecomendation.Text.ToString();
+            application.RequirementID = requirement.ID;
             requirementManager.add(requirement);
             this.Hide();
-            ApplicationConfrimationFrm frm = new ApplicationConfrimationFrm();
+            SubjectsFrm frm = new SubjectsFrm(application);
             frm.ShowDialog();
             this.Close();
         }

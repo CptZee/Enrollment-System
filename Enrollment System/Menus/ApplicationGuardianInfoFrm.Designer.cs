@@ -66,6 +66,7 @@
             this.tb_Occupation_Guardian.Name = "tb_Occupation_Guardian";
             this.tb_Occupation_Guardian.Size = new System.Drawing.Size(100, 20);
             this.tb_Occupation_Guardian.TabIndex = 100;
+            this.tb_Occupation_Guardian.TextChanged += new System.EventHandler(this.tb_Occupation_Guardian_TextChanged);
             // 
             // label15
             // 
@@ -98,6 +99,7 @@
             this.tb_MobileNumber_Guardian.Name = "tb_MobileNumber_Guardian";
             this.tb_MobileNumber_Guardian.Size = new System.Drawing.Size(100, 20);
             this.tb_MobileNumber_Guardian.TabIndex = 96;
+            this.tb_MobileNumber_Guardian.TextChanged += new System.EventHandler(this.tb_MobileNumber_Guardian_TextChanged);
             // 
             // label17
             // 
@@ -114,6 +116,7 @@
             this.tb_SName_Guardian.Name = "tb_SName_Guardian";
             this.tb_SName_Guardian.Size = new System.Drawing.Size(120, 20);
             this.tb_SName_Guardian.TabIndex = 94;
+            this.tb_SName_Guardian.TextChanged += new System.EventHandler(this.tb_SName_Guardian_TextChanged);
             // 
             // label18
             // 
@@ -130,6 +133,7 @@
             this.tb_MI_Guardian.Name = "tb_MI_Guardian";
             this.tb_MI_Guardian.Size = new System.Drawing.Size(27, 20);
             this.tb_MI_Guardian.TabIndex = 92;
+            this.tb_MI_Guardian.TextChanged += new System.EventHandler(this.tb_MI_Guardian_TextChanged);
             // 
             // label19
             // 
@@ -146,6 +150,7 @@
             this.tb_LName_Guardian.Name = "tb_LName_Guardian";
             this.tb_LName_Guardian.Size = new System.Drawing.Size(100, 20);
             this.tb_LName_Guardian.TabIndex = 90;
+            this.tb_LName_Guardian.TextChanged += new System.EventHandler(this.tb_LName_Guardian_TextChanged);
             // 
             // label20
             // 
@@ -163,6 +168,7 @@
             this.tb_FName_Guardian.Name = "tb_FName_Guardian";
             this.tb_FName_Guardian.Size = new System.Drawing.Size(100, 20);
             this.tb_FName_Guardian.TabIndex = 88;
+            this.tb_FName_Guardian.TextChanged += new System.EventHandler(this.tb_FName_Guardian_TextChanged);
             // 
             // label21
             // 
@@ -183,7 +189,6 @@
             this.label22.Size = new System.Drawing.Size(197, 24);
             this.label22.TabIndex = 86;
             this.label22.Text = "Guardian\'s Information";
-            this.label22.Click += new System.EventHandler(this.label22_Click);
             // 
             // label23
             // 
@@ -200,6 +205,7 @@
             this.tb_Relation_Guardian.Name = "tb_Relation_Guardian";
             this.tb_Relation_Guardian.Size = new System.Drawing.Size(74, 20);
             this.tb_Relation_Guardian.TabIndex = 102;
+            this.tb_Relation_Guardian.TextChanged += new System.EventHandler(this.tb_Relation_Guardian_TextChanged);
             // 
             // cb_Privacy
             // 
@@ -314,7 +320,6 @@
             this.label8.Size = new System.Drawing.Size(510, 54);
             this.label8.TabIndex = 115;
             this.label8.Text = "Parents/Guardian\'s Information";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // pictureBox1
             // 
@@ -326,7 +331,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 114;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // ApplicationGuardianInfoFrm
             // 

@@ -59,13 +59,10 @@ namespace Enrollment_System.Menus.Admin
             DatabaseHelper.removeContact(application.ContactID);
             DatabaseHelper.removeGuardian(application.GuardianID);
             DatabaseHelper.removeSchoolHistory(application.SchoolHistoryID);
-            for (int i = 0; i < application.RequirementIDs.Count; i++)
-            {
-                RequirementManager manager = RequirementManager.getInstance();
-                Requirement requirement = manager.findByIndex(i);
-                DatabaseHelper.removeRequirement(requirement);
-                manager.remove(requirement.ID);
-            }
+            RequirementManager manager = RequirementManager.getInstance();
+            Requirement requirement = manager.find(application.RequirementID);
+            DatabaseHelper.removeRequirement(requirement);
+            manager.remove(requirement.ID);
 
             AddressManager addressManager = AddressManager.getInstance();
             ContactManager contactManager = ContactManager.getInstance();

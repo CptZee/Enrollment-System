@@ -56,7 +56,7 @@ namespace Enrollment_System.Menus
         public void showRequirements()
         {
             this.Hide();
-            ApplicationRequirementFrm frm = new ApplicationRequirementFrm();
+            ApplicationRequirementFrm frm = new ApplicationRequirementFrm(application);
             frm.ShowDialog();
             this.Close();
         }
@@ -117,19 +117,67 @@ namespace Enrollment_System.Menus
             return true;
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void tb_MobileNumber_Guardian_TextChanged(object sender, EventArgs e)
         {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_MobileNumber_Guardian.Text, "[^0-9]"))
+            {
 
+                tb_MobileNumber_Guardian.Text = tb_MobileNumber_Guardian.Text.Remove(tb_MobileNumber_Guardian.Text.Length - 1);
+            }
         }
 
-        private void label22_Click(object sender, EventArgs e)
+        private void tb_FName_Guardian_TextChanged(object sender, EventArgs e)
         {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_FName_Guardian.Text, "[^A-Z,a-z ]"))
+            {
 
+                tb_FName_Guardian.Text = tb_FName_Guardian.Text.Remove(tb_FName_Guardian.Text.Length - 1);
+            }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void tb_LName_Guardian_TextChanged(object sender, EventArgs e)
         {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_LName_Guardian.Text, "[^A-Z,a-z ]"))
+            {
 
+                tb_LName_Guardian.Text = tb_LName_Guardian.Text.Remove(tb_LName_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_MI_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_MI_Guardian.Text, "[^A-Z,a-z ]"))
+            {
+
+                tb_MI_Guardian.Text = tb_MI_Guardian.Text.Remove(tb_MI_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_SName_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_SName_Guardian.Text, "[^A-Z,a-z ]"))
+            {
+
+                tb_SName_Guardian.Text = tb_SName_Guardian.Text.Remove(tb_SName_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_Occupation_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_Occupation_Guardian.Text, "[^A-Z,a-z ]"))
+            {
+
+                tb_Occupation_Guardian.Text = tb_Occupation_Guardian.Text.Remove(tb_Occupation_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_Relation_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_Relation_Guardian.Text, "[^A-Z,a-z ]"))
+            {
+
+                tb_Relation_Guardian.Text = tb_Relation_Guardian.Text.Remove(tb_Relation_Guardian.Text.Length - 1);
+            }
         }
     }
 }
