@@ -10,7 +10,7 @@ namespace Enrollment_System.Data
         {
             admins = new ArrayList();
         }
-        private static AdminManager instance = null;
+        private static AdminManager instance;
         public ArrayList admins { get; set; }
 
         public static AdminManager getInstance()
@@ -33,9 +33,9 @@ namespace Enrollment_System.Data
 
         public int getRecentID()
         {
-            if (DatabaseHelper.getRecentAdminID() == 1)
+            if (AdminHelper.getRecentAdminID() == 1 && admins.Count == 0)
                 return 0;
-            return DatabaseHelper.getRecentAdminID();
+            return AdminHelper.getRecentAdminID();
         }
 
         public void removeRecent()

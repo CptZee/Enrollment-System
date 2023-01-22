@@ -104,11 +104,17 @@
     <Compile Include="Menus\Admin\ApplicationRemove.Designer.cs">
       <DependentUpon>ApplicationRemove.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menus\Admin\ApplicationView.cs">
+    <Compile Include="Menus\Admin\ApplicationViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menus\Admin\ApplicationView.Designer.cs">
-      <DependentUpon>ApplicationView.cs</DependentUpon>
+    <Compile Include="Menus\Admin\ApplicationViewer.Designer.cs">
+      <DependentUpon>ApplicationViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\Admin\ApplicationViewPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus\Admin\ApplicationViewPicker.Designer.cs">
+      <DependentUpon>ApplicationViewPicker.cs</DependentUpon>
     </Compile>
     <Compile Include="Menus\Admin\CourseAdd.cs">
       <SubType>Form</SubType>
@@ -230,7 +236,19 @@
     <Compile Include="Resources\Classes\Rbutton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Util\AddressHelper.cs" />
+    <Compile Include="Util\AdminHelper.cs" />
+    <Compile Include="Util\ApplicationHelper.cs" />
+    <Compile Include="Util\ApplicationSystemDataHelper.cs" />
+    <Compile Include="Util\ContactHelper.cs" />
+    <Compile Include="Util\CourseHelper.cs" />
     <Compile Include="Util\DatabaseHelper.cs" />
+    <Compile Include="Util\GuardianHelper.cs" />
+    <Compile Include="Util\RequirementHelper.cs" />
+    <Compile Include="Util\ScheduleHelper.cs" />
+    <Compile Include="Util\SchoolHistoryHelper.cs" />
+    <Compile Include="Util\StudentHelper.cs" />
+    <Compile Include="Util\SubjectHelper.cs" />
     <EmbeddedResource Include="DashboardFrm.resx">
       <DependentUpon>DashboardFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,8 +267,11 @@
     <EmbeddedResource Include="Menus\Admin\ApplicationRemove.resx">
       <DependentUpon>ApplicationRemove.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menus\Admin\ApplicationView.resx">
-      <DependentUpon>ApplicationView.cs</DependentUpon>
+    <EmbeddedResource Include="Menus\Admin\ApplicationViewer.resx">
+      <DependentUpon>ApplicationViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus\Admin\ApplicationViewPicker.resx">
+      <DependentUpon>ApplicationViewPicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\Admin\CourseAdd.resx">
       <DependentUpon>CourseAdd.cs</DependentUpon>
@@ -346,6 +367,87 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Images\Untitled design.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconlist1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slide1.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slide2.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slide3.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slide1.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slide2.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slide3.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slide21.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slide22.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slide31.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Output.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slide32.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slide5.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1234.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12345.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12342.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1232.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\311.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slide23.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

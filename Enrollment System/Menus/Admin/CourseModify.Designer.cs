@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CourseModify));
             this.btnAdd = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,7 +38,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(120, 64);
+            this.btnAdd.Location = new System.Drawing.Point(142, 78);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 5;
@@ -47,15 +48,16 @@
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(101, 38);
+            this.tbName.Location = new System.Drawing.Point(127, 50);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(180, 20);
             this.tbName.TabIndex = 4;
+            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 41);
+            this.label1.Location = new System.Drawing.Point(21, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 3;
@@ -64,7 +66,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 15);
+            this.label2.Location = new System.Drawing.Point(29, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 6;
@@ -74,7 +76,7 @@
             // 
             this.cbID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbID.FormattingEnabled = true;
-            this.cbID.Location = new System.Drawing.Point(101, 11);
+            this.cbID.Location = new System.Drawing.Point(127, 17);
             this.cbID.Name = "cbID";
             this.cbID.Size = new System.Drawing.Size(180, 21);
             this.cbID.TabIndex = 7;
@@ -84,12 +86,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(293, 93);
+            this.ClientSize = new System.Drawing.Size(344, 110);
             this.Controls.Add(this.cbID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CourseModify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Course Modification";

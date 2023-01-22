@@ -60,10 +60,11 @@ namespace Enrollment_System.Menus.Admin
                 MessageBox.Show("Course does not exist! Check the ID of the course that you are trying to remove!", "Not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            DatabaseHelper.removeCourse(course);
+            CourseHelper.removeCourse(course);
 
             manager.remove(ID);
             MessageBox.Show("Course " + course.ID + " successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
     }
 }

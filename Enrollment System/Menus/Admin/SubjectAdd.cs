@@ -98,7 +98,7 @@ namespace Enrollment_System.Menus.Admin
             subject.Prerequisite = prerequisite;
             subject.Units = units;
 
-            DatabaseHelper.addSubject(subject);
+            SubjectHelper.addSubject(subject);
             subjectManager.add(subject);
             MessageBox.Show("Subject " + subject.Name + " successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();

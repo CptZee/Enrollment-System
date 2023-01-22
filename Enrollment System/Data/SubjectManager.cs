@@ -33,9 +33,9 @@ namespace Enrollment_System.Data
 
         public int getRecentID()
         {
-            if (DatabaseHelper.getRecentSubjectID() == 1)
+            if (SubjectHelper.getRecentSubjectID() == 1 && subjects.Count == 0)
                 return 0;
-            return DatabaseHelper.getRecentSubjectID();
+            return SubjectHelper.getRecentSubjectID();
         }
 
         public void removeRecent()
@@ -67,7 +67,9 @@ namespace Enrollment_System.Data
             {
                 Subject s = (Subject)subjects[i];
                 if (s.Name.Equals(Name))
+                {
                     return s;
+                }
             }
             return null;
         }

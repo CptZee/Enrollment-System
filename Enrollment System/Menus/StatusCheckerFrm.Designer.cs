@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatusCheckerFrm));
-            this.lblStatus = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
             this.lblDescription = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,43 +36,34 @@
             this.btnReturn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblStatus
-            // 
-            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(162, 50);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(166, 55);
-            this.lblStatus.TabIndex = 0;
-            this.lblStatus.Text = "Status";
-            // 
             // btnCheck
             // 
             this.btnCheck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCheck.Location = new System.Drawing.Point(267, 184);
+            this.btnCheck.BackColor = System.Drawing.Color.Purple;
+            this.btnCheck.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCheck.Location = new System.Drawing.Point(670, 373);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(75, 29);
+            this.btnCheck.Size = new System.Drawing.Size(75, 36);
             this.btnCheck.TabIndex = 1;
             this.btnCheck.Text = "Check";
-            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.UseVisualStyleBackColor = false;
             this.btnCheck.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(59, 105);
+            this.lblDescription.Location = new System.Drawing.Point(572, 199);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(351, 13);
+            this.lblDescription.Size = new System.Drawing.Size(188, 26);
             this.lblDescription.TabIndex = 2;
-            this.lblDescription.Text = "Check the status of the application by providing the application ID below.";
+            this.lblDescription.Text = "Check the status of the application by \r\nproviding the application ID below.";
+            this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(98, 150);
+            this.label1.Location = new System.Drawing.Point(542, 248);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 3;
@@ -81,37 +71,44 @@
             // 
             // tbAppID
             // 
-            this.tbAppID.Location = new System.Drawing.Point(180, 147);
+            this.tbAppID.Location = new System.Drawing.Point(624, 245);
             this.tbAppID.Name = "tbAppID";
             this.tbAppID.Size = new System.Drawing.Size(162, 20);
             this.tbAppID.TabIndex = 4;
+            this.tbAppID.TextChanged += new System.EventHandler(this.tbAppID_TextChanged);
             // 
             // btnReturn
             // 
             this.btnReturn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnReturn.Location = new System.Drawing.Point(180, 184);
+            this.btnReturn.BackColor = System.Drawing.Color.Purple;
+            this.btnReturn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnReturn.Location = new System.Drawing.Point(583, 373);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(75, 29);
+            this.btnReturn.Size = new System.Drawing.Size(75, 36);
             this.btnReturn.TabIndex = 5;
             this.btnReturn.Text = "Return";
-            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.UseVisualStyleBackColor = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // StatusFrm
+            // StatusCheckerFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(495, 239);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackgroundImage = global::Enrollment_System.Properties.Resources._12342;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(905, 510);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.tbAppID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.btnCheck);
-            this.Controls.Add(this.lblStatus);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "StatusFrm";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "StatusCheckerFrm";
             this.Text = "Application Status";
             this.Load += new System.EventHandler(this.StatusFrm_Load);
             this.ResumeLayout(false);
@@ -120,8 +117,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label label1;

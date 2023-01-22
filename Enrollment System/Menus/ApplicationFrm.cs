@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 using Enrollment_System.Data;
 using Enrollment_System.Enrollment;
+using Enrollment_System.Util;
 
 namespace Enrollment_System.Menus
 {
@@ -37,7 +39,6 @@ namespace Enrollment_System.Menus
         private void EnrollFrm_Load(object sender, EventArgs e)
         {
             CenterToScreen();
-            updateDatabase();
             loadComboBoxes();
         }
         private void updateDatabase()
@@ -62,17 +63,36 @@ namespace Enrollment_System.Menus
         private void openGuardianInfo()
         {
             this.Hide();
-            ApplicationGuardianInfoFrm frm = new ApplicationGuardianInfoFrm(application);
-            frm.ShowDialog();
-            this.Close();
+            new ApplicationGuardianInfoFrm(application).ShowDialog();
+            this.Show();
         }
 
         private void openSubjectsSelection()
         {
             this.Hide();
-            SubjectsSelectionFrm frm = new SubjectsSelectionFrm(application);
-            frm.ShowDialog();
-            this.Close();
+            new SubjectsSelectionFrm(application).ShowDialog();
+            this.Show();
+        }
+
+        private String format(String text)
+        {
+            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            string loweredText = textInfo.ToLower(text);
+            string[] splitedText = loweredText.Split(' ');
+            bool first = true;
+            String formated = "";
+
+            foreach (string s in splitedText)
+            {
+                if (first)
+                {
+                    formated = formated + textInfo.ToTitleCase(s);
+                    first = false;
+                }
+                else
+                    formated = formated + s;
+            }
+            return formated;
         }
 
         private void loadComboBoxes()
@@ -106,7 +126,7 @@ namespace Enrollment_System.Menus
             cbSchoolType.Items.Add("Masteral");
             cbSchoolType.Items.Add("Doctorial");
             cbRegular.Items.Add("Regular");
-            cbRegular.Items.Add("Iregular");
+            cbRegular.Items.Add("Irregular");
         }
 
         //A bit messy but does the job done for now.
@@ -121,28 +141,28 @@ namespace Enrollment_System.Menus
             yearLevel = cbYearLvl.Text.ToString();
             schoolYear = cbSY.Text.ToString(); 
             term = cbTerm.Text.ToString();
-            firstName = tbFName.Text.ToString();
-            middleName = tbMName.Text.ToString();
-            lastName = tbLName.Text.ToString();
-            suffixName = tbSName.Text.ToString();
+            firstName = format(tbFName.Text.ToString());
+            middleName = format(tbMName.Text.ToString());
+            lastName = format(tbLName.Text.ToString());
+            suffixName = format(tbSName.Text.ToString());
             gender = cbGender.Text.ToString(); 
             status = cbStatus.Text.ToString();
-            citizenship = tbCitizenship.Text.ToString();
+            citizenship = format(tbCitizenship.Text.ToString());
             birthdate = tbBirthdate.Value.Date;
-            birthplace = tbBirthplace.Text.ToString();
-            religion = tbReligion.Text.ToString();
-            streetno = tbStreetUnit.Text.ToString();
-            street = tbStreet.Text.ToString();
-            subdivision = tbSubdivison.Text.ToString();
-            barangay = tbBarangay.Text.ToString();
-            city = tbCity.Text.ToString();
-            province = tbProvince.Text.ToString();
-            zipCode = tbZipCode.Text.ToString();
-            telephone = tbTelephone.Text.ToString();
-            mobile = tbMobile.Text.ToString();
-            email = tbEmail.Text.ToString();
+            birthplace = format(tbBirthplace.Text.ToString());
+            religion = format(tbReligion.Text.ToString());
+            streetno = format(tbStreetUnit.Text.ToString());
+            street = format(tbStreet.Text.ToString());
+            subdivision = format(tbSubdivison.Text.ToString());
+            barangay = format(tbBarangay.Text.ToString());
+            city = format(tbCity.Text.ToString());
+            province = format(tbProvince.Text.ToString());
+            zipCode = format(tbZipCode.Text.ToString());
+            telephone = format(tbTelephone.Text.ToString());
+            mobile = format(tbMobile.Text.ToString());
+            email = format(tbEmail.Text.ToString());
             type = cbSchoolType.Text.ToString();
-            name = tbSchoolName.Text.ToString();
+            name = format(tbSchoolName.Text.ToString());
             program = tbSchoolProgram.Text.ToString();
             regular = cbRegular.Text.ToString();
             SubmissionDate = DateTime.Today;
@@ -241,7 +261,7 @@ namespace Enrollment_System.Menus
             Address address = FormData.getAddress(streetno, street, subdivision, barangay, city, province, zipCode);
             address.ID = addressManager.getRecentID() + 1;
             Contact contact = FormData.getContact(telephone, mobile, email);
-            contact.ID = contactManager.getRecentID()+ 1;
+            contact.ID = contactManager.getRecentID() + 1;
             SchoolHistory schoolHistory = FormData.getSchoolHistory(type, name, program);
             schoolHistory.ID = schoolHistoryManager.getRecentID() + 1;
 
@@ -272,9 +292,6 @@ namespace Enrollment_System.Menus
 
         private void btn_Exback_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            DashboardFrm frm = new DashboardFrm();
-            frm.ShowDialog();
             this.Close();
         }
 
@@ -365,7 +382,7 @@ namespace Enrollment_System.Menus
             if(application.IsRegular)
                 cbExRegular.SelectedIndex = cbExRegular.FindStringExact("Regular");
             else
-                cbExRegular.SelectedIndex = cbExRegular.FindStringExact("Iregular");
+                cbExRegular.SelectedIndex = cbExRegular.FindStringExact("Irregular");
 
 
             tbExFirstName.Text = student.FirstName;
@@ -440,7 +457,7 @@ namespace Enrollment_System.Menus
             cbExSY.Items.Add("2023-2024");
             cbExTerm.Items.Add("");
             cbExRegular.Items.Add("Regular");
-            cbExRegular.Items.Add("Iregular");
+            cbExRegular.Items.Add("Irregular");
 
             if (application.Course.Equals(cbExCourse.Text.ToString()) && application.SchoolYear.Equals("Fourth Year Level"))
                 return;
@@ -469,22 +486,22 @@ namespace Enrollment_System.Menus
             course = cbExCourse.Text.ToString();
             schoolYear = cbExSY.Text.ToString();
             term = cbExTerm.Text.ToString();
-            firstName = tbExFirstName.Text.ToString();
-            middleName = tbExMiddleName.Text.ToString();
-            lastName = tbExLastName.Text.ToString();
-            suffixName = tbExSuffixName.Text.ToString();
+            firstName = format(tbExFirstName.Text.ToString());
+            middleName = format(tbExMiddleName.Text.ToString());
+            lastName = format(tbExLastName.Text.ToString());
+            suffixName = format(tbExSuffixName.Text.ToString());
             gender = cbExGender.Text.ToString();
             status = cbExStatus.Text.ToString();
-            citizenship = tbExCitizenship.Text.ToString();
+            citizenship = format(tbExCitizenship.Text.ToString());
             birthdate = tbExBirthdate.Value.Date;
-            birthplace = tbExBirthplace.Text.ToString();
-            religion = tbExReligion.Text.ToString();
-            streetno = tbExStreetNo.Text.ToString();
-            street = tbExStreet.Text.ToString();
-            subdivision = tbExVillage.Text.ToString();
-            barangay = tbExBarangay.Text.ToString();
-            city = tbExCity.Text.ToString();
-            province = tbExProvince.Text.ToString();
+            birthplace = format(tbExBirthplace.Text.ToString());
+            religion = format(tbExReligion.Text.ToString());
+            streetno = format(tbExStreetNo.Text.ToString());
+            street = format(tbExStreet.Text.ToString());
+            subdivision = format(tbExVillage.Text.ToString());
+            barangay = format(tbExBarangay.Text.ToString());
+            city = format(tbExCity.Text.ToString());
+            province = format(tbExProvince.Text.ToString());
             zipCode = tbExZipCode.Text.ToString();
             telephone = tbExTelephone.Text.ToString();
             mobile = tbExMobile.Text.ToString();
@@ -578,9 +595,9 @@ namespace Enrollment_System.Menus
             application = applicationFormsManager.find(stud.ApplicationID);
             application.ID = application.ID + 1;
             student.ApplicationID = application.ID;
-            application.AddressID = address.ID;
-            application.StudentID = student.ID;
-            application.ContactID = contact.ID;
+            address.ID = application.AddressID;
+            student.ID = application.StudentID;
+            contact.ID = application.ContactID;
             application.SchoolYear = schoolYear;
             application.Course = course;
             application.Term = term;
@@ -597,9 +614,12 @@ namespace Enrollment_System.Menus
 
         private void tbZipCode_TextChanged(object sender, EventArgs e)
         {
+            if (tbZipCode.Text.Length > 4)
+            {
+                tbZipCode.Text = tbZipCode.Text.Remove(tbZipCode.Text.Length - 1);
+            }
             if (System.Text.RegularExpressions.Regex.IsMatch(tbZipCode.Text, "[^0-9]"))
             {
-
                 tbZipCode.Text = tbZipCode.Text.Remove(tbZipCode.Text.Length - 1);
             }
         }
@@ -624,6 +644,10 @@ namespace Enrollment_System.Menus
 
         private void tbExZipCode_TextChanged(object sender, EventArgs e)
         {
+            if (tbExZipCode.Text.Length > 4)
+            {
+                tbExZipCode.Text = tbExZipCode.Text.Remove(tbExZipCode.Text.Length - 1);
+            }
             if (System.Text.RegularExpressions.Regex.IsMatch(tbExZipCode.Text, "[^0-9]"))
             {
 
@@ -678,6 +702,10 @@ namespace Enrollment_System.Menus
 
         private void tbExSuffixName_TextChanged(object sender, EventArgs e)
         {
+            if (tbExSuffixName.Text.Length > 3)
+            {
+                tbExSuffixName.Text = tbExSuffixName.Text.Remove(tbExSuffixName.Text.Length - 1);
+            }
             if (System.Text.RegularExpressions.Regex.IsMatch(tbExSuffixName.Text, "[^A-Z,a-z ]"))
             {
 
@@ -736,6 +764,94 @@ namespace Enrollment_System.Menus
             {
 
                 tbExID.Text = tbExID.Text.Remove(tbExID.Text.Length - 1);
+            }
+            if (tbExID.Text.Length > 7)
+            {
+                tbExID.Text = tbExID.Text.Remove(tbExID.Text.Length - 1);
+           }
+        }
+
+        private void tbFName_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbFName.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbFName.Text = tbFName.Text.Remove(tbFName.Text.Length - 1);
+            }
+        }
+
+        private void tbMName_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbMName.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbMName.Text = tbMName.Text.Remove(tbMName.Text.Length - 1);
+            }
+        }
+
+        private void tbLName_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbLName.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbLName.Text = tbLName.Text.Remove(tbLName.Text.Length - 1);
+            }
+        }
+
+        private void tbCitizenship_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbCitizenship.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbCitizenship.Text = tbCitizenship.Text.Remove(tbCitizenship.Text.Length - 1);
+            }
+        }
+
+        private void tbBirthplace_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbBirthplace.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbBirthplace.Text = tbBirthplace.Text.Remove(tbBirthplace.Text.Length - 1);
+            }
+        }
+
+        private void tbReligion_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbReligion.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbReligion.Text = tbReligion.Text.Remove(tbReligion.Text.Length - 1);
+            }
+        }
+
+        private void tbCity_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbCity.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbCity.Text = tbCity.Text.Remove(tbReligion.Text.Length - 1);
+            }
+        }
+
+        private void tbProvince_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbProvince.Text, "[^A-Z,a-z ]"))
+            {
+                tbProvince.Text = tbProvince.Text.Remove(tbProvince.Text.Length - 1);
+            }
+        }
+
+        private void tbSName_TextChanged(object sender, EventArgs e)
+        {
+            if (tbSName.Text.Length > 3)
+            {
+                tbSName.Text = tbSName.Text.Remove(tbSName.Text.Length - 1);
+            }
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbSName.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbSName.Text = tbSName.Text.Remove(tbSName.Text.Length - 1);
             }
         }
     }

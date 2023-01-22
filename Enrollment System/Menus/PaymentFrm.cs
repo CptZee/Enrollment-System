@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Enrollment_System.Data;
 using Enrollment_System.Util;
@@ -23,42 +16,49 @@ namespace Enrollment_System.Menus
 
         private void PaymentFrm_Load(object sender, EventArgs e)
         {
-
+            CenterToParent();
+            loadComputation();
         }
-
-        /**
-         * A simple method that loads the computation values into
-         * the form. E.g change the default values of the labels.
-         * 
-         */ 
         
         private void loadComputation()
         {
+            SubjectManager manager = SubjectManager.getInstance();
+            int units = 0;
+            int unitsCount = 0;
+            int tuitionFee = 10000; //Default
+            for (int i = 0; i < application.SubjectIDs.Count; i++)
+            {
+                Subject subject = manager.find((int)application.SubjectIDs[i]);
+                units = units + subject.Units;
+                unitsCount = unitsCount + 1;
+            }
+            int unitPrice = units * (750);
+            int total = tuitionFee + unitPrice;
 
-        }
-
-        /**
-         * A simple method that compute the tuition of the 
-         * applicant and change the total value of the lblTotal
-         * 
-         */ 
-
-        private void Compute()
-        {
-
+            int otherSchoolFees = 5000;
+            int miscFees = 5000;
+            int TotalFee = total + otherSchoolFees + miscFees;
+            
+            lblTuition.Text = "" + total;
+            lblOther.Text = "" + otherSchoolFees;
+            lblMisc.Text = "" + miscFees;
+            lblTotal.Text = "" + TotalFee;
+            
         }
 
         private void btnPay_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(comboBox1.Text))
+            {
+                MessageBox.Show("Please select a payment method!", "Missing field!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             MessageBox.Show("Payment Successful! Payment methods and the such is WIP", "Payment Succesful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             application.Status = "Paid";
             ApplicationFormsManager applicationFormsManager = ApplicationFormsManager.getInstance();
             applicationFormsManager.update(application);
-            DatabaseHelper.updateApplicationForm(application);
-
-            this.Hide();
-            DashboardFrm frm = new DashboardFrm();
-            frm.ShowDialog();
+            ApplicationHelper.updateApplicationForm(application);
+            
             this.Close();
         }
     }

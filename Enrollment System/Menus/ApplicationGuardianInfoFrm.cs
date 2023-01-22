@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Enrollment_System.Data;
 using Enrollment_System.Enrollment;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Enrollment_System.Menus
 {
@@ -43,6 +37,27 @@ namespace Enrollment_System.Menus
             tb_Relation_Guardian.Text = guardian.Relation;
         }
 
+        private String format(String text)
+        {
+            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            string loweredText = textInfo.ToLower(text);
+            string[] splitedText = loweredText.Split(' ');
+            bool first = true;
+            String formated = "";
+
+            foreach (string s in splitedText)
+            {
+                if (first)
+                {
+                    formated = formated + textInfo.ToTitleCase(s);
+                    first = false;
+                }
+                else
+                    formated = formated + s;
+            }
+            return formated;
+        }
+
         private void lblPrivacy_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.sti.edu/dataprivacy.asp");
@@ -64,14 +79,14 @@ namespace Enrollment_System.Menus
         private Boolean verifyForm()
         {
             String firstName, lastName, middileInitial, suffixName, mobile, email, occupation, relation;
-            firstName = tb_FName_Guardian.Text.ToString();
-            lastName = tb_LName_Guardian.Text.ToString();
-            middileInitial = tb_MI_Guardian.Text.ToString();
-            suffixName = tb_SName_Guardian.Text.ToString();
+            firstName = format(tb_FName_Guardian.Text.ToString());
+            lastName = format(tb_LName_Guardian.Text.ToString());
+            middileInitial = tb_MI_Guardian.Text.ToString().ToUpper();
+            suffixName = format(tb_SName_Guardian.Text.ToString());
             mobile = tb_MobileNumber_Guardian.Text.ToString();
             email = tb_Email_Guardian.Text.ToString();
-            occupation = tb_Occupation_Guardian.Text.ToString();
-            relation = tb_Relation_Guardian.Text.ToString();
+            occupation = format(tb_Occupation_Guardian.Text.ToString());
+            relation = format(tb_Relation_Guardian.Text.ToString());
 
             if (!cb_Privacy.Checked)
             {
@@ -146,6 +161,10 @@ namespace Enrollment_System.Menus
 
         private void tb_MI_Guardian_TextChanged(object sender, EventArgs e)
         {
+            if (tb_MI_Guardian.Text.Length > 3)
+            {
+                tb_MI_Guardian.Text = tb_MI_Guardian.Text.Remove(tb_MI_Guardian.Text.Length - 1);
+            }
             if (System.Text.RegularExpressions.Regex.IsMatch(tb_MI_Guardian.Text, "[^A-Z,a-z ]"))
             {
 
@@ -155,6 +174,10 @@ namespace Enrollment_System.Menus
 
         private void tb_SName_Guardian_TextChanged(object sender, EventArgs e)
         {
+            if (tb_SName_Guardian.Text.Length > 3)
+            {
+                tb_SName_Guardian.Text = tb_SName_Guardian.Text.Remove(tb_SName_Guardian.Text.Length - 1);
+            }
             if (System.Text.RegularExpressions.Regex.IsMatch(tb_SName_Guardian.Text, "[^A-Z,a-z ]"))
             {
 
@@ -175,7 +198,6 @@ namespace Enrollment_System.Menus
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(tb_Relation_Guardian.Text, "[^A-Z,a-z ]"))
             {
-
                 tb_Relation_Guardian.Text = tb_Relation_Guardian.Text.Remove(tb_Relation_Guardian.Text.Length - 1);
             }
         }

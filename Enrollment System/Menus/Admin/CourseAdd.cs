@@ -35,7 +35,7 @@ namespace Enrollment_System.Menus.Admin
             Course course = new Course();
             course.ID = courseManager.getRecentID() + 1;
             course.Name = tbCourseName.Text.ToString();
-            DatabaseHelper.addCourse(course);
+            CourseHelper.addCourse(course);
             courseManager.add(course);
             MessageBox.Show("Course " + course.Name + " successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubjectAdd));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -86,7 +87,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(190, 160);
+            this.btnAdd.Location = new System.Drawing.Point(201, 159);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 8;
@@ -123,7 +124,7 @@
             // 
             // tbUnits
             // 
-            this.tbUnits.Location = new System.Drawing.Point(131, 134);
+            this.tbUnits.Location = new System.Drawing.Point(131, 130);
             this.tbUnits.Name = "tbUnits";
             this.tbUnits.Size = new System.Drawing.Size(205, 20);
             this.tbUnits.TabIndex = 12;
@@ -131,7 +132,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(128, 118);
+            this.label5.Location = new System.Drawing.Point(128, 114);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 13;
@@ -153,6 +154,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SubjectAdd";
             this.Text = "Subject Addition";
             this.Load += new System.EventHandler(this.SubjectAdd_Load);

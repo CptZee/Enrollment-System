@@ -57,7 +57,7 @@ namespace Enrollment_System.Menus.Admin
             schedule.Day = day;
 
 
-            DatabaseHelper.addSchedule(schedule);
+            ScheduleHelper.addSchedule(schedule);
             scheduleManager.add(schedule);
 
             MessageBox.Show("Schedule for subject with the ID of " + subjectID + " successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

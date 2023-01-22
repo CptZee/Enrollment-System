@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubjectsSelectionFrm));
             this.label1 = new System.Windows.Forms.Label();
             this.btnSched = new System.Windows.Forms.Button();
             this.lvSubjects = new System.Windows.Forms.ListView();
@@ -37,21 +38,23 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.label1.Location = new System.Drawing.Point(12, 19);
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(43, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(432, 24);
+            this.label1.Size = new System.Drawing.Size(361, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Please select a maximum of six (6) subjects to take";
             // 
             // btnSched
             // 
-            this.btnSched.Location = new System.Drawing.Point(101, 282);
+            this.btnSched.BackColor = System.Drawing.Color.Purple;
+            this.btnSched.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnSched.Location = new System.Drawing.Point(94, 285);
             this.btnSched.Name = "btnSched";
-            this.btnSched.Size = new System.Drawing.Size(121, 23);
+            this.btnSched.Size = new System.Drawing.Size(121, 33);
             this.btnSched.TabIndex = 3;
             this.btnSched.Text = "Select Schedule";
-            this.btnSched.UseVisualStyleBackColor = true;
+            this.btnSched.UseVisualStyleBackColor = false;
             this.btnSched.Click += new System.EventHandler(this.btnProceed_Click);
             // 
             // lvSubjects
@@ -66,24 +69,29 @@
             // 
             // btnProceed
             // 
+            this.btnProceed.BackColor = System.Drawing.Color.Purple;
             this.btnProceed.Enabled = false;
-            this.btnProceed.Location = new System.Drawing.Point(228, 282);
+            this.btnProceed.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnProceed.Location = new System.Drawing.Point(234, 285);
             this.btnProceed.Name = "btnProceed";
-            this.btnProceed.Size = new System.Drawing.Size(121, 23);
+            this.btnProceed.Size = new System.Drawing.Size(121, 33);
             this.btnProceed.TabIndex = 5;
             this.btnProceed.Text = "Proceed";
-            this.btnProceed.UseVisualStyleBackColor = true;
+            this.btnProceed.UseVisualStyleBackColor = false;
             this.btnProceed.Click += new System.EventHandler(this.button1_Click);
             // 
             // SubjectsSelectionFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 315);
+            this.ClientSize = new System.Drawing.Size(457, 330);
             this.Controls.Add(this.btnProceed);
             this.Controls.Add(this.lvSubjects);
             this.Controls.Add(this.btnSched);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SubjectsSelectionFrm";
             this.Text = "Subjects Selection Form";
             this.Load += new System.EventHandler(this.SubjectsSelectionFrm_Load);

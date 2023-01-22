@@ -14,26 +14,23 @@ namespace Enrollment_System
         private void btnLogin_Click(object sender, EventArgs e)
         {
             this.Hide();
-            StatusCheckerFrm frm = new StatusCheckerFrm();
-            frm.ShowDialog();
-            this.Close();
+            new StatusCheckerFrm().ShowDialog();
+            this.Show();
 
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             this.Hide();
-            AdminAuthFrm frm = new AdminAuthFrm();
-            frm.ShowDialog();
-            this.Close();
+            new AdminAuthFrm().ShowDialog();
+            this.Show();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ApplicationFrm frm = new ApplicationFrm();
-            frm.ShowDialog();
-            this.Close();
+            new ApplicationFrm().ShowDialog();
+            this.Show();
         }
 
         private void Dashboard_Load(object sender, EventArgs e)

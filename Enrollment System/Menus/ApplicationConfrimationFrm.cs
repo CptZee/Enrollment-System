@@ -18,35 +18,71 @@ namespace Enrollment_System.Menus
         private void ApplicationConfrimationFrm_Load(object sender, EventArgs e)
         {
             CenterToScreen();
+            ApplicationForm application = applicationManager.getRecent();
+
+            loadValues(application);
+        }
+
+        private void loadValues(ApplicationForm application)
+        {
+
             StudentManager studentManager = StudentManager.getInstance();
             AddressManager addressManager = AddressManager.getInstance();
             ContactManager contactManager = ContactManager.getInstance();
+            GuardianManager guardianManager = GuardianManager.getInstance();
+            RequirementManager requirementManager = RequirementManager.getInstance();
             SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
-            ApplicationForm application = applicationManager.getRecent();
+            Student student = studentManager.find(application.StudentID);
+            Address address = addressManager.find(application.AddressID);
+            Contact contact = contactManager.find(application.ContactID);
+            SchoolHistory schoolHistory = schoolHistoryManager.find(application.SchoolHistoryID);
+            Guardian guardian = guardianManager.find(application.GuardianID);
+            Requirement requirement = requirementManager.find(application.RequirementID);
 
             lbl_Course.Text = application.Course;
-            lbl_Yearlevel.Text = application.YearLevel;
             lbl_Schoolyear.Text = application.SchoolYear;
+            if (application.IsRegular)
+                lblStudentType.Text = "Regular";
+            else
+                lblStudentType.Text = "Irregular";
+            lbl_Yearlevel.Text = application.YearLevel;
             lbl_Term.Text = application.Term;
-            lbl_Name.Text = studentManager.find(application.StudentID).FirstName + " " + studentManager.find(application.StudentID).MiddleName + " "
-                + studentManager.find(application.StudentID).LastName;
-            lbl_Gender.Text = studentManager.find(application.StudentID).Gender;
-            lbl_Status.Text = studentManager.find(application.StudentID).Status;
-            lbl_Citizenship.Text = studentManager.find(application.StudentID).Citizenship;
-            lbl_Birthday.Text = studentManager.find(application.StudentID).BirthDate.ToShortDateString();
-            lbl_Birthplace.Text = studentManager.find(application.StudentID).Birthplace;
-            lbl_Religion.Text = studentManager.find(application.StudentID).Religion;
-            lbl_Address.Text = addressManager.find(application.AddressID).StreetUnitNumber + ", " + addressManager.find(application.AddressID).Street + ", " +
-                addressManager.find(application.AddressID).Barangay + ", " + addressManager.find(application.AddressID).City + ", " + addressManager.find(application.AddressID).Province +
-                addressManager.find(application.AddressID).ZipCode;
-            lbl_TelephoneNo.Text = contactManager.find(application.ContactID).TelephoneNo;
-            lbl_MobileNo.Text = contactManager.find(application.ContactID).MobileNo;
-            lbl_EmailAdd.Text = contactManager.find(application.ContactID).Email;
-            lbl_SchoolType.Text = schoolHistoryManager.find(application.SchoolHistoryID).Type;
-            lbl_NameofSchool.Text = schoolHistoryManager.find(application.SchoolHistoryID).Name;
-            lbl_ProgramTrackSpecialization.Text = schoolHistoryManager.find(application.SchoolHistoryID).ProgramTrackSpecialization;
-
-
+            lblStudentID.Text = "" + application.StudentID;
+            lblStudentFirstName.Text = student.FirstName;
+            lblStudentlMiddleName.Text = student.MiddleName;
+            lblStudentLastName.Text = student.LastName;
+            lblStudentSuffixName.Text = student.SuffixName;
+            lblStudentGender.Text = student.Gender;
+            lblStudentStatus.Text = student.Status;
+            lblStudentCitizenship.Text = student.Citizenship;
+            lblStudentBirthday.Text = student.BirthDate.ToShortDateString();
+            lblStudentBirthplace.Text = student.Birthplace;
+            lblStudentReligion.Text = student.Religion;
+            lblAddressStreetNo.Text = address.StreetUnitNumber;
+            lblAddressStreet.Text = address.Street;
+            lblAddressSubdivision.Text = address.SubdivisionVillageBldg;
+            lblAddressBarangay.Text = address.Barangay;
+            lblAddressCity.Text = address.City;
+            lblAddressProvince.Text = address.Province;
+            lblAddressZipCode.Text = address.ZipCode;
+            lblContactTelephoneNo.Text = contact.TelephoneNo;
+            lblContactMobileNo.Text = contact.MobileNo;
+            lblContactEmailAdd.Text = contact.Email;
+            lblHistoryNameofSchool.Text = schoolHistory.Name;
+            lblHistorySchoolType.Text = schoolHistory.Type;
+            lblHistoryProgramTrackSpecialization.Text = schoolHistory.ProgramTrackSpecialization;
+            lblGuardianFirstName.Text = guardian.FirstName;
+            lblGuardianMiddleName.Text = guardian.MiddleInitial;
+            lblGuardianLastName.Text = guardian.LastName;
+            lblGuardianSuffixName.Text = guardian.SuffixName;
+            lblGuardianMobile.Text = guardian.MobileNumber;
+            lblGuardianEmail.Text = guardian.Email;
+            lblGuardianOccupation.Text = guardian.Occupation;
+            lblGuardianRelation.Text = guardian.Relation;
+            lblReqPicture.Text = requirement.PicturePath;
+            lblReqPSA.Text = requirement.PSAPath;
+            lblReqGoodMoral.Text = requirement.GoodMoralPath;
+            lblReqRecommendation.Text = requirement.RecommendationPath;
         }
 
         private void btnStartOver_Click(object sender, EventArgs e)
@@ -76,6 +112,7 @@ namespace Enrollment_System.Menus
             ContactManager contactManager = ContactManager.getInstance();
             GuardianManager guardianManager = GuardianManager.getInstance();
             SchoolHistoryManager schoolHistoryManager = SchoolHistoryManager.getInstance();
+            RequirementManager requirementManager = RequirementManager.getInstance();
 
             ApplicationForm application = applicationManager.getRecent();
             application.SubmissionDate = DateTime.Today;
@@ -83,22 +120,20 @@ namespace Enrollment_System.Menus
             
             if (application.IsRegular)
                 insertSubjects(application);
-            applicationManager.add(application);
-            DatabaseHelper.addAddress(addressManager.find(application.AddressID));
-            DatabaseHelper.addApplicationForm(application);
-            DatabaseHelper.addContact(contactManager.find(application.ContactID));
-            DatabaseHelper.addGuardian(guardianManager.find(application.GuardianID));
-            DatabaseHelper.addSchoolHistory(schoolHistoryManager.find(application.SchoolHistoryID));
-            DatabaseHelper.addStudent(studentManager.find(application.StudentID));
-            DatabaseHelper.addApplicationSubject(application);
-            DatabaseHelper.addApplicationSchedule(application);
+            applicationManager.update(application);
+            AddressHelper.addAddress(addressManager.find(application.AddressID));
+            ApplicationHelper.addApplicationForm(application);
+            ContactHelper.addContact(contactManager.find(application.ContactID));
+            GuardianHelper.addGuardian(guardianManager.find(application.GuardianID));
+            SchoolHistoryHelper.addSchoolHistory(schoolHistoryManager.find(application.SchoolHistoryID));
+            StudentHelper.addStudent(studentManager.find(application.StudentID));
+            RequirementHelper.addRequirement(requirementManager.find(application.RequirementID));
+            ApplicationSystemDataHelper.addApplicationSubject(application);
+            //ApplicationSystemDataHelper.addApplicationSchedule(application); //Commented for now
             
 
-            MessageBox.Show("Application with the ID of " + application.ID + " has been successfully submitted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            this.Hide();
-            StatusFrm frm = new StatusFrm(application);
-            frm.ShowDialog();
+            MessageBox.Show("Application with the ID of " + application.ID + " and Student ID of " + application.StudentID + " has been successfully submitted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
             this.Close();
         }
 
@@ -115,6 +150,26 @@ namespace Enrollment_System.Menus
                     return;
                 application.SubjectIDs.Add(subject.ID);
             }
+        }
+
+        private void lblStudentType_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_Schoolyear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblStudentGender_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblStudentStatus_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

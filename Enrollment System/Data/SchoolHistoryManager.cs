@@ -33,9 +33,9 @@ namespace Enrollment_System.Data
 
         public int getRecentID()
         {
-            if (DatabaseHelper.getRecentSchoolHistoryID() == 1)
+            if (SchoolHistoryHelper.getRecentSchoolHistoryID() == 1 && schoolHistories.Count == 0)
                 return 0;
-            return DatabaseHelper.getRecentSchoolHistoryID();
+            return SchoolHistoryHelper.getRecentSchoolHistoryID();
         }
 
         public void removeRecent()

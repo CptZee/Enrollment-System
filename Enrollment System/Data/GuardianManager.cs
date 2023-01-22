@@ -33,9 +33,9 @@ namespace Enrollment_System.Data
 
         public int getRecentID()
         {
-            if (DatabaseHelper.getRecentGuardianID() == 1)
+            if (GuardianHelper.getRecentGuardianID() == 1 && guardians.Count == 0)
                 return 0;
-            return DatabaseHelper.getRecentGuardianID();
+            return GuardianHelper.getRecentGuardianID();
         }
 
         public void removeRecent()

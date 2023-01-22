@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Enrollment_System.Data;
 using Enrollment_System.Util;
 using Enrollment_System.Enrollment;
+using System.Globalization;
 
 namespace Enrollment_System.Menus.Admin
 {
@@ -61,7 +62,7 @@ namespace Enrollment_System.Menus.Admin
             }
             Student stud = studentManager.find(ID);
 
-            //loadValues(stud);
+            loadValues(stud);
         }
 
         private void loadStudentIDs()
@@ -101,7 +102,7 @@ namespace Enrollment_System.Menus.Admin
             cbSY.Items.Add("2023-2024");
             cbTerm.Items.Add("");
             cbRegular.Items.Add("Regular");
-            cbRegular.Items.Add("Iregular");
+            cbRegular.Items.Add("Irregular");
 
 
             if (application != null)
@@ -135,7 +136,7 @@ namespace Enrollment_System.Menus.Admin
             if (application.IsRegular)
                 cbRegular.SelectedIndex = cbRegular.FindStringExact("Regular");
             else
-                cbRegular.SelectedIndex = cbRegular.FindStringExact("Iregular");
+                cbRegular.SelectedIndex = cbRegular.FindStringExact("Irregular");
 
 
             tbFName.Text = student.FirstName;
@@ -164,6 +165,26 @@ namespace Enrollment_System.Menus.Admin
             tbEmail.Text = contact.Email;
         }
 
+        private String format(String text)
+        {
+            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            string loweredText = textInfo.ToLower(text);
+            string[] splitedText = loweredText.Split(' ');
+            bool first = true;
+            String formated = "";
+
+            foreach (string s in splitedText)
+            {
+                if (first)
+                {
+                    formated = formated + textInfo.ToTitleCase(s);
+                    first = false;
+                }
+                else
+                    formated = formated + s;
+            }
+            return formated;
+        }
         //A bit messy but does the job done for now.
         private Boolean verifyForm()
         {
@@ -177,40 +198,40 @@ namespace Enrollment_System.Menus.Admin
             yearLevel = cbYearLvl.Text.ToString();
             schoolYear = cbSY.Text.ToString();
             term = cbTerm.Text.ToString();
-            firstName = tbFName.Text.ToString();
-            middleName = tbMName.Text.ToString();
-            lastName = tbLName.Text.ToString();
-            suffixName = tbSName.Text.ToString();
+            firstName = format(tbFName.Text.ToString());
+            middleName = format(tbMName.Text.ToString());
+            lastName = format(tbLName.Text.ToString());
+            suffixName = format(tbSName.Text.ToString());
             gender = cbGender.Text.ToString();
             status = cbStatus.Text.ToString();
-            citizenship = tbCitizenship.Text.ToString();
+            citizenship = format(tbCitizenship.Text.ToString());
             birthdate = tbBirthdate.Value.Date;
-            birthplace = tbBirthplace.Text.ToString();
-            religion = tbReligion.Text.ToString();
+            birthplace = format(tbBirthplace.Text.ToString());
+            religion = format(tbReligion.Text.ToString());
             streetno = tbStreetUnit.Text.ToString();
             street = tbStreet.Text.ToString();
-            subdivision = tbSubdivison.Text.ToString();
-            barangay = tbBarangay.Text.ToString();
-            city = tbCity.Text.ToString();
-            province = tbProvince.Text.ToString();
+            subdivision = format(tbSubdivison.Text.ToString());
+            barangay = format(tbBarangay.Text.ToString());
+            city = format(tbCity.Text.ToString());
+            province = format(tbProvince.Text.ToString());
             zipCode = tbZipCode.Text.ToString();
             telephone = tbTelephone.Text.ToString();
             mobile = tbMobile.Text.ToString();
             email = tbEmail.Text.ToString();
             type = cbSchoolType.Text.ToString();
-            name = tbSchoolName.Text.ToString();
+            name = format(tbSchoolName.Text.ToString());
             program = tbSchoolProgram.Text.ToString();
             regular = cbRegular.Text.ToString();
             SubmissionDate = DateTime.Today;
 
-            guardianFirstName = tb_FName_Guardian.Text.ToString();
-            guardianLastName = tb_FName_Guardian.Text.ToString();
-            guardianMiddleInitial = tb_FName_Guardian.Text.ToString();
-            guardianSuffixName= tb_SName_Guardian.Text.ToString();
+            guardianFirstName = format(tb_FName_Guardian.Text.ToString());
+            guardianLastName = format(tb_FName_Guardian.Text.ToString());
+            guardianMiddleInitial = format(tb_FName_Guardian.Text.ToString());
+            guardianSuffixName= format(tb_SName_Guardian.Text.ToString());
             guardianMobileNumber = tb_MobileNumber_Guardian.Text.ToString();
             guardianEmail = tb_Email_Guardian.Text.ToString();
-            guardianOccupation = tb_Occupation_Guardian.Text.ToString();
-            guardianRelation = tb_Relation_Guardian.Text.ToString();
+            guardianOccupation = format(tb_Occupation_Guardian.Text.ToString());
+            guardianRelation = format(tb_Relation_Guardian.Text.ToString());
 
             
 
@@ -357,6 +378,8 @@ namespace Enrollment_System.Menus.Admin
             application.AddressID = address.ID;
             application.StudentID = student.ID;
             application.ContactID = contact.ID;
+            application.GuardianID = guardian.ID;
+            application.RequirementID = requirement.ID;
             application.SchoolYear = schoolYear;
             application.SchoolHistoryID = schoolHistory.ID;
             application.Course = course;
@@ -370,20 +393,22 @@ namespace Enrollment_System.Menus.Admin
             else
                 application.IsRegular = false;
 
+            manager.add(application);
             studentManager.add(student);
             addressManager.add(address);
             contactManager.add(contact);
             historyManager.add(schoolHistory);
             guardianManager.add(guardian);
             requirementManager.add(requirement);
-            DatabaseHelper.addAddress(address);
-            DatabaseHelper.addApplicationForm(application);
-            DatabaseHelper.addContact(contact);
-            DatabaseHelper.addGuardian(guardian);
-            DatabaseHelper.addSchoolHistory(schoolHistory);
-            DatabaseHelper.addStudent(student);
-            DatabaseHelper.addApplicationSubject(application);
-            DatabaseHelper.addApplicationSchedule(application);
+            AddressHelper.addAddress(address);
+            ApplicationHelper.addApplicationForm(application);
+            ContactHelper.addContact(contact);
+            GuardianHelper.addGuardian(guardian);
+            SchoolHistoryHelper.addSchoolHistory(schoolHistory);
+            StudentHelper.addStudent(student);
+            RequirementHelper.addRequirement(requirement);
+            ApplicationSystemDataHelper.addApplicationSubject(application);
+            ApplicationSystemDataHelper.addApplicationSchedule(application);
 
             //TODO: Add database helper that insert the values to the database.
 
@@ -496,42 +521,6 @@ namespace Enrollment_System.Menus.Admin
             }
         }
 
-        private void tbTelephone_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(tbTelephone.Text, "[^0-9]"))
-            {
-
-                tbTelephone.Text = tbTelephone.Text.Remove(tbTelephone.Text.Length - 1);
-            }
-        }
-
-        private void tbMobile_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(tbMobile.Text, "[^0-9]"))
-            {
-
-                tbMobile.Text = tbMobile.Text.Remove(tbMobile.Text.Length - 1);
-            }
-        }
-
-        private void tb_MobileNumber_Guardian_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(tb_MobileNumber_Guardian.Text, "[^0-9]"))
-            {
-
-                tb_MobileNumber_Guardian.Text = tb_MobileNumber_Guardian.Text.Remove(tb_MobileNumber_Guardian.Text.Length - 1);
-            }
-        }
-
-        private void tbZipCode_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(tbZipCode.Text, "[^0-9]"))
-            {
-
-                tbZipCode.Text = tbZipCode.Text.Remove(tbZipCode.Text.Length - 1);
-            }
-        }
-
         private void btnRecommendation_Click(object sender, EventArgs e)
         {
             openFileDialog1.InitialDirectory = "C://Desktop";
@@ -578,6 +567,188 @@ namespace Enrollment_System.Menus.Admin
                 loadSubjects();
                 MessageBox.Show("Application successsfully added", "Applicaiton Successfully Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
+            }
+        }
+
+
+
+        private void tbFName_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbFName.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbFName.Text = tbFName.Text.Remove(tbFName.Text.Length - 1);
+            }
+        }
+
+        private void tbMName_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbMName.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbMName.Text = tbMName.Text.Remove(tbMName.Text.Length - 1);
+            }
+        }
+
+        private void tbLName_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbLName.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbLName.Text = tbLName.Text.Remove(tbLName.Text.Length - 1);
+            }
+        }
+
+        private void tbCitizenship_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbCitizenship.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbCitizenship.Text = tbCitizenship.Text.Remove(tbCitizenship.Text.Length - 1);
+            }
+        }
+
+        private void tbBirthplace_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbBirthplace.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbBirthplace.Text = tbBirthplace.Text.Remove(tbBirthplace.Text.Length - 1);
+            }
+        }
+
+        private void tbReligion_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbReligion.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbReligion.Text = tbReligion.Text.Remove(tbReligion.Text.Length - 1);
+            }
+        }
+
+        private void tbCity_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbCity.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbCity.Text = tbCity.Text.Remove(tbReligion.Text.Length - 1);
+            }
+        }
+
+        private void tbProvince_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbProvince.Text, "[^A-Z,a-z ]"))
+            {
+                tbProvince.Text = tbProvince.Text.Remove(tbProvince.Text.Length - 1);
+            }
+        }
+
+        private void tbSName_TextChanged(object sender, EventArgs e)
+        {
+            if (tbSName.Text.Length > 3)
+            {
+                tbSName.Text = tbSName.Text.Remove(tbSName.Text.Length - 1);
+            }
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbSName.Text, "[^A-Z,a-z ]"))
+            {
+
+                tbSName.Text = tbSName.Text.Remove(tbSName.Text.Length - 1);
+            }
+        }
+
+
+        private void tb_MobileNumber_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_MobileNumber_Guardian.Text, "[^0-9]"))
+            {
+
+                tb_MobileNumber_Guardian.Text = tb_MobileNumber_Guardian.Text.Remove(tb_MobileNumber_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_FName_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_FName_Guardian.Text, "[^A-Z,a-z ]"))
+            {
+
+                tb_FName_Guardian.Text = tb_FName_Guardian.Text.Remove(tb_FName_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_LName_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_LName_Guardian.Text, "[^A-Z,a-z ]"))
+            {
+
+                tb_LName_Guardian.Text = tb_LName_Guardian.Text.Remove(tb_LName_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_MI_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_MI_Guardian.Text.Length > 3)
+            {
+                tb_MI_Guardian.Text = tb_MI_Guardian.Text.Remove(tb_MI_Guardian.Text.Length - 1);
+            }
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_MI_Guardian.Text, "[^A-Z,a-z ]"))
+            {
+
+                tb_MI_Guardian.Text = tb_MI_Guardian.Text.Remove(tb_MI_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_SName_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_SName_Guardian.Text, "[^A-Z,a-z ]"))
+            {
+
+                tb_SName_Guardian.Text = tb_SName_Guardian.Text.Remove(tb_SName_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_Occupation_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_Occupation_Guardian.Text, "[^A-Z,a-z ]"))
+            {
+
+                tb_Occupation_Guardian.Text = tb_Occupation_Guardian.Text.Remove(tb_Occupation_Guardian.Text.Length - 1);
+            }
+        }
+
+        private void tb_Relation_Guardian_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_Relation_Guardian.Text, "[^A-Z,a-z ]"))
+            {
+                tb_Relation_Guardian.Text = tb_Relation_Guardian.Text.Remove(tb_Relation_Guardian.Text.Length - 1);
+            }
+        }
+        private void tbZipCode_TextChanged(object sender, EventArgs e)
+        {
+            if (tbZipCode.Text.Length > 4)
+            {
+                tbZipCode.Text = tbZipCode.Text.Remove(tbZipCode.Text.Length - 1);
+            }
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbZipCode.Text, "[^0-9]"))
+            {
+                tbZipCode.Text = tbZipCode.Text.Remove(tbZipCode.Text.Length - 1);
+            }
+        }
+
+        private void tbTelephone_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbTelephone.Text, "[^0-9]"))
+            {
+
+                tbTelephone.Text = tbTelephone.Text.Remove(tbTelephone.Text.Length - 1);
+            }
+        }
+
+        private void tbMobile_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbMobile.Text, "[^0-9]"))
+            {
+
+                tbMobile.Text = tbMobile.Text.Remove(tbMobile.Text.Length - 1);
             }
         }
     }

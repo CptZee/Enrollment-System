@@ -54,14 +54,15 @@ namespace Enrollment_System.Menus.Admin
                 MessageBox.Show("Application does not exist! Check the ID of the application that you are trying to remove!", "Not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            DatabaseHelper.removeApplication(application);
-            DatabaseHelper.removeAddress(application.AddressID);
-            DatabaseHelper.removeContact(application.ContactID);
-            DatabaseHelper.removeGuardian(application.GuardianID);
-            DatabaseHelper.removeSchoolHistory(application.SchoolHistoryID);
+            ApplicationHelper.removeApplication(application);
+            AddressHelper.removeAddress(application.AddressID);
+            ContactHelper.removeContact(application.ContactID);
+            GuardianHelper.removeGuardian(application.GuardianID);
+            SchoolHistoryHelper.removeSchoolHistory(application.SchoolHistoryID);
             RequirementManager manager = RequirementManager.getInstance();
             Requirement requirement = manager.find(application.RequirementID);
-            DatabaseHelper.removeRequirement(requirement);
+            if(requirement != null)
+                RequirementHelper.removeRequirement(requirement);
             manager.remove(requirement.ID);
 
             AddressManager addressManager = AddressManager.getInstance();
@@ -76,6 +77,7 @@ namespace Enrollment_System.Menus.Admin
             
             applicationFormsManager.remove(ID);
             updateList();
+            this.Close();
         }
     }
 }

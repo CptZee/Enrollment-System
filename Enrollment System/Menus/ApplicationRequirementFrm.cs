@@ -9,6 +9,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Enrollment_System.Data;
+using Enrollment_System.Util;
 
 namespace Enrollment_System.Menus
 {
@@ -22,22 +23,32 @@ namespace Enrollment_System.Menus
             requirement = new Requirement();
             InitializeComponent();
         }
-
-
         //TODO: Add a function that inserts the requirement into the application
         private void btnProceed_Click(object sender, EventArgs e)
         {
             RequirementManager requirementManager = RequirementManager.getInstance();
+            requirement.ID = requirementManager.getRecentID() + 1;
             requirement.PicturePath = lblPicture.Text.ToString();
             requirement.GoodMoralPath = lblGoodMoral.Text.ToString();
             requirement.PSAPath = lblPSA.Text.ToString();
             requirement.RecommendationPath = lblRecomendation.Text.ToString();
             application.RequirementID = requirement.ID;
             requirementManager.add(requirement);
-            this.Hide();
-            SubjectsFrm frm = new SubjectsFrm(application);
-            frm.ShowDialog();
-            this.Close();
+            RequirementHelper.addRequirement(requirement);
+            if(application.SubjectIDs.Count > 0)
+            {
+                this.Hide();
+                SubjectsFrm frm = new SubjectsFrm(application);
+                frm.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                this.Hide();
+                ApplicationConfrimationFrm frm = new ApplicationConfrimationFrm();
+                frm.ShowDialog();
+                this.Close();
+            }
         }
 
         private void btnPicture_Click(object sender, EventArgs e)

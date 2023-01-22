@@ -32,9 +32,9 @@ namespace Enrollment_System.Data
 
         public int getRecentID()
         {
-            if (DatabaseHelper.getRecentStudentID() == 1)
+            if (StudentHelper.getRecentStudentID() == 1 && students.Count == 0)
                 return 0;
-            return DatabaseHelper.getRecentStudentID();
+            return StudentHelper.getRecentStudentID();
         }
 
         public void removeRecent()

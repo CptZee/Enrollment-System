@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Enrollment_System.Data;
 
@@ -22,8 +23,7 @@ namespace Enrollment_System.Menus
                 if (username.Equals(admin.Username) && password.Equals(admin.Password))
                 {
                     this.Hide();
-                    AdminFrm frm = new AdminFrm();
-                    frm.ShowDialog();
+                    new AdminFrm().ShowDialog();
                     this.Close();
                     return;
                 }
@@ -35,5 +35,44 @@ namespace Enrollment_System.Menus
         {
             CenterToScreen();
         }
+
+        private void tbUsername_Enter(object sender, EventArgs e)
+        {
+            if(tbUsername.Text == "Username")
+            {
+                tbUsername.Text = "";
+                tbUsername.ForeColor = Color.Black;
+            }
+        }
+
+        private void tbUsername_Leave(object sender, EventArgs e)
+        {
+            if (tbUsername.Text == "")
+            {
+                tbUsername.Text = "Username";
+                tbUsername.ForeColor = Color.Silver;
+            }
+        }
+
+        private void tbPassword_Enter(object sender, EventArgs e)
+        {
+            if (tbPassword.Text == "Password")
+            {
+                tbPassword.Text = "";
+                tbPassword.UseSystemPasswordChar = true;
+                tbPassword.ForeColor = Color.Black;
+            }
+        }
+
+        private void tbPassword_Leave(object sender, EventArgs e)
+        {
+            if (tbPassword.Text == "")
+            {
+                tbPassword.Text = "Password";
+                tbPassword.UseSystemPasswordChar = false;
+                tbPassword.ForeColor = Color.Silver;
+            }
+        }
+        
     }
 }

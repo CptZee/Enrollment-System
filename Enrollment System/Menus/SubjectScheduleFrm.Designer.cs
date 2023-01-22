@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubjectScheduleFrm));
             this.lblSubject = new System.Windows.Forms.Label();
             this.cbSchedule = new System.Windows.Forms.ComboBox();
             this.btnConfirm = new System.Windows.Forms.Button();
@@ -36,7 +37,7 @@
             // lblSubject
             // 
             this.lblSubject.AutoSize = true;
-            this.lblSubject.Location = new System.Drawing.Point(12, 9);
+            this.lblSubject.Location = new System.Drawing.Point(9, 9);
             this.lblSubject.Name = "lblSubject";
             this.lblSubject.Size = new System.Drawing.Size(94, 13);
             this.lblSubject.TabIndex = 0;
@@ -60,7 +61,7 @@
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // ScheduleFrm
+            // SubjectScheduleFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -68,7 +69,10 @@
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.cbSchedule);
             this.Controls.Add(this.lblSubject);
-            this.Name = "ScheduleFrm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "SubjectScheduleFrm";
             this.Text = "Schedule Selector";
             this.Load += new System.EventHandler(this.ScheduleFrm_Load);
             this.ResumeLayout(false);

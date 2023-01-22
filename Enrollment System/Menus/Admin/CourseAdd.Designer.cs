@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CourseAdd));
             this.label1 = new System.Windows.Forms.Label();
             this.tbCourseName = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -36,7 +37,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 18);
+            this.label1.Location = new System.Drawing.Point(12, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 0;
@@ -44,14 +45,14 @@
             // 
             // tbCourseName
             // 
-            this.tbCourseName.Location = new System.Drawing.Point(92, 15);
+            this.tbCourseName.Location = new System.Drawing.Point(102, 27);
             this.tbCourseName.Name = "tbCourseName";
             this.tbCourseName.Size = new System.Drawing.Size(180, 20);
             this.tbCourseName.TabIndex = 1;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(113, 41);
+            this.btnAdd.Location = new System.Drawing.Point(133, 53);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 2;
@@ -63,10 +64,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(293, 73);
+            this.ClientSize = new System.Drawing.Size(311, 88);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tbCourseName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CourseAdd";
             this.Text = "Course Addition";
             this.Load += new System.EventHandler(this.CourseAdd_Load);

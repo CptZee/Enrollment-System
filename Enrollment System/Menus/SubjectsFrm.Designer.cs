@@ -28,60 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubjectsFrm));
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lvSubjects = new System.Windows.Forms.ListView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 101);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(428, 220);
-            this.dataGridView1.TabIndex = 2;
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(182, 327);
+            this.btnConfirm.BackColor = System.Drawing.Color.Purple;
+            this.btnConfirm.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnConfirm.Location = new System.Drawing.Point(175, 303);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirm.Size = new System.Drawing.Size(97, 34);
             this.btnConfirm.TabIndex = 4;
             this.btnConfirm.Text = "Confirm";
-            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // label1
+            // lvSubjects
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(104, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(231, 85);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Subjects";
+            this.lvSubjects.HideSelection = false;
+            this.lvSubjects.Location = new System.Drawing.Point(10, 81);
+            this.lvSubjects.Name = "lvSubjects";
+            this.lvSubjects.Size = new System.Drawing.Size(428, 216);
+            this.lvSubjects.TabIndex = 6;
+            this.lvSubjects.UseCompatibleStateImageBehavior = false;
+            this.lvSubjects.View = System.Windows.Forms.View.List;
+            this.lvSubjects.SelectedIndexChanged += new System.EventHandler(this.lvSubjects_SelectedIndexChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Enrollment_System.Properties.Resources._1232;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(1, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(451, 103);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // SubjectsFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 361);
-            this.Controls.Add(this.label1);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(450, 347);
+            this.Controls.Add(this.lvSubjects);
             this.Controls.Add(this.btnConfirm);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SubjectsFrm";
             this.Text = "Student Subjects Details";
             this.Load += new System.EventHandler(this.SubjectsFrm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListView lvSubjects;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

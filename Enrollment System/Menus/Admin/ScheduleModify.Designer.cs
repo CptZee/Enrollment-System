@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScheduleModify));
             this.btnUpdate = new System.Windows.Forms.Button();
             this.cbSubjectID = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -128,7 +129,7 @@
             // 
             this.cbID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbID.FormattingEnabled = true;
-            this.cbID.Location = new System.Drawing.Point(126, 35);
+            this.cbID.Location = new System.Drawing.Point(148, 35);
             this.cbID.Name = "cbID";
             this.cbID.Size = new System.Drawing.Size(202, 21);
             this.cbID.TabIndex = 38;
@@ -137,7 +138,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(126, 19);
+            this.label2.Location = new System.Drawing.Point(145, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 37;
@@ -159,6 +160,9 @@
             this.Controls.Add(this.cbStartTime);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ScheduleModify";
             this.Text = "Schedule Modification";
             this.Load += new System.EventHandler(this.ScheduleModify_Load);

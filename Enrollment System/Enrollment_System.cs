@@ -25,20 +25,20 @@ namespace Enrollment_System
 
         private static void createTables()
         {
-            Thread SubjectDBThread = new Thread(new ThreadStart(DatabaseHelper.createSubjectsTable));
-            Thread ScheduleDBThread = new Thread(new ThreadStart(DatabaseHelper.createSchedulesTable));
-            Thread CoursesDBThread = new Thread(new ThreadStart(DatabaseHelper.createCoursesTable));
-            Thread ApplicationFormDBThread = new Thread(new ThreadStart(DatabaseHelper.createApplicationFormTable));
-            Thread ApplicationSubjectDBThread = new Thread(new ThreadStart(DatabaseHelper.createApplicationSubjectsTable));
-            Thread ApplicationScheduleDBThread = new Thread(new ThreadStart(DatabaseHelper.createApplicationSchedulesTable));
-            Thread ApplicationRequirementDBThread = new Thread(new ThreadStart(DatabaseHelper.createApplicationRequirementsTable));
-            Thread RequirementDBThread = new Thread(new ThreadStart(DatabaseHelper.createRequirementsTable));
-            Thread AddressDBThread = new Thread(new ThreadStart(DatabaseHelper.createAdressesTable));
-            Thread AdminDBThread = new Thread(new ThreadStart(DatabaseHelper.createAdminTable));
-            Thread ContactDBThread = new Thread(new ThreadStart(DatabaseHelper.createContactTable));
-            Thread GuardianDBThread = new Thread(new ThreadStart(DatabaseHelper.createGuardianTable));
-            Thread SchoolHistoryDBThread = new Thread(new ThreadStart(DatabaseHelper.createSchoolHistoryTable));
-            Thread StudentDBThread = new Thread(new ThreadStart(DatabaseHelper.createStudentsTable));
+            Thread SubjectDBThread = new Thread(new ThreadStart(SubjectHelper.createSubjectsTable));
+            Thread ScheduleDBThread = new Thread(new ThreadStart(ScheduleHelper.createSchedulesTable));
+            Thread CoursesDBThread = new Thread(new ThreadStart(CourseHelper.createCoursesTable));
+            Thread ApplicationFormDBThread = new Thread(new ThreadStart(ApplicationHelper.createApplicationFormTable));
+            Thread ApplicationSubjectDBThread = new Thread(new ThreadStart(ApplicationSystemDataHelper.createApplicationSubjectsTable));
+            Thread ApplicationScheduleDBThread = new Thread(new ThreadStart(ApplicationSystemDataHelper.createApplicationSchedulesTable));
+            Thread ApplicationRequirementDBThread = new Thread(new ThreadStart(ApplicationSystemDataHelper.createApplicationRequirementsTable));
+            Thread RequirementDBThread = new Thread(new ThreadStart(RequirementHelper.createRequirementsTable));
+            Thread AddressDBThread = new Thread(new ThreadStart(AddressHelper.createAdressesTable));
+            Thread AdminDBThread = new Thread(new ThreadStart(AdminHelper.createAdminTable));
+            Thread ContactDBThread = new Thread(new ThreadStart(ContactHelper.createContactTable));
+            Thread GuardianDBThread = new Thread(new ThreadStart(GuardianHelper.createGuardianTable));
+            Thread SchoolHistoryDBThread = new Thread(new ThreadStart(SchoolHistoryHelper.createSchoolHistoryTable));
+            Thread StudentDBThread = new Thread(new ThreadStart(StudentHelper.createStudentsTable));
 
             SubjectDBThread.Start();
             ScheduleDBThread.Start();
@@ -58,20 +58,20 @@ namespace Enrollment_System
 
         public static void loadTables()
         {
-            Thread SubjectLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadSubjects));
-            Thread ScheduleLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadSchedules));
-            Thread CoursesLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadCourses));
-            Thread ApplicationFormLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadApplicationForms));
-            Thread ApplicationSubjectFormLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadApplicationSubjects));
-            Thread ApplicationScheduleFormLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadApplicationSchedules));
-            Thread ApplicationRequirementFormLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadApplicationRequirements));
-            Thread RequirementLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadRequirements));
-            Thread AddressLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadAddresses));
-            Thread AdminLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadAdmins));
-            Thread ContactLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadContacts));
-            Thread GuardianLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadGuardians));
-            Thread SchoolHistoryLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadSchoolHistory));
-            Thread StudentLoadThread = new Thread(new ThreadStart(DatabaseHelper.loadStudents));
+            Thread SubjectLoadThread = new Thread(new ThreadStart(SubjectHelper.loadSubjects));
+            Thread ScheduleLoadThread = new Thread(new ThreadStart(ScheduleHelper.loadSchedules));
+            Thread CoursesLoadThread = new Thread(new ThreadStart(CourseHelper.loadCourses));
+            Thread ApplicationFormLoadThread = new Thread(new ThreadStart(ApplicationHelper.loadApplicationForms));
+            Thread ApplicationSubjectFormLoadThread = new Thread(new ThreadStart(ApplicationSystemDataHelper.loadApplicationSubjects));
+            Thread ApplicationScheduleFormLoadThread = new Thread(new ThreadStart(ApplicationSystemDataHelper.loadApplicationSchedules));
+            Thread ApplicationRequirementFormLoadThread = new Thread(new ThreadStart(ApplicationSystemDataHelper.loadApplicationRequirements));
+            Thread RequirementLoadThread = new Thread(new ThreadStart(RequirementHelper.loadRequirements));
+            Thread AddressLoadThread = new Thread(new ThreadStart(AddressHelper.loadAddresses));
+            Thread AdminLoadThread = new Thread(new ThreadStart(AdminHelper.loadAdmins));
+            Thread ContactLoadThread = new Thread(new ThreadStart(ContactHelper.loadContacts));
+            Thread GuardianLoadThread = new Thread(new ThreadStart(GuardianHelper.loadGuardians));
+            Thread SchoolHistoryLoadThread = new Thread(new ThreadStart(SchoolHistoryHelper.loadSchoolHistory));
+            Thread StudentLoadThread = new Thread(new ThreadStart(StudentHelper.loadStudents));
 
             SubjectLoadThread.Start();
             ScheduleLoadThread.Start();
@@ -100,7 +100,7 @@ namespace Enrollment_System
             Admin admin = new Admin();
             admin.Username = "admin";
             admin.Password = "password";
-            DatabaseHelper.addAdmin(admin);
+            AdminHelper.addAdmin(admin);
         }
     }
 }

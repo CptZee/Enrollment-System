@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicationRequirementFrm));
             this.label2 = new System.Windows.Forms.Label();
             this.btnPicture = new System.Windows.Forms.Button();
             this.lblPicture = new System.Windows.Forms.Label();
@@ -43,22 +43,14 @@
             this.btnRecommendation = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(363, 85);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Requirements";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 106);
+            this.label2.Location = new System.Drawing.Point(36, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 2;
@@ -66,7 +58,7 @@
             // 
             // btnPicture
             // 
-            this.btnPicture.Location = new System.Drawing.Point(169, 101);
+            this.btnPicture.Location = new System.Drawing.Point(216, 87);
             this.btnPicture.Name = "btnPicture";
             this.btnPicture.Size = new System.Drawing.Size(75, 23);
             this.btnPicture.TabIndex = 3;
@@ -78,7 +70,7 @@
             // 
             this.lblPicture.AutoSize = true;
             this.lblPicture.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblPicture.Location = new System.Drawing.Point(250, 106);
+            this.lblPicture.Location = new System.Drawing.Point(310, 92);
             this.lblPicture.Name = "lblPicture";
             this.lblPicture.Size = new System.Drawing.Size(48, 13);
             this.lblPicture.TabIndex = 4;
@@ -88,7 +80,7 @@
             // 
             this.lblPSA.AutoSize = true;
             this.lblPSA.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblPSA.Location = new System.Drawing.Point(250, 135);
+            this.lblPSA.Location = new System.Drawing.Point(310, 121);
             this.lblPSA.Name = "lblPSA";
             this.lblPSA.Size = new System.Drawing.Size(48, 13);
             this.lblPSA.TabIndex = 7;
@@ -96,7 +88,7 @@
             // 
             // btnPSA
             // 
-            this.btnPSA.Location = new System.Drawing.Point(169, 130);
+            this.btnPSA.Location = new System.Drawing.Point(216, 116);
             this.btnPSA.Name = "btnPSA";
             this.btnPSA.Size = new System.Drawing.Size(75, 23);
             this.btnPSA.TabIndex = 6;
@@ -107,7 +99,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(31, 135);
+            this.label5.Location = new System.Drawing.Point(36, 116);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 13);
             this.label5.TabIndex = 5;
@@ -115,19 +107,21 @@
             // 
             // btnProceed
             // 
-            this.btnProceed.Location = new System.Drawing.Point(162, 235);
+            this.btnProceed.BackColor = System.Drawing.Color.Purple;
+            this.btnProceed.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnProceed.Location = new System.Drawing.Point(161, 228);
             this.btnProceed.Name = "btnProceed";
-            this.btnProceed.Size = new System.Drawing.Size(75, 23);
+            this.btnProceed.Size = new System.Drawing.Size(88, 30);
             this.btnProceed.TabIndex = 8;
             this.btnProceed.Text = "Proceed";
-            this.btnProceed.UseVisualStyleBackColor = true;
+            this.btnProceed.UseVisualStyleBackColor = false;
             this.btnProceed.Click += new System.EventHandler(this.btnProceed_Click);
             // 
             // lblGoodMoral
             // 
             this.lblGoodMoral.AutoSize = true;
             this.lblGoodMoral.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblGoodMoral.Location = new System.Drawing.Point(250, 164);
+            this.lblGoodMoral.Location = new System.Drawing.Point(310, 150);
             this.lblGoodMoral.Name = "lblGoodMoral";
             this.lblGoodMoral.Size = new System.Drawing.Size(48, 13);
             this.lblGoodMoral.TabIndex = 11;
@@ -135,10 +129,10 @@
             // 
             // btnGoodMoral
             // 
-            this.btnGoodMoral.Location = new System.Drawing.Point(169, 159);
+            this.btnGoodMoral.Location = new System.Drawing.Point(216, 145);
             this.btnGoodMoral.Name = "btnGoodMoral";
             this.btnGoodMoral.Size = new System.Drawing.Size(75, 23);
-            this.btnGoodMoral.TabIndex = 10;
+            this.btnGoodMoral.TabIndex = 7;
             this.btnGoodMoral.Text = "Upload";
             this.btnGoodMoral.UseVisualStyleBackColor = true;
             this.btnGoodMoral.Click += new System.EventHandler(this.btnGoodMoral_Click);
@@ -146,7 +140,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(31, 164);
+            this.label7.Location = new System.Drawing.Point(36, 145);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(127, 13);
             this.label7.TabIndex = 9;
@@ -156,7 +150,7 @@
             // 
             this.lblRecomendation.AutoSize = true;
             this.lblRecomendation.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblRecomendation.Location = new System.Drawing.Point(250, 193);
+            this.lblRecomendation.Location = new System.Drawing.Point(310, 179);
             this.lblRecomendation.Name = "lblRecomendation";
             this.lblRecomendation.Size = new System.Drawing.Size(48, 13);
             this.lblRecomendation.TabIndex = 14;
@@ -164,10 +158,10 @@
             // 
             // btnRecommendation
             // 
-            this.btnRecommendation.Location = new System.Drawing.Point(169, 188);
+            this.btnRecommendation.Location = new System.Drawing.Point(216, 174);
             this.btnRecommendation.Name = "btnRecommendation";
             this.btnRecommendation.Size = new System.Drawing.Size(75, 23);
-            this.btnRecommendation.TabIndex = 13;
+            this.btnRecommendation.TabIndex = 8;
             this.btnRecommendation.Text = "Upload";
             this.btnRecommendation.UseVisualStyleBackColor = true;
             this.btnRecommendation.Click += new System.EventHandler(this.btnRecommendation_Click);
@@ -175,7 +169,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(31, 193);
+            this.label9.Location = new System.Drawing.Point(36, 174);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(135, 13);
             this.label9.TabIndex = 12;
@@ -185,10 +179,21 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Enrollment_System.Properties.Resources._12;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(-5, -9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(421, 98);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // ApplicationRequirementFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(413, 270);
             this.Controls.Add(this.lblRecomendation);
             this.Controls.Add(this.btnRecommendation);
@@ -203,18 +208,20 @@
             this.Controls.Add(this.lblPicture);
             this.Controls.Add(this.btnPicture);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ApplicationRequirementFrm";
             this.Text = "Requirements";
             this.Load += new System.EventHandler(this.ApplicationRequirementFrm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnPicture;
         private System.Windows.Forms.Label lblPicture;
@@ -229,5 +236,6 @@
         private System.Windows.Forms.Button btnRecommendation;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

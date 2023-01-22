@@ -40,9 +40,9 @@ namespace Enrollment_System.Data
 
         public int getRecentID()
         {
-            if (DatabaseHelper.getRecentApplicationID() == 1)
+            if (ApplicationHelper.getRecentApplicationID() == 1 && applicationForms.Count == 0)
                 return 0;
-            return DatabaseHelper.getRecentApplicationID();
+            return ApplicationHelper.getRecentApplicationID();
         }
 
         public void removeRecent()

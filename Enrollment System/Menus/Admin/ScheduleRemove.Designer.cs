@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScheduleRemove));
             this.btnRemove = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cbID = new System.Windows.Forms.ComboBox();
@@ -35,7 +36,7 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(115, 38);
+            this.btnRemove.Location = new System.Drawing.Point(134, 44);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
             this.btnRemove.TabIndex = 8;
@@ -58,17 +59,20 @@
             this.cbID.FormattingEnabled = true;
             this.cbID.Location = new System.Drawing.Point(89, 11);
             this.cbID.Name = "cbID";
-            this.cbID.Size = new System.Drawing.Size(187, 21);
+            this.cbID.Size = new System.Drawing.Size(203, 21);
             this.cbID.TabIndex = 10;
             // 
             // ScheduleRemove
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(288, 72);
+            this.ClientSize = new System.Drawing.Size(319, 79);
             this.Controls.Add(this.cbID);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ScheduleRemove";
             this.Text = "Schedule Removal";
             this.Load += new System.EventHandler(this.ScheduleRemove_Load);

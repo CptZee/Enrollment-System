@@ -55,11 +55,12 @@ namespace Enrollment_System.Menus.Admin
                 MessageBox.Show("Schedule does not exist! Check the ID of the schedule that you are trying to remove!", "Not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            DatabaseHelper.removeSchedule(schedule);
+            ScheduleHelper.removeSchedule(schedule);
 
             manager.remove(ID);
             MessageBox.Show("Schedule " + schedule.ID + " successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             updateList();
+            this.Close();
         }
     }
 }

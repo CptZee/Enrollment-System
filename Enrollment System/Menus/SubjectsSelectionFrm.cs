@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Collections;
 using Enrollment_System.Data;
 using Enrollment_System.Util;
 
@@ -46,13 +47,18 @@ namespace Enrollment_System.Menus
                 MessageBox.Show("No subject is selected!", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            for(int i = 0; i < lvSubjects.SelectedItems.Count; i++)
+            ArrayList list = new ArrayList();
+            for (int i = 0; i < lvSubjects.SelectedItems.Count; i++)
             {
-                application.SubjectIDs.Add(lvSubjects.SelectedItems[i]);
+                SubjectManager manager = SubjectManager.getInstance();
+                list.Add(lvSubjects.SelectedItems[i]);
+                Subject subject = manager.findByName(lvSubjects.SelectedItems[i].ToString());
+                if (subject != null)
+                {
+                    application.SubjectIDs.Add(subject.ID);
+                }
             }
-            ApplicationFormsManager applicationFormsManager = ApplicationFormsManager.getInstance();
 
-            applicationFormsManager.add(application);
             btnSched.Enabled = false;
             openScheduleForms();
             btnProceed.Enabled = true;

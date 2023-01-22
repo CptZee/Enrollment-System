@@ -36,9 +36,9 @@ namespace Enrollment_System.Data
 
         public int getRecentID()
         {
-            if (DatabaseHelper.getRecentAddressID() == 1)
+            if (AddressHelper.getRecentAddressID() == 1 && addresses.Count == 0)
                 return 0;
-            return DatabaseHelper.getRecentAddressID();
+            return AddressHelper.getRecentAddressID();
         }
 
         public void removeRecent()

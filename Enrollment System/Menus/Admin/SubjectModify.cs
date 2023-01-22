@@ -68,7 +68,17 @@ namespace Enrollment_System.Menus.Admin
                 MessageBox.Show("Units is a required field!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Subject subject = manager.find(Convert.ToInt32(cbID.Text.ToString()));
+            Subject subject = null;
+            try
+            {
+                subject = manager.find(Convert.ToInt32(cbID.Text.ToString()));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please select a Subject to modify!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (subject == null)
+                return;
             subject.Name = tbName.Text.ToString();
             subject.YearLevel = cbYearLevel.Text.ToString();
             subject.Term = cbTerm.Text.ToString();
@@ -83,7 +93,7 @@ namespace Enrollment_System.Menus.Admin
                 return;
             }
             manager.update(subject);
-            DatabaseHelper.updateSubject(subject);
+            SubjectHelper.updateSubject(subject);
 
             MessageBox.Show("Subject " + subject.ID + " successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             updateList();

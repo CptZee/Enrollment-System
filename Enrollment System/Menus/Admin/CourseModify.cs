@@ -45,13 +45,28 @@ namespace Enrollment_System.Menus.Admin
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Course course = manager.find(Convert.ToInt32(cbID.Text.ToString()));
+            Course course = null;
+            try
+            {
+                course = manager.find(Convert.ToInt32(cbID.Text.ToString()));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please select a Course to modify!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (course == null)
+                return;
             course.Name = tbName.Text.ToString();
             manager.update(course);
-            DatabaseHelper.updateCourses(course);
+            CourseHelper.updateCourses(course);
             
             MessageBox.Show("Course " + course.ID + " successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             updateList();
+        }
+
+        private void tbName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

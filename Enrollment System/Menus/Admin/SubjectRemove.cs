@@ -56,11 +56,12 @@ namespace Enrollment_System.Menus.Admin
                 MessageBox.Show("Subject does not exist! Check the ID of the subject that you are trying to remove!", "Not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            DatabaseHelper.removeSubject(subject);
+            SubjectHelper.removeSubject(subject);
 
             manager.remove(ID);
             MessageBox.Show("Subject " + subject.ID + " successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             updateList();
+            this.Close();
         }
     }
 }

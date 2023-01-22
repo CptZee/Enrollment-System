@@ -33,9 +33,9 @@ namespace Enrollment_System.Data
 
         public int getRecentID()
         {
-            if (DatabaseHelper.getRecentRequirementID() == 1)
+            if (RequirementHelper.getRecentRequirementID() == 1 && requirements.Count == 0)
                 return 0;
-            return DatabaseHelper.getRecentRequirementID();
+            return RequirementHelper.getRecentRequirementID();
         }
 
         public void removeRecent()

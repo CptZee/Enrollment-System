@@ -22,13 +22,8 @@ namespace Enrollment_System.Menus
             SubjectList.ReadOnly = true;
             ScheduleList.ReadOnly = true;
             updateTables(sender, e);
-
-            Timer timer = new Timer();
-            timer.Interval = (1 * 15000);
-            timer.Tick += new System.EventHandler(this.updateTables);
-            timer.Start();
         }
-
+        
         private void updateTables(object sender, EventArgs e)
         {
             AppList.DataSource = DatabaseHelper.getApplications().Tables[0];
@@ -39,9 +34,6 @@ namespace Enrollment_System.Menus
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            DashboardFrm frm = new DashboardFrm();
-            frm.ShowDialog();
             this.Close();
         }
 
@@ -107,8 +99,7 @@ namespace Enrollment_System.Menus
 
         private void btnView_Click(object sender, EventArgs e)
         {
-            ApplicationView frm = new ApplicationView();
-            frm.ShowDialog();
+            new ApplicationViewPicker().ShowDialog();
         }
 
         private void btnRemoveApp_Click(object sender, EventArgs e)
@@ -146,6 +137,16 @@ namespace Enrollment_System.Menus
         private void btnRefresh4_Click(object sender, EventArgs e)
         {
             updateTables(sender, e);
+        }
+
+        private void AdminFrm_Activated(object sender, EventArgs e)
+        {
+            updateTables(sender, e);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

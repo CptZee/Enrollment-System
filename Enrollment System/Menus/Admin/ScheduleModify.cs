@@ -158,13 +158,23 @@ namespace Enrollment_System.Menus.Admin
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Schedule schedule = manager.find(Convert.ToInt32(cbID.Text.ToString()));
+            Schedule schedule = null;
+            try
+            {
+                schedule = manager.find(Convert.ToInt32(cbID.Text.ToString()));
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Please select a Schedule to modify!", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (schedule == null)
+                return;
             schedule.SubjectID = Convert.ToInt32(cbID.Text.ToString());
             schedule.Day = cbDay.Text.ToString();
             schedule.StartTime = cbStartTime.Text.ToString();
             schedule.EndTime = cbEndTime.Text.ToString();
             manager.update(schedule);
-            DatabaseHelper.updateSchedule(schedule);
+            ScheduleHelper.updateSchedule(schedule);
 
             MessageBox.Show("Schedule " + schedule.ID + " successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             updateList();

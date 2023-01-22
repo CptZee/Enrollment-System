@@ -33,9 +33,9 @@ namespace Enrollment_System.Data
 
         public int getRecentID()
         {
-            if (DatabaseHelper.getRecentContactID() == 1)
+            if (ContactHelper.getRecentContactID() == 1 && contacts.Count == 0)
                 return 0;
-            return DatabaseHelper.getRecentContactID();
+            return ContactHelper.getRecentContactID();
         }
 
         public void removeRecent()
